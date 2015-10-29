@@ -1,0 +1,12 @@
+uuid: c165c466-5225-41af-8100-c58180014be5
+name: 'Nuevas Esperanzas'
+mail: admin@example.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
