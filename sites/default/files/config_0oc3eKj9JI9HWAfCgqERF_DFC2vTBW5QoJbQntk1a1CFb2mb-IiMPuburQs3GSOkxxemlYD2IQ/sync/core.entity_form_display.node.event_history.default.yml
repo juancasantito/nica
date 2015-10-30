@@ -1,0 +1,41 @@
+uuid: 4e1e6abc-dd5c-447d-8700-e724d46de7d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event_history.field_description
+    - field.field.node.event_history.field_event
+    - node.type.event_history
+  module:
+    - datetime
+    - text
+id: node.event_history.default
+targetEntityType: node
+bundle: event_history
+mode: default
+content:
+  field_description:
+    weight: 32
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+  field_event:
+    weight: 31
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+  title:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true
