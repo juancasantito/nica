@@ -1,0 +1,10 @@
+uuid: 143bf77d-b96a-47c5-8249-732844294b0b
+langcode: en
+status: true
+dependencies: {  }
+id: feedback
+label: 'Website feedback'
+recipients:
+  - bala@yahoo.com
+reply: ''
+weight: 0
