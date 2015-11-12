@@ -1,9 +1,0 @@
-uuid: 32cf2c88-9066-409a-ba00-e896ddc634dc
-langcode: en
-status: true
-dependencies: {  }
-name: 'Read, Write, Math'
-vid: read_write_math
-description: ''
-hierarchy: 0
-weight: 0

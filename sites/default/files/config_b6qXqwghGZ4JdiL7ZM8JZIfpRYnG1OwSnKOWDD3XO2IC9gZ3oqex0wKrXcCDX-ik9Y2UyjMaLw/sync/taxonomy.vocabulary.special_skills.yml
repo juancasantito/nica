@@ -1,9 +1,0 @@
-uuid: 56c93950-11b3-4630-8f2a-42b30040c09c
-langcode: en
-status: true
-dependencies: {  }
-name: 'Special Skills'
-vid: special_skills
-description: ''
-hierarchy: 0
-weight: 0

@@ -1,9 +1,0 @@
-uuid: ab379a08-1608-49c9-8a05-5e59c3f87314
-langcode: en
-status: true
-dependencies: {  }
-name: 'Job Training'
-vid: job_training
-description: ''
-hierarchy: 0
-weight: 0
