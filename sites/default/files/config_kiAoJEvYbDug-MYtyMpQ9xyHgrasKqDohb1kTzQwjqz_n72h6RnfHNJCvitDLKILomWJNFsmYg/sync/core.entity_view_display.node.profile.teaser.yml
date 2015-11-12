@@ -23,4 +23,22 @@ content:
     third_party_settings: {  }
   links:
     weight: 100
-hidden: {  }
+hidden:
+  field_birthday: true
+  field_cedule_number: true
+  field_children: true
+  field_current_employment: true
+  field_first_name: true
+  field_highest_education_complete: true
+  field_household_income: true
+  field_job_training: true
+  field_languages: true
+  field_last_name: true
+  field_marital_status: true
+  field_number_of_people_in_home: true
+  field_other_event: true
+  field_pictures: true
+  field_read_write_math: true
+  field_salary: true
+  field_special_skills: true
+  field_telephone: true

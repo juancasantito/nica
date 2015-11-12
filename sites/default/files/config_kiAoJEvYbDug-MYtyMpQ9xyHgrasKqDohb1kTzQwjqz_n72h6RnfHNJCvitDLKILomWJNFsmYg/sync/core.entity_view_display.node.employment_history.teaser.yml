@@ -1,0 +1,26 @@
+uuid: 2d6a10b3-1f10-438d-9700-da859a7787d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.employment_history.body
+    - node.type.employment_history
+  module:
+    - text
+    - user
+id: node.employment_history.teaser
+targetEntityType: node
+bundle: employment_history
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden: {  }

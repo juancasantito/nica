@@ -1,0 +1,84 @@
+uuid: 83abdf88-e56e-4bac-af00-fde0f341dd01
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.employment_history.body
+    - field.field.node.employment_history.field_description_of_responsabil
+    - field.field.node.employment_history.field_employment_date
+    - field.field.node.employment_history.field_place_of_employment
+    - node.type.employment_history
+  module:
+    - datetime
+    - path
+    - text
+id: node.employment_history.default
+targetEntityType: node
+bundle: employment_history
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 31
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+  field_description_of_responsabil:
+    weight: 34
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_employment_date:
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+  field_place_of_employment:
+    weight: 33
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  path:
+    type: path
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }
