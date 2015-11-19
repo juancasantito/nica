@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.employment_history.body
     - field.field.node.employment_history.field_description_of_responsabil
     - field.field.node.employment_history.field_employment_date
     - field.field.node.employment_history.field_place_of_employment
@@ -11,20 +10,11 @@ dependencies:
   module:
     - datetime
     - path
-    - text
 id: node.employment_history.default
 targetEntityType: node
 bundle: employment_history
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 31
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-    third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 10

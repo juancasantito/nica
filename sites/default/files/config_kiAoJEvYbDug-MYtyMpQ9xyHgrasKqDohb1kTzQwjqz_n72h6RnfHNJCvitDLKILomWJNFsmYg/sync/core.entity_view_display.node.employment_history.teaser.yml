@@ -4,23 +4,20 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.employment_history.body
+    - field.field.node.employment_history.field_description_of_responsabil
+    - field.field.node.employment_history.field_employment_date
+    - field.field.node.employment_history.field_place_of_employment
     - node.type.employment_history
   module:
-    - text
     - user
 id: node.employment_history.teaser
 targetEntityType: node
 bundle: employment_history
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
   links:
     weight: 100
-hidden: {  }
+hidden:
+  field_description_of_responsabil: true
+  field_employment_date: true
+  field_place_of_employment: true
