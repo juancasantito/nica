@@ -3,26 +3,18 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.employment_history.body
     - field.field.node.employment_history.field_description_of_responsabil
     - field.field.node.employment_history.field_employment_date
     - field.field.node.employment_history.field_place_of_employment
     - node.type.employment_history
   module:
     - datetime
-    - text
     - user
 id: node.employment_history.default
 targetEntityType: node
 bundle: employment_history
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
-    third_party_settings: {  }
   field_description_of_responsabil:
     weight: 104
     label: above

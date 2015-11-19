@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.profile.body
     - field.field.node.profile.field_birthday
     - field.field.node.profile.field_cedule_number
     - field.field.node.profile.field_children
@@ -26,19 +25,12 @@ dependencies:
   module:
     - datetime
     - file
-    - text
     - user
 id: node.profile.default
 targetEntityType: node
 bundle: profile
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
-    third_party_settings: {  }
   field_birthday:
     weight: 106
     label: above
