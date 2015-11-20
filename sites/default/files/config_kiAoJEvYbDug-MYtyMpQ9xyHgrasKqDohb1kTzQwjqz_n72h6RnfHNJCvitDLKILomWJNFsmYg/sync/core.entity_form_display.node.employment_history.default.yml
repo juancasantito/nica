@@ -6,69 +6,46 @@ dependencies:
     - field.field.node.employment_history.field_description_of_responsabil
     - field.field.node.employment_history.field_employment_date
     - field.field.node.employment_history.field_place_of_employment
+    - field.field.node.employment_history.field_profile_reference
     - node.type.employment_history
   module:
     - datetime
-    - path
 id: node.employment_history.default
 targetEntityType: node
 bundle: employment_history
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 10
-    settings: {  }
-    third_party_settings: {  }
   field_description_of_responsabil:
-    weight: 34
+    weight: 3
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
   field_employment_date:
-    weight: 32
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
   field_place_of_employment:
-    weight: 33
+    weight: 2
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-  path:
-    type: path
-    weight: 30
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 15
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 16
-    third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: -5
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 5
+  field_profile_reference:
+    weight: 0
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+    type: entity_reference_autocomplete
+hidden:
+  created: true
+  path: true
+  promote: true
+  sticky: true
+  title: true
+  uid: true

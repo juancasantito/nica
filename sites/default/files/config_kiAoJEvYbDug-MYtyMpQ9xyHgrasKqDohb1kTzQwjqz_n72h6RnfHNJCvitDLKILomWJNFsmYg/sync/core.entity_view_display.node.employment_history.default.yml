@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.employment_history.field_description_of_responsabil
     - field.field.node.employment_history.field_employment_date
     - field.field.node.employment_history.field_place_of_employment
+    - field.field.node.employment_history.field_profile_reference
     - node.type.employment_history
   module:
     - datetime
@@ -37,6 +38,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+  field_profile_reference:
+    weight: 105
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
   links:
     weight: 100
 hidden: {  }
