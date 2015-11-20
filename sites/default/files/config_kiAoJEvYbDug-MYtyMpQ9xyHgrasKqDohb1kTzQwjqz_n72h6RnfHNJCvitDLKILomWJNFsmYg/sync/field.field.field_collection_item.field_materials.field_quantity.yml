@@ -1,0 +1,25 @@
+uuid: 3c51bbd8-f136-41af-bc0f-159a64003aa0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.field_collection_item.field_quantity
+    - field_collection.field_collection.field_materials
+id: field_collection_item.field_materials.field_quantity
+field_name: field_quantity
+entity_type: field_collection_item
+bundle: field_materials
+label: Quantity
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

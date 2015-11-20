@@ -1,0 +1,20 @@
+uuid: e519cdb8-1134-4dd3-8b04-4a87381e851e
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_collection
+id: field_collection_item.field_quantity
+field_name: field_quantity
+entity_type: field_collection_item
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,26 @@
+uuid: 52362a56-51a8-48d2-b107-7e233ef1fe99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_reference
+    - node.type.employment_history
+    - node.type.profile
+id: node.employment_history.field_profile_reference
+field_name: field_profile_reference
+entity_type: node
+bundle: employment_history
+label: Profile
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      profile: profile
+    sort:
+      field: _none
+field_type: entity_reference

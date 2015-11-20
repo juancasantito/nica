@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.event_history.field_description
     - field.field.node.event_history.field_event
+    - field.field.node.event_history.field_profile_reference
     - node.type.event_history
   module:
     - datetime
@@ -29,6 +30,13 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+  field_profile_reference:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
   links:
     weight: 100
 hidden: {  }
