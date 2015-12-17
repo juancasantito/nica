@@ -1,0 +1,116 @@
+# The source data is in CSV files, so we use the 'csv' source plugin.
+id: profile
+label: Migrate Csv Profile
+migration_tags:
+  - CSV
+source:
+  plugin: csv
+  # Full path to the file.
+  path: public://csv/profile.csv
+  # The number of rows at the beginning which are not data.
+  header_row_count: 1
+
+  # These are the field names from the source file representing the key
+  # uniquely identifying each game - they will be stored in the migration
+  # map table as columns sourceid1, sourceid2, and sourceid3.
+  keys:
+    - id
+  # Here we identify the columns of interest in the source file. Each numeric
+  # key is the 0-based index of the column. For each column, the key below
+  # (e.g., "start_date") is the field name assigned to the data on import, to
+  # be used in field mappings below. The value is a user-friendly string for
+  # display by the migration UI.
+  column_names:
+    # So, here we're saying that the first field (index 0) on each line will
+    # be stored in the start_date field in the Row object during migration, and
+    # that name can be used to map the value below. "Date of game" will appear
+    # in the UI to describe this field.
+   
+      0:
+        id: Profile ID
+      1:
+        first_name: First Names
+
+      2:
+        last_name: Last Names
+
+      3:
+        other_event: Other event
+
+      4:
+        pictures: Pictures
+
+      5:
+        birthday: Birthday
+
+      6:
+        no_cedula: No. de Cedula
+
+      7:
+        marital_status: Marital status
+
+      8:
+        household_income: Household Income
+
+      9:
+        children: Children
+
+      10:
+        people_in_home: No. of People in Home
+
+      11:
+        current_employment: Current Employment
+
+      12:
+        salary: Salary
+
+      13:
+        telefono: Telefono
+
+      14:
+        highest_education_completed: Highest Education Completed
+
+      15:
+        read_write_math: Read Write Math
+
+      16:
+        special_skills: Special Skills
+
+      17:
+        job_training: Job Training
+
+      18:
+        languages: Languages
+
+     
+destination:
+  # Here we're saying that each row of data (line from the CSV file) will be
+  # used to create a node entity.
+  plugin: entity:node
+process:
+  # The content (node) type we are creating is 'profile'.
+  type:
+    plugin: default_value
+    default_value: profile
+  # Most fields can be mapped directly - we just specify the destination (D8)
+  # field and the corresponding field name from above, and the values will be
+  # copied in.
+  title: first_name
+  field_first_name: first_name
+  field_last_name: last_name
+  field_other_event: other_event 
+  field_pictures : pictures
+  field_birthday : birthday
+  field_cedule_number: no_cedula
+  field_marital_status: marital_status
+  field_household_income: household_income  
+  field_children: children 
+  field_number_of_people_in_home: people_in_home
+  field_current_employment: current_employment
+  field_salary: salary
+  field_telephone: telefono
+  field_highest_education_complete: highest_education_completed
+  field_read_write_math: read_write_math 
+  field_special_skills: special_skills      
+  field_job_training: job_training
+  field_languages: languages

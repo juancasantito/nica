@@ -1,0 +1,5 @@
+services:
+  nica_migrate.migrate_subscriber:
+    class: Drupal\nica_migrate\Event\ProfileMigrateEvent
+    tags:
+      - { name: event_subscriber }
