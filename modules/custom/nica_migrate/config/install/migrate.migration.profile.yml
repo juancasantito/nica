@@ -44,45 +44,48 @@ source:
         birthday: Birthday
 
       6:
-        no_cedula: No. de Cedula
+        age: Age
 
       7:
-        marital_status: Marital status
+        no_cedula: No. de Cedula
 
       8:
-        household_income: Household Income
+        marital_status: Marital status
 
       9:
-        children: Children
+        household_income: Household Income
 
       10:
-        people_in_home: No. of People in Home
+        children: Children
 
       11:
-        current_employment: Current Employment
+        people_in_home: No. of People in Home
 
       12:
-        salary: Salary
+        current_employment: Current Employment
 
       13:
-        telefono: Telefono
+        salary: Salary
 
       14:
-        highest_education_completed: Highest Education Completed
+        telefono: Telefono
 
       15:
-        read_write_math: Read Write Math
+        highest_education_completed: Highest Education Completed
 
       16:
-        special_skills: Special Skills
+        read_write_math: Read Write Math
 
       17:
-        job_training: Job Training
+        special_skills: Special Skills
 
       18:
+        job_training: Job Training
+
+      19:
         languages: Languages
 
-     
+
 destination:
   # Here we're saying that each row of data (line from the CSV file) will be
   # used to create a node entity.
@@ -96,21 +99,122 @@ process:
   # field and the corresponding field name from above, and the values will be
   # copied in.
   title: first_name
+
   field_first_name: first_name
+
   field_last_name: last_name
-  field_other_event: other_event 
-  field_pictures : pictures
+
+  field_other_event: other_event
+
+#  field_pictures : pictures
+
   field_birthday : birthday
+
+  #field_age : age
+
   field_cedule_number: no_cedula
-  field_marital_status: marital_status
-  field_household_income: household_income  
-  field_children: children 
+
+  field_marital_status:
+    -
+      plugin: static_map
+      bypass: TRUE
+      map:
+        '': NULL
+      source: marital_status
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: marital_status
+
+  field_household_income: household_income
+
+  field_children: children
+
   field_number_of_people_in_home: people_in_home
+
   field_current_employment: current_employment
+
   field_salary: salary
+
   field_telephone: telefono
-  field_highest_education_complete: highest_education_completed
-  field_read_write_math: read_write_math 
-  field_special_skills: special_skills      
-  field_job_training: job_training
-  field_languages: languages
+
+  field_highest_education_complete:
+    -
+      plugin: static_map
+      bypass: TRUE
+      map:
+        '': NULL
+      source: highest_education_completed
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: highest_level_education
+
+  field_read_write_math:
+    -
+      plugin: static_map
+      bypass: TRUE
+      map:
+        '': NULL
+      source: read_write_math
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: read_write_math
+
+  field_special_skills:
+    -
+      plugin: static_map
+      bypass: TRUE
+      map:
+        '': NULL
+      source: special_skills
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: special_skills
+
+  field_job_training:
+    -
+      plugin: static_map
+      bypass: TRUE
+      map:
+        '': NULL
+      source: job_training
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: job_training
+
+  field_languages:
+    -
+      plugin: static_map
+      bypass: TRUE
+      map:
+        '': NULL
+      source: languages
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: languages
+
+#migration_dependencies:
+#  required:
+#    - job_training
+#    - read_write_math
+#    - languages
+#    - highest_level_education
+#    - marital_status
+#    - special_skills

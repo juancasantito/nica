@@ -1,6 +1,7 @@
+
 # The source data is in CSV files, so we use the 'csv' source plugin.
-id: highest_level_education
-label: Highest Level Educatione
+id: marital_status
+label: Marital Status
 migration_tags:
   - CSV
 source:
@@ -25,12 +26,12 @@ source:
     # be stored in the start_date field in the Row object during migration, and
     # that name can be used to map the value below. "Date of game" will appear
     # in the UI to describe this field.
-   
 
-      15:
-        name: Highest Education Completed
 
-     
+      8:
+        name: Marital Status
+
+
 destination:
   # Here we're saying that each row of data (line from the CSV file) will be
   # used to create a node entity.
@@ -43,4 +44,4 @@ process:
   description: name
   vid:
     plugin: default_value
-    default_value: highest_education_completed
+    default_value: marital_status

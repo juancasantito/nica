@@ -36,8 +36,11 @@ destination:
   # used to create a node entity.
   plugin: entity:taxonomy_term
 process:
-   name: name
-   description: name
-   vid:
-     plugin: default_value
-     default_value: languages
+  name:
+    plugin: skip_on_empty
+    method: row
+    source: name
+  description: name
+  vid:
+    plugin: default_value
+    default_value: languages

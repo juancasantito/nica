@@ -1,9 +1,37 @@
 <?php
 
 function nica_migrate_uninstall() {
-\Drupal\migrate\Entity\Migration::load('job_training')->delete();
-\Drupal\migrate\Entity\Migration::load('read_write_math')->delete();
-\Drupal\migrate\Entity\Migration::load('languages')->delete();
-\Drupal\migrate\Entity\Migration::load('profile')->delete();
-\Drupal\migrate\Entity\Migration::load('highest_level_education')->delete();
+  \Drupal\migrate\Entity\Migration::load('job_training')->delete();
+  \Drupal\migrate\Entity\Migration::load('read_write_math')->delete();
+  \Drupal\migrate\Entity\Migration::load('languages')->delete();
+  \Drupal\migrate\Entity\Migration::load('highest_level_education')->delete();
+  \Drupal\migrate\Entity\Migration::load('marital_status')->delete();
+  \Drupal\migrate\Entity\Migration::load('special_skills')->delete();
+  \Drupal\migrate\Entity\Migration::load('profile')->delete();
+  //Delete mappings tables.
+  \Drupal::database()->query('DROP TABLE IF EXISTS {migrate_map_job_training}');
+  \Drupal::database()
+    ->query('DROP TABLE IF EXISTS {migrate_map_read_write_math}');
+  \Drupal::database()->query('DROP TABLE IF EXISTS {migrate_map_languages}');
+  \Drupal::database()->query('DROP TABLE IF EXISTS {migrate_map_profile}');
+  \Drupal::database()
+    ->query('DROP TABLE IF EXISTS {migrate_map_highest_level_education}');
+  \Drupal::database()
+    ->query('DROP TABLE IF EXISTS {migrate_map_marital_status}');
+  \Drupal::database()
+    ->query('DROP TABLE IF EXISTS {migrate_map_special_skills}');
+  //Drop Messages Tables
+  \Drupal::database()
+    ->query('DROP TABLE IF EXISTS {migrate_message_job_training}');
+  \Drupal::database()
+    ->query('DROP TABLE IF EXISTS {migrate_message_read_write_math}');
+  \Drupal::database()
+    ->query('DROP TABLE IF EXISTS {migrate_message_languages}');
+  \Drupal::database()->query('DROP TABLE IF EXISTS {migrate_message_profile}');
+  \Drupal::database()
+    ->query('DROP TABLE IF EXISTS {migrate_message_highest_level_education}');
+  \Drupal::database()
+    ->query('DROP TABLE IF EXISTS {migrate_message_marital_status}');
+  \Drupal::database()
+    ->query('DROP TABLE IF EXISTS {migrate_message_special_skills}');
 }

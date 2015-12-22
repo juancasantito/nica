@@ -25,7 +25,7 @@ source:
     # be stored in the start_date field in the Row object during migration, and
     # that name can be used to map the value below. "Date of game" will appear
     # in the UI to describe this field.
-   
+
 
       18:
         name: Job Training
@@ -36,8 +36,11 @@ destination:
   # used to create a node entity.
   plugin: entity:taxonomy_term
 process:
-   name: name
-   description: name
-   vid:
-     plugin: default_value
-     default_value: job_training
+  name:
+    plugin: skip_on_empty
+    method: row
+    source: name
+  description: name
+  vid:
+    plugin: default_value
+    default_value: job_training
