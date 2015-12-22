@@ -1,6 +1,6 @@
 # The source data is in CSV files, so we use the 'csv' source plugin.
-id: highest_level_education
-label: Highest Level Educatione
+id: job_training
+label: Job Training
 migration_tags:
   - CSV
 source:
@@ -25,10 +25,10 @@ source:
     # be stored in the start_date field in the Row object during migration, and
     # that name can be used to map the value below. "Date of game" will appear
     # in the UI to describe this field.
-   
 
-      15:
-        name: Highest Education Completed
+
+      18:
+        name: Job Training
 
      
 destination:
@@ -43,4 +43,4 @@ process:
   description: name
   vid:
     plugin: default_value
-    default_value: highest_education_completed
+    default_value: job_training
