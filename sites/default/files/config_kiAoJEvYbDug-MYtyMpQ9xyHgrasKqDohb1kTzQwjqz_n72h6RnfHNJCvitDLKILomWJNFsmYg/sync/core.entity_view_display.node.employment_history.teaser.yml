@@ -21,3 +21,4 @@ hidden:
   field_description_of_responsabil: true
   field_employment_date: true
   field_place_of_employment: true
+  field_profile_reference: true

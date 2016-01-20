@@ -20,4 +20,6 @@ content:
 hidden:
   field_benefit_earned: true
   field_comments_on_result: true
+  field_materials: true
+  field_profile_reference: true
   field_project_date: true

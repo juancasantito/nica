@@ -1,4 +1,4 @@
-uuid: e3216755-7dc1-403d-af12-18d838b52ce6
+uuid: 59faf351-9866-46f7-ac56-861b5b508c6a
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_materials
     - node.type.project_history
   module:
-    - field_collection
+    - entity_reference_revisions
 id: node.project_history.field_materials
 field_name: field_materials
 entity_type: node
@@ -15,9 +15,15 @@ label: Materials
 description: ''
 required: false
 translatable: false
-default_value:
-  - {  }
-  - {  }
+default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: field_collection
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      materials: materials
+    target_bundles_drag_drop:
+      materials:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

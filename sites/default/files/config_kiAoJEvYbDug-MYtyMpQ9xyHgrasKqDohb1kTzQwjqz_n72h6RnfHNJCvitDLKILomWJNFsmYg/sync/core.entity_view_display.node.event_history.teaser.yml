@@ -17,3 +17,4 @@ content:
 hidden:
   field_description: true
   field_event: true
+  field_profile_reference: true
