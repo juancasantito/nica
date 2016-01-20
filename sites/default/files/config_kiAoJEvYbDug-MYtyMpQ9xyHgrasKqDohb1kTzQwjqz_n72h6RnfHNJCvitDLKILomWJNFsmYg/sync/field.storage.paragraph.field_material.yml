@@ -1,16 +1,17 @@
-uuid: eb607943-5707-4ac9-bf00-db856ebe9960
+uuid: 9d589cf7-bf60-4e70-a404-04b2da0c22d4
 langcode: en
 status: true
 dependencies:
   module:
-    - field_collection
-    - taxonomy
-id: field_collection_item.field_material
+    - paragraphs
+id: paragraph.field_material
 field_name: field_material
-entity_type: field_collection_item
-type: entity_reference
+entity_type: paragraph
+type: string
 settings:
-  target_type: taxonomy_term
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
 module: core
 locked: false
 cardinality: 1

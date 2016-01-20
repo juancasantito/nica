@@ -11,7 +11,7 @@ dependencies:
     - node.type.project_history
   module:
     - datetime
-    - field_collection
+    - entity_reference_revisions
     - text
     - user
 id: node.project_history.default
@@ -33,11 +33,13 @@ content:
     third_party_settings: {  }
     type: text_default
   field_materials:
-    weight: 107
+    type: entity_reference_revisions_entity_view
+    weight: 109
     label: above
-    settings: {  }
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    type: field_collection_list
   field_profile_reference:
     weight: 108
     label: above

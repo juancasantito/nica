@@ -11,7 +11,7 @@ dependencies:
     - node.type.project_history
   module:
     - datetime
-    - field_collection
+    - paragraphs
     - text
 id: node.project_history.default
 targetEntityType: node
@@ -33,10 +33,15 @@ content:
     third_party_settings: {  }
     type: text_textarea
   field_materials:
-    weight: 5
-    settings: {  }
+    type: entity_reference_paragraphs
+    weight: 26
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
     third_party_settings: {  }
-    type: field_collection_embed
   field_profile_reference:
     weight: 0
     settings:
