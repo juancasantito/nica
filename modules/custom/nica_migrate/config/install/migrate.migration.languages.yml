@@ -25,12 +25,8 @@ source:
     # be stored in the start_date field in the Row object during migration, and
     # that name can be used to map the value below. "Date of game" will appear
     # in the UI to describe this field.
-   
-
       19:
         name: Languages
-
-     
 destination:
   # Here we're saying that each row of data (line from the CSV file) will be
   # used to create a node entity.
