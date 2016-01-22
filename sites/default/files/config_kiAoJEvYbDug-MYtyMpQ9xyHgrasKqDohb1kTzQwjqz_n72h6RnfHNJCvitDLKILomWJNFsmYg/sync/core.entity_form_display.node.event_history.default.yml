@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.event_history.field_description
-    - field.field.node.event_history.field_event
+    - field.field.node.event_history.field_event_date_end
+    - field.field.node.event_history.field_event_date_start
     - field.field.node.event_history.field_profile_reference
+    - field.field.node.event_history.field_result
     - node.type.event_history
   module:
     - datetime
@@ -22,8 +24,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
-  field_event:
-    weight: 1
+  field_event_date_end:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+  field_event_date_start:
+    weight: 26
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
@@ -35,6 +42,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_result:
+    weight: 28
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
 hidden:
   created: true
   path: true

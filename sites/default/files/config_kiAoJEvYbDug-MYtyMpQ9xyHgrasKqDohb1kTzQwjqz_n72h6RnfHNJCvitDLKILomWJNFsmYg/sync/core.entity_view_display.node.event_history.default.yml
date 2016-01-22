@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.event_history.field_description
-    - field.field.node.event_history.field_event
+    - field.field.node.event_history.field_event_date_end
+    - field.field.node.event_history.field_event_date_start
     - field.field.node.event_history.field_profile_reference
+    - field.field.node.event_history.field_result
     - node.type.event_history
   module:
     - datetime
@@ -22,8 +24,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
-  field_event:
-    weight: 101
+  field_event_date_end:
+    weight: 105
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+  field_event_date_start:
+    weight: 104
     label: above
     settings:
       format_type: medium
@@ -37,6 +47,12 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+  field_result:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
   links:
     weight: 100
 hidden: {  }
