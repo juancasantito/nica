@@ -1,19 +1,19 @@
-uuid: 71540b87-9751-4a73-8301-1c058e974d9e
+uuid: edf773de-dfe0-42ca-ad00-ea940ca6fe21
 langcode: en
 status: true
 dependencies:
   module:
     - datetime
     - node
-id: node.field_event
-field_name: field_event
+id: node.field_event_date_end
+field_name: field_event_date_end
 entity_type: node
 type: datetime
 settings:
   datetime_type: date
 module: datetime
 locked: false
-cardinality: 2
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
