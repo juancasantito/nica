@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ *   Contains the nica_entity.module file for the Nica Entity module.
+ */
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function nica_entity_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the nica_entity module.
+    case 'help.page.nica_entity':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides a bundle-able Nica entity used to store Nica content.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

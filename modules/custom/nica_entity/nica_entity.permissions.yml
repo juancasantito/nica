@@ -1,0 +1,2 @@
+permission_callbacks:
+  - \Drupal\nica_entity\Entity\Access\NicaEntityContentPermissions::entityPermissions

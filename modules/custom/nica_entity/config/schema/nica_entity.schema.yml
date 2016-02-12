@@ -1,0 +1,19 @@
+nica_entity.content_type.*:
+  type: config_entity
+  label: 'Nica Entity Type'
+  plural_label: 'Nica Entity Types'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    description:
+      type: text
+      label: 'Description'
+    revision:
+      type: integer
+      label: 'Create new revision'

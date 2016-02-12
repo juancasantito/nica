@@ -1,0 +1,6 @@
+services:
+  nica_entity.admin_path.route_subscriber:
+    class: Drupal\nica_entity\EventSubscriber\NicaEntityAdminRouteSubscriber
+    arguments: ['@entity.manager']
+    tags:
+      - { name: event_subscriber }
