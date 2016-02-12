@@ -1,6 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-label: Default
-id: default
-workflow: 'order_default'
