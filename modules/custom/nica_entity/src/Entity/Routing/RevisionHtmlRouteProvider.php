@@ -5,13 +5,18 @@
  * Contains \Drupal\content_entity_base\Entity\Routing\RevisionHtmlRouteProvider.
  */
 
-namespace Drupal\content_entity_base\Entity\Routing;
+namespace Drupal\nica_entity\Entity\Routing;
 
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\Routing\EntityRouteProviderInterface;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 
+/**
+ * @inheritdoc
+ *
+ * @TODO: Replace with ceb version after https://github.com/Jaesin/content_entity_base/pull/43.
+ */
 class RevisionHtmlRouteProvider implements EntityRouteProviderInterface {
 
   public function getRoutes(EntityTypeInterface $entity_type) {
@@ -41,6 +46,7 @@ class RevisionHtmlRouteProvider implements EntityRouteProviderInterface {
         'type' => 'entity:' . $entity_type->id(),
       ],
     ]);
+    $route->setOption('_admin_route', TRUE);
     return $route;
   }
 
@@ -58,6 +64,7 @@ class RevisionHtmlRouteProvider implements EntityRouteProviderInterface {
         'type' => 'entity_revision:' . $entity_type->id(),
       ],
     ]);
+    $route->setOption('_admin_route', TRUE);
     return $route;
   }
 
@@ -74,6 +81,7 @@ class RevisionHtmlRouteProvider implements EntityRouteProviderInterface {
         'type' => 'entity_revision:' . $entity_type->id(),
       ],
     ]);
+    $route->setOption('_admin_route', TRUE);
     return $route;
   }
 
@@ -90,6 +98,7 @@ class RevisionHtmlRouteProvider implements EntityRouteProviderInterface {
         'type' => 'entity_revision:' . $entity_type->id(),
       ],
     ]);
+    $route->setOption('_admin_route', TRUE);
     return $route;
   }
 

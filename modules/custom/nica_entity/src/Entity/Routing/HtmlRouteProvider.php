@@ -5,14 +5,15 @@
  * Contains \Drupal\content_entity_base\Entity\Routing\DefaultHtmlRouteProvider.
  */
 
-namespace Drupal\content_entity_base\Entity\Routing;
+namespace Drupal\nica_entity\Entity\Routing;
 
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\Routing\DefaultHtmlRouteProvider;
-use Symfony\Component\Routing\RouteCollection;
 
 /**
  * @inheritdoc
+ *
+ * @TODO: Replace with ceb version after https://github.com/Jaesin/content_entity_base/pull/43.
  */
 class HtmlRouteProvider extends DefaultHtmlRouteProvider {
 

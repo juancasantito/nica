@@ -36,9 +36,9 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *     "view_builder" = "\Drupal\Core\Entity\EntityViewBuilder",
  *     "views_data"   = "\Drupal\content_entity_base\Entity\Views\EntityBaseViewsData",
  *     "route_provider" = {
- *       "html" = "\Drupal\content_entity_base\Entity\Routing\HtmlRouteProvider",
+ *       "html" = "\Drupal\nica_entity\Entity\Routing\HtmlRouteProvider",
  *       "crud" = "\Drupal\content_entity_base\Entity\Routing\CrudUiRouteProvider",
- *       "revision" = "\Drupal\content_entity_base\Entity\Routing\RevisionHtmlRouteProvider"
+ *       "revision" = "\Drupal\nica_entity\Entity\Routing\RevisionHtmlRouteProvider"
  *     },
  *     "form" = {
  *       "add"        = "\Drupal\content_entity_base\Entity\Form\EntityBaseForm",
