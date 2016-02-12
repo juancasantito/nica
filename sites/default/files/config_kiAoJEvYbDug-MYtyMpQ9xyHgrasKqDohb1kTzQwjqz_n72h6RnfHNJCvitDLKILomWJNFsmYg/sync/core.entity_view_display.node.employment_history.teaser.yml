@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.employment_history.field_description_of_responsabil
     - field.field.node.employment_history.field_employment_date
     - field.field.node.employment_history.field_place_of_employment
+    - field.field.node.employment_history.field_profile_reference
     - node.type.employment_history
   module:
     - user

@@ -6,6 +6,8 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.project_history.field_benefit_earned
     - field.field.node.project_history.field_comments_on_result
+    - field.field.node.project_history.field_materials
+    - field.field.node.project_history.field_profile_reference
     - field.field.node.project_history.field_project_date
     - node.type.project_history
   module:
