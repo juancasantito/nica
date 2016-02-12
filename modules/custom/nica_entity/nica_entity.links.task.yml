@@ -1,0 +1,21 @@
+# nica_entity content entity tasks links.
+entity.nica_entity.canonical:
+  route_name: entity.nica_entity.canonical
+  base_route: entity.nica_entity.canonical
+  title: 'View'
+
+entity.nica_entity.edit_form:
+  route_name: entity.nica_entity.edit_form
+  base_route: entity.nica_entity.canonical
+  title: 'Edit'
+
+entity.nica_entity.delete_form:
+  route_name: entity.nica_entity.delete_form
+  base_route: entity.nica_entity.canonical
+  title: 'Delete'
+  weight: 10
+
+entity.nica_entity.collection:
+  route_name: entity.nica_entity.collection
+  base_route: system.admin_content
+  title: 'Nica content'

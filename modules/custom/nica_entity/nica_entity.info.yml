@@ -1,0 +1,7 @@
+name: Nica Entity
+type: module
+description: Provides a bundle-able Nica entity used to store Nica content.
+core: 8.x
+package: Entities
+dependencies:
+  - content_entity_base

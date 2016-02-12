@@ -1,0 +1,8 @@
+id: nica_entity.full
+label: Full
+status: false
+cache: true
+targetEntityType: nica_entity
+dependencies:
+  module:
+    - nica_entity

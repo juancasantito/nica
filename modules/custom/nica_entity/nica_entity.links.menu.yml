@@ -1,0 +1,15 @@
+entity.nica_entity.collection:
+  title: 'Nica Content'
+  route_name: entity.nica_entity.collection
+  description: 'List Nica content'
+  parent: system.admin_content
+
+entity.nica_entity_type.collection:
+  title: 'Nica content types'
+  route_name: entity.nica_entity_type.collection
+  description: 'Manage Nica content types.'
+  parent: system.admin_structure
+
+nica_entity.add_page:
+  title: 'Add Nica content'
+  route_name: entity.nica_entity.add_page
