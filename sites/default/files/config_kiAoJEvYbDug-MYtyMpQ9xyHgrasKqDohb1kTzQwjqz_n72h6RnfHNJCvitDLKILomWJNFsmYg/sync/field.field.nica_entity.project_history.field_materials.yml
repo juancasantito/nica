@@ -1,0 +1,28 @@
+uuid: f2a77af6-8bfd-4ebb-9902-2a17a9dbd9c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_materials
+    - nica_entity.content_type.project_history
+    - paragraphs.paragraphs_type.materials
+id: nica_entity.project_history.field_materials
+field_name: field_materials
+entity_type: nica_entity
+bundle: project_history
+label: Materials
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      materials: materials
+    target_bundles_drag_drop:
+      materials:
+        enabled: true
+        weight: 2
+field_type: entity_reference
