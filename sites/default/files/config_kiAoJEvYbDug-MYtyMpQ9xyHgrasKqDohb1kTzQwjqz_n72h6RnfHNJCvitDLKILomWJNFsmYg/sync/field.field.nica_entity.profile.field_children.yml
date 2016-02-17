@@ -1,0 +1,21 @@
+uuid: 284a4cad-a4a8-458a-a504-4fddf96b4d74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_children
+    - nica_entity.content_type.profile
+  module:
+    - options
+id: nica_entity.profile.field_children
+field_name: field_children
+entity_type: nica_entity
+bundle: profile
+label: Children
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

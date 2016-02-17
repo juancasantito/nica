@@ -1,0 +1,21 @@
+uuid: fa13e71b-29c7-4464-8e5b-91bfddddc47b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_number_of_people_in_home
+    - nica_entity.content_type.profile
+  module:
+    - options
+id: nica_entity.profile.field_number_of_people_in_home
+field_name: field_number_of_people_in_home
+entity_type: nica_entity
+bundle: profile
+label: "Number of People in Home\t"
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

@@ -1,0 +1,21 @@
+uuid: ffc6e8d1-c9c0-4d78-ae23-357849851820
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+id: nica_entity.field_cedule_number
+field_name: field_cedule_number
+entity_type: nica_entity
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

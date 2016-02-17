@@ -1,0 +1,163 @@
+uuid: dee9efba-13d5-4198-9a00-a89e0010f0a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.nica_entity.profile.field_birthday
+    - field.field.nica_entity.profile.field_cedule_number
+    - field.field.nica_entity.profile.field_children
+    - field.field.nica_entity.profile.field_current_employment
+    - field.field.nica_entity.profile.field_first_name
+    - field.field.nica_entity.profile.field_highest_education_complete
+    - field.field.nica_entity.profile.field_household_income
+    - field.field.nica_entity.profile.field_job_training
+    - field.field.nica_entity.profile.field_languages
+    - field.field.nica_entity.profile.field_last_name
+    - field.field.nica_entity.profile.field_marital_status
+    - field.field.nica_entity.profile.field_number_of_people_in_home
+    - field.field.nica_entity.profile.field_other_event
+    - field.field.nica_entity.profile.field_pictures
+    - field.field.nica_entity.profile.field_read_write_math
+    - field.field.nica_entity.profile.field_salary
+    - field.field.nica_entity.profile.field_special_skills
+    - field.field.nica_entity.profile.field_telephone
+    - nica_entity.content_type.profile
+  module:
+    - datetime
+    - file
+id: nica_entity.profile.default
+targetEntityType: nica_entity
+bundle: profile
+mode: default
+content:
+  field_birthday:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+  field_cedule_number:
+    weight: 13
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_children:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_current_employment:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_first_name:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_highest_education_complete:
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_household_income:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_job_training:
+    weight: 15
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_languages:
+    weight: 16
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_last_name:
+    weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_marital_status:
+    weight: 18
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_number_of_people_in_home:
+    weight: 19
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_other_event:
+    weight: 20
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_pictures:
+    weight: 21
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+  field_read_write_math:
+    weight: 22
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_salary:
+    weight: 23
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_special_skills:
+    weight: 24
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_telephone:
+    weight: 25
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

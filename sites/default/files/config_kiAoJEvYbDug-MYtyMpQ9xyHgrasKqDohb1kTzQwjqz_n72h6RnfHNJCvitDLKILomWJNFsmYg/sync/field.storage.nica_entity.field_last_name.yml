@@ -1,0 +1,21 @@
+uuid: 3b67fa33-bf33-4162-b109-9ed20d6404e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+id: nica_entity.field_last_name
+field_name: field_last_name
+entity_type: nica_entity
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: dd3f3251-5cb1-4bbf-8849-736e94aae0a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_salary
+    - nica_entity.content_type.profile
+id: nica_entity.profile.field_salary
+field_name: field_salary
+entity_type: nica_entity
+bundle: profile
+label: Salary
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

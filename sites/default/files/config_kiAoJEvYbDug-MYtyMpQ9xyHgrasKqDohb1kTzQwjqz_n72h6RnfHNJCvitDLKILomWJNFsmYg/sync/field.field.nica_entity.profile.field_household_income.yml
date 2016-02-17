@@ -1,0 +1,21 @@
+uuid: 555fe828-c45b-4a7f-8f01-1da3094b8ed3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_household_income
+    - nica_entity.content_type.profile
+  module:
+    - options
+id: nica_entity.profile.field_household_income
+field_name: field_household_income
+entity_type: nica_entity
+bundle: profile
+label: "Household Income\t"
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer
