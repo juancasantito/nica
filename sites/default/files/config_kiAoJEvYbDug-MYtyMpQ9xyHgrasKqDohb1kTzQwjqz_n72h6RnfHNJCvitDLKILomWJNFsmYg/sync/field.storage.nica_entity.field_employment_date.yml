@@ -1,0 +1,20 @@
+uuid: f5740ba6-5e5f-4de0-855a-901c9f17bbc2
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - nica_entity
+id: nica_entity.field_employment_date
+field_name: field_employment_date
+entity_type: nica_entity
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 2
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
