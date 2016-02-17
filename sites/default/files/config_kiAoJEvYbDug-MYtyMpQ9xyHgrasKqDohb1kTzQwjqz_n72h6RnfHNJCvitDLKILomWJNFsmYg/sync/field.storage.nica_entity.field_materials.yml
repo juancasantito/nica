@@ -1,0 +1,20 @@
+uuid: 0404be12-f262-4f6c-b83f-63ab465ad1f2
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+    - paragraphs
+id: nica_entity.field_materials
+field_name: field_materials
+entity_type: nica_entity
+type: entity_reference
+settings:
+  target_type: paragraph
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
