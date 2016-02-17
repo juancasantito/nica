@@ -1,0 +1,19 @@
+uuid: 52c1448d-6c12-46ae-8300-e7bd6a617d49
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_other_event
+    - nica_entity.content_type.profile
+id: nica_entity.profile.field_other_event
+field_name: field_other_event
+entity_type: nica_entity
+bundle: profile
+label: "Other Event\t"
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,20 @@
+uuid: 259bab9a-ccbb-4a5b-8400-bf098b3c1948
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - nica_entity
+id: nica_entity.field_birthday
+field_name: field_birthday
+entity_type: nica_entity
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

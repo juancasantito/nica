@@ -1,0 +1,21 @@
+uuid: c47b12d9-50ea-4658-9807-7cb48e66aff5
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+    - options
+id: nica_entity.field_household_income
+field_name: field_household_income
+entity_type: nica_entity
+type: list_integer
+settings:
+  allowed_values: {  }
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

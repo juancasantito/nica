@@ -1,0 +1,21 @@
+uuid: 88b6a4ce-f416-43e3-811e-3078e8249d2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_birthday
+    - nica_entity.content_type.profile
+  module:
+    - datetime
+id: nica_entity.profile.field_birthday
+field_name: field_birthday
+entity_type: nica_entity
+bundle: profile
+label: Birthday
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
