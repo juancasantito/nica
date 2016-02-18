@@ -1,0 +1,19 @@
+uuid: cf163ab4-b856-419c-9e00-fc618a001822
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+    - text
+id: nica_entity.field_result
+field_name: field_result
+entity_type: nica_entity
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

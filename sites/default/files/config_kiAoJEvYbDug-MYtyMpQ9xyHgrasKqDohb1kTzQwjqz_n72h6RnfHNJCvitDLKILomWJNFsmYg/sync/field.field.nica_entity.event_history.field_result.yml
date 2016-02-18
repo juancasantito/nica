@@ -1,0 +1,21 @@
+uuid: e314d287-8068-48aa-8a38-563b676a04f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_result
+    - nica_entity.content_type.event_history
+  module:
+    - text
+id: nica_entity.event_history.field_result
+field_name: field_result
+entity_type: nica_entity
+bundle: event_history
+label: Result
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

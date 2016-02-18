@@ -1,0 +1,56 @@
+uuid: ab0593a6-d37d-4d8a-bf00-ac1a5363b23c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.nica_entity.event_history.field_description
+    - field.field.nica_entity.event_history.field_event_date_end
+    - field.field.nica_entity.event_history.field_event_date_start
+    - field.field.nica_entity.event_history.field_profile
+    - field.field.nica_entity.event_history.field_result
+    - nica_entity.content_type.event_history
+  module:
+    - datetime
+    - text
+    - user
+id: nica_entity.event_history.default
+targetEntityType: nica_entity
+bundle: event_history
+mode: default
+content:
+  field_description:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_event_date_end:
+    weight: 2
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+  field_event_date_start:
+    weight: 3
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+  field_profile:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_result:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+hidden: {  }
