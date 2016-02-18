@@ -1,0 +1,26 @@
+uuid: e64b5c33-ab5d-4596-a204-4adac6803339
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_profile
+    - nica_entity.content_type.event_history
+    - nica_entity.content_type.profile
+id: nica_entity.event_history.field_profile
+field_name: field_profile
+entity_type: nica_entity
+bundle: event_history
+label: Profile
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:nica_entity'
+  handler_settings:
+    target_bundles:
+      profile: profile
+    sort:
+      field: _none
+field_type: entity_reference
