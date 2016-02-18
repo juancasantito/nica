@@ -9,7 +9,7 @@ id: nica_entity.profile.field_first_name
 field_name: field_first_name
 entity_type: nica_entity
 bundle: profile
-label: 'First Name'
+label: Nombres
 description: ''
 required: false
 translatable: false

@@ -10,7 +10,7 @@ id: nica_entity.profile.field_highest_education_complete
 field_name: field_highest_education_complete
 entity_type: nica_entity
 bundle: profile
-label: "Highest Education Completed\t"
+label: 'Ultimo Nivel de Educación'
 description: ''
 required: false
 translatable: false

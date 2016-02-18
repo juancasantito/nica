@@ -11,8 +11,8 @@ id: nica_entity.profile.field_household_income
 field_name: field_household_income
 entity_type: nica_entity
 bundle: profile
-label: "Household Income\t"
-description: ''
+label: 'Ingreso del Hogar'
+description: 'Cantidad de persona que generan ingreso al hogar.'
 required: false
 translatable: false
 default_value: {  }

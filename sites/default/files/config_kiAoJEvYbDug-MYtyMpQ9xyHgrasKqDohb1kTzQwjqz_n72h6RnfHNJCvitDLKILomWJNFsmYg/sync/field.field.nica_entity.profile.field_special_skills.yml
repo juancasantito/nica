@@ -10,7 +10,7 @@ id: nica_entity.profile.field_special_skills
 field_name: field_special_skills
 entity_type: nica_entity
 bundle: profile
-label: "Special Skills\t"
+label: 'Habilidades Especiales'
 description: ''
 required: false
 translatable: false

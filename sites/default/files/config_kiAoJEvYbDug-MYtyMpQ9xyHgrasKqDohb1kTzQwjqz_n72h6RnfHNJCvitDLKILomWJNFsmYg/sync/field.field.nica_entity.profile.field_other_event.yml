@@ -9,7 +9,7 @@ id: nica_entity.profile.field_other_event
 field_name: field_other_event
 entity_type: nica_entity
 bundle: profile
-label: "Other Event\t"
+label: 'Otro Evento'
 description: ''
 required: false
 translatable: false

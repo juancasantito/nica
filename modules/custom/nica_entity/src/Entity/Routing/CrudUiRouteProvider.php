@@ -42,6 +42,16 @@ class CrudUiRouteProvider extends CreateHtmlRouteProvider implements EntityRoute
   /**
    * {@inheritdoc}
    */
+  protected function addPageRoute(EntityTypeInterface $entity_type) {
+    if ($route = parent::addPageRoute($entity_type)) {
+      $route->setOption('_admin_route', TRUE);
+      return $route;
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   protected function addFormRoute(EntityTypeInterface $entity_type) {
     if ($route = parent::addFormRoute($entity_type)) {
       $route->setOption('_admin_route', TRUE);

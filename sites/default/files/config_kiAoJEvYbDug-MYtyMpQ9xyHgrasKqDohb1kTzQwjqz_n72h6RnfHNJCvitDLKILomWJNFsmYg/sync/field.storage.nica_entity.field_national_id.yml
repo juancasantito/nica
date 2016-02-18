@@ -1,11 +1,11 @@
-uuid: ffc6e8d1-c9c0-4d78-ae23-357849851820
+uuid: 1f8fd255-64bf-4b07-8d4f-794de1093dca
 langcode: en
 status: true
 dependencies:
   module:
     - nica_entity
-id: nica_entity.field_cedule_number
-field_name: field_cedule_number
+id: nica_entity.field_national_id
+field_name: field_national_id
 entity_type: nica_entity
 type: string
 settings:
