@@ -10,8 +10,8 @@ id: nica_entity.profile.field_read_write_math
 field_name: field_read_write_math
 entity_type: nica_entity
 bundle: profile
-label: "Read, Write, Math\t"
-description: ''
+label: 'Leer, Escribir, Matemática'
+description: 'Habilidades básicas lectura, escritura y habilidades aritmética.'
 required: false
 translatable: false
 default_value: {  }

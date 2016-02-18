@@ -10,7 +10,7 @@ id: nica_entity.profile.field_languages
 field_name: field_languages
 entity_type: nica_entity
 bundle: profile
-label: "Languages\t"
+label: Idiomas
 description: ''
 required: false
 translatable: false

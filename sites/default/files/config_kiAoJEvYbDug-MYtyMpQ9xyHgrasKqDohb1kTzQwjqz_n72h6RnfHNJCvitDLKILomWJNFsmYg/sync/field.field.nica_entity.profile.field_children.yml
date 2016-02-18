@@ -11,7 +11,7 @@ id: nica_entity.profile.field_children
 field_name: field_children
 entity_type: nica_entity
 bundle: profile
-label: Children
+label: 'Número de Hijos'
 description: ''
 required: false
 translatable: false

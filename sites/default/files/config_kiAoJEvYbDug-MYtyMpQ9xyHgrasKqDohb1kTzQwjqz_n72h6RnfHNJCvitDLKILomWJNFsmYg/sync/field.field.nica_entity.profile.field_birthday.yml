@@ -11,7 +11,7 @@ id: nica_entity.profile.field_birthday
 field_name: field_birthday
 entity_type: nica_entity
 bundle: profile
-label: Birthday
+label: 'Fecha de Nacimiento'
 description: ''
 required: false
 translatable: false

@@ -11,7 +11,7 @@ id: nica_entity.profile.field_number_of_people_in_home
 field_name: field_number_of_people_in_home
 entity_type: nica_entity
 bundle: profile
-label: "Number of People in Home\t"
+label: 'Número de Personas en el Hogar'
 description: ''
 required: false
 translatable: false

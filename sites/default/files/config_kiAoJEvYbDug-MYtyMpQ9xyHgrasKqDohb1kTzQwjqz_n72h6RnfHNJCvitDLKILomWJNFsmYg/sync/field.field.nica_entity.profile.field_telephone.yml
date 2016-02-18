@@ -9,7 +9,7 @@ id: nica_entity.profile.field_telephone
 field_name: field_telephone
 entity_type: nica_entity
 bundle: profile
-label: "Telephone\t"
+label: Teléfono
 description: ''
 required: false
 translatable: false

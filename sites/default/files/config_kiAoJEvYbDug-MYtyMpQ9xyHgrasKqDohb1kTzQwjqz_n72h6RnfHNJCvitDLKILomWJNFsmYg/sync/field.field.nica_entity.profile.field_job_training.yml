@@ -10,7 +10,7 @@ id: nica_entity.profile.field_job_training
 field_name: field_job_training
 entity_type: nica_entity
 bundle: profile
-label: "Job Training\t"
+label: 'Entrenamiento Profesional o Laboral'
 description: ''
 required: false
 translatable: false

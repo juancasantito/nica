@@ -11,7 +11,7 @@ id: nica_entity.profile.field_pictures
 field_name: field_pictures
 entity_type: nica_entity
 bundle: profile
-label: Pictures
+label: Fotos
 description: ''
 required: false
 translatable: false
@@ -19,8 +19,8 @@ default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: '[date:custom:Y]-[date:custom:m]'
-  file_extensions: txt
-  max_filesize: ''
+  file_extensions: 'jpg jpeg png'
+  max_filesize: '10 MB'
   description_field: false
   handler: 'default:file'
   handler_settings: {  }

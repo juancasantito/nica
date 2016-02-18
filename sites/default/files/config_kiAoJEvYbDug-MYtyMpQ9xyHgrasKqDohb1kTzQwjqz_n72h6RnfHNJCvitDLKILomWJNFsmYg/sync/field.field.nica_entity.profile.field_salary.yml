@@ -9,7 +9,7 @@ id: nica_entity.profile.field_salary
 field_name: field_salary
 entity_type: nica_entity
 bundle: profile
-label: Salary
+label: Salario
 description: ''
 required: false
 translatable: false

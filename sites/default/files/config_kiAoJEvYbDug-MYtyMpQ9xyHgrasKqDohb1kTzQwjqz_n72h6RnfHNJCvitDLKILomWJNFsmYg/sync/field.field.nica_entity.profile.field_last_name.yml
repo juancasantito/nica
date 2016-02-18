@@ -9,7 +9,7 @@ id: nica_entity.profile.field_last_name
 field_name: field_last_name
 entity_type: nica_entity
 bundle: profile
-label: "Last Name\t"
+label: Apellidos
 description: ''
 required: false
 translatable: false
