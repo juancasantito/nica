@@ -11,7 +11,7 @@ id: nica_entity.project_history.field_comments_result
 field_name: field_comments_result
 entity_type: nica_entity
 bundle: project_history
-label: 'Comments on Result'
+label: 'Comentarios del Resultado'
 description: ''
 required: false
 translatable: false

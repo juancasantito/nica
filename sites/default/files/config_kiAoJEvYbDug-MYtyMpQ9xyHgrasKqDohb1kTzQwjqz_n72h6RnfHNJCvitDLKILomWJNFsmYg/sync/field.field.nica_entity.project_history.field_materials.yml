@@ -10,7 +10,7 @@ id: nica_entity.project_history.field_materials
 field_name: field_materials
 entity_type: nica_entity
 bundle: project_history
-label: Materials
+label: Materiales
 description: ''
 required: false
 translatable: false
