@@ -11,7 +11,7 @@ id: nica_entity.event_history.field_result
 field_name: field_result
 entity_type: nica_entity
 bundle: event_history
-label: Result
+label: Resultado
 description: ''
 required: false
 translatable: false

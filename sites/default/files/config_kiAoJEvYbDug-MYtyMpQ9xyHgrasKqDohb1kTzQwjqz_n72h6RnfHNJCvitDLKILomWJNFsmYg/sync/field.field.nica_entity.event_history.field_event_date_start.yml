@@ -11,7 +11,7 @@ id: nica_entity.event_history.field_event_date_start
 field_name: field_event_date_start
 entity_type: nica_entity
 bundle: event_history
-label: "Event Date Start\t"
+label: 'Fecha de Inicio del Evento'
 description: ''
 required: false
 translatable: false
