@@ -15,33 +15,32 @@ targetEntityType: nica_entity
 bundle: employment_history
 mode: default
 content:
+  field_description_of_responsabil:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_employment_date:
-    weight: 6
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
   field_place_of_employment:
-    weight: 7
+    weight: 2
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
   field_profile_reference:
-    weight: 8
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
-  uid:
-    type: entity_reference_autocomplete
-    weight: 5
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
 hidden:
-  field_description_of_responsabil: true
+  uid: true
