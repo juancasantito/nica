@@ -11,7 +11,7 @@ id: nica_entity.event_history.field_event_date_end
 field_name: field_event_date_end
 entity_type: nica_entity
 bundle: event_history
-label: "Event Date End\t"
+label: 'Fecha de Final del Evento'
 description: ''
 required: false
 translatable: false

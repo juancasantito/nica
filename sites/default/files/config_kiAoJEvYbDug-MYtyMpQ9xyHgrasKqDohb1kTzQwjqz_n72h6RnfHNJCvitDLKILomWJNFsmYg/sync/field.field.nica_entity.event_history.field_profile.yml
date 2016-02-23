@@ -10,7 +10,7 @@ id: nica_entity.event_history.field_profile
 field_name: field_profile
 entity_type: nica_entity
 bundle: event_history
-label: Profile
+label: Perfil
 description: ''
 required: false
 translatable: false
