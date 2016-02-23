@@ -16,6 +16,12 @@ targetEntityType: nica_entity
 bundle: employment_history
 mode: default
 content:
+  field_description_of_responsabil:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
   field_employment_date:
     weight: 1
     label: above
@@ -38,5 +44,4 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-hidden:
-  field_description_of_responsabil: true
+hidden: {  }
