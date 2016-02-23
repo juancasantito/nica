@@ -10,7 +10,7 @@ id: nica_entity.employment_history.field_profile_reference
 field_name: field_profile_reference
 entity_type: nica_entity
 bundle: employment_history
-label: Profile
+label: Perfil
 description: ''
 required: true
 translatable: true

@@ -10,7 +10,7 @@ id: nica_entity.project_history.field_profile_reference
 field_name: field_profile_reference
 entity_type: nica_entity
 bundle: project_history
-label: Profile
+label: Perfil
 description: ''
 required: false
 translatable: false

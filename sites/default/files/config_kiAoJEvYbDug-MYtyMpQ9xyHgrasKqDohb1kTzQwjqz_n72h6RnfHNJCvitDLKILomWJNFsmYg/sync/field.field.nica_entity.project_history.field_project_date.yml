@@ -11,7 +11,7 @@ id: nica_entity.project_history.field_project_date
 field_name: field_project_date
 entity_type: nica_entity
 bundle: project_history
-label: 'Project Date'
+label: 'Fecha del Proyecto'
 description: ''
 required: true
 translatable: false

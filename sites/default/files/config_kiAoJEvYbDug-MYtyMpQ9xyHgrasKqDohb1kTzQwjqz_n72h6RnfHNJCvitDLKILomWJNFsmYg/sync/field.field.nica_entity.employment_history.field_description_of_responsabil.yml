@@ -9,7 +9,7 @@ id: nica_entity.employment_history.field_description_of_responsabil
 field_name: field_description_of_responsabil
 entity_type: nica_entity
 bundle: employment_history
-label: 'Description of Responsabilities'
+label: 'Descripción de Responsabilidades'
 description: ''
 required: false
 translatable: true

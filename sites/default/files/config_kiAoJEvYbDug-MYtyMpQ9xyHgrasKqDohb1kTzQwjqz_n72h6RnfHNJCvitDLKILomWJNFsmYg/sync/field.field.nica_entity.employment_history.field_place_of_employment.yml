@@ -9,7 +9,7 @@ id: nica_entity.employment_history.field_place_of_employment
 field_name: field_place_of_employment
 entity_type: nica_entity
 bundle: employment_history
-label: 'Place of Employment'
+label: 'Lugar de Contratación'
 description: ''
 required: false
 translatable: false

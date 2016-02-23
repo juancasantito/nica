@@ -11,7 +11,7 @@ id: nica_entity.employment_history.field_employment_date
 field_name: field_employment_date
 entity_type: nica_entity
 bundle: employment_history
-label: 'Employment Date'
+label: 'Fecha de Contratación'
 description: ''
 required: false
 translatable: false
