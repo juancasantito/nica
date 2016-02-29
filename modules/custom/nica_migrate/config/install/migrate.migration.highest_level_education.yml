@@ -16,7 +16,7 @@ source:
   keys:
     - name
   column_names:
-    15:
+    16:
       name: Highest Education Completed
 
 destination:

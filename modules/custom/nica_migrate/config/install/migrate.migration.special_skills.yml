@@ -17,7 +17,7 @@ source:
     - name
 
   column_names:
-    17:
+    18:
       name: Special Skills
 
 destination:

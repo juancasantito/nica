@@ -55,27 +55,30 @@ source:
         people_in_home: No. of People in Home
 
       12:
-        current_employment: Current Employment
+        employment1: Current Employment 1
 
       13:
-        salary: Salary
+        employment2: Current Employment 2
 
       14:
-        telefono: Telefono
+        salary: Salary
 
       15:
-        highest_education_completed: Highest Education Completed
+        telefono: Telefono
 
       16:
-        read_write_math: Read Write Math
+        highest_education_completed: Highest Education Completed
 
       17:
-        special_skills: Special Skills
+        read_write_math: Read Write Math
 
       18:
-        job_training: Job Training
+        special_skills: Special Skills
 
       19:
+        job_training: Job Training
+
+      20:
         languages: Languages
 
 
@@ -119,26 +122,28 @@ process:
 
   field_household_income: household_income
 
-  field_children: children
+  field_children:
+    -
+      plugin: callback
+      callable: strtoupper
+    -
+      plugin: static_map
+      bypass: TRUE
+      map:
+        NO TIENE: 0
+        NONE: 0
+        NINGUNO: 0
+        NINGUNA: 0
 
   field_number_of_people_in_home: people_in_home
 
-  field_current_employment: current_employment
+  field_current_employment: employment1
 
   field_salary: salary
 
   field_telephone: telefono
 
   field_highest_education_complete:
-    -
-      plugin: static_map
-      bypass: TRUE
-      map:
-        '': NULL
-      source: highest_education_completed
-    -
-      plugin: skip_on_empty
-      method: process
     -
       plugin: static_map
       bypass: TRUE
@@ -199,7 +204,7 @@ process:
       plugin: static_map
       bypass: TRUE
       map:
-        '': NULL
+        '': Español
       source: languages
     -
       plugin: skip_on_empty
@@ -207,3 +212,11 @@ process:
     -
       plugin: migration
       migration: languages
+migration_dependencies:
+  optional:
+    - highest_level_education
+    - job_training
+    - languages
+    - marital_status
+    - read_write_math
+    - special_skills

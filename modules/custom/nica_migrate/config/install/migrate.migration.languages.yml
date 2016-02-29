@@ -1,35 +1,20 @@
-
 id: languages
-
 label: Languages
-
 migration_tags:
   - CSV
-
 source:
   plugin: csv
-
-  path: public://csv/profile.csv
-
-  header_row_count: 1
-
+  path: public://csv/language.csv
   keys:
     - name
   column_names:
-    19:
+    0:
       name: Languages
-
 destination:
   plugin: entity:taxonomy_term
-
 process:
-  name:
-    plugin: skip_on_empty
-    method: row
-    source: name
-
+  name: name
   description: name
-
   vid:
     plugin: default_value
     default_value: languages
