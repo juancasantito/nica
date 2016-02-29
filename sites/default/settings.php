@@ -707,4 +707,4 @@ if (file_exists(__DIR__ . '/settings.local.php')) {
   include __DIR__ . '/settings.local.php';
 }
 $settings['install_profile'] = 'standard';
-$config_directories['sync'] = 'sites/default/files/config_kiAoJEvYbDug-MYtyMpQ9xyHgrasKqDohb1kTzQwjqz_n72h6RnfHNJCvitDLKILomWJNFsmYg/sync';
+$config_directories['sync'] = 'sites/default/config_kiAoJEvYbDug-MYtyMpQ9xyHgrasKqDohb1kTzQwjqz_n72h6RnfHNJCvitDLKILomWJNFsmYg/sync';

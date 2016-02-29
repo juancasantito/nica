@@ -19,9 +19,6 @@ sites/*/services*.yml
 sites/*/files/*
 sites/*/private
 
-# Do not ignore configuration.
-!sites/*/files/config_*
-
 # Ignore SimpleTest multi-site environment.
 sites/simpletest
 
