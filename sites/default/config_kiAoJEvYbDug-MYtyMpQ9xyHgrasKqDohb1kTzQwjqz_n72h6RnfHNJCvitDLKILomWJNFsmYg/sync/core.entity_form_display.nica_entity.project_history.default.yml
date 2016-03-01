@@ -21,10 +21,10 @@ content:
   field_benefit_earned:
     weight: 4
     settings:
+      rows: 5
       placeholder: ''
-      size: 60
     third_party_settings: {  }
-    type: string_textfield
+    type: string_textarea
   field_comments_on_result:
     weight: 6
     settings:

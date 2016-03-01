@@ -1,4 +1,4 @@
-uuid: 7ef07248-b1a9-4c9c-b81f-310dfe2fe44c
+uuid: d15ffe6c-41a4-4b42-8200-d3eedd1f47ff
 langcode: en
 status: true
 dependencies:
@@ -7,10 +7,8 @@ dependencies:
 id: nica_entity.field_benefit_earned
 field_name: field_benefit_earned
 entity_type: nica_entity
-type: string
+type: string_long
 settings:
-  max_length: 255
-  is_ascii: false
   case_sensitive: false
 module: core
 locked: false
