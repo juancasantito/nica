@@ -1,0 +1,34 @@
+uuid: 79ad1ff1-8faf-48d3-8d00-e6d99b1dc49c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.highest_education_completed
+  module:
+    - path
+    - text
+id: taxonomy_term.highest_education_completed.default
+targetEntityType: taxonomy_term
+bundle: highest_education_completed
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

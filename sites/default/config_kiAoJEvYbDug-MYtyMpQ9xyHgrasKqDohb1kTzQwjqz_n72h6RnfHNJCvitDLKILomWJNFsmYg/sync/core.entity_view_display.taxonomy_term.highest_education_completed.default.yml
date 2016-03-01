@@ -1,0 +1,20 @@
+uuid: 72d05378-1a1c-4a32-a200-a8a4415813de
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.highest_education_completed
+  module:
+    - text
+id: taxonomy_term.highest_education_completed.default
+targetEntityType: taxonomy_term
+bundle: highest_education_completed
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

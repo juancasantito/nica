@@ -10,7 +10,7 @@ field_name: field_last_name
 entity_type: nica_entity
 bundle: profile
 label: Apellidos
-description: ''
+description: 'Apellidos completos'
 required: false
 translatable: false
 default_value: {  }

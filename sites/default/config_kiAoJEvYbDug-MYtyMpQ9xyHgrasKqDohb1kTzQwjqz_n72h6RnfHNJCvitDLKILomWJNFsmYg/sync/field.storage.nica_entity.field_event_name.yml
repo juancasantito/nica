@@ -1,17 +1,17 @@
-uuid: e9ab04b1-90cb-4716-8200-b9d0ab23dec8
+uuid: bb4075b3-6ab9-4543-8e00-aed44f3b1ed8
 langcode: en
 status: true
 dependencies:
   module:
-    - datetime
     - nica_entity
-id: nica_entity.field_event_date_start
-field_name: field_event_date_start
+    - taxonomy
+id: nica_entity.field_event_name
+field_name: field_event_name
 entity_type: nica_entity
-type: datetime
+type: entity_reference
 settings:
-  datetime_type: date
-module: datetime
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: 1
 translatable: true

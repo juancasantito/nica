@@ -1,18 +1,16 @@
-uuid: 3e729bdf-2596-45bc-b548-7216601757bf
+uuid: 8df18493-bd1f-4ce1-9d00-f5955442f5cb
 langcode: en
 status: true
 dependencies:
   module:
     - nica_entity
-id: nica_entity.field_result
-field_name: field_result
+    - text
+id: nica_entity.field_project_performance
+field_name: field_project_performance
 entity_type: nica_entity
-type: string
-settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
-module: core
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true

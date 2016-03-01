@@ -16,12 +16,12 @@ bundle: employment_history
 mode: default
 content:
   field_description_of_responsabil:
-    weight: 4
+    type: string_textfield
+    weight: 0
     settings:
-      rows: 5
+      size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
   field_employment_date:
     weight: 1
     settings: {  }

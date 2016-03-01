@@ -1,17 +1,16 @@
-uuid: 9df58205-13ca-40db-ba00-f5160f76c189
+uuid: 0bbdedb6-65ec-4e42-8204-4de3b1f9aaf8
 langcode: en
 status: true
 dependencies:
   module:
-    - datetime
     - nica_entity
-id: nica_entity.field_event_date_end
-field_name: field_event_date_end
+    - text
+id: nica_entity.field_event_result
+field_name: field_event_result
 entity_type: nica_entity
-type: datetime
-settings:
-  datetime_type: date
-module: datetime
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true

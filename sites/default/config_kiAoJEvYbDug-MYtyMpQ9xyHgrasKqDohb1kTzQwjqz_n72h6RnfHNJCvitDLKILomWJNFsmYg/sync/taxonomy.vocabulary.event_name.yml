@@ -1,0 +1,9 @@
+uuid: ca609a50-bb14-4c83-9000-0a84e2145a93
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event Name'
+vid: event_name
+description: ''
+hierarchy: 0
+weight: 0
