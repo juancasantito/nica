@@ -1,0 +1,9 @@
+uuid: 63e46e78-7275-4507-8e08-8bc147fec747
+langcode: en
+status: true
+dependencies: {  }
+name: 'Project Group'
+vid: project_group
+description: ''
+hierarchy: 0
+weight: 0

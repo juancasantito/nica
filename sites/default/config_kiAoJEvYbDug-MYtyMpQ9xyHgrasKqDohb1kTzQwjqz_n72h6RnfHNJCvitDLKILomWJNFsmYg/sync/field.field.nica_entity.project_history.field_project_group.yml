@@ -1,0 +1,27 @@
+uuid: 23cdb54a-7781-4e65-b700-d9cd3b97090b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_project_group
+    - nica_entity.content_type.project_history
+    - taxonomy.vocabulary.project_group
+id: nica_entity.project_history.field_project_group
+field_name: field_project_group
+entity_type: nica_entity
+bundle: project_history
+label: 'Grupo del Proyecto'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      project_group: project_group
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference
