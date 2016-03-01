@@ -1,17 +1,17 @@
-uuid: 944702d6-ae37-4281-b72e-468ad13c3569
+uuid: 76c17300-5de6-475c-ba04-0497318084b6
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.nica_entity.field_event_date_end
+    - field.storage.nica_entity.field_event_date
     - nica_entity.content_type.event_history
   module:
     - datetime
-id: nica_entity.event_history.field_event_date_end
-field_name: field_event_date_end
+id: nica_entity.event_history.field_event_date
+field_name: field_event_date
 entity_type: nica_entity
 bundle: event_history
-label: 'Fecha de Final del Evento'
+label: 'Fecha del Evento'
 description: ''
 required: false
 translatable: false

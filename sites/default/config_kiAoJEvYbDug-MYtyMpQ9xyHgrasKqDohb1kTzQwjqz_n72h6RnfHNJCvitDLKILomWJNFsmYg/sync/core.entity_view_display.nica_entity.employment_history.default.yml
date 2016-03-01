@@ -17,13 +17,14 @@ bundle: employment_history
 mode: default
 content:
   field_description_of_responsabil:
-    weight: 4
+    type: string
+    weight: 3
     label: above
-    settings: {  }
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
-    type: basic_string
   field_employment_date:
-    weight: 1
+    weight: 0
     label: above
     settings:
       format_type: medium
@@ -31,14 +32,14 @@ content:
     third_party_settings: {  }
     type: datetime_default
   field_place_of_employment:
-    weight: 2
+    weight: 1
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_profile_reference:
-    weight: 3
+    weight: 2
     label: above
     settings:
       link: true

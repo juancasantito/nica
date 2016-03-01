@@ -10,14 +10,16 @@ field_name: field_salary
 entity_type: nica_entity
 bundle: profile
 label: Salario
-description: ''
+description: 'Salario mensual'
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: 0
 default_value_callback: ''
 settings:
   min: null
   max: null
-  prefix: ''
+  prefix: c$
   suffix: ''
 field_type: integer

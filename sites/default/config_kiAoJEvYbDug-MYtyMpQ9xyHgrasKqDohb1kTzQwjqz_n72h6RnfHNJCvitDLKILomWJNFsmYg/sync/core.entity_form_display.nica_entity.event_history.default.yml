@@ -4,13 +4,17 @@ status: true
 dependencies:
   config:
     - field.field.nica_entity.event_history.field_description
-    - field.field.nica_entity.event_history.field_event_date_end
-    - field.field.nica_entity.event_history.field_event_date_start
+    - field.field.nica_entity.event_history.field_event_date
+    - field.field.nica_entity.event_history.field_event_name
+    - field.field.nica_entity.event_history.field_event_photos
+    - field.field.nica_entity.event_history.field_event_result
     - field.field.nica_entity.event_history.field_profile
+    - field.field.nica_entity.event_history.field_project_performance
     - field.field.nica_entity.event_history.field_result
     - nica_entity.content_type.event_history
   module:
     - datetime
+    - file
     - text
 id: nica_entity.event_history.default
 targetEntityType: nica_entity
@@ -18,22 +22,38 @@ bundle: event_history
 mode: default
 content:
   field_description:
-    weight: 1
+    weight: 3
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
-  field_event_date_end:
-    weight: 3
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-  field_event_date_start:
+  field_event_date:
     weight: 2
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+  field_event_name:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_event_photos:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+  field_event_result:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
   field_profile:
     weight: 0
     settings:
@@ -42,19 +62,19 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
-  field_result:
-    weight: 4
+  field_project_performance:
+    weight: 7
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
-  uid:
-    type: entity_reference_autocomplete
+  field_result:
     weight: 5
     settings:
-      match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+    type: string_textfield
+hidden:
+  uid: true

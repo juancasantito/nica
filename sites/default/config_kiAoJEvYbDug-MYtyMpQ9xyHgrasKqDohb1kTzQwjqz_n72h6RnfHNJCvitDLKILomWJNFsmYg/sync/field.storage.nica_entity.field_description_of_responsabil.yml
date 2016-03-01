@@ -1,4 +1,4 @@
-uuid: b4fc5125-3755-4c4f-a500-cb2c0f6291cc
+uuid: 3d8e9321-e599-4c0b-b706-6c906bdbd660
 langcode: en
 status: true
 dependencies:
@@ -7,8 +7,10 @@ dependencies:
 id: nica_entity.field_description_of_responsabil
 field_name: field_description_of_responsabil
 entity_type: nica_entity
-type: string_long
+type: string
 settings:
+  max_length: 255
+  is_ascii: false
   case_sensitive: false
 module: core
 locked: false
