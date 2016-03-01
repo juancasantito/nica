@@ -1,0 +1,34 @@
+uuid: bf6323aa-5e79-483d-a807-7c3e29be7dd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.material
+  module:
+    - path
+    - text
+id: taxonomy_term.material.default
+targetEntityType: taxonomy_term
+bundle: material
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 0
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

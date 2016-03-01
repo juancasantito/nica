@@ -21,10 +21,10 @@ content:
   field_benefit_earned:
     weight: 4
     settings:
-      rows: 5
       placeholder: ''
+      size: 60
     third_party_settings: {  }
-    type: string_textarea
+    type: string_textfield
   field_comments_on_result:
     weight: 6
     settings:
@@ -54,13 +54,13 @@ content:
     third_party_settings: {  }
     type: datetime_default
   field_project_leader:
+    type: entity_reference_autocomplete
     weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
   field_project_name:
     weight: 1
     settings:
@@ -70,4 +70,5 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
 hidden:
+  field_comments_result: true
   uid: true

@@ -1,0 +1,27 @@
+uuid: c5a9fc21-60d2-480b-a100-fc7130fde311
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_project_name
+    - nica_entity.content_type.project_history
+    - taxonomy.vocabulary.project_name
+id: nica_entity.project_history.field_project_name
+field_name: field_project_name
+entity_type: nica_entity
+bundle: project_history
+label: 'Nombre del Proyecto'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      project_name: project_name
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference
