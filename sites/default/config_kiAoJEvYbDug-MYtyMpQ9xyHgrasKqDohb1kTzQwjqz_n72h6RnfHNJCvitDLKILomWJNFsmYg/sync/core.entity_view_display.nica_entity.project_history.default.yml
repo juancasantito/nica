@@ -86,4 +86,3 @@ content:
     third_party_settings: {  }
     type: number_integer
 hidden:
-  field_comments_result: true
