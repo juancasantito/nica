@@ -1,4 +1,4 @@
-uuid: 25076577-c941-40b5-a500-ff657e7ace1a
+uuid: e2929185-0632-4220-9e3e-62ebbc6fc37c
 langcode: en
 status: true
 dependencies:
@@ -30,8 +30,8 @@ dependencies:
     - nica_entity
     - options
     - taxonomy
-id: perfil
-label: Profile
+id: profile
+label: Perfil
 module: views
 description: ''
 tag: ''
@@ -72,7 +72,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 10
+          items_per_page: 5
           offset: 0
           id: 0
           total_pages: null
@@ -91,16 +91,150 @@ display:
             offset_label: Offset
           quantity: 9
       style:
-        type: grid
+        type: table
         options:
-          uses_fields: false
-          columns: 5
-          automatic_width: true
-          alignment: horizontal
-          col_class_default: true
-          col_class_custom: ''
-          row_class_default: true
-          row_class_custom: ''
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            field_first_name: field_first_name
+            field_last_name: field_last_name
+            field_national_id: field_national_id
+            field_birthday: field_birthday
+            field_marital_status: field_marital_status
+            field_pictures: field_pictures
+            field_telephone: field_telephone
+            field_salary: field_salary
+            field_household_income: field_household_income
+            field_languages: field_languages
+            field_children: field_children
+            field_number_of_people_in_home: field_number_of_people_in_home
+            field_job_training: field_job_training
+            field_current_employment: field_current_employment
+            field_other_event: field_other_event
+            field_special_skills: field_special_skills
+            field_highest_education_complete: field_highest_education_complete
+            field_read_write_math: field_read_write_math
+          info:
+            field_first_name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_last_name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_national_id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_birthday:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_marital_status:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_pictures:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_telephone:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_salary:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_household_income:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_languages:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_children:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_number_of_people_in_home:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_job_training:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_current_employment:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_other_event:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_special_skills:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_highest_education_complete:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_read_write_math:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
       row:
         type: fields
         options:
@@ -824,7 +958,7 @@ display:
         groups:
           1: AND
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -848,7 +982,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: perfil
+      path: profile
       menu:
         type: normal
         title: Perfil
@@ -859,6 +993,9 @@ display:
         filters: false
         filter_groups: false
         fields: false
+        pager: false
+        style: false
+        row: false
       filters:
         field_first_name_value:
           id: field_first_name_value
@@ -1023,25 +1160,27 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
-        field_children_value:
-          id: field_children_value
-          table: nica_entity__field_children
-          field: field_children_value
+        field_salary_value:
+          id: field_salary_value
+          table: nica_entity__field_salary
+          field: field_salary_value
           relationship: none
           group_type: group
           admin_label: ''
-          operator: or
+          operator: '<'
           value:
-            1: '1'
+            min: ''
+            max: ''
+            value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: field_children_value_op
-            label: 'Número de Hijos'
+            operator_id: field_salary_value_op
+            label: Salario
             description: ''
             use_operator: false
-            operator: field_children_value_op
-            identifier: field_children_value
+            operator: field_salary_value_op
+            identifier: field_salary_value
             required: false
             remember: false
             multiple: false
@@ -1049,7 +1188,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -1062,8 +1200,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          reduce_duplicates: false
-          plugin_id: list_field
+          plugin_id: numeric
       filter_groups:
         operator: AND
         groups:
@@ -1555,7 +1692,7 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: false
+          hide_empty: true
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
@@ -1806,7 +1943,7 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: false
+          hide_empty: true
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
@@ -1830,7 +1967,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Entrenamiento Profesional o Laboral'
           exclude: false
           alter:
             alter_text: false
@@ -1863,7 +2000,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -2019,7 +2156,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Habilidades Especiales'
           exclude: false
           alter:
             alter_text: false
@@ -2052,7 +2189,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -2082,7 +2219,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Ultimo Nivel de Educación'
           exclude: false
           alter:
             alter_text: false
@@ -2115,7 +2252,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -2145,7 +2282,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Leer, Escribir, Matemática'
           exclude: false
           alter:
             alter_text: false
@@ -2178,7 +2315,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -2201,6 +2338,45 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+      pager:
+        type: full
+        options:
+          items_per_page: 5
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      style:
+        type: grid
+        options:
+          grouping: {  }
+          columns: 4
+          automatic_width: true
+          alignment: horizontal
+          col_class_default: true
+          col_class_custom: ''
+          row_class_default: true
+          row_class_custom: ''
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:
