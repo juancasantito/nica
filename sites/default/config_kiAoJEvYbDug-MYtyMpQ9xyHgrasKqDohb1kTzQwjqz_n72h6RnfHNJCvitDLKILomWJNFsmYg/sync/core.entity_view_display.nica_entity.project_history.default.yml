@@ -11,6 +11,7 @@ dependencies:
     - field.field.nica_entity.project_history.field_project_group
     - field.field.nica_entity.project_history.field_project_leader
     - field.field.nica_entity.project_history.field_project_name
+    - field.field.nica_entity.project_history.field_quarter
     - nica_entity.content_type.project_history
   module:
     - datetime
@@ -76,5 +77,13 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+  field_quarter:
+    weight: 8
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
 hidden:
   field_comments_result: true
