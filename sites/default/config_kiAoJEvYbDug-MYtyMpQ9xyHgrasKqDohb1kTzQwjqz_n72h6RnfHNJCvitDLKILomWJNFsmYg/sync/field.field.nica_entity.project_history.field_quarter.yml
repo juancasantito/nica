@@ -1,0 +1,23 @@
+uuid: 2006023e-ae7a-49f1-8061-97d789987302
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_quarter
+    - nica_entity.content_type.project_history
+id: nica_entity.project_history.field_quarter
+field_name: field_quarter
+entity_type: nica_entity
+bundle: project_history
+label: Trimestre
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
