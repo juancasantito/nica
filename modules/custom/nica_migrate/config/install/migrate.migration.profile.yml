@@ -139,8 +139,15 @@ process:
 
   field_current_employment: employment1
 
-  field_salary: salary
-
+  field_salary:
+    -
+      plugin: static_map
+      bypass: TRUE
+      source: salary
+      map:
+        '0,00': NULL
+    -
+      plugin: number_format
   field_telephone: telefono
 
   field_highest_education_complete:
@@ -203,12 +210,14 @@ process:
     -
       plugin: static_map
       bypass: TRUE
+      source: languages
       map:
         '': Español
-      source: languages
+        Francés: 'Francés,Español'
+        Inglés: 'Inglés,Español'
     -
-      plugin: skip_on_empty
-      method: process
+      plugin: explode
+      delimiter: ,
     -
       plugin: migration
       migration: languages
