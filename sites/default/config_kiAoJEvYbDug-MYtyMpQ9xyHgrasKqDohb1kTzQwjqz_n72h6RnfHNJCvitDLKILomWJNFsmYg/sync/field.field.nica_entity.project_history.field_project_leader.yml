@@ -10,7 +10,7 @@ id: nica_entity.project_history.field_project_leader
 field_name: field_project_leader
 entity_type: nica_entity
 bundle: project_history
-label: 'Líder del Projecto'
+label: 'Líder del Proyecto'
 description: ''
 required: false
 translatable: false
