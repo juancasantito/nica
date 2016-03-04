@@ -1,11 +1,11 @@
 <?php
 /**
  * @file
- * Contains \Drupal\migrate\Event\MigrateMapDeleteEvent.
+ * Contains \Drupal\nica_migrate\EventSubscriber\ProfileMigrateEvent.
  */
 
 
-namespace Drupal\nica_migrate\Event;
+namespace Drupal\nica_migrate\EventSubscriber;
 
 use Drupal\migrate_plus\Event\MigrateEvents;
 use Drupal\migrate_plus\Event\MigratePrepareRowEvent;
