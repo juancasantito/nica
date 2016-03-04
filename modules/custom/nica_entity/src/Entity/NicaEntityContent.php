@@ -95,10 +95,14 @@ class NicaEntityContent extends EntityBase {
     if (is_callable([$class, 'load'])) {
       $entity_type = $class::load($this->bundle());
       if ($entity_type) {
-        $label = $entity_type->label() . ' ';
+        if ($entity_type->id() == 'profile') {
+          $label = $this->get('field_first_name')->value . ' ' . $this->get('field_last_name')->value;
+        }
+        else {
+          $label = $entity_type->label() . ' ' . $this->id();
+        }
       }
     }
-    $label .= $this->id();
 
     return $label;
   }

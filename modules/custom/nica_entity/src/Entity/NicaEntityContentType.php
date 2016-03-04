@@ -49,5 +49,4 @@ use Drupal\content_entity_base\Entity\EntityTypeBase;
  *   }
  * )
  */
-class NicaEntityContentType extends EntityTypeBase {
-}
+class NicaEntityContentType extends EntityTypeBase {}
