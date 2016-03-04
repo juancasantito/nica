@@ -83,7 +83,7 @@ source:
 
 
 destination:
-  plugin: entity:node
+  plugin: entity:nica_entity
 
 process:
   type:
