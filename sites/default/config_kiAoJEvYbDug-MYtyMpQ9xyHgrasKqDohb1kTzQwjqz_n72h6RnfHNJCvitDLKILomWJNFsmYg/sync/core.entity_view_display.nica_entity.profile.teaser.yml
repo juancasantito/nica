@@ -1,8 +1,9 @@
-uuid: f52c384b-0edc-4522-b000-e13c1a7df9a8
+uuid: 640045a5-b178-4fb9-9708-8e6df78c8f72
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.nica_entity.teaser
     - field.field.nica_entity.profile.field_birthday
     - field.field.nica_entity.profile.field_children
     - field.field.nica_entity.profile.field_current_employment
@@ -23,48 +24,57 @@ dependencies:
     - field.field.nica_entity.profile.field_telephone
     - nica_entity.content_type.profile
   module:
-    - user
-id: nica_entity.profile.default
+    - datetime
+id: nica_entity.profile.teaser
 targetEntityType: nica_entity
 bundle: profile
-mode: default
+mode: teaser
 content:
+  field_birthday:
+    weight: 3
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: html_date
+    third_party_settings: {  }
+    type: datetime_default
   field_first_name:
     weight: 0
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_last_name:
-    type: string
     weight: 1
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    type: string
   field_marital_status:
-    type: entity_reference_label
     weight: 2
-    label: above
+    label: inline
     settings:
       link: false
     third_party_settings: {  }
+    type: entity_reference_label
   field_salary:
-    type: number_unformatted
     weight: 4
-    label: above
-    settings: {  }
+    label: inline
+    settings:
+      thousand_separator: ','
+      prefix_suffix: true
     third_party_settings: {  }
+    type: number_integer
   field_telephone:
-    type: string
-    weight: 3
-    label: above
+    weight: 5
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    type: string
 hidden:
-  field_birthday: true
   field_children: true
   field_current_employment: true
   field_highest_education_complete: true
@@ -77,3 +87,4 @@ hidden:
   field_pictures: true
   field_read_write_math: true
   field_special_skills: true
+  uid: true

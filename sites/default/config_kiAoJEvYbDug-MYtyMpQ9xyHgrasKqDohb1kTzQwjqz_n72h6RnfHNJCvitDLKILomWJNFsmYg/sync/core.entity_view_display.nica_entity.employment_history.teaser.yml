@@ -1,8 +1,9 @@
-uuid: 09de8d57-bcc0-4865-a308-8cebbc6c2806
+uuid: 8fa52b7f-54b8-45a7-9f00-c5b337cbcdbe
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.nica_entity.teaser
     - field.field.nica_entity.employment_history.field_description_of_responsabil
     - field.field.nica_entity.employment_history.field_employment_date
     - field.field.nica_entity.employment_history.field_place_of_employment
@@ -10,10 +11,10 @@ dependencies:
     - nica_entity.content_type.employment_history
   module:
     - datetime
-id: nica_entity.employment_history.default
+id: nica_entity.employment_history.teaser
 targetEntityType: nica_entity
 bundle: employment_history
-mode: default
+mode: teaser
 content:
   field_description_of_responsabil:
     type: string

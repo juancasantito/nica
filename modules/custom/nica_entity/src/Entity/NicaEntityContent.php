@@ -74,12 +74,15 @@ class NicaEntityContent extends EntityBase {
    * {@inheritdoc}
    */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
-    $definitions = parent::baseFieldDefinitions($entity_type);
+    $fields = parent::baseFieldDefinitions($entity_type);
 
     // There is no title or name for this custom entity.
-    unset($definitions['name']);
+    unset($fields['name']);
 
-    return $definitions;
+    // Make user reference configurable in view modes.
+    $fields['uid']->setDisplayConfigurable('view', TRUE);
+
+    return $fields;
   }
 
 

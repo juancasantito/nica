@@ -1,8 +1,9 @@
-uuid: ab0593a6-d37d-4d8a-bf00-ac1a5363b23c
+uuid: 40d229c9-79de-44ea-bc19-25b0b3fddd31
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.nica_entity.teaser
     - field.field.nica_entity.event_history.field_description
     - field.field.nica_entity.event_history.field_event_date
     - field.field.nica_entity.event_history.field_event_name
@@ -16,10 +17,10 @@ dependencies:
     - datetime
     - file
     - text
-id: nica_entity.event_history.default
+id: nica_entity.event_history.teaser
 targetEntityType: nica_entity
 bundle: event_history
-mode: default
+mode: teaser
 content:
   field_description:
     weight: 2
@@ -49,17 +50,17 @@ content:
     third_party_settings: {  }
     type: file_default
   field_event_result:
-    weight: 5
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-  field_project_performance:
     weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
+  field_project_performance:
+    type: text_default
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_result:
     weight: 6
     label: above
