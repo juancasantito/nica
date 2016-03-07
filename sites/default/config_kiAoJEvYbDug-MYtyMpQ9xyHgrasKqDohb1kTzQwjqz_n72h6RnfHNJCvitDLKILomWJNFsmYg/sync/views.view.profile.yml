@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.nica_entity.teaser
     - field.storage.nica_entity.field_birthday
     - field.storage.nica_entity.field_children
     - field.storage.nica_entity.field_current_employment
@@ -23,7 +24,10 @@ dependencies:
     - field.storage.nica_entity.field_telephone
     - nica_entity.content_type.profile
     - system.menu.account
+    - taxonomy.vocabulary.event_name
     - taxonomy.vocabulary.marital_status
+    - taxonomy.vocabulary.project_group
+    - taxonomy.vocabulary.project_name
   module:
     - datetime
     - file
@@ -1181,6 +1185,182 @@ display:
             use_operator: false
             operator: field_salary_value_op
             identifier: field_salary_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        field_event_name_target_id:
+          id: field_event_name_target_id
+          table: nica_entity__field_event_name
+          field: field_event_name_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: empty
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_event_name_target_id_op
+            label: 'Nombre del Evento'
+            description: ''
+            use_operator: false
+            operator: field_event_name_target_id_op
+            identifier: field_event_name_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              anonymous: '0'
+              authenticated: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: event_name
+          hierarchy: false
+          error_message: false
+          plugin_id: taxonomy_index_tid
+        field_project_name_target_id:
+          id: field_project_name_target_id
+          table: nica_entity__field_project_name
+          field: field_project_name_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: empty
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_project_name_target_id_op
+            label: 'Nombre del Proyecto'
+            description: ''
+            use_operator: false
+            operator: field_project_name_target_id_op
+            identifier: field_project_name_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          type: select
+          limit: true
+          vid: project_name
+          hierarchy: true
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_project_group_target_id:
+          id: field_project_group_target_id
+          table: nica_entity__field_project_group
+          field: field_project_group_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: empty
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_project_group_target_id_op
+            label: 'Grupo del Proyecto'
+            description: ''
+            use_operator: false
+            operator: field_project_group_target_id_op
+            identifier: field_project_group_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: project_group
+          hierarchy: true
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_quarter_value:
+          id: field_quarter_value
+          table: nica_entity__field_quarter
+          field: field_quarter_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_quarter_value_op
+            label: Trimestre
+            description: ''
+            use_operator: false
+            operator: field_quarter_value_op
+            identifier: field_quarter_value
             required: false
             remember: false
             multiple: false
@@ -2360,23 +2540,16 @@ display:
             offset_label: Offset
           quantity: 9
       style:
-        type: grid
+        type: default
         options:
-          grouping: {  }
-          columns: 4
-          automatic_width: true
-          alignment: horizontal
-          col_class_default: true
-          col_class_custom: ''
-          row_class_default: true
-          row_class_custom: ''
+          row_class: ''
+          default_row_class: true
+          uses_fields: true
       row:
-        type: fields
+        type: 'entity:nica_entity'
         options:
-          default_field_elements: true
-          inline: {  }
-          separator: ''
-          hide_empty: false
+          relationship: none
+          view_mode: teaser
     cache_metadata:
       max-age: -1
       contexts:
