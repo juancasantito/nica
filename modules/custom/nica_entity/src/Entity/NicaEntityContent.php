@@ -32,7 +32,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *     "storage"      = "\Drupal\content_entity_base\Entity\Storage\ContentEntityBaseStorage",
  *     "access"       = "\Drupal\content_entity_base\Entity\Access\EntityBaseAccessControlHandler",
  *     "translation"  = "\Drupal\content_translation\ContentTranslationHandler",
- *     "list_builder" = "\Drupal\content_entity_base\Entity\Listing\EntityBaseListBuilder",
+ *     "list_builder" = "\Drupal\nica_entity\Entity\Listing\NicaEntityBaseListBuilder",
  *     "view_builder" = "\Drupal\Core\Entity\EntityViewBuilder",
  *     "views_data"   = "\Drupal\content_entity_base\Entity\Views\EntityBaseViewsData",
  *     "route_provider" = {
