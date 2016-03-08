@@ -44,6 +44,10 @@ class CrudUiRouteProvider extends CreateHtmlRouteProvider implements EntityRoute
    */
   protected function addPageRoute(EntityTypeInterface $entity_type) {
     if ($route = parent::addPageRoute($entity_type)) {
+      /**
+       * @TODO Remove when this feature is at the core.
+       */
+      $route->setDefault('_controller', '\Drupal\nica_entity\Controller\NicaEntityController::addPage');
       $route->setOption('_admin_route', TRUE);
       return $route;
     }

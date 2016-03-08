@@ -5,6 +5,7 @@
  *   Contains the nica_entity.module file for the Nica Entity module.
  */
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
 
 /**
  * Implements hook_help().
@@ -19,5 +20,46 @@ function nica_entity_help($route_name, RouteMatchInterface $route_match) {
       return $output;
 
     default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function nica_entity_theme($existing, $type, $theme, $path) {
+  $theme = [];
+  $theme['nica_entity'] = [
+    'render element' => 'elements',
+  ];
+  $theme['nica_entity_add_list'] = [
+    'variables' => [
+      'bundles' => [],
+      'bundle_type' => NULL,
+    ],
+  ];
+  return $theme;
+}
+
+/**
+ * Prepares variables for the list of available bundles.
+ *
+ * Default template: nica-entity-add-list.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - bundle_type: The entity type of the bundles.
+ *   - bundles: An array of bundles with the label, description, add_link keys.
+ */
+function template_preprocess_nica_entity_add_list(&$variables) {
+  $bundle_type = \Drupal::entityTypeManager()->getDefinition($variables['bundle_type']);
+  $variables += [
+    'create_bundle_url' => Url::fromRoute('entity.' . $bundle_type->id() . '.add_form')->toString(),
+    'bundle_type_label' => $bundle_type->getLowercaseLabel(),
+  ];
+
+  foreach ($variables['bundles'] as $bundle_name => $bundle_info) {
+    $variables['bundles'][$bundle_name]['description'] = [
+      '#markup' => $bundle_info['description'],
+    ];
   }
 }

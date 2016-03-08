@@ -8,6 +8,7 @@
 namespace Drupal\nica_entity\Entity;
 
 use Drupal\content_entity_base\Entity\EntityTypeBase;
+use Drupal\entity\Entity\EntityDescriptionInterface;
 
 /**
  * Defines the nica_entity type configuration entity.
@@ -49,4 +50,12 @@ use Drupal\content_entity_base\Entity\EntityTypeBase;
  *   }
  * )
  */
-class NicaEntityContentType extends EntityTypeBase {}
+class NicaEntityContentType extends EntityTypeBase implements EntityDescriptionInterface {
+  /**
+   * {@inheritdoc}
+   */
+  public function setDescription($description) {
+    $this->description = $description;
+    return $this;
+  }
+}
