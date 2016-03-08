@@ -4,23 +4,24 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_profile_reference
+    - nica_entity.content_type.profile
     - nica_entity.content_type.project_history
-    - node.type.profile
 id: nica_entity.project_history.field_profile_reference
 field_name: field_profile_reference
 entity_type: nica_entity
 bundle: project_history
 label: Perfil
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:nica_entity'
   handler_settings:
     target_bundles:
       profile: profile
     sort:
-      field: _none
+      field: field_first_name
+      direction: ASC
 field_type: entity_reference

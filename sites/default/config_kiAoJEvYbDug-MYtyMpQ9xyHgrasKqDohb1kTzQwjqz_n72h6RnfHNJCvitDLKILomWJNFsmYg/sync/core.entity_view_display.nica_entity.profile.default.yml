@@ -22,57 +22,138 @@ dependencies:
     - field.field.nica_entity.profile.field_special_skills
     - field.field.nica_entity.profile.field_telephone
     - nica_entity.content_type.profile
+  module:
+    - datetime
+    - file
+    - options
 id: nica_entity.profile.default
 targetEntityType: nica_entity
 bundle: profile
 mode: default
 content:
+  field_birthday:
+    type: datetime_default
+    weight: 3
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: html_date
+    third_party_settings: {  }
+  field_children:
+    type: list_default
+    weight: 7
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_current_employment:
+    type: string
+    weight: 12
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_first_name:
     weight: 0
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+  field_highest_education_complete:
+    type: entity_reference_label
+    weight: 11
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_household_income:
+    type: list_default
+    weight: 9
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_job_training:
+    type: entity_reference_label
+    weight: 16
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_languages:
+    type: entity_reference_label
+    weight: 13
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
   field_last_name:
     type: string
     weight: 1
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
   field_marital_status:
     type: entity_reference_label
+    weight: 6
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_national_id:
+    type: string
     weight: 2
-    label: above
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_number_of_people_in_home:
+    type: list_key
+    weight: 8
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_other_event:
+    type: string
+    weight: 14
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_pictures:
+    type: file_default
+    weight: 4
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_read_write_math:
+    type: entity_reference_label
+    weight: 17
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
   field_salary:
-    type: number_unformatted
-    weight: 4
-    label: above
-    settings: {  }
+    type: number_integer
+    weight: 10
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+  field_special_skills:
+    type: entity_reference_label
+    weight: 15
+    label: inline
+    settings:
+      link: true
     third_party_settings: {  }
   field_telephone:
     type: string
-    weight: 3
-    label: above
+    weight: 5
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
-  field_birthday: true
-  field_children: true
-  field_current_employment: true
-  field_highest_education_complete: true
-  field_household_income: true
-  field_job_training: true
-  field_languages: true
-  field_national_id: true
-  field_number_of_people_in_home: true
-  field_other_event: true
-  field_pictures: true
-  field_read_write_math: true
-  field_special_skills: true
   uid: true

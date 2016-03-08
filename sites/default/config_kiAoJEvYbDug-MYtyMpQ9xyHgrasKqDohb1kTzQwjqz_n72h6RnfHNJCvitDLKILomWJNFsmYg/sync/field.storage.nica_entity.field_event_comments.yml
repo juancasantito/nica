@@ -1,16 +1,16 @@
-uuid: 0bbdedb6-65ec-4e42-8204-4de3b1f9aaf8
+uuid: 60754602-8329-48f3-b800-ae9221467987
 langcode: en
 status: true
 dependencies:
   module:
     - nica_entity
-    - text
-id: nica_entity.field_event_result
-field_name: field_event_result
+id: nica_entity.field_event_comments
+field_name: field_event_comments
 entity_type: nica_entity
-type: text_long
-settings: {  }
-module: text
+type: string_long
+settings:
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

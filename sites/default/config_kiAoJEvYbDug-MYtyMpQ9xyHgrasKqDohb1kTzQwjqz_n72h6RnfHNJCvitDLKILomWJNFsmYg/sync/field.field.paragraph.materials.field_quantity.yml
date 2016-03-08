@@ -1,4 +1,4 @@
-uuid: 6357871c-7279-46cc-9102-2a71d88f20ac
+uuid: bde283aa-a816-45b3-a900-adb920079092
 langcode: en
 status: true
 dependencies:
@@ -9,15 +9,17 @@ id: paragraph.materials.field_quantity
 field_name: field_quantity
 entity_type: paragraph
 bundle: materials
-label: Quantity
+label: Cantidad
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: !!float 1
 default_value_callback: ''
 settings:
-  min: null
+  min: !!float 1
   max: null
   prefix: ''
   suffix: ''
-field_type: decimal
+field_type: float

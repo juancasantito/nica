@@ -16,28 +16,22 @@ targetEntityType: nica_entity
 bundle: employment_history
 mode: teaser
 content:
-  field_description_of_responsabil:
-    type: string
-    weight: 2
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_employment_date:
-    weight: 0
-    label: above
+    weight: 1
+    label: inline
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: html_date
     third_party_settings: {  }
     type: datetime_default
   field_place_of_employment:
-    weight: 1
-    label: above
+    weight: 0
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
 hidden:
+  field_description_of_responsabil: true
   field_profile_reference: true
   uid: true

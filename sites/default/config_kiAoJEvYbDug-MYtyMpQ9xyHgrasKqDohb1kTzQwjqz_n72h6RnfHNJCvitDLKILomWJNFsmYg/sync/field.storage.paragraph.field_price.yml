@@ -1,16 +1,16 @@
-uuid: 2221cfa2-1cd2-43d4-a009-9cd28b2b94cb
+uuid: a5156f20-76e1-4a0b-bb18-24e697cf2387
 langcode: en
 status: true
 dependencies:
   module:
     - paragraphs
-id: paragraph.field_value
-field_name: field_value
+id: paragraph.field_price
+field_name: field_price
 entity_type: paragraph
-type: decimal
+type: integer
 settings:
-  precision: 10
-  scale: 2
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

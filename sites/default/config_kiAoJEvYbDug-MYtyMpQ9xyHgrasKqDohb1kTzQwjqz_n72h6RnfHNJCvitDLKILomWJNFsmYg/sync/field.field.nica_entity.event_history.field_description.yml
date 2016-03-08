@@ -1,12 +1,10 @@
-uuid: e686c0dd-ad96-4a5f-a600-f58fe1ada99f
+uuid: 6c93c9d3-ec3d-440c-952e-468ef5e47839
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_description
     - nica_entity.content_type.event_history
-  module:
-    - text
 id: nica_entity.event_history.field_description
 field_name: field_description
 entity_type: nica_entity
@@ -18,4 +16,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: string_long

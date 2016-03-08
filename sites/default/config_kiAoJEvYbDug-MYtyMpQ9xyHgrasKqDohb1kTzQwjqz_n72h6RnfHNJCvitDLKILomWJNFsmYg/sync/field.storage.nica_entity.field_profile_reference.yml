@@ -4,13 +4,12 @@ status: true
 dependencies:
   module:
     - nica_entity
-    - node
 id: nica_entity.field_profile_reference
 field_name: field_profile_reference
 entity_type: nica_entity
 type: entity_reference
 settings:
-  target_type: node
+  target_type: nica_entity
 module: core
 locked: false
 cardinality: 1
