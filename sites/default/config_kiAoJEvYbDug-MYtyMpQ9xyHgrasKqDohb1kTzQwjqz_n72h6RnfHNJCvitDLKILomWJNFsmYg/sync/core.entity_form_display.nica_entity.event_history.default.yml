@@ -8,8 +8,8 @@ dependencies:
     - field.field.nica_entity.event_history.field_event_name
     - field.field.nica_entity.event_history.field_event_photos
     - field.field.nica_entity.event_history.field_event_result
+    - field.field.nica_entity.event_history.field_performance
     - field.field.nica_entity.event_history.field_profile
-    - field.field.nica_entity.event_history.field_project_performance
     - field.field.nica_entity.event_history.field_result
     - nica_entity.content_type.event_history
   module:
@@ -48,12 +48,17 @@ content:
     third_party_settings: {  }
     type: file_generic
   field_event_result:
-    weight: 6
+    weight: 7
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+  field_performance:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   field_profile:
     weight: 0
     settings:
@@ -62,13 +67,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
-  field_project_performance:
-    weight: 7
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textarea
   field_result:
     weight: 5
     settings:

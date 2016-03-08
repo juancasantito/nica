@@ -8,8 +8,8 @@ dependencies:
     - field.field.nica_entity.event_history.field_event_name
     - field.field.nica_entity.event_history.field_event_photos
     - field.field.nica_entity.event_history.field_event_result
+    - field.field.nica_entity.event_history.field_performance
     - field.field.nica_entity.event_history.field_profile
-    - field.field.nica_entity.event_history.field_project_performance
     - field.field.nica_entity.event_history.field_result
     - nica_entity.content_type.event_history
   module:
@@ -54,12 +54,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
-  field_project_performance:
-    weight: 4
+  field_performance:
+    weight: 7
     label: above
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
-    type: text_default
+    type: entity_reference_label
   field_result:
     weight: 6
     label: above

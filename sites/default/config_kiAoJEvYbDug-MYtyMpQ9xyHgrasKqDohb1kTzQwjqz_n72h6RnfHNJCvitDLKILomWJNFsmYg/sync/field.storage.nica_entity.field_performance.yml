@@ -1,16 +1,17 @@
-uuid: 8df18493-bd1f-4ce1-9d00-f5955442f5cb
+uuid: 6b3506ed-4ac4-4402-b400-d39ddd30e91a
 langcode: en
 status: true
 dependencies:
   module:
     - nica_entity
-    - text
-id: nica_entity.field_project_performance
-field_name: field_project_performance
+    - taxonomy
+id: nica_entity.field_performance
+field_name: field_performance
 entity_type: nica_entity
-type: text_long
-settings: {  }
-module: text
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: 1
 translatable: true
