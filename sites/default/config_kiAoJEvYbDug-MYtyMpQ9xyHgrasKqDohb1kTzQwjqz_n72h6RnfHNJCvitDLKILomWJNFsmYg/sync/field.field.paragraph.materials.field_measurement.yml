@@ -1,0 +1,27 @@
+uuid: 0014ee7a-d40a-4d75-ab23-351045aba441
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_measurement
+    - paragraphs.paragraphs_type.materials
+    - taxonomy.vocabulary.measurement
+id: paragraph.materials.field_measurement
+field_name: field_measurement
+entity_type: paragraph
+bundle: materials
+label: Cantidad
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      measurement: measurement
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference
