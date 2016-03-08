@@ -1,0 +1,9 @@
+uuid: 0bc9cbb3-945e-401f-be00-a3156757c2a2
+langcode: en
+status: true
+dependencies: {  }
+name: Measurement
+vid: measurement
+description: ''
+hierarchy: 0
+weight: 0

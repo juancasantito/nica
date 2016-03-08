@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.materials.field_material
+    - field.field.paragraph.materials.field_measurement
     - field.field.paragraph.materials.field_quantity
     - field.field.paragraph.materials.field_value
     - paragraphs.paragraphs_type.materials
@@ -19,6 +20,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+  field_measurement:
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
   field_quantity:
     weight: 2
     settings:
