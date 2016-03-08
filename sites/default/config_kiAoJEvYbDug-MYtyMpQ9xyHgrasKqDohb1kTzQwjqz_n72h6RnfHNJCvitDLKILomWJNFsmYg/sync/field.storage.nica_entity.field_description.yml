@@ -1,16 +1,16 @@
-uuid: 26ad3421-6b3f-4f38-974c-769c8eb321c2
+uuid: a683ca43-b14c-4744-a55c-92c422ce21a2
 langcode: en
 status: true
 dependencies:
   module:
     - nica_entity
-    - text
 id: nica_entity.field_description
 field_name: field_description
 entity_type: nica_entity
-type: text_long
-settings: {  }
-module: text
+type: string_long
+settings:
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

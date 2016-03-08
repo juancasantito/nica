@@ -17,25 +17,25 @@ mode: default
 content:
   field_description_of_responsabil:
     type: string_textfield
-    weight: 0
+    weight: 2
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_employment_date:
-    weight: 1
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
   field_place_of_employment:
-    weight: 2
+    weight: 1
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
   field_profile_reference:
-    weight: 3
+    weight: 0
     settings:
       match_operator: CONTAINS
       size: 60

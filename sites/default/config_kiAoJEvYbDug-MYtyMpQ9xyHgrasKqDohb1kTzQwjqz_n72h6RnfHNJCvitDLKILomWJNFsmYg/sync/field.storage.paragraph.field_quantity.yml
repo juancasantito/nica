@@ -1,4 +1,4 @@
-uuid: aecad27e-c812-4999-b800-d8d8da55b15d
+uuid: d0983811-7b28-41bb-b501-1f62c0bbfcaf
 langcode: en
 status: true
 dependencies:
@@ -7,10 +7,8 @@ dependencies:
 id: paragraph.field_quantity
 field_name: field_quantity
 entity_type: paragraph
-type: decimal
-settings:
-  precision: 10
-  scale: 2
+type: float
+settings: {  }
 module: core
 locked: false
 cardinality: 1

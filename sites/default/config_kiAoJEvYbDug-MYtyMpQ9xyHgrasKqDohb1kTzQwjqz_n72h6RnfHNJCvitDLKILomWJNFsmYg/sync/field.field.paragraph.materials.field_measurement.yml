@@ -10,8 +10,8 @@ id: paragraph.materials.field_measurement
 field_name: field_measurement
 entity_type: paragraph
 bundle: materials
-label: Cantidad
-description: ''
+label: 'Unidad de Medida'
+description: 'Ejemplo: litros, libras, metros, etc.'
 required: false
 translatable: false
 default_value: {  }

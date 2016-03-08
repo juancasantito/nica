@@ -1,10 +1,12 @@
-uuid: 2006023e-ae7a-49f1-8061-97d789987302
+uuid: 9209e02e-3d94-4546-b313-19b9f988ab92
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_quarter
     - nica_entity.content_type.project_history
+  module:
+    - options
 id: nica_entity.project_history.field_quarter
 field_name: field_quarter
 entity_type: nica_entity
@@ -15,9 +17,5 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings:
-  min: null
-  max: null
-  prefix: ''
-  suffix: ''
-field_type: integer
+settings: {  }
+field_type: list_integer

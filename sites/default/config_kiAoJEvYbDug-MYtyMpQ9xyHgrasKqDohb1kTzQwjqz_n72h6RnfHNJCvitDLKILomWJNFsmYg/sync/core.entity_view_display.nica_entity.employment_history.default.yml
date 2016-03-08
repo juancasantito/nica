@@ -17,26 +17,32 @@ mode: default
 content:
   field_description_of_responsabil:
     type: string
-    weight: 2
-    label: above
+    weight: 3
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
   field_employment_date:
-    weight: 0
-    label: above
+    weight: 2
+    label: inline
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: html_date
     third_party_settings: {  }
     type: datetime_default
   field_place_of_employment:
     weight: 1
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+  field_profile_reference:
+    type: entity_reference_label
+    weight: 0
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
 hidden:
-  field_profile_reference: true
   uid: true

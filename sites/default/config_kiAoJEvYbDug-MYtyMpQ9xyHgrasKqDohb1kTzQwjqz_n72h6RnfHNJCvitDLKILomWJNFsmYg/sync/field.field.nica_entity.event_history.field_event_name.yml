@@ -23,5 +23,5 @@ settings:
       event_name: event_name
     sort:
       field: _none
-    auto_create: true
+    auto_create: false
 field_type: entity_reference

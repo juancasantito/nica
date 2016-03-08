@@ -1,0 +1,25 @@
+uuid: 920d5b27-d1b7-4cf5-9f00-a80a2a999988
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_price
+    - paragraphs.paragraphs_type.materials
+id: paragraph.materials.field_price
+field_name: field_price
+entity_type: paragraph
+bundle: materials
+label: Precio
+description: 'Cada unidad de medida.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: c$
+  suffix: ''
+field_type: integer

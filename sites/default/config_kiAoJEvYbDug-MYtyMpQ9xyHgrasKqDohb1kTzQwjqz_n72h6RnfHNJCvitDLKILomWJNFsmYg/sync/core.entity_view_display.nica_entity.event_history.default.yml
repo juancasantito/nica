@@ -4,10 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.nica_entity.event_history.field_description
+    - field.field.nica_entity.event_history.field_event_comments
     - field.field.nica_entity.event_history.field_event_date
     - field.field.nica_entity.event_history.field_event_name
     - field.field.nica_entity.event_history.field_event_photos
-    - field.field.nica_entity.event_history.field_event_result
     - field.field.nica_entity.event_history.field_performance
     - field.field.nica_entity.event_history.field_profile
     - field.field.nica_entity.event_history.field_result
@@ -15,59 +15,64 @@ dependencies:
   module:
     - datetime
     - file
-    - text
 id: nica_entity.event_history.default
 targetEntityType: nica_entity
 bundle: event_history
 mode: default
 content:
   field_description:
-    weight: 2
-    label: above
+    weight: 3
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    type: basic_string
+  field_event_comments:
+    weight: 5
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
   field_event_date:
-    weight: 1
-    label: above
+    weight: 2
+    label: inline
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: html_date
     third_party_settings: {  }
     type: datetime_default
   field_event_name:
-    weight: 0
-    label: above
+    weight: 1
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_event_photos:
-    weight: 3
-    label: above
+    weight: 4
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: file_default
-  field_event_result:
-    weight: 5
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
   field_performance:
-    weight: 7
-    label: above
+    weight: 6
+    label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+  field_profile:
+    type: entity_reference_label
+    weight: 0
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
   field_result:
-    weight: 6
-    label: above
+    weight: 7
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
 hidden:
-  field_profile: true
   uid: true
