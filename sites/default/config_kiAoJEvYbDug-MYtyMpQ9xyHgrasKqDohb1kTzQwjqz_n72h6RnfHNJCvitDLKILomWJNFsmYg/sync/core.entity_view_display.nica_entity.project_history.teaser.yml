@@ -23,7 +23,7 @@ bundle: project_history
 mode: teaser
 content:
   field_project_date:
-    weight: 3
+    weight: 4
     label: inline
     settings:
       timezone_override: ''
@@ -32,20 +32,20 @@ content:
     type: datetime_default
   field_project_group:
     type: entity_reference_label
-    weight: 2
+    weight: 3
     label: inline
     settings:
       link: false
     third_party_settings: {  }
   field_project_leader:
-    weight: 1
+    weight: 2
     label: inline
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_project_name:
-    weight: 0
+    weight: 1
     label: inline
     settings:
       link: true
@@ -53,12 +53,8 @@ content:
     type: entity_reference_label
   field_quarter:
     type: list_default
-    weight: 4
+    weight: 5
     label: inline
-    settings: {  }
-    third_party_settings: {  }
-  links:
-    weight: 100
     settings: {  }
     third_party_settings: {  }
   type:
@@ -74,4 +70,5 @@ hidden:
   field_materials: true
   field_profile_reference: true
   langcode: true
+  links: true
   uid: true
