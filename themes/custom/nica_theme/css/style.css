@@ -1,0 +1,10 @@
+/* Have fun finding this.
+body{display:none;}*/
+article {
+    float:left;
+    clear:left;
+}
+.views-row article {
+    border: 2px groove threedface;
+    width: 100%;
+}

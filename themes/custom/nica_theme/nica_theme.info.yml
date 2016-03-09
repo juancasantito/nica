@@ -1,0 +1,10 @@
+name: Nica Theme
+type: theme
+description: Custom Nica Theme
+package: Appearance
+core: 8.x
+libraries:
+  - nica_theme/global-styling
+
+base theme: bartik
+

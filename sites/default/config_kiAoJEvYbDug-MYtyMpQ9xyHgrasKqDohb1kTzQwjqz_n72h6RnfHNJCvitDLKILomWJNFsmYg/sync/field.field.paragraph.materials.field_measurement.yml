@@ -12,7 +12,7 @@ entity_type: paragraph
 bundle: materials
 label: 'Unidad de Medida'
 description: 'Ejemplo: litros, libras, metros, etc.'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

@@ -57,6 +57,10 @@ content:
     label: inline
     settings: {  }
     third_party_settings: {  }
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_benefit_earned: true
   field_comments_on_result: true

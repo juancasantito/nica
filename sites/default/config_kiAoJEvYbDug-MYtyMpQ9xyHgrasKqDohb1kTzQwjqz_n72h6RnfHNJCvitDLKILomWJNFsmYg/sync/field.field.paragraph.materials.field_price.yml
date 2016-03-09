@@ -11,7 +11,7 @@ entity_type: paragraph
 bundle: materials
 label: Precio
 description: 'Cada unidad de medida.'
-required: false
+required: true
 translatable: false
 default_value:
   -

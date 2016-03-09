@@ -6,6 +6,7 @@
  */
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
+use Drupal\nica_entity\Entity\NicaEntityContentType;
 
 /**
  * Implements hook_help().
@@ -39,6 +40,26 @@ function nica_entity_theme($existing, $type, $theme, $path) {
   ];
   return $theme;
 }
+
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function nica_entity_entity_extra_field_info() {
+  $extra = array();
+  $description = t('Nica entity module element');
+  foreach (NicaEntityContentType::loadMultiple() as $bundle) {
+    $extra['nica_entity'][$bundle->id()]['display']['links'] = array(
+      'label' => t('Links'),
+      'description' => $description,
+      'weight' => 100,
+      'visible' => TRUE,
+    );
+  }
+
+  return $extra;
+}
+
 
 /**
  * Prepares variables for the list of available bundles.

@@ -1,17 +1,18 @@
-uuid: 0404be12-f262-4f6c-b83f-63ab465ad1f2
+uuid: 8d6cab4d-ab24-4a69-910e-14d79927dd82
 langcode: en
 status: true
 dependencies:
   module:
+    - entity_reference_revisions
     - nica_entity
     - paragraphs
 id: nica_entity.field_materials
 field_name: field_materials
 entity_type: nica_entity
-type: entity_reference
+type: entity_reference_revisions
 settings:
   target_type: paragraph
-module: core
+module: entity_reference_revisions
 locked: false
 cardinality: -1
 translatable: true

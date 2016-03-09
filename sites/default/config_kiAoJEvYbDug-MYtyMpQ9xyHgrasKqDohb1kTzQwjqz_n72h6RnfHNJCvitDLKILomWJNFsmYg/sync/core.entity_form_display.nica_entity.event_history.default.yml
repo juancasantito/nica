@@ -7,14 +7,15 @@ dependencies:
     - field.field.nica_entity.event_history.field_event_comments
     - field.field.nica_entity.event_history.field_event_date
     - field.field.nica_entity.event_history.field_event_name
-    - field.field.nica_entity.event_history.field_event_photos
+    - field.field.nica_entity.event_history.field_images
     - field.field.nica_entity.event_history.field_performance
     - field.field.nica_entity.event_history.field_profile
     - field.field.nica_entity.event_history.field_result
+    - image.style.thumbnail
     - nica_entity.content_type.event_history
   module:
     - datetime
-    - file
+    - image
 id: nica_entity.event_history.default
 targetEntityType: nica_entity
 bundle: event_history
@@ -47,12 +48,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
-  field_event_photos:
+  field_images:
     weight: 4
     settings:
       progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
-    type: file_generic
+    type: image_image
   field_performance:
     weight: 5
     settings: {  }
