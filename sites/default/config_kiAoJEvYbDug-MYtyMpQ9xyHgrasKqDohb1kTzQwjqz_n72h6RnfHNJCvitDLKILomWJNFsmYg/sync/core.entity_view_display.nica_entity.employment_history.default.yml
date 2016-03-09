@@ -45,4 +45,5 @@ content:
       link: true
     third_party_settings: {  }
 hidden:
+  links: true
   uid: true

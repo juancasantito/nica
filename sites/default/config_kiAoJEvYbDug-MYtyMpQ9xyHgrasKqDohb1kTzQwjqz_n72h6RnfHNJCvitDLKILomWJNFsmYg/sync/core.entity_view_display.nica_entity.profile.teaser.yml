@@ -84,6 +84,10 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_children: true
   field_current_employment: true

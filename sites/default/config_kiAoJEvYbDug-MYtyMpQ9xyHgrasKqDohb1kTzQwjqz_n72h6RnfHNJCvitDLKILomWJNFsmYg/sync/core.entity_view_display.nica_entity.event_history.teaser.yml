@@ -45,6 +45,10 @@ content:
       image_style: thumbnail
       image_link: ''
     third_party_settings: {  }
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_description: true
   field_event_comments: true

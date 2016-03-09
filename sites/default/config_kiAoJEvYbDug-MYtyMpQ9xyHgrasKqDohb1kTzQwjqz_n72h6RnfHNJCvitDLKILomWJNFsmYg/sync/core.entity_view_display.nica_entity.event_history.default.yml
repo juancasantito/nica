@@ -78,4 +78,5 @@ content:
     third_party_settings: {  }
     type: string
 hidden:
+  links: true
   uid: true
