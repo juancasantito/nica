@@ -88,4 +88,5 @@ content:
     third_party_settings: {  }
     type: options_select
 hidden:
+  langcode: true
   uid: true

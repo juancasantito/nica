@@ -1,14 +1,14 @@
-uuid: 6300885b-03ec-444a-aa20-321d136c52a9
-langcode: en
+uuid: 0e582deb-5765-4396-a05e-945a068560ed
+langcode: es
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.highest_education_completed
+    - taxonomy.vocabulary.marital_status
   module:
     - text
-id: taxonomy_term.highest_education_completed.default
+id: taxonomy_term.marital_status.default
 targetEntityType: taxonomy_term
-bundle: highest_education_completed
+bundle: marital_status
 mode: default
 content:
   description:
