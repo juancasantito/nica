@@ -1,11 +1,12 @@
-uuid: f2a77af6-8bfd-4ebb-9902-2a17a9dbd9c4
+uuid: a8ca484b-671e-491e-a300-ac10c6174102
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_materials
     - nica_entity.content_type.project_history
-    - paragraphs.paragraphs_type.materials
+  module:
+    - entity_reference_revisions
 id: nica_entity.project_history.field_materials
 field_name: field_materials
 entity_type: nica_entity
@@ -25,4 +26,4 @@ settings:
       materials:
         enabled: true
         weight: 2
-field_type: entity_reference
+field_type: entity_reference_revisions

@@ -15,6 +15,7 @@ dependencies:
     - nica_entity.content_type.project_history
   module:
     - datetime
+    - entity_reference_revisions
     - options
 id: nica_entity.project_history.default
 targetEntityType: nica_entity
@@ -34,13 +35,13 @@ content:
     third_party_settings: {  }
     type: basic_string
   field_materials:
+    type: entity_reference_revisions_entity_view
     weight: 8
     label: inline
     settings:
       view_mode: default
-      link: false
+      link: ''
     third_party_settings: {  }
-    type: entity_reference_entity_view
   field_profile_reference:
     type: entity_reference_label
     weight: 0
