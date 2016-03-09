@@ -43,4 +43,5 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
 hidden:
+  langcode: true
   uid: true

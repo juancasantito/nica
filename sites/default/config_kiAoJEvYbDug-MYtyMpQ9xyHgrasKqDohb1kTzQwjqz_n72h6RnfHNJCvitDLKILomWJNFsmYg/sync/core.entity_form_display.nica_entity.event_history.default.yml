@@ -76,4 +76,5 @@ content:
     third_party_settings: {  }
     type: string_textfield
 hidden:
+  langcode: true
   uid: true

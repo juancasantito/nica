@@ -33,7 +33,7 @@ bundle: profile
 mode: teaser
 content:
   field_birthday:
-    weight: 4
+    weight: 5
     label: inline
     settings:
       timezone_override: ''
@@ -41,7 +41,7 @@ content:
     third_party_settings: {  }
     type: datetime_default
   field_first_name:
-    weight: 1
+    weight: 2
     label: inline
     settings:
       link_to_entity: false
@@ -49,28 +49,28 @@ content:
     type: string
   field_images:
     type: image
-    weight: 0
+    weight: 1
     label: inline
     settings:
       image_style: thumbnail
       image_link: ''
     third_party_settings: {  }
   field_last_name:
-    weight: 2
+    weight: 3
     label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_marital_status:
-    weight: 3
+    weight: 4
     label: inline
     settings:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
   field_salary:
-    weight: 5
+    weight: 6
     label: inline
     settings:
       thousand_separator: ','
@@ -78,16 +78,12 @@ content:
     third_party_settings: {  }
     type: number_integer
   field_telephone:
-    weight: 6
+    weight: 7
     label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
   type:
     label: hidden
     type: entity_reference_label
@@ -108,4 +104,5 @@ hidden:
   field_read_write_math: true
   field_special_skills: true
   langcode: true
+  links: true
   uid: true

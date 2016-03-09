@@ -17,7 +17,7 @@ bundle: employment_history
 mode: teaser
 content:
   field_employment_date:
-    weight: 1
+    weight: 2
     label: inline
     settings:
       timezone_override: ''
@@ -25,16 +25,12 @@ content:
     third_party_settings: {  }
     type: datetime_default
   field_place_of_employment:
-    weight: 0
+    weight: 1
     label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
   type:
     label: hidden
     type: entity_reference_label
@@ -46,4 +42,5 @@ hidden:
   field_description_of_responsabil: true
   field_profile_reference: true
   langcode: true
+  links: true
   uid: true
