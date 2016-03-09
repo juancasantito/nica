@@ -1,0 +1,20 @@
+uuid: af0471c9-13a7-4285-8a00-d8076e24beb6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nica_theme
+id: nica_theme_powered
+theme: nica_theme
+region: sidebar_first
+weight: 10
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

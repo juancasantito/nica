@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.nica_entity.teaser
-    - system.menu.main
     - taxonomy.vocabulary.event_name
     - taxonomy.vocabulary.marital_status
     - taxonomy.vocabulary.project_group
@@ -521,7 +520,7 @@ display:
       display_extenders: {  }
       path: search
       menu:
-        type: normal
+        type: none
         title: Search
         description: ''
         expanded: false
