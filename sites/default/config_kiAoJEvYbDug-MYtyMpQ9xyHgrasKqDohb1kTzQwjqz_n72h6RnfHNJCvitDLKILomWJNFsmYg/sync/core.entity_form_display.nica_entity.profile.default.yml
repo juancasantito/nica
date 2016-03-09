@@ -9,6 +9,7 @@ dependencies:
     - field.field.nica_entity.profile.field_first_name
     - field.field.nica_entity.profile.field_highest_education_complete
     - field.field.nica_entity.profile.field_household_income
+    - field.field.nica_entity.profile.field_images
     - field.field.nica_entity.profile.field_job_training
     - field.field.nica_entity.profile.field_languages
     - field.field.nica_entity.profile.field_last_name
@@ -16,15 +17,15 @@ dependencies:
     - field.field.nica_entity.profile.field_national_id
     - field.field.nica_entity.profile.field_number_of_people_in_home
     - field.field.nica_entity.profile.field_other_event
-    - field.field.nica_entity.profile.field_pictures
     - field.field.nica_entity.profile.field_read_write_math
     - field.field.nica_entity.profile.field_salary
     - field.field.nica_entity.profile.field_special_skills
     - field.field.nica_entity.profile.field_telephone
+    - image.style.thumbnail
     - nica_entity.content_type.profile
   module:
     - datetime
-    - file
+    - image
 id: nica_entity.profile.default
 targetEntityType: nica_entity
 bundle: profile
@@ -64,6 +65,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+  field_images:
+    weight: 4
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_image
   field_job_training:
     weight: 16
     settings:
@@ -108,12 +116,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-  field_pictures:
-    weight: 4
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-    type: file_generic
   field_read_write_math:
     type: options_select
     weight: 17

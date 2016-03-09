@@ -1,11 +1,10 @@
-uuid: bf6323aa-5e79-483d-a807-7c3e29be7dd9
+uuid: 0411b57e-f631-42ac-8f55-85a39d0a1e36
 langcode: en
 status: true
 dependencies:
   config:
     - taxonomy.vocabulary.material
   module:
-    - path
     - text
 id: taxonomy_term.material.default
 targetEntityType: taxonomy_term
@@ -25,10 +24,5 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 30
-    settings: {  }
     third_party_settings: {  }
 hidden: {  }

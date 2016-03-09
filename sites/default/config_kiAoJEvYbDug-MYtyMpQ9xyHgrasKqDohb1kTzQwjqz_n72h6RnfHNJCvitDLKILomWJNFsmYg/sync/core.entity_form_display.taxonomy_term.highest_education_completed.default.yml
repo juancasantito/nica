@@ -1,11 +1,10 @@
-uuid: 79ad1ff1-8faf-48d3-8d00-e6d99b1dc49c
+uuid: 6300885b-03ec-444a-aa20-321d136c52a9
 langcode: en
 status: true
 dependencies:
   config:
     - taxonomy.vocabulary.highest_education_completed
   module:
-    - path
     - text
 id: taxonomy_term.highest_education_completed.default
 targetEntityType: taxonomy_term
@@ -13,11 +12,11 @@ bundle: highest_education_completed
 mode: default
 content:
   description:
-    type: text_textfield
+    type: text_textarea
     weight: 0
     settings:
-      size: 60
       placeholder: ''
+      rows: 5
     third_party_settings: {  }
   name:
     type: string_textfield
@@ -25,10 +24,5 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 30
-    settings: {  }
     third_party_settings: {  }
 hidden: {  }
