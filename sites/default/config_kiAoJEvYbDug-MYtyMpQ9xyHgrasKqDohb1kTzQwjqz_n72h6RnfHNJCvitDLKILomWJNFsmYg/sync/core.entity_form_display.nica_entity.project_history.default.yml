@@ -38,11 +38,12 @@ content:
   field_materials:
     weight: 8
     settings:
-      label_singular: ''
-      label_plural: ''
+      form_mode: default
+      override_labels: true
+      label_singular: Material
+      label_plural: Materiales
       allow_new: true
       match_operator: CONTAINS
-      override_labels: false
       allow_existing: false
     third_party_settings: {  }
     type: inline_entity_form_complex

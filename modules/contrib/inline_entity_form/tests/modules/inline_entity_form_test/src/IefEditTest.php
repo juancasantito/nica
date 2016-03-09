@@ -4,33 +4,35 @@ namespace Drupal\inline_entity_form_test;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * Tests Inline entity form element.
  */
-class IefTest extends FormBase {
+class IefEditTest extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormID() {
-    return 'ief_test';
+    return 'ief_edit_test';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $form_mode = 'default') {
+  public function buildForm(array $form, FormStateInterface $form_state, Node $node = NULL, $form_mode = 'default') {
     $form['inline_entity_form'] = [
       '#type' => 'inline_entity_form',
-      '#op' => 'add',
+      '#op' => 'edit',
       '#entity_type' => 'node',
       '#bundle' => 'ief_test_custom',
+      '#default_value' => $node,
       '#form_mode' => $form_mode,
     ];
     $form['submit'] = [
       '#type' => 'submit',
-      '#value' => t('Save'),
+      '#value' => t('Update'),
     ];
     return $form;
   }

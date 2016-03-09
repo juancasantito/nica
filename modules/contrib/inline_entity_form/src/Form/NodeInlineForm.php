@@ -1,23 +1,20 @@
 <?php
 
-/**
- * Contains \Drupal\inline_entity_form\InlineEntityForm\NodeInlineEntityFormHandler.
- */
+namespace Drupal\inline_entity_form\Form;
 
-namespace Drupal\inline_entity_form\InlineEntityForm;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * Node inline form handler.
  */
-class NodeInlineEntityFormHandler extends EntityInlineEntityFormHandler {
+class NodeInlineForm extends EntityInlineForm {
 
   use StringTranslationTrait;
 
   /**
    * {@inheritdoc}
    */
-  public function labels() {
+  public function getEntityTypeLabels() {
     $labels = [
       'singular' => $this->t('node'),
       'plural' => $this->t('nodes'),
@@ -28,20 +25,20 @@ class NodeInlineEntityFormHandler extends EntityInlineEntityFormHandler {
   /**
    * {@inheritdoc}
    */
-  public function tableFields($bundles) {
-    $fields = parent::tableFields($bundles);
+  public function getTableFields($bundles) {
+    $fields = parent::getTableFields($bundles);
 
     $fields['status'] = [
       'type' => 'field',
       'label' => $this->t('Status'),
       'weight' => 100,
-      'display_options' => array(
-        'settings' => array(
+      'display_options' => [
+        'settings' => [
           'format' => 'custom',
           'format_custom_false' => $this->t('Unpublished'),
           'format_custom_true' => $this->t('Published'),
-        ),
-      ),
+        ],
+      ],
     ];
 
     return $fields;

@@ -2,11 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.ief_test_custom.positive_int
-    - node.type.ief_test_custom
-id: node.ief_test_custom.default
+    - node.type.ief_test_complex
+id: node.ief_test_complex.default
 targetEntityType: node
-bundle: ief_test_custom
+bundle: ief_test_complex
 mode: default
 content:
   title:
@@ -21,12 +20,6 @@ content:
     weight: 10
     settings: {  }
     third_party_settings: {  }
-  positive_int:
-    weight: 26
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
   promote:
     type: boolean_checkbox
     settings:
@@ -47,4 +40,31 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  multi:
+    weight: 30
+    settings:
+      match_operator: CONTAINS
+      allow_existing: false
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+  image:
+    type: image_image
+    weight: 4
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  all_bundles:
+    weight: 30
+    settings:
+      match_operator: CONTAINS
+      allow_existing: true
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+    third_party_settings: {  }
+    type: inline_entity_form_complex
 hidden: {  }

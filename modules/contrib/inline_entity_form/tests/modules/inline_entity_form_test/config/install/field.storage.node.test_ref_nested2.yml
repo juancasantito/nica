@@ -1,21 +1,22 @@
-langcode: en
+langcode: und
 status: true
 dependencies:
   module:
     - inline_entity_form_test
+    - entity_reference
     - node
   enforced:
     module:
       - inline_entity_form_test
-id: node.single
-field_name: single
+id: node.test_ref_nested2
+field_name: test_ref_nested2
 entity_type: node
 type: entity_reference
 settings:
   target_type: node
-module: core
+module: entity_reference
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: false
 indexes: {  }
 persist_with_no_fields: false

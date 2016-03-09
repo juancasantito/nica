@@ -7,15 +7,15 @@ dependencies:
   enforced:
     module:
       - inline_entity_form_test
-id: node.single
-field_name: single
+id: node.all_bundles
+field_name: all_bundles
 entity_type: node
 type: entity_reference
 settings:
   target_type: node
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: false
 indexes: {  }
 persist_with_no_fields: false

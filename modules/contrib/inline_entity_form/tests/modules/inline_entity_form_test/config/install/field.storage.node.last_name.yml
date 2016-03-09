@@ -3,17 +3,18 @@ status: true
 dependencies:
   module:
     - inline_entity_form_test
+    - text
     - node
   enforced:
     module:
       - inline_entity_form_test
-id: node.single
-field_name: single
+id: node.last_name
+field_name: last_name
 entity_type: node
-type: entity_reference
+type: text
 settings:
-  target_type: node
-module: core
+  max_length: 255
+module: text
 locked: false
 cardinality: 1
 translatable: false
