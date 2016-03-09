@@ -158,6 +158,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+  type:
+    label: hidden
+    type: string
+    weight: 18
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden:
+  langcode: true
   links: true
   uid: true

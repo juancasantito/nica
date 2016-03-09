@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: profile
-label: Profile
+label: Perfil
 revision: 0
 description: ''

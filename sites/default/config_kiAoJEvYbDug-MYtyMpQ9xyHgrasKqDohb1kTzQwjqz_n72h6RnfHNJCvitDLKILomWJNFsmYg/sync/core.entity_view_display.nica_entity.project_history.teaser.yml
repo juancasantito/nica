@@ -61,9 +61,17 @@ content:
     weight: 100
     settings: {  }
     third_party_settings: {  }
+  type:
+    label: hidden
+    type: entity_reference_label
+    weight: 0
+    settings:
+      link: false
+    third_party_settings: {  }
 hidden:
   field_benefit_earned: true
   field_comments_on_result: true
   field_materials: true
   field_profile_reference: true
+  langcode: true
   uid: true
