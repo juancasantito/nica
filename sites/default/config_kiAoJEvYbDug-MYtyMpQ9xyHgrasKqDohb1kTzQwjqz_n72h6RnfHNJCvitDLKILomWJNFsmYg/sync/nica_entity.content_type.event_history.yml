@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: event_history
-label: 'Event History'
+label: 'Historia de Evento'
 revision: 0
 description: ''

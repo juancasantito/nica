@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: employment_history
-label: 'Employment History'
+label: 'Historia de Empleo'
 revision: 0
 description: ''

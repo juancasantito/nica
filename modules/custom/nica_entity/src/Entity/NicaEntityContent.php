@@ -82,6 +82,15 @@ class NicaEntityContent extends EntityBase {
     // Make user reference configurable in view modes.
     $fields['uid']->setDisplayConfigurable('view', TRUE);
 
+    // Expose the bundle in view modes.
+    $fields['type']
+      ->setDisplayOptions('view', [
+        'label' => 'hidden',
+        'type' => 'string',
+        'weight' => 0,
+      ])
+      ->setDisplayConfigurable('view', TRUE);
+
     return $fields;
   }
 

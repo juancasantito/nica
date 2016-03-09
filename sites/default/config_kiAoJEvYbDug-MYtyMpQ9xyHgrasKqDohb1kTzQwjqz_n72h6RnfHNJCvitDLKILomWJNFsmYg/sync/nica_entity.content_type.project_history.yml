@@ -3,6 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: project_history
-label: 'Project History'
+label: 'Historia de Proyecto'
 revision: 0
 description: ''
