@@ -707,4 +707,4 @@ if (file_exists(__DIR__ . '/settings.local.php')) {
   include __DIR__ . '/settings.local.php';
 }
 $config_directories[CONFIG_SYNC_DIRECTORY] = 'sites/default/config_kiAoJEvYbDug-MYtyMpQ9xyHgrasKqDohb1kTzQwjqz_n72h6RnfHNJCvitDLKILomWJNFsmYg/sync';
-$settings['install_profile'] = 'standard';
+$settings['install_profile'] = 'config_installer';
