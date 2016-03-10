@@ -7,6 +7,7 @@
 
 namespace Drupal\views\Plugin\views\filter;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -114,6 +115,22 @@ class NumericFilter extends FilterPluginBase {
   }
 
   /**
+   * Options form subform for setting the operator.
+   */
+  protected function operatorForm(&$form, FormStateInterface $form_state) {
+    parent::operatorForm($form, $form_state);
+
+    // Set the operator title and subscription if exposed.
+    if ($exposed = $form_state->get('exposed')) {
+      $form['operator']['#title'] = $this->exposedInfo()['label'];
+      $form['operator']['#description'] = $this->exposedInfo()['description'];
+      // Add container to group multiple elements of one filter.
+      // Start enclosure here and finish after input form element.
+      $form['operator']['#prefix'] = '<span class="views-filter-wrapper views-filter-' . Html::cleanCssIdentifier($this->options['expose']['identifier']) . '">';
+    }
+  }
+
+  /**
    * Provide a list of all the numeric operators
    */
   public function operatorOptions($which = 'title') {
@@ -150,6 +167,7 @@ class NumericFilter extends FilterPluginBase {
       $source = ':input[name="options[operator]"]';
     }
 
+    $first_element = 'min';
     if ($exposed = $form_state->get('exposed')) {
       $identifier = $this->options['expose']['identifier'];
 
@@ -159,6 +177,7 @@ class NumericFilter extends FilterPluginBase {
       }
       else {
         $source = ':input[name="' . $this->options['expose']['operator_id'] . '"]';
+        $first_element = 'operator';
       }
     }
 
@@ -199,14 +218,20 @@ class NumericFilter extends FilterPluginBase {
     if ($which == 'all' || $which == 'minmax') {
       $form['value']['min'] = array(
         '#type' => 'textfield',
-        '#title' => !$exposed ? $this->t('Min') : $this->exposedInfo()['label'],
         '#size' => 30,
         '#default_value' => $this->value['min'],
         '#description' => !$exposed ? '' : $this->exposedInfo()['description']
       );
+      if ($exposed && in_array($this->operator, $this->operatorValues(2))) {
+        $form['value']['min']['#title'] = $this->exposedInfo()['label'];
+        $form['value']['min']['#description'] = $this->exposedInfo()['description'];
+      } else {
+        $form['value']['min']['#title'] = $this->t('Min');
+        $form['value']['min']['#description'] = '';
+      }
       $form['value']['max'] = array(
         '#type' => 'textfield',
-        '#title' => !$exposed ? $this->t('And max') : $this->t('And'),
+        '#title' => $exposed ? $this->t('And max') : '',
         '#size' => 30,
         '#default_value' => $this->value['max'],
       );
@@ -235,6 +260,26 @@ class NumericFilter extends FilterPluginBase {
           '#value' => NULL
         );
       }
+    }
+    // Add container to group multiple elements of one filter.
+    if ($first_element == 'min' &&  $which == 'minmax') {
+      // Start enclosure here if there is no select operator.
+      $form['value']['#prefix'] = '<span class="views-filter-wrapper views-filter-' . Html::cleanCssIdentifier($identifier) . '">';
+    }
+    if ($first_element == 'operator' || $which == 'all' || $which == 'minmax') {
+      // End enclosure here if there was more than one form item.
+      $form['value']['#suffix'] = '</span>';
+    }
+
+    // Add class to items with no title.
+    if (empty($form['value']['value']['#title'])) {
+      $form['value']['value']['#attributes']['class'][] = 'no-label';
+    }
+    if (empty($form['value']['min']['#title'])) {
+      $form['value']['min']['#attributes']['class'][] = 'no-label';
+      }
+    if (empty($form['value']['max']['#title'])) {
+      $form['value']['max']['#attributes']['class'][] = 'no-label';
     }
   }
 

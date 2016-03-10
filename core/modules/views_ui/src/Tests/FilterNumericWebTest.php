@@ -112,6 +112,80 @@ class FilterNumericWebTest extends UITestBase {
     $this->assertRaw('<label for="edit-age-min">Age between</label>', 'Min field label found');
     // Check that the description is shown in the right place.
     $this->assertEqual(trim($this->cssSelect('.form-item-age-min .description')[0]), 'Description of the exposed filter');
-  }
 
+    // Test if label and description are still visible if you have more than one
+    // exposed filter form element (select and one input, select and two inputs,
+    // or two inputs.
+    $label = 'Age filter';
+    $label_not_found = 'Label not found on other form item.';
+    $description = 'Age filter description';
+    $description_not_found = 'Description not found on (other) form item';
+
+    // Prepare view with numeric filter.
+    $this->drupalGet('admin/structure/views/nojs/handler/test_view/default/filter/age');
+
+    // Test the selector and value, min and max fields have the correct label
+    // and no description when viewed in the settings UI.
+    $this->assertEqual(trim($this->cssSelect('#edit-options-operator--wrapper .fieldset-legend')[0]), 'Operator');
+    // When the isNull and notIsNull options are available the total number of
+    // options > 10, so they get rendered as a select.
+    //$this->assertEqual(trim($this->cssSelect('.form-item-options-operator label')[0]), 'Operator');
+    $this->assertEqual(count($this->cssSelect('.form-item-options-operator description')), 0, $description_not_found);
+    $this->assertEqual(trim($this->cssSelect('.form-item-options-value-value label')[0]), 'Value');
+    $this->assertEqual(count($this->cssSelect('.form-item-options-value-value description')), 0, $description_not_found);
+    $this->assertEqual(trim($this->cssSelect('.form-item-options-value-min label')[0]), 'Min');
+    $this->assertEqual(count($this->cssSelect('.form-item-options-value-min description')), 0, $description_not_found);
+    $this->assertEqual(trim($this->cssSelect('.form-item-options-value-max label')[0]), 'And max');
+    $this->assertEqual(count($this->cssSelect('.form-item-options-value-max description')), 0, $description_not_found);
+
+    // First try two inputs, no select.
+    $edit = array();
+    $edit['options[expose][label]'] = $label;
+    $edit['options[expose][description]'] = $description;
+    $edit['options[value][min]'] = 26;
+    $edit['options[value][max]'] = 28;
+    $edit['options[operator]'] = 'between';
+    $this->drupalPostForm(NULL, $edit, t('Apply'));
+    $this->drupalPostForm('admin/structure/views/view/test_view', array(), t('Save'));
+    $this->assertConfigSchemaByName('views.view.test_view');
+    $this->drupalPostForm(NULL, array(), t('Update preview'));
+    // The first form item should have the label and description: the min field.
+    $this->assertEqual(trim($this->cssSelect('.form-item-age-min label')[0]), $label);
+    $this->assertEqual(trim($this->cssSelect('.form-item-age-min .description')[0]), $description);
+    // The other form item should have no label or description: the max field.
+    $this->assertEqual(count($this->cssSelect('.form-item-age-max label')), 0, $label_not_found);
+    $this->assertEqual(count($this->cssSelect('.form-item-age-max .description')), 0, $description_not_found);
+
+    // Next try two inputs and one select.
+    $this->drupalGet('admin/structure/views/nojs/handler/test_view/default/filter/age');
+    $edit = array();
+    $edit['options[expose][use_operator]'] = 1;
+    $this->drupalPostForm(NULL, $edit, t('Apply'));
+    $this->drupalPostForm('admin/structure/views/view/test_view', array(), t('Save'));
+    $this->assertConfigSchemaByName('views.view.test_view');
+    $this->drupalPostForm(NULL, array(), t('Update preview'));
+    // The first form item should have the label and description: the select.
+    $this->assertEqual(trim($this->cssSelect('.form-item-age-op label')[0]), $label);
+    $this->assertEqual(trim($this->cssSelect('.form-item-age-op .description')[0]), $description);
+    // The other form items should have no label or description: the min and max field.
+    $this->assertEqual(count($this->cssSelect('.form-item-age-min label')), 0, $label_not_found);
+    $this->assertEqual(count($this->cssSelect('.form-item-age-min .description')), 0, $description_not_found);
+    $this->assertEqual(count($this->cssSelect('.form-item-age-max label')), 0, $label_not_found);
+    $this->assertEqual(count($this->cssSelect('.form-item-age-max .description')), 0, $description_not_found);
+
+    // Last try one inputs and one select.
+    $this->drupalGet('admin/structure/views/nojs/handler/test_view/default/filter/age');
+    $edit = array();
+    $edit['options[operator]'] = '<';
+    $this->drupalPostForm(NULL, $edit, t('Apply'));
+    $this->drupalPostForm('admin/structure/views/view/test_view', array(), t('Save'));
+    $this->assertConfigSchemaByName('views.view.test_view');
+    $this->drupalPostForm(NULL, array(), t('Update preview'));
+    // The first form item should have the label and description: the select.
+    $this->assertEqual(trim($this->cssSelect('.form-item-age-op label')[0]), $label);
+    $this->assertEqual(trim($this->cssSelect('.form-item-age-op .description')[0]), $description);
+    // The other form item should have no label or description: the value field.
+    $this->assertEqual(count($this->cssSelect('.form-item-age-value label')), 0, $label_not_found);
+    $this->assertEqual(count($this->cssSelect('.form-item-age-value .description')), 0, $description_not_found);
+  }
 }
