@@ -1,0 +1,9 @@
+uuid: 1034b042-c4ed-4559-ae01-1cf2a5f0cd91
+langcode: es
+status: true
+dependencies: {  }
+name: 'Event City'
+vid: event_city
+description: ''
+hierarchy: 0
+weight: 0
