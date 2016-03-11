@@ -1,0 +1,37 @@
+/**
+ * @file
+ * Visual styles for Nica Theme's nica component.
+ */
+
+.nica__content {
+  font-size: 1.071em;
+  margin-top: 10px;
+}
+
+/* View mode teaser styles. */
+.nica--view-mode-teaser {
+  border-bottom: 1px solid #d3d7d9;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+}
+.nica--view-mode-teaser h2 {
+  margin-top: 0;
+  padding-top: 0.5em;
+}
+.nica--view-mode-teaser h2 a {
+  color: #181818;
+}
+.nica--view-mode-teaser .nica__content {
+  clear: none;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+/* nica links styles. */
+.nica__links {
+  text-align: right; /* LTR */
+  font-size: 0.93em;
+}
+[dir="rtl"] .nica__links {
+  text-align: left;
+}

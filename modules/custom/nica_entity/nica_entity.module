@@ -4,9 +4,12 @@
  * @file
  *   Contains the nica_entity.module file for the Nica Entity module.
  */
+
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
 use Drupal\nica_entity\Entity\NicaEntityContentType;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Template\Attribute;
 
 /**
  * Implements hook_help().
@@ -60,6 +63,51 @@ function nica_entity_entity_extra_field_info() {
   return $extra;
 }
 
+/**
+ * Prepares variables for nica_entity templates.
+ *
+ * Default template: nica-entity.html.twig.
+ *
+ * Most themes use their own copy of nica-entity.html.twig. The default is located
+ * inside "nica-entity/templates/nica-entity.html.twig". Look in there for the
+ * full list of variables.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An array of elements to display in view mode.
+ *   - nica_entity: The nica entity.
+ *   - view_mode: View mode; e.g., 'full', 'teaser', etc.
+ */
+function template_preprocess_nica_entity(&$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  // Provide a distinct $teaser boolean.
+  $variables['teaser'] = $variables['view_mode'] == 'teaser';
+  $variables['nica_entity'] = $variables['elements']['#nica_entity'];
+  /** @var \Drupal\nica_entity\Entity\NicaEntityContent $nica_entity */
+  $nica_entity = $variables['nica_entity'];
+  $variables['date'] = drupal_render($variables['elements']['created']);
+  unset($variables['elements']['created']);
+  $variables['author_name'] = drupal_render($variables['elements']['uid']);
+  unset($variables['elements']['uid']);
+
+  $variables['url'] = $nica_entity->url('canonical', array(
+    'language' => $nica_entity->language(),
+  ));
+  $variables['label'] = $nica_entity->label();
+
+  // Helpful $content variable for templates.
+  $variables += array('content' => array());
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+
+  // Display post information only on certain nica_entity types.
+  // Used by RDF to add attributes around the author and date submitted.
+  $variables['author_attributes'] = new Attribute();
+
+  // Add article ARIA role.
+  $variables['attributes']['role'] = 'article';
+}
 
 /**
  * Prepares variables for the list of available bundles.

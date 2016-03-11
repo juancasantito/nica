@@ -34,7 +34,7 @@ mode: teaser
 content:
   field_birthday:
     weight: 5
-    label: inline
+    label: above
     settings:
       timezone_override: ''
       format_type: html_date
@@ -42,7 +42,7 @@ content:
     type: datetime_default
   field_first_name:
     weight: 2
-    label: inline
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -50,28 +50,28 @@ content:
   field_images:
     type: image
     weight: 1
-    label: inline
+    label: above
     settings:
       image_style: thumbnail
       image_link: ''
     third_party_settings: {  }
   field_last_name:
     weight: 3
-    label: inline
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_marital_status:
     weight: 4
-    label: inline
+    label: above
     settings:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
   field_salary:
     weight: 6
-    label: inline
+    label: above
     settings:
       thousand_separator: ','
       prefix_suffix: true
@@ -79,7 +79,7 @@ content:
     type: number_integer
   field_telephone:
     weight: 7
-    label: inline
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }

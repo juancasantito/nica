@@ -1,0 +1,14 @@
+palette:
+  top: '#002f56'
+  bottom: '#002f56'
+  bg: '#ffffff'
+  sidebar: '#f1f4f0'
+  sidebarborders: '#ededed'
+  footer: '#1f1d1c'
+  titleslogan: '#fffeff'
+  text: '#888888'
+  link: '#7fb438'
+logo: 'public://color/nica_theme-ae561bf8/logo.svg'
+stylesheets: {  }
+files:
+  - 'public://color/nica_theme-ae561bf8/logo.svg'

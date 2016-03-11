@@ -59,7 +59,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 5
+          items_per_page: 20
           offset: 0
           id: 0
           total_pages: null
@@ -90,6 +90,47 @@ display:
           view_mode: teaser
       fields: {  }
       filters:
+        type:
+          id: type
+          table: nica_entity_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: 'Tipo de Curriculo'
+            description: ''
+            use_operator: false
+            operator: type_op
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: nica_entity
+          entity_field: type
+          plugin_id: bundle
         field_first_name_value_1:
           id: field_first_name_value_1
           table: nica_entity__field_first_name
@@ -297,6 +338,46 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
+        field_quarter_value:
+          id: field_quarter_value
+          table: nica_entity__field_quarter
+          field: field_quarter_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_quarter_value_op
+            label: 'Trimestre del Proyecto'
+            description: ''
+            use_operator: false
+            operator: field_quarter_value_op
+            identifier: field_quarter_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
         field_project_name_target_id_1:
           id: field_project_name_target_id_1
           table: nica_entity__field_project_name
@@ -342,46 +423,6 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
-        field_quarter_value:
-          id: field_quarter_value
-          table: nica_entity__field_quarter
-          field: field_quarter_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_quarter_value_op
-            label: 'Trimestre del Proyecto'
-            description: ''
-            use_operator: false
-            operator: field_quarter_value_op
-            identifier: field_quarter_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          plugin_id: list_field
         field_project_group_target_id:
           id: field_project_group_target_id
           table: nica_entity__field_project_group
@@ -488,7 +529,7 @@ display:
           entity_type: nica_entity
           entity_field: created
           plugin_id: date
-      title: 'Perfiles y Historias'
+      title: 'Perfiles e Historias'
       header: {  }
       footer: {  }
       empty: {  }
