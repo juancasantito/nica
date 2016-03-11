@@ -1,0 +1,66 @@
+{#
+/**
+ * @file
+ * Nica Theme's theme implementation to display a nica_entity.
+ *
+ * Available variables:
+ * - nica_entity: The nica entity with limited access to object properties and methods.
+     Only "getter" methods (method names starting with "get", "has", or "is")
+     and a few common methods such as "id" and "label" are available. Calling
+     other methods (such as nica_entity.delete) will result in an exception.
+ * - label: The title of the nica entity.
+ * - content: All nica_entity items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - metadata: Metadata for this nica_entity.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current nica_entity.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - nica_entity: The current template type (also known as a "theming hook").
+ *   - nica--type-[type]: The current nica_entity type. For example, if the nica_entity is an
+ *     "Profile" it would result in "nica_entity--type-profile". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - nica--view-mode-[view_mode]: The View Mode of the nica_entity; for example, a
+ *     teaser would result in: "nica--view-mode-teaser", and
+ *     full: "nica--view-mode-full".
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the nica_entity tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   nica_entity cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ */
+#}
+{%
+set classes = [
+'nica',
+'nica--type-' ~ nica_entity.bundle|clean_class,
+view_mode ? 'nica--view-mode-' ~ view_mode|clean_class,
+'clearfix',
+]
+%}
+<article{{ attributes.addClass(classes) }}>
+  <header>
+    {{ title_prefix }}
+    {{ title_suffix }}
+  </header>
+  <div{{ content_attributes.addClass('nica__content', 'clearfix') }}>
+    {{ content }}
+  </div>
+</article>

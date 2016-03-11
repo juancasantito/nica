@@ -4,6 +4,7 @@ module:
   automated_cron: 0
   block: 0
   breakpoint: 0
+  color: 0
   config: 0
   content_entity_base: 0
   contextual: 0
@@ -45,3 +46,4 @@ theme:
   seven: 0
   stable: 0
   nica_theme: 0
+langcode: es

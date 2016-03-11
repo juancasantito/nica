@@ -24,7 +24,7 @@ mode: teaser
 content:
   field_event_date:
     weight: 2
-    label: inline
+    label: above
     settings:
       timezone_override: ''
       format_type: html_date
@@ -32,15 +32,15 @@ content:
     type: datetime_default
   field_event_name:
     weight: 1
-    label: inline
+    label: above
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
   field_images:
     type: image
     weight: 3
-    label: inline
+    label: above
     settings:
       image_style: thumbnail
       image_link: ''

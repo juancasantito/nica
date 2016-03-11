@@ -18,7 +18,7 @@ mode: teaser
 content:
   field_employment_date:
     weight: 2
-    label: inline
+    label: above
     settings:
       timezone_override: ''
       format_type: html_date
@@ -26,7 +26,7 @@ content:
     type: datetime_default
   field_place_of_employment:
     weight: 1
-    label: inline
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
