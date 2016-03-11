@@ -1,0 +1,21 @@
+uuid: f5408399-4fa2-4254-9c00-c0f69828c4e9
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_gender
+    - nica_entity.content_type.profile
+  module:
+    - options
+id: nica_entity.profile.field_gender
+field_name: field_gender
+entity_type: nica_entity
+bundle: profile
+label: Género
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

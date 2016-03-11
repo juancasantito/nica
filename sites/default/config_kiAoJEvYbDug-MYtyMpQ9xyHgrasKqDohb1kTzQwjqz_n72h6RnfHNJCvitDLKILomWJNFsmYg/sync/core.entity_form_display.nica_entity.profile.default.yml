@@ -7,6 +7,7 @@ dependencies:
     - field.field.nica_entity.profile.field_children
     - field.field.nica_entity.profile.field_current_employment
     - field.field.nica_entity.profile.field_first_name
+    - field.field.nica_entity.profile.field_gender
     - field.field.nica_entity.profile.field_highest_education_complete
     - field.field.nica_entity.profile.field_household_income
     - field.field.nica_entity.profile.field_images
@@ -32,17 +33,17 @@ bundle: profile
 mode: default
 content:
   field_birthday:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
   field_children:
-    weight: 7
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_select
   field_current_employment:
-    weight: 12
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -55,25 +56,30 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+  field_gender:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   field_highest_education_complete:
-    weight: 11
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: options_select
   field_household_income:
-    weight: 9
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     type: options_select
   field_images:
-    weight: 4
+    weight: 5
     settings:
       preview_image_style: thumbnail
       progress_indicator: throbber
     third_party_settings: {  }
     type: image_image
   field_job_training:
-    weight: 15
+    weight: 16
     settings:
       match_operator: CONTAINS
       size: 60
@@ -88,24 +94,24 @@ content:
     third_party_settings: {  }
     type: string_textfield
   field_marital_status:
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: options_select
   field_national_id:
-    weight: 2
+    weight: 3
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
   field_number_of_people_in_home:
-    weight: 8
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     type: options_select
   field_other_event:
-    weight: 13
+    weight: 14
     settings:
       size: 60
       placeholder: ''
@@ -113,17 +119,17 @@ content:
     type: string_textfield
   field_read_write_math:
     type: options_select
-    weight: 16
+    weight: 17
     settings: {  }
     third_party_settings: {  }
   field_salary:
-    weight: 10
+    weight: 11
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
   field_special_skills:
-    weight: 14
+    weight: 15
     settings:
       match_operator: CONTAINS
       size: 60
@@ -131,7 +137,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
   field_telephone:
-    weight: 5
+    weight: 6
     settings:
       size: 60
       placeholder: ''

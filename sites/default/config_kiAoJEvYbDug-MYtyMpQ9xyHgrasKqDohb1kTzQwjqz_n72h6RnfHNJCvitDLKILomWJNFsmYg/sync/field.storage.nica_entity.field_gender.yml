@@ -1,0 +1,27 @@
+uuid: 8d0d5587-66ba-4746-b600-a075804503eb
+langcode: es
+status: true
+dependencies:
+  module:
+    - nica_entity
+    - options
+id: nica_entity.field_gender
+field_name: field_gender
+entity_type: nica_entity
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: female
+      label: Mujer
+    -
+      value: male
+      label: Hombre
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -7,6 +7,7 @@ dependencies:
     - field.field.nica_entity.profile.field_children
     - field.field.nica_entity.profile.field_current_employment
     - field.field.nica_entity.profile.field_first_name
+    - field.field.nica_entity.profile.field_gender
     - field.field.nica_entity.profile.field_highest_education_complete
     - field.field.nica_entity.profile.field_household_income
     - field.field.nica_entity.profile.field_images
@@ -34,7 +35,7 @@ mode: default
 content:
   field_birthday:
     type: datetime_default
-    weight: 3
+    weight: 4
     label: above
     settings:
       timezone_override: ''
@@ -42,13 +43,13 @@ content:
     third_party_settings: {  }
   field_children:
     type: list_default
-    weight: 7
+    weight: 8
     label: above
     settings: {  }
     third_party_settings: {  }
   field_current_employment:
     type: string
-    weight: 12
+    weight: 13
     label: above
     settings:
       link_to_entity: false
@@ -60,21 +61,27 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+  field_gender:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
   field_highest_education_complete:
     type: entity_reference_label
-    weight: 11
+    weight: 12
     label: above
     settings:
       link: false
     third_party_settings: {  }
   field_household_income:
     type: list_default
-    weight: 9
+    weight: 10
     label: above
     settings: {  }
     third_party_settings: {  }
   field_images:
-    weight: 4
+    weight: 5
     label: above
     settings:
       image_style: large
@@ -83,14 +90,14 @@ content:
     type: image
   field_job_training:
     type: entity_reference_label
-    weight: 16
+    weight: 17
     label: above
     settings:
       link: false
     third_party_settings: {  }
   field_languages:
     type: entity_reference_label
-    weight: 13
+    weight: 14
     label: above
     settings:
       link: false
@@ -104,41 +111,41 @@ content:
     third_party_settings: {  }
   field_marital_status:
     type: entity_reference_label
-    weight: 6
+    weight: 7
     label: above
     settings:
       link: false
     third_party_settings: {  }
   field_national_id:
     type: string
-    weight: 2
+    weight: 3
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
   field_number_of_people_in_home:
     type: list_key
-    weight: 8
+    weight: 9
     label: above
     settings: {  }
     third_party_settings: {  }
   field_other_event:
     type: string
-    weight: 14
+    weight: 15
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
   field_read_write_math:
     type: entity_reference_label
-    weight: 17
+    weight: 18
     label: above
     settings:
       link: false
     third_party_settings: {  }
   field_salary:
     type: number_integer
-    weight: 10
+    weight: 11
     label: above
     settings:
       thousand_separator: ','
@@ -146,18 +153,19 @@ content:
     third_party_settings: {  }
   field_special_skills:
     type: entity_reference_label
-    weight: 15
+    weight: 16
     label: above
     settings:
       link: false
     third_party_settings: {  }
   field_telephone:
     type: string
-    weight: 5
+    weight: 6
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
+
 hidden:
   langcode: true
   links: true
