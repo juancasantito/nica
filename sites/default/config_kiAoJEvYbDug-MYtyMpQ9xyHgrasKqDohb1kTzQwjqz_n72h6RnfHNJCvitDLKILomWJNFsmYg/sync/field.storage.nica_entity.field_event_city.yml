@@ -1,0 +1,20 @@
+uuid: e787c1bd-9065-48c0-9403-03c5f0324324
+langcode: es
+status: true
+dependencies:
+  module:
+    - nica_entity
+    - taxonomy
+id: nica_entity.field_event_city
+field_name: field_event_city
+entity_type: nica_entity
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
