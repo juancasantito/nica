@@ -8,6 +8,7 @@ dependencies:
     - field.field.nica_entity.profile.field_children
     - field.field.nica_entity.profile.field_current_employment
     - field.field.nica_entity.profile.field_first_name
+    - field.field.nica_entity.profile.field_gender
     - field.field.nica_entity.profile.field_highest_education_complete
     - field.field.nica_entity.profile.field_household_income
     - field.field.nica_entity.profile.field_images
@@ -27,13 +28,14 @@ dependencies:
   module:
     - datetime
     - image
+    - options
 id: nica_entity.profile.teaser
 targetEntityType: nica_entity
 bundle: profile
 mode: teaser
 content:
   field_birthday:
-    weight: 5
+    weight: 6
     label: above
     settings:
       timezone_override: ''
@@ -47,6 +49,12 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+  field_gender:
+    type: list_key
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_images:
     type: image
     weight: 1
@@ -63,14 +71,14 @@ content:
     third_party_settings: {  }
     type: string
   field_marital_status:
-    weight: 4
+    weight: 5
     label: above
     settings:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
   field_salary:
-    weight: 6
+    weight: 7
     label: above
     settings:
       thousand_separator: ','
@@ -78,7 +86,7 @@ content:
     third_party_settings: {  }
     type: number_integer
   field_telephone:
-    weight: 7
+    weight: 8
     label: above
     settings:
       link_to_entity: false
