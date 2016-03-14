@@ -1,27 +1,21 @@
-uuid: bc1eeaf5-1f7a-4cb2-8027-399e07d472a6
-langcode: en
+uuid: c33e8fa2-fdeb-4e6f-b107-7c8db3447d50
+langcode: es
 status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_project_leader
     - nica_entity.content_type.project_history
-    - taxonomy.vocabulary.project_leader
+  module:
+    - options
 id: nica_entity.project_history.field_project_leader
 field_name: field_project_leader
 entity_type: nica_entity
 bundle: project_history
-label: 'Líder del Proyecto'
+label: 'Líder del proyecto'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings:
-  handler: 'default:taxonomy_term'
-  handler_settings:
-    target_bundles:
-      project_leader: project_leader
-    sort:
-      field: _none
-    auto_create: false
-field_type: entity_reference
+settings: {  }
+field_type: list_string

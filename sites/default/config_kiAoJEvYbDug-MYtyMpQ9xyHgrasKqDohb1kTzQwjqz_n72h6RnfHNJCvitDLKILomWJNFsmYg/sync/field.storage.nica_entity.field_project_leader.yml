@@ -1,17 +1,24 @@
-uuid: 5c0d47fa-d8e8-4935-9f00-ab7ea6c853fe
-langcode: en
+uuid: 8743d686-44c3-409a-9a00-b5bdece1d1dd
+langcode: es
 status: true
 dependencies:
   module:
     - nica_entity
-    - taxonomy
+    - options
 id: nica_entity.field_project_leader
 field_name: field_project_leader
 entity_type: nica_entity
-type: entity_reference
+type: list_string
 settings:
-  target_type: taxonomy_term
-module: core
+  allowed_values:
+    -
+      value: 'true'
+      label: Si
+    -
+      value: 'false'
+      label: 'No'
+  allowed_values_function: ''
+module: options
 locked: false
 cardinality: 1
 translatable: true
