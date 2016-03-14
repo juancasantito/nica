@@ -67,13 +67,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_project_leader:
-    type: entity_reference_autocomplete
     weight: 3
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: options_select
   field_project_name:
     weight: 1
     settings:
