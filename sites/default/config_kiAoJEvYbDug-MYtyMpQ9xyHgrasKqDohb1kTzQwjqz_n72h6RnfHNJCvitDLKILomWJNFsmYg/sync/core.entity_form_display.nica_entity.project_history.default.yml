@@ -32,10 +32,11 @@ content:
   field_city:
     weight: 4
     settings:
+      match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: entity_reference_autocomplete
   field_comments_on_result:
     weight: 8
     settings:

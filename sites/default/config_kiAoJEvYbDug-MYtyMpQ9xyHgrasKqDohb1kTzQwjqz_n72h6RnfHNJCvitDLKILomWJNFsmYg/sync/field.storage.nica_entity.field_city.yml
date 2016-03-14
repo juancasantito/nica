@@ -1,17 +1,16 @@
-uuid: 8d66b48a-90fc-435d-b209-9cce3ebca60c
+uuid: 6df29448-77ab-46cb-845e-9446daea9809
 langcode: es
 status: true
 dependencies:
   module:
     - nica_entity
+    - taxonomy
 id: nica_entity.field_city
 field_name: field_city
 entity_type: nica_entity
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1

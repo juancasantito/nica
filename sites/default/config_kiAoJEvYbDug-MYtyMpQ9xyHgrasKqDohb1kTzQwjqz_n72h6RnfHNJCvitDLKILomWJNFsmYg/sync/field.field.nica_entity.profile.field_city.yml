@@ -1,19 +1,27 @@
-uuid: ce405243-f7bf-4d58-b705-5c1000382685
+uuid: 51315e48-ea65-4241-b85c-92929844bb5e
 langcode: es
 status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_city
     - nica_entity.content_type.profile
+    - taxonomy.vocabulary.city
 id: nica_entity.profile.field_city
 field_name: field_city
 entity_type: nica_entity
 bundle: profile
-label: Ciudad
+label: 'Ciudad '
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      city: city
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

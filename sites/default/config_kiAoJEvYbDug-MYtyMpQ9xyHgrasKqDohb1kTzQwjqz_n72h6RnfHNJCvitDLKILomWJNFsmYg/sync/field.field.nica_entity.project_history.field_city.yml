@@ -1,10 +1,11 @@
-uuid: 866b9214-7696-4993-815a-90199c867950
+uuid: a92765a9-ff8f-4aba-9f00-b1267981897a
 langcode: es
 status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_city
     - nica_entity.content_type.project_history
+    - taxonomy.vocabulary.city
 id: nica_entity.project_history.field_city
 field_name: field_city
 entity_type: nica_entity
@@ -15,5 +16,12 @@ required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      city: city
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference
