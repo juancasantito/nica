@@ -1,0 +1,19 @@
+uuid: 959748e2-ffc8-46fc-b732-50900968c03e
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_city
+    - nica_entity.content_type.event_history
+id: nica_entity.event_history.field_city
+field_name: field_city
+entity_type: nica_entity
+bundle: event_history
+label: 'Ciudad del Evento'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

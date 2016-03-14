@@ -4,11 +4,14 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.nica_entity.teaser
+    - field.field.nica_entity.profile.field_address
     - field.field.nica_entity.profile.field_birthday
     - field.field.nica_entity.profile.field_children
+    - field.field.nica_entity.profile.field_city
     - field.field.nica_entity.profile.field_current_employment
     - field.field.nica_entity.profile.field_first_name
     - field.field.nica_entity.profile.field_gender
+    - field.field.nica_entity.profile.field_gps_coordinates
     - field.field.nica_entity.profile.field_highest_education_complete
     - field.field.nica_entity.profile.field_household_income
     - field.field.nica_entity.profile.field_images
@@ -100,8 +103,11 @@ content:
       link: false
     third_party_settings: {  }
 hidden:
+  field_address: true
   field_children: true
+  field_city: true
   field_current_employment: true
+  field_gps_coordinates: true
   field_highest_education_complete: true
   field_household_income: true
   field_job_training: true

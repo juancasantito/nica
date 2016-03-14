@@ -1,0 +1,19 @@
+uuid: 866b9214-7696-4993-815a-90199c867950
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_city
+    - nica_entity.content_type.project_history
+id: nica_entity.project_history.field_city
+field_name: field_city
+entity_type: nica_entity
+bundle: project_history
+label: 'Ciudad del Proyecto'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -3,11 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.nica_entity.profile.field_address
     - field.field.nica_entity.profile.field_birthday
     - field.field.nica_entity.profile.field_children
+    - field.field.nica_entity.profile.field_city
     - field.field.nica_entity.profile.field_current_employment
     - field.field.nica_entity.profile.field_first_name
     - field.field.nica_entity.profile.field_gender
+    - field.field.nica_entity.profile.field_gps_coordinates
     - field.field.nica_entity.profile.field_highest_education_complete
     - field.field.nica_entity.profile.field_household_income
     - field.field.nica_entity.profile.field_images
@@ -26,6 +29,7 @@ dependencies:
     - nica_entity.content_type.profile
   module:
     - datetime
+    - geolocation
     - image
     - options
 id: nica_entity.profile.default
@@ -33,6 +37,13 @@ targetEntityType: nica_entity
 bundle: profile
 mode: default
 content:
+  field_address:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
   field_birthday:
     type: datetime_default
     weight: 4
@@ -43,13 +54,20 @@ content:
     third_party_settings: {  }
   field_children:
     type: list_default
-    weight: 8
+    weight: 11
     label: above
     settings: {  }
     third_party_settings: {  }
+  field_city:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
   field_current_employment:
     type: string
-    weight: 13
+    weight: 16
     label: above
     settings:
       link_to_entity: false
@@ -67,16 +85,29 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: list_default
+  field_gps_coordinates:
+    weight: 9
+    label: above
+    settings:
+      type: ROADMAP
+      zoom: 10
+      height: 400px
+      width: 100%
+      title: ''
+      info_text: ''
+      info_auto_display: true
+    third_party_settings: {  }
+    type: geolocation_map
   field_highest_education_complete:
     type: entity_reference_label
-    weight: 12
+    weight: 15
     label: above
     settings:
       link: false
     third_party_settings: {  }
   field_household_income:
     type: list_default
-    weight: 10
+    weight: 13
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -90,14 +121,14 @@ content:
     type: image
   field_job_training:
     type: entity_reference_label
-    weight: 17
+    weight: 20
     label: above
     settings:
       link: false
     third_party_settings: {  }
   field_languages:
     type: entity_reference_label
-    weight: 14
+    weight: 17
     label: above
     settings:
       link: false
@@ -111,7 +142,7 @@ content:
     third_party_settings: {  }
   field_marital_status:
     type: entity_reference_label
-    weight: 7
+    weight: 10
     label: above
     settings:
       link: false
@@ -125,27 +156,27 @@ content:
     third_party_settings: {  }
   field_number_of_people_in_home:
     type: list_key
-    weight: 9
+    weight: 12
     label: above
     settings: {  }
     third_party_settings: {  }
   field_other_event:
     type: string
-    weight: 15
+    weight: 18
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
   field_read_write_math:
     type: entity_reference_label
-    weight: 18
+    weight: 21
     label: above
     settings:
       link: false
     third_party_settings: {  }
   field_salary:
     type: number_integer
-    weight: 11
+    weight: 14
     label: above
     settings:
       thousand_separator: ','
@@ -153,7 +184,7 @@ content:
     third_party_settings: {  }
   field_special_skills:
     type: entity_reference_label
-    weight: 16
+    weight: 19
     label: above
     settings:
       link: false
