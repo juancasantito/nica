@@ -8,9 +8,10 @@ mysql:
   encoding: utf8
 git:
   depth: 3
-before_install:
+before_script:
 - phpenv config-rm xdebug.ini
 - phpenv rehash
+before_install:
 - composer self-update
 - pwd
 - rm sites/default/settings.php
