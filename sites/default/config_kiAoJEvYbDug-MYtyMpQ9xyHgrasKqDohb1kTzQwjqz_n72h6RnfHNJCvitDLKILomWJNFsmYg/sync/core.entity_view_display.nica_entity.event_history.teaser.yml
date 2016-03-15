@@ -11,7 +11,7 @@ dependencies:
     - field.field.nica_entity.event_history.field_event_name
     - field.field.nica_entity.event_history.field_event_result
     - field.field.nica_entity.event_history.field_images
-    - field.field.nica_entity.event_history.field_profile
+    - field.field.nica_entity.event_history.field_profile_reference
     - image.style.thumbnail
     - nica_entity.content_type.event_history
   module:
@@ -57,7 +57,7 @@ hidden:
   field_description: true
   field_event_comments: true
   field_event_result: true
-  field_profile: true
+  field_profile_reference: true
   langcode: true
   links: true
   uid: true

@@ -90,12 +90,12 @@ content:
     label: above
     settings:
       type: ROADMAP
-      zoom: 10
-      height: 400px
+      zoom: '15'
+      height: 300px
       width: 100%
-      title: ''
       info_text: ''
-      info_auto_display: true
+      info_auto_display: '1'
+      title: ''
     third_party_settings: {  }
     type: geolocation_map
   field_highest_education_complete:

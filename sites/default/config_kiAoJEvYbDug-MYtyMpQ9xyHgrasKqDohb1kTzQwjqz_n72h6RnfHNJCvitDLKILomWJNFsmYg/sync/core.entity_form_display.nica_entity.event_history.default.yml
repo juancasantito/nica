@@ -10,7 +10,7 @@ dependencies:
     - field.field.nica_entity.event_history.field_event_name
     - field.field.nica_entity.event_history.field_event_result
     - field.field.nica_entity.event_history.field_images
-    - field.field.nica_entity.event_history.field_profile
+    - field.field.nica_entity.event_history.field_profile_reference
     - image.style.thumbnail
     - nica_entity.content_type.event_history
   module:
@@ -28,7 +28,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
   field_description:
     weight: 4
     settings:
@@ -68,7 +68,7 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
-  field_profile:
+  field_profile_reference:
     weight: 0
     settings:
       match_operator: CONTAINS
