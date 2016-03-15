@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.nica_entity.event_history.field_city
     - field.field.nica_entity.event_history.field_description
-    - field.field.nica_entity.event_history.field_event_city
     - field.field.nica_entity.event_history.field_event_comments
     - field.field.nica_entity.event_history.field_event_date
     - field.field.nica_entity.event_history.field_event_name
@@ -22,19 +22,19 @@ targetEntityType: nica_entity
 bundle: event_history
 mode: default
 content:
-  field_description:
-    weight: 4
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-  field_event_city:
+  field_city:
     weight: 3
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+  field_description:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
   field_event_comments:
     weight: 7
     label: above

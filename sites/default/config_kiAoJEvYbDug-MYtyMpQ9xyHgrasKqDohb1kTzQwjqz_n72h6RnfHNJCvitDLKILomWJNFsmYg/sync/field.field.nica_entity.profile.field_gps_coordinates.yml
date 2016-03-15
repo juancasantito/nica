@@ -1,0 +1,21 @@
+uuid: 3a9dc481-ab74-4c9f-9405-0545de25d348
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_gps_coordinates
+    - nica_entity.content_type.profile
+  module:
+    - geolocation
+id: nica_entity.profile.field_gps_coordinates
+field_name: field_gps_coordinates
+entity_type: nica_entity
+bundle: profile
+label: 'Coordenadas GPS'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geolocation

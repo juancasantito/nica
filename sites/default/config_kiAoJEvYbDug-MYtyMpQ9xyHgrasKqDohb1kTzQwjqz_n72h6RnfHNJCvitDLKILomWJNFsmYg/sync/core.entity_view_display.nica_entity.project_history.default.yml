@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.nica_entity.project_history.field_benefit_earned
+    - field.field.nica_entity.project_history.field_city
     - field.field.nica_entity.project_history.field_comments_on_result
     - field.field.nica_entity.project_history.field_materials
     - field.field.nica_entity.project_history.field_profile_reference
@@ -23,20 +24,27 @@ bundle: project_history
 mode: default
 content:
   field_benefit_earned:
-    weight: 6
+    weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+  field_city:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
   field_comments_on_result:
-    weight: 7
+    weight: 8
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
   field_materials:
     type: entity_reference_revisions_entity_view
-    weight: 8
+    weight: 9
     label: above
     settings:
       view_mode: default
@@ -50,7 +58,7 @@ content:
       link: true
     third_party_settings: {  }
   field_project_date:
-    weight: 4
+    weight: 5
     label: above
     settings:
       timezone_override: ''
@@ -78,7 +86,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
   field_quarter:
-    weight: 5
+    weight: 6
     label: above
     settings: {  }
     third_party_settings: {  }

@@ -11,7 +11,7 @@ entity_type: nica_entity
 bundle: profile
 label: Nombres
 description: 'Nombres completos'
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

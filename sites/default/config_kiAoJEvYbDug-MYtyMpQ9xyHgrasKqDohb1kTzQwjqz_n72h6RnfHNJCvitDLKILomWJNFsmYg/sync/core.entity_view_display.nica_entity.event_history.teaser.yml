@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.nica_entity.teaser
+    - field.field.nica_entity.event_history.field_city
     - field.field.nica_entity.event_history.field_description
-    - field.field.nica_entity.event_history.field_event_city
     - field.field.nica_entity.event_history.field_event_comments
     - field.field.nica_entity.event_history.field_event_date
     - field.field.nica_entity.event_history.field_event_name
@@ -53,8 +53,8 @@ content:
       link: false
     third_party_settings: {  }
 hidden:
+  field_city: true
   field_description: true
-  field_event_city: true
   field_event_comments: true
   field_event_result: true
   field_profile: true
