@@ -1,0 +1,41 @@
+id: project_history
+label: Event History
+migration_tags:
+  - CSV
+source:
+  plugin: csv
+  path: public://csv/project_history.csv
+  header_row_count: 1
+  keys:
+    - id
+  column_names:
+    0:
+      id: Id
+    1:
+      id_profile: Profile ID
+    2:
+      event_date_start: Event Date Start
+    3:
+      event_date_end: Event Date End
+    4:
+      description: Description
+    5:
+      result: Result
+destination:
+  plugin: entity:node
+process:
+  type:
+    plugin: default_value
+    default_value: event_history
+  title: id
+  field_profile_reference:
+    plugin: migration
+    migration: profile
+    source: id_profile
+  field_event_date_start: event_date_start
+  field_event_date_end: event_date_end
+  field_description: description
+  field_result: result
+migration_dependencies:
+  optional:
+    - materials

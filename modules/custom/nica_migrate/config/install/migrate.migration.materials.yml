@@ -1,0 +1,31 @@
+id: materials
+label: Materials
+migration_tags:
+  - CSV
+source:
+  plugin: materials
+  path: public://csv/project_materials_list.csv
+  header_row_count: 1
+  keys:
+    - id
+    - material
+destination:
+  plugin: entity:paragraph
+process:
+  type:
+    plugin: default_value
+    default_value: materials
+  field_material:
+    -
+      plugin: migration
+      migration: term_materials
+      no_stub: TRUE
+      source: material
+    -
+      plugin: skip_on_empty
+      method: row
+  field_quantity: cantidad
+  field_price: valor
+migration_dependencies:
+  optional:
+    - term_materials

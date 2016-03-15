@@ -1,0 +1,26 @@
+id: term_materials
+label: Term Materials
+migration_tags:
+  - CSV
+source:
+  plugin: materials
+  path: public://csv/project_materials_list.csv
+  header_row_count: 1
+  keys:
+    - material
+destination:
+  plugin: entity:taxonomy_term
+process:
+  vid:
+    plugin: default_value
+    default_value: material
+  name:
+    -
+      plugin: static_map
+      source: material
+      bypass: TRUE
+      map:
+        NA: NULL
+    -
+      plugin: skip_on_empty
+      method: row
