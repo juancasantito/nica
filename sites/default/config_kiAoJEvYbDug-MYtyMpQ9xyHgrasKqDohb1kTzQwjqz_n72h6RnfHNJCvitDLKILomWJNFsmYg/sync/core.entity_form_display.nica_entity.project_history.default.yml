@@ -36,7 +36,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
   field_comments_on_result:
     weight: 8
     settings:
@@ -79,7 +79,7 @@ content:
     weight: 3
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: options_buttons
   field_project_name:
     weight: 1
     settings:

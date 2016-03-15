@@ -63,6 +63,7 @@ hidden:
   field_comments_on_result: true
   field_materials: true
   field_profile_reference: true
+  field_project_leader: true
   langcode: true
   links: true
   uid: true
