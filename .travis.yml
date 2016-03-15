@@ -13,8 +13,7 @@ before_script:
 - phpenv rehash
 before_install:
 - composer self-update
-- pwd
-- rm sites/default/settings.php
+- rm $TRAVIS_BUILD_DIR/sites/default/settings.php
 install:
 - mysql -e 'create database travis;'
 - export PATH="$HOME/.composer/vendor/bin:$PATH"
