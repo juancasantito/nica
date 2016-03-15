@@ -1,0 +1,29 @@
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - taxonomy
+id: languages
+migration_tags:
+  - CSV
+label: Languages
+source:
+  plugin: csv
+  path: 'public://csv/language.csv'
+  keys:
+    - name
+  column_names:
+    -
+      name: Languages
+process:
+  name: name
+  description: name
+  vid:
+    plugin: default_value
+    default_value: languages
+destination:
+  plugin: 'entity:taxonomy_term'
+template: null
+migration_dependencies: {  }
+migration_group: null

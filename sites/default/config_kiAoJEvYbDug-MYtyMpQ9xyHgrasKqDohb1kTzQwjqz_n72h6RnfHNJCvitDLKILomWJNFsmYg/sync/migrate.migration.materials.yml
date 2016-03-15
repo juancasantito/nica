@@ -18,6 +18,9 @@ source:
   keys:
     - id
     - material
+    - profile
+    - year
+    - trim
 process:
   type:
     plugin: default_value

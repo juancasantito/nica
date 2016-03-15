@@ -1,35 +1,33 @@
-
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - taxonomy
 id: read_write_math
-
-label: Read Write Math
-
 migration_tags:
   - CSV
-
+label: 'Read Write Math'
 source:
   plugin: csv
-
-  path: public://csv/profile.csv
-
+  path: 'public://csv/profile.csv'
   header_row_count: 1
-
   keys:
     - name
   column_names:
     17:
-      name: Read Write Math
-
-destination:
-  plugin: entity:taxonomy_term
-
+      name: 'Read Write Math'
 process:
   name:
     plugin: skip_on_empty
     method: row
     source: name
-
   description: name
-
   vid:
     plugin: default_value
     default_value: read_write_math
+destination:
+  plugin: 'entity:taxonomy_term'
+template: null
+migration_dependencies: {  }
+migration_group: null

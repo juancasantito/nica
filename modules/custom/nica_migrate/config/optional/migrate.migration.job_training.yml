@@ -1,36 +1,33 @@
-
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - taxonomy
 id: job_training
-
-label: Job Training
-
 migration_tags:
   - CSV
-
+label: 'Job Training'
 source:
   plugin: csv
-
-  path: public://csv/profile.csv
-
+  path: 'public://csv/profile.csv'
   header_row_count: 1
-
   keys:
     - name
-
   column_names:
     19:
-      name: Job Training
-
-destination:
-  plugin: entity:taxonomy_term
-
+      name: 'Job Training'
 process:
   name:
     plugin: skip_on_empty
     method: row
     source: name
-
   description: name
-
   vid:
     plugin: default_value
     default_value: job_training
+destination:
+  plugin: 'entity:taxonomy_term'
+template: null
+migration_dependencies: {  }
+migration_group: null

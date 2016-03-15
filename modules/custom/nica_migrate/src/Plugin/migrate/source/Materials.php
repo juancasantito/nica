@@ -35,6 +35,8 @@ class Materials extends CSV {
         $new_line = [];
         $new_line['id'] = $line["ID"];
         $new_line['profile'] = $line["Profile ID"];
+        $new_line['year'] = $line["Year"];
+        $new_line['trim'] = $line["Trim."];
         $new_line['material'] = $line["Material$i"];
         $new_line['cantidad'] = $line["Cantidad$i"];
         $new_line['valor'] = $line["Valor$i"];

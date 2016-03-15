@@ -1,16 +1,23 @@
+langcode: es
+status: true
+dependencies:
+  module:
+    - nica_migrate
+    - paragraphs
 id: materials
-label: Materials
 migration_tags:
   - CSV
+label: Materials
 source:
   plugin: materials
-  path: public://csv/project_materials_list.csv
+  path: 'public://csv/project_materials_list.csv'
   header_row_count: 1
   keys:
     - id
     - material
-destination:
-  plugin: entity:paragraph
+    - profile
+    - year
+    - trim
 process:
   type:
     plugin: default_value
@@ -19,13 +26,17 @@ process:
     -
       plugin: migration
       migration: term_materials
-      no_stub: TRUE
+      no_stub: true
       source: material
     -
       plugin: skip_on_empty
       method: row
   field_quantity: cantidad
   field_price: valor
+destination:
+  plugin: 'entity:paragraph'
+template: null
 migration_dependencies:
   optional:
     - term_materials
+migration_group: null
