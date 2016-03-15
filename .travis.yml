@@ -6,6 +6,9 @@ mysql:
   database: travis
   username: root
   encoding: utf8
+cache:
+  directories:
+    - $HOME/.composer/cache
 git:
   depth: 3
 before_script:
