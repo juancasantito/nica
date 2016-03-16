@@ -703,8 +703,11 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  *
  * Keep this code block at the end of this file to take full effect.
  */
+
+$settings['config_readonly'] = TRUE;
+$settings['install_profile'] = 'config_installer';
+$config_directories[CONFIG_SYNC_DIRECTORY] = 'sites/default/config_kiAoJEvYbDug-MYtyMpQ9xyHgrasKqDohb1kTzQwjqz_n72h6RnfHNJCvitDLKILomWJNFsmYg/sync';
+
 if (file_exists(__DIR__ . '/settings.local.php')) {
   include __DIR__ . '/settings.local.php';
 }
-$config_directories[CONFIG_SYNC_DIRECTORY] = 'sites/default/config_kiAoJEvYbDug-MYtyMpQ9xyHgrasKqDohb1kTzQwjqz_n72h6RnfHNJCvitDLKILomWJNFsmYg/sync';
-$settings['install_profile'] = 'config_installer';

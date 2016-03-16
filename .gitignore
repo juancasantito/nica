@@ -38,3 +38,6 @@ sites/simpletest
 # Test artifacts
 tests/vendor
 tests/bin
+
+# Ignore PhpStorm files
+.idea
