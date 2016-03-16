@@ -34,7 +34,7 @@ install:
 - drush site-install config_installer -y --verbose --db-url=mysql://root:@127.0.0.1/travis --db-su='root' --db-su-pw=''
 before_script:
    - sudo apt-add-repository multiverse && sudo apt-get update
-   - sudo apt-get install apache2 libapache2-mod-fastcgi
+   - sudo apt-get install apache2 libapache2-mod-fastcgi -yq --no-install-suggests --no-install-recommends 
    # enable php-fpm
    - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
    - sudo a2enmod rewrite actions fastcgi alias
