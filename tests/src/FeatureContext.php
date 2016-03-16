@@ -1,6 +1,7 @@
 <?php
 
 use PHPUnit_Framework_Assert as Assert;
+use Behat\Behat\Hook\Scope\AfterStepScope;
 use Drupal\DrupalExtension\Context\DrupalContext;
 use Behat\Behat\Context\SnippetAcceptingContext;
 
