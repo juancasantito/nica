@@ -1,0 +1,19 @@
+{
+  "name": "mtech-llc/nica_test",
+  "description": "Nica tests are tests for the nica website.",
+  "type": "project",
+  "require": {
+    "behat/behat": "~3.0",
+    "behat/mink-extension": "~2.2",
+    "behat/mink-selenium2-driver": "~1.3",
+    "behat/mink-goutte-driver": "~1.2",
+    "drupal/drupal-extension": "~3.1",
+    "phpunit/phpunit": "~5"
+  },
+  "minimum-stability": "dev",
+  "config": {
+    "preferred-install": "dist",
+    "bin-dir": "bin/",
+    "discard-changes": true
+  }
+}

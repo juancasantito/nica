@@ -1,0 +1,17 @@
+# behat.yml
+
+default:
+  autoload:
+    '': %paths.base%/src
+  suites:
+    default:
+      contexts:
+        - Behat\MinkExtension\Context\MinkContext
+        - FeatureContext
+  extensions:
+    Behat\MinkExtension:
+      goutte: ~
+      base_url: http://localhost
+      selenium2: ~
+  formatters:
+    pretty: true
