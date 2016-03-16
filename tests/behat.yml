@@ -5,7 +5,7 @@ default:
     default:
       contexts:
         - Behat\MinkExtension\Context\MinkContext
-        - Drupal\Nica\FeatureContext
+        - Drupal\Nica\Context\Feature
   extensions:
     Behat\MinkExtension:
       goutte: ~
