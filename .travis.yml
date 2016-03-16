@@ -1,5 +1,5 @@
 language: php
-sudo: true
+sudo: false
 dist: trusty
 php:
 - 7
@@ -15,6 +15,7 @@ git:
 before_install:
 - phpenv config-rm xdebug.ini
 - composer self-update
+- ls -al ${TRAVIS_BUILD_DIR}
 - sudo chmod 755 ${TRAVIS_BUILD_DIR}/sites/default
 - sudo chmod 644 ${TRAVIS_BUILD_DIR}/sites/default/settings.php
 - echo "$databases['default']['default'] = ['database' => 'travis', 'username' => 'root', 'password' => '', 'prefix' => '', 'host' => 'localhost', 'port' => '3306', 'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql', 'driver' => 'mysql'];" >> ${TRAVIS_BUILD_DIR}/sites/default/settings.php
