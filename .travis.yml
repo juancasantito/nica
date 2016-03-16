@@ -34,12 +34,18 @@ install:
 - drush site-install config_installer -y --verbose --db-url=mysql://root:@127.0.0.1/travis --db-su='root' --db-su-pw=''
 before_script:
    - sudo apt-add-repository multiverse && sudo apt-get update
-   - sudo apt-get install apache2 libapache2-mod-fastcgi -yq --no-install-suggests --no-install-recommends 
+   - sudo apt-get install apache2 libapache2-mod-fastcgi -yq --no-install-suggests --no-install-recommends
    # enable php-fpm
-   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
+   - cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
    - sudo a2enmod rewrite actions fastcgi alias
    - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-   - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
+   # Disable sendmail (do in both local PHP for install, and FPM for when
+   # serving the actual site).
+   - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+   - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
+   # Enable APC
+   - echo "extension=apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
+   - echo "apc.shm_size=256M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
    # configure apache virtual hosts
    - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
    - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
