@@ -34,3 +34,7 @@ sites/simpletest
 
 # Ignore SimpleTest multi-site environment.
 # simpletest
+
+# Test artifacts
+tests/vendor
+tests/bin
