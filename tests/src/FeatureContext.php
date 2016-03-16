@@ -1,10 +1,8 @@
 <?php
-use Behat\Behat\Context\SnippetAcceptingContext;
-use Behat\Behat\Hook\Scope\AfterStepScope;
-use Behat\Behat\Hook\Scope\BeforeScenarioScope;
-use Behat\Testwork\Tester\Result\TestResult;
-use Drupal\DrupalExtension\Context\DrupalContext;
+
 use PHPUnit_Framework_Assert as Assert;
+use Drupal\DrupalExtension\Context\DrupalContext;
+use Behat\Behat\Context\SnippetAcceptingContext;
 
 /**
  * Defines application features from the specific context.

@@ -1,11 +1,13 @@
 # behat.yml
 
 default:
+  autoload:
+    '': %paths.base%/src
   suites:
     default:
       contexts:
         - Behat\MinkExtension\Context\MinkContext
-        - Drupal\Nica\Context\Feature
+        - FeatureContext
   extensions:
     Behat\MinkExtension:
       goutte: ~

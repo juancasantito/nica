@@ -1,4 +1,7 @@
 {
+  "name": "mtech-llc/nica_test",
+  "description": "Nica tests are tests for the nica website.",
+  "type": "project",
   "require": {
     "behat/behat": "~3.0",
     "behat/mink-extension": "~2.2",

@@ -3,4 +3,3 @@ Feature: non-node-titles
 
   Scenario: Check the homepage.
     Given I am on the homepage
-    Then I should get a "200" HTTP response
