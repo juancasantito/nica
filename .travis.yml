@@ -33,7 +33,7 @@ install:
 - phpenv rehash
 - drush site-install config_installer -y --verbose --db-url=mysql://root:@127.0.0.1/travis --db-su='root' --db-su-pw=''
 before_script:
-   - sudo apt-get update
+   - sudo apt-add-repository multiverse && sudo apt-get update
    - sudo apt-get install apache2 libapache2-mod-fastcgi
    # enable php-fpm
    - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
