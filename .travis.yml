@@ -15,7 +15,7 @@ git:
 before_install:
 - phpenv config-rm xdebug.ini
 - composer self-update
-- find ${TRAVIS_BUILD_DIR} -name settings.php -exec echo "$databases['default']['default'] = ['database' => 'travis', 'username' => 'root', 'password' => '', 'prefix' => '', 'host' => 'localhost', 'port' => '3306', 'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql', 'driver' => 'mysql'];" >> {} \;
+- echo "<?php $databases['default']['default'] = ['database' => 'travis', 'username' => 'root', 'password' => '', 'prefix' => '', 'host' => 'localhost', 'port' => '3306', 'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql', 'driver' => 'mysql'];" > ${TRAVIS_BUILD_DIR}/sites/default/settings.local.php
 install:
 - mysql -e 'create database travis;'
 - export PATH="$HOME/.composer/vendor/bin:$PATH"
