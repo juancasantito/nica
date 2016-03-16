@@ -5,6 +5,16 @@ php:
 - 7
 matrix:
   fast_finish: true
+addons:
+  apt:
+    packages:
+    - mysql-server-5.6
+    - mysql-client-core-5.6
+    - mysql-client-5.6
+    - apache2
+    - libapache2-mod-fastcgi
+services:
+  - mysql
 mysql:
   database: travis
   username: root
@@ -19,14 +29,12 @@ before_install:
 - composer self-update
 - printf "<?php\n\$databases['default']['default'] = ['database' => 'travis', 'username' => 'root', 'password' => '', 'prefix' => '', 'host' => 'localhost', 'port' => '3306', 'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql', 'driver' => 'mysql'];" > ./sites/default/settings.local.php
 install:
-- mysql -e 'create database travis;'
+- mysql -e 'create database IF NOT EXISTS travis;' -uroot
 - export PATH="$HOME/.composer/vendor/bin:$PATH"
 - composer global require drush/drush:dev-master --dev --prefer-dist
 - phpenv rehash
 - drush site-install config_installer -y --verbose --db-url=mysql://root:@127.0.0.1/travis --db-su='root' --db-su-pw=''
 before_script:
-   - sudo apt-get update
-   - sudo apt-get install apache2 libapache2-mod-fastcgi
    # enable php-fpm
    - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
    - sudo a2enmod rewrite actions fastcgi alias
@@ -37,6 +45,7 @@ before_script:
    - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
    - sudo service apache2 restart
 script:
+- $(phpenv which php) ./core/scripts/run-tests.sh --php $(phpenv which php) --sqlite ./travis.sqlite PHPUnit
 - cd tests && composer install --dev --prefer-dist
 - ./bin/behat -c tests/behat.yml
 notifications:
