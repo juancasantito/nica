@@ -1,9 +1,11 @@
 <?php
 
-use PHPUnit_Framework_Assert as Assert;
-use Behat\Behat\Hook\Scope\AfterStepScope;
-use Drupal\DrupalExtension\Context\DrupalContext;
 use Behat\Behat\Context\SnippetAcceptingContext;
+use Behat\Behat\Hook\Scope\AfterStepScope;
+use Behat\Mink\Driver\Selenium2Driver;
+use Behat\Testwork\Tester\Result\TestResult;
+use Drupal\DrupalExtension\Context\DrupalContext;
+use PHPUnit_Framework_Assert as Assert;
 
 /**
  * Defines application features from the specific context.
