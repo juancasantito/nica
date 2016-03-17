@@ -81,6 +81,7 @@ display:
           description: ''
           columns:
             id: id
+            id_1: id_1
             field_last_name: field_last_name
             field_first_name: field_first_name
             field_last_name_1: field_last_name_1
@@ -92,6 +93,13 @@ display:
             operations: operations
           info:
             id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            id_1:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -162,7 +170,7 @@ display:
               empty_column: false
               responsive: ''
           default: changed
-          empty_table: false
+          empty_table: true
       row:
         type: fields
       fields:
@@ -969,7 +977,18 @@ display:
       title: 'Nica Content'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'No Nica content available.'
+          plugin_id: text_custom
       relationships:
         field_profile_reference:
           id: field_profile_reference
