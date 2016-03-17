@@ -3,3 +3,7 @@ services:
     class: Drupal\nica_migrate\EventSubscriber\ProfileMigrateEvent
     tags:
       - { name: event_subscriber }
+  nica_migrate.project_history:
+    class: Drupal\nica_migrate\EventSubscriber\ProjectHistoryEvent
+    tags:
+      - { name: event_subscriber }

@@ -1,35 +1,33 @@
-
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - taxonomy
 id: highest_level_education
-
-label: Highest Level Educatione
-
 migration_tags:
   - CSV
-
+label: 'Highest Level Educatione'
 source:
   plugin: csv
-
-  path: public://csv/profile.csv
-
+  path: 'public://csv/profile.csv'
   header_row_count: 1
-
   keys:
     - name
   column_names:
     16:
-      name: Highest Education Completed
-
-destination:
-  plugin: entity:taxonomy_term
-
+      name: 'Highest Education Completed'
 process:
   name:
     plugin: skip_on_empty
     method: row
     source: name
-
   description: name
-
   vid:
     plugin: default_value
     default_value: highest_education_completed
+destination:
+  plugin: 'entity:taxonomy_term'
+template: null
+migration_dependencies: {  }
+migration_group: null

@@ -1,0 +1,187 @@
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - nica_entity
+id: profile
+migration_tags:
+  - CSV
+label: 'Migrate Csv Profile'
+source:
+  plugin: csv
+  path: 'public://csv/profile.csv'
+  header_row_count: 1
+  keys:
+    - id
+  column_names:
+    -
+      id: 'Profile ID'
+    -
+      first_name: 'First Names'
+    -
+      last_name: 'Last Names'
+    -
+      other_event: 'Other event'
+    -
+      pictures: Pictures
+    -
+      birthday: Birthday
+    -
+      age: Age
+    -
+      no_cedula: 'No. de Cedula'
+    -
+      marital_status: 'Marital status'
+    -
+      household_income: 'Household Income'
+    -
+      children: Children
+    -
+      people_in_home: 'No. of People in Home'
+    -
+      employment1: 'Current Employment 1'
+    -
+      employment2: 'Current Employment 2'
+    -
+      salary: Salary
+    -
+      telefono: Telefono
+    -
+      highest_education_completed: 'Highest Education Completed'
+    -
+      read_write_math: 'Read Write Math'
+    -
+      special_skills: 'Special Skills'
+    -
+      job_training: 'Job Training'
+    -
+      languages: Languages
+process:
+  type:
+    plugin: default_value
+    default_value: profile
+  title: first_name
+  field_first_name: first_name
+  field_last_name: last_name
+  field_other_event: other_event
+  field_birthday: birthday
+  field_cedule_number: no_cedula
+  field_marital_status:
+    -
+      plugin: static_map
+      bypass: true
+      map:
+        '': null
+      source: marital_status
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: marital_status
+  field_household_income: household_income
+  field_children:
+    -
+      plugin: callback
+      callable: strtoupper
+    -
+      plugin: static_map
+      bypass: true
+      map:
+        'NO TIENE': 0
+        NONE: 0
+        NINGUNO: 0
+        NINGUNA: 0
+  field_number_of_people_in_home: people_in_home
+  field_current_employment: employment1
+  field_salary:
+    -
+      plugin: static_map
+      bypass: true
+      source: salary
+      map:
+        '0,00': null
+    -
+      plugin: number_format
+  field_telephone: telefono
+  field_highest_education_complete:
+    -
+      plugin: static_map
+      bypass: true
+      map:
+        '': null
+      source: highest_education_completed
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: highest_level_education
+  field_read_write_math:
+    -
+      plugin: static_map
+      bypass: true
+      map:
+        '': null
+      source: read_write_math
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: read_write_math
+  field_special_skills:
+    -
+      plugin: static_map
+      bypass: true
+      map:
+        '': null
+      source: special_skills
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: special_skills
+  field_job_training:
+    -
+      plugin: static_map
+      bypass: true
+      map:
+        '': null
+      source: job_training
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: job_training
+  field_languages:
+    -
+      plugin: static_map
+      bypass: true
+      source: languages
+      map:
+        '': Español
+        Francés: 'Francés,Español'
+        Inglés: 'Inglés,Español'
+    -
+      plugin: explode
+      delimiter: ','
+    -
+      plugin: migration
+      migration: languages
+destination:
+  plugin: 'entity:nica_entity'
+template: null
+migration_dependencies:
+  optional:
+    - highest_level_education
+    - job_training
+    - languages
+    - marital_status
+    - read_write_math
+    - special_skills
+    - project_history
+migration_group: null
