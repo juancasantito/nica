@@ -1,0 +1,10 @@
+name: Nica Seven
+type: theme
+description: Nica's Admin Theme
+package: Appearance
+core: 8.x
+libraries:
+  - nica_seven/global-styling
+
+base theme: seven
+

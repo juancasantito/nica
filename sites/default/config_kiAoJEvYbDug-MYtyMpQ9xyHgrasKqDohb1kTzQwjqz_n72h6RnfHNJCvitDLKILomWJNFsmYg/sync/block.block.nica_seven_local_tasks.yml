@@ -1,0 +1,20 @@
+uuid: 7d3b239f-a2e1-4c4d-bb00-0af6965eea2a
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nica_seven
+id: nica_seven_local_tasks
+theme: nica_seven
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }
