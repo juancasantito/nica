@@ -2,7 +2,7 @@ language: php
 sudo: true
 dist: trusty
 php:
-- 7
+  - 7
 matrix:
   fast_finish: true
 addons:
@@ -22,38 +22,38 @@ cache:
     - $HOME/.composer/cache
 git:
   depth: 3
-before_script:
-   - sudo apt-add-repository multiverse && sudo apt-get update
-   - sudo apt-get install apache2 libapache2-mod-fastcgi -yq --no-install-suggests --no-install-recommends
-   # enable php-fpm
-   - cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
-   - sudo a2enmod rewrite actions fastcgi alias
-   - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-   # Disable sendmail (do in both local PHP for install, and FPM for when
-   # serving the actual site).
-   - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-   - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
-   # Enable APC
-   - echo "extension=apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
-   - echo "apc.shm_size=256M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
-   # configure apache virtual hosts
-   - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
-   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
-   - sudo service apache2 restart
 before_install:
-- phpenv config-rm xdebug.ini
-- composer self-update
-- printf "<?php\n\$databases['default']['default'] = ['database' => 'travis', 'username' => 'root', 'password' => '', 'prefix' => '', 'host' => 'localhost', 'port' => '3306', 'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql', 'driver' => 'mysql'];" > ./sites/default/settings.local.php
+  - phpenv config-rm xdebug.ini
+  # Disable sendmail for local PHP for install.
+  - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - composer self-update
+  - printf "<?php\n\$databases['default']['default'] = ['database' => 'travis', 'username' => 'root', 'password' => '', 'prefix' => '', 'host' => 'localhost', 'port' => '3306', 'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql', 'driver' => 'mysql'];" > ./sites/default/settings.local.php
 install:
-- mysql -e 'create database IF NOT EXISTS travis;' -uroot
-- export PATH="$HOME/.composer/vendor/bin:$PATH"
-- composer global require drush/drush:dev-master --dev --prefer-dist
-- phpenv rehash
-- drush site-install config_installer -y --verbose --db-url=mysql://root:@127.0.0.1/travis --db-su='root' --db-su-pw=''
+  - mysql -e 'create database IF NOT EXISTS travis;' -uroot
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - composer global require drush/drush:dev-master --dev --prefer-dist
+  - phpenv rehash
+  - drush site-install config_installer -y --verbose --db-url=mysql://root:@127.0.0.1/travis --db-su='root' --db-su-pw=''
+before_script:
+  - sudo apt-add-repository multiverse && sudo apt-get update
+  - sudo apt-get install apache2 libapache2-mod-fastcgi -yq --no-install-suggests --no-install-recommends
+  # enable php-fpm
+  - cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
+  - sudo a2enmod rewrite actions fastcgi alias
+  - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  # Disable sendmail for FPM for when serving the actual site.
+  - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
+  # Enable APC
+  - echo "extension=apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
+  - echo "apc.shm_size=256M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
+  # configure apache virtual hosts
+  - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
+  - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
+  - sudo service apache2 restart
 script:
-- $(phpenv which php) ./core/scripts/run-tests.sh --php $(phpenv which php) --sqlite ./travis.sqlite PHPUnit
-- cd tests && composer install --dev --prefer-dist
-- ./bin/behat
+  - $(phpenv which php) ./core/scripts/run-tests.sh --php $(phpenv which php) --sqlite ./travis.sqlite PHPUnit
+  - cd tests && composer install --dev --prefer-dist
+  - ./bin/behat
 notifications:
   slack:
     secure: T9QQJpdmwMYHZCIRrko44u6W1q0qyE91Mu+Gwt1bK1FmGOnmwnhddU0eiAIbJ58GGuVBdlM5BwY2qXSvWvNUymt52n1mNkz222AS+vNrk/SS5B2I3BPMLCSzuL77siZN1xPBXAlKpAHt/CX+4G1A1uPudSFb5mwij1Vc1bSp6mPqOto+En+UGnUUx+ioj/83gxosbmukWgUki5IBNsww7FXLPbGG7ArIBAKNdy4+9azwmjH2qlDtOwKhhZH6zhIU5f7NdJSQx4R/sJbpzODee0aXhySWdl3ezXZMEJ9SoaNdghJsnDAJJFEwKvNpjZ/ejKjMKUn5UrhI/2Y3CVl+ZvC8oG63EN8eg6h0WPlliULswA0y63AGu/2KcNHOBsKbW9GigeqTExOwFdhUVVEWahwkT4ED42pUoOJ4pR6I74ygRnFitMOAwdr0eqYpBW20Wn7+9zW0KS8VzxMQROamNRYb8iyhW4AegMcqVpO/bcXtobk95ozcDSp5U0XY6vKZ7zY9eDLy+TyYqETGs841EyL+gXNXsihyHxm1hL1Bn4CEfwd4eo5gCeR8v3lK4avuWB8mRju41QTpm+50QuL50Bq13EPluzj/1KUuVTmAsc17ZSePtiHSiQcv0NGgIKkQIxVqni3BzoMjTGz7E9U4zOL66UNGHmREWCywgFN4oBw=
