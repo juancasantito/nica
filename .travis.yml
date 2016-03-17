@@ -22,16 +22,6 @@ cache:
     - $HOME/.composer/cache
 git:
   depth: 3
-before_install:
-- phpenv config-rm xdebug.ini
-- composer self-update
-- printf "<?php\n\$databases['default']['default'] = ['database' => 'travis', 'username' => 'root', 'password' => '', 'prefix' => '', 'host' => 'localhost', 'port' => '3306', 'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql', 'driver' => 'mysql'];" > ./sites/default/settings.local.php
-install:
-- mysql -e 'create database IF NOT EXISTS travis;' -uroot
-- export PATH="$HOME/.composer/vendor/bin:$PATH"
-- composer global require drush/drush:dev-master --dev --prefer-dist
-- phpenv rehash
-- drush site-install config_installer -y --verbose --db-url=mysql://root:@127.0.0.1/travis --db-su='root' --db-su-pw=''
 before_script:
    - sudo apt-add-repository multiverse && sudo apt-get update
    - sudo apt-get install apache2 libapache2-mod-fastcgi -yq --no-install-suggests --no-install-recommends
@@ -50,6 +40,16 @@ before_script:
    - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
    - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
    - sudo service apache2 restart
+before_install:
+- phpenv config-rm xdebug.ini
+- composer self-update
+- printf "<?php\n\$databases['default']['default'] = ['database' => 'travis', 'username' => 'root', 'password' => '', 'prefix' => '', 'host' => 'localhost', 'port' => '3306', 'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql', 'driver' => 'mysql'];" > ./sites/default/settings.local.php
+install:
+- mysql -e 'create database IF NOT EXISTS travis;' -uroot
+- export PATH="$HOME/.composer/vendor/bin:$PATH"
+- composer global require drush/drush:dev-master --dev --prefer-dist
+- phpenv rehash
+- drush site-install config_installer -y --verbose --db-url=mysql://root:@127.0.0.1/travis --db-su='root' --db-su-pw=''
 script:
 - $(phpenv which php) ./core/scripts/run-tests.sh --php $(phpenv which php) --sqlite ./travis.sqlite PHPUnit
 - cd tests && composer install --dev --prefer-dist
