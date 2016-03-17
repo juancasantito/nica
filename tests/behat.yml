@@ -13,5 +13,15 @@ default:
       goutte: ~
       base_url: http://localhost
       selenium2: ~
+    Drupal\DrupalExtension:
+      blackbox: ~
+      text:
+        log_out: "Cerrar sesión"
+        log_in: "Iniciar sesión"
+        password_field: "Contraseña"
+        username_field: "Nombre de usuario"
+      selectors:
+        logged_in_selector: "body.user-logged-in"
+        login_form_selector: "form#edit-name"
   formatters:
     pretty: true
