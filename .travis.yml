@@ -50,7 +50,7 @@ before_script:
   - echo "apc.shm_size=256M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
   # Configure apache virtual hosts
   - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
-  - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
+  - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/000-default.conf
   - sudo service apache2 restart
 script:
   # Run core's PHPUnit tests cause they are fast.
