@@ -18,6 +18,7 @@ echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc
 echo "extension=apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
 echo "apc.shm_size=256M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
 # Configure apache virtual hosts
-sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/000-default.conf
-sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/000-default.conf
+sudo rm /etc/apache2/sites-enabled/*
+sudo cp -f build/travis-ci-apache /etc/apache2/sites-enabled/000-default.conf
+sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-enabled/000-default.conf
 sudo service apache2 restart
