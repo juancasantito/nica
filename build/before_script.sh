@@ -11,6 +11,7 @@ if [ -e ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf.default
   cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.d/www.conf
 fi
 echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+echo "error_log = /var/log/apache2/travis_php_error.log" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
 # Disable sendmail for FPM for when serving the actual site.
 echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini

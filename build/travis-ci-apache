@@ -3,7 +3,6 @@
   ServerName travis
   ErrorLog /var/log/apache2/travis_error.log
   CustomLog /var/log/apache2/travis_access.log common
-  php_value error_log /var/log/apache2/travis_php_error.log
   <Directory "%TRAVIS_BUILD_DIR%">
     Options FollowSymLinks MultiViews ExecCGI
     AllowOverride All
