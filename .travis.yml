@@ -51,7 +51,7 @@ before_script:
   - echo "apc.shm_size=256M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
   # Configure apache virtual hosts
   - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
-  - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/000-default.conf
+  - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default.conf
   - echo "127.0.0.1 travis" | sudo tee -a /etc/hosts
   - sudo service apache2 restart
 script:
@@ -60,8 +60,7 @@ script:
   # Set up selenium
   - "sh -e /etc/init.d/xvfb start"
   - "export DISPLAY=:99.0"
-  - "wget http://goo.gl/IHP6Qw"
-  - "unzip selenium-java-2.53.0.zip"
+  - "wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar"
   - "java -jar selenium-server-standalone-2.53.0.jar > /dev/null &"
   - sleep 5
   # Install & run Behat tests.
