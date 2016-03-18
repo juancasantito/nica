@@ -1,35 +1,33 @@
-
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - taxonomy
 id: marital_status
-
-label: Marital Status
-
 migration_tags:
   - CSV
-
+label: 'Marital Status'
 source:
   plugin: csv
-
-  path: public://csv/profile.csv
-
+  path: 'public://csv/profile.csv'
   header_row_count: 1
-
   keys:
     - name
   column_names:
     8:
-      name: Marital Status
-
-destination:
-  plugin: entity:taxonomy_term
-
+      name: 'Marital Status'
 process:
   name:
     plugin: skip_on_empty
     method: row
     source: name
-
   description: name
-
   vid:
     plugin: default_value
     default_value: marital_status
+destination:
+  plugin: 'entity:taxonomy_term'
+template: null
+migration_dependencies: {  }
+migration_group: null

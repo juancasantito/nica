@@ -1,0 +1,47 @@
+uuid: 15fae6d5-3ced-41b5-9300-bf1afecd7dad
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - node
+_core:
+  default_config_hash: Nn4Tv06t0FBevAJfRfvdGGGib3JXwsEkx_AzCF0GnhQ
+id: employment_history
+migration_tags:
+  - CSV
+label: 'Employment History'
+source:
+  plugin: csv
+  path: 'public://csv/employment_history.csv'
+  header_row_count: 1
+  keys:
+    - id
+  column_names:
+    -
+      id: 'Employment ID'
+    -
+      id_profile: 'Profile ID'
+    -
+      employment_date: 'Employment Dates'
+    -
+      place_of_employment: 'Place of Employment'
+    -
+      description: 'Description of Responsibilities'
+process:
+  type:
+    plugin: default_value
+    default_value: event_history
+  title: id
+  field_profile_reference:
+    plugin: migration
+    migration: profile
+    source: id_profile
+  field_employment_date: employment_date
+  field_place_of_employment: place_of_employment
+  field_description_of_responsabil: description
+destination:
+  plugin: 'entity:node'
+template: null
+migration_dependencies: {  }
+migration_group: null
