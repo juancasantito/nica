@@ -1,0 +1,20 @@
+uuid: be4bbf0e-52ed-4bbb-9400-f40d1628b95d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nica_seven
+id: nica_seven_messages
+theme: nica_seven
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

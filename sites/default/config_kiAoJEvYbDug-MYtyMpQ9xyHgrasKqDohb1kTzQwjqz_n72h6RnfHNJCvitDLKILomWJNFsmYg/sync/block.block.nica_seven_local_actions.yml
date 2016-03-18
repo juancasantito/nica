@@ -1,0 +1,18 @@
+uuid: 711346d3-70ff-46d2-ab08-8efc2b4ff973
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nica_seven
+id: nica_seven_local_actions
+theme: nica_seven
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }
