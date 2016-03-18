@@ -43,6 +43,7 @@ before_script:
   - cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
   - sudo a2enmod rewrite actions fastcgi alias
   - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   # Disable sendmail for FPM for when serving the actual site.
   - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.ini
   # Enable APC
@@ -51,13 +52,26 @@ before_script:
   # Configure apache virtual hosts
   - sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/000-default.conf
+  - echo "127.0.0.1 travis" | sudo tee -a /etc/hosts
   - sudo service apache2 restart
 script:
   # Run core's PHPUnit tests cause they are fast.
   - $(phpenv which php) ./core/scripts/run-tests.sh --php $(phpenv which php) --sqlite ./travis.sqlite PHPUnit
+  # Set up selenium
+  - "sh -e /etc/init.d/xvfb start"
+  - "export DISPLAY=:99.0"
+  - "wget http://goo.gl/IHP6Qw"
+  - "unzip selenium-java-2.53.0.zip"
+  - "java -jar selenium-server-standalone-2.53.0.jar > /dev/null &"
+  - sleep 5
   # Install & run Behat tests.
   - cd tests && composer install --dev --prefer-dist
   - ./bin/behat
+after_failure:
+  - sudo cat /var/log/apache2/travis_error.log
+  - sudo cat /var/log/apache2/travis_access.log
+  - sudo cat /var/log/apache2/travis_php_error.log
+  - sudo cat /var/log/apache2/other_vhosts_access.log
 notifications:
   slack:
     secure: T9QQJpdmwMYHZCIRrko44u6W1q0qyE91Mu+Gwt1bK1FmGOnmwnhddU0eiAIbJ58GGuVBdlM5BwY2qXSvWvNUymt52n1mNkz222AS+vNrk/SS5B2I3BPMLCSzuL77siZN1xPBXAlKpAHt/CX+4G1A1uPudSFb5mwij1Vc1bSp6mPqOto+En+UGnUUx+ioj/83gxosbmukWgUki5IBNsww7FXLPbGG7ArIBAKNdy4+9azwmjH2qlDtOwKhhZH6zhIU5f7NdJSQx4R/sJbpzODee0aXhySWdl3ezXZMEJ9SoaNdghJsnDAJJFEwKvNpjZ/ejKjMKUn5UrhI/2Y3CVl+ZvC8oG63EN8eg6h0WPlliULswA0y63AGu/2KcNHOBsKbW9GigeqTExOwFdhUVVEWahwkT4ED42pUoOJ4pR6I74ygRnFitMOAwdr0eqYpBW20Wn7+9zW0KS8VzxMQROamNRYb8iyhW4AegMcqVpO/bcXtobk95ozcDSp5U0XY6vKZ7zY9eDLy+TyYqETGs841EyL+gXNXsihyHxm1hL1Bn4CEfwd4eo5gCeR8v3lK4avuWB8mRju41QTpm+50QuL50Bq13EPluzj/1KUuVTmAsc17ZSePtiHSiQcv0NGgIKkQIxVqni3BzoMjTGz7E9U4zOL66UNGHmREWCywgFN4oBw=
