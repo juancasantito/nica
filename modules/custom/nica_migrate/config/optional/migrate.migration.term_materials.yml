@@ -1,0 +1,35 @@
+langcode: es
+status: true
+dependencies:
+  module:
+    - nica_migrate
+    - taxonomy
+id: term_materials
+migration_tags:
+  - CSV
+label: 'Term Materials'
+source:
+  plugin: materials
+  path: 'public://csv/project_materials_list.csv'
+  header_row_count: 1
+  keys:
+    - material
+process:
+  vid:
+    plugin: default_value
+    default_value: material
+  name:
+    -
+      plugin: static_map
+      source: material
+      bypass: true
+      map:
+        NA: null
+    -
+      plugin: skip_on_empty
+      method: row
+destination:
+  plugin: 'entity:taxonomy_term'
+template: null
+migration_dependencies: {  }
+migration_group: null
