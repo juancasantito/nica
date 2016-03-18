@@ -1,0 +1,20 @@
+uuid: 10791488-1c9e-4ae0-a307-7c6092304a4e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nica_seven
+id: nica_seven_content
+theme: nica_seven
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

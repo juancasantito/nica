@@ -1,0 +1,18 @@
+uuid: 0062d448-d0ce-4d1f-9300-0e8e62002222
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nica_seven
+id: nica_seven_page_title
+theme: nica_seven
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }
