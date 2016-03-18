@@ -8,7 +8,6 @@ dependencies:
     - field.field.nica_entity.event_history.field_event_comments
     - field.field.nica_entity.event_history.field_event_date
     - field.field.nica_entity.event_history.field_event_name
-    - field.field.nica_entity.event_history.field_event_result
     - field.field.nica_entity.event_history.field_images
     - field.field.nica_entity.event_history.field_profile_reference
     - image.style.large
@@ -16,7 +15,6 @@ dependencies:
   module:
     - datetime
     - image
-    - options
 id: nica_entity.event_history.default
 targetEntityType: nica_entity
 bundle: event_history
@@ -56,12 +54,6 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
-  field_event_result:
-    weight: 6
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
   field_images:
     weight: 5
     label: above

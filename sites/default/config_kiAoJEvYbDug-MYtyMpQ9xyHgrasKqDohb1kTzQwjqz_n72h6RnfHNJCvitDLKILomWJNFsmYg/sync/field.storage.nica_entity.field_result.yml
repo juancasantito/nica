@@ -1,0 +1,20 @@
+uuid: e9bb3970-f2af-4d00-a52e-46fed589a908
+langcode: es
+status: true
+dependencies:
+  module:
+    - nica_entity
+    - taxonomy
+id: nica_entity.field_result
+field_name: field_result
+entity_type: nica_entity
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

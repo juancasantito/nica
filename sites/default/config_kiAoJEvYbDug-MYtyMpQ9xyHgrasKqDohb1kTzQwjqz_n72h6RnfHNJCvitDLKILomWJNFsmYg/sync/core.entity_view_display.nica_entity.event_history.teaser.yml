@@ -9,7 +9,6 @@ dependencies:
     - field.field.nica_entity.event_history.field_event_comments
     - field.field.nica_entity.event_history.field_event_date
     - field.field.nica_entity.event_history.field_event_name
-    - field.field.nica_entity.event_history.field_event_result
     - field.field.nica_entity.event_history.field_images
     - field.field.nica_entity.event_history.field_profile_reference
     - image.style.thumbnail
@@ -56,7 +55,6 @@ hidden:
   field_city: true
   field_description: true
   field_event_comments: true
-  field_event_result: true
   field_profile_reference: true
   langcode: true
   links: true
