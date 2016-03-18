@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -ev
 sudo cat /var/log/apache2/error.log
 sudo cat /var/log/apache2/travis_error.log
 sudo cat /var/log/apache2/access.log
