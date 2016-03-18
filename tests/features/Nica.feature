@@ -1,5 +1,7 @@
-Feature: non-node-titles
-  Test HTML titles on non-node pages.
+Feature: Homepage
+  Homepage displays successfully.
 
   Scenario: Check the homepage.
-    Given I am on the homepage
+    Given I am an anonymous user
+    When I am on the homepage
+    Then the response status code should be 403

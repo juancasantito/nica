@@ -1,5 +1,8 @@
 <VirtualHost *:80>
   DocumentRoot %TRAVIS_BUILD_DIR%
+  ServerName travis
+  ErrorLog /var/log/apache2/travis_error.log
+  CustomLog /var/log/apache2/travis_access.log common
   <Directory "%TRAVIS_BUILD_DIR%">
     Options FollowSymLinks MultiViews ExecCGI
     AllowOverride All
@@ -12,4 +15,5 @@
     Action php5-fcgi /php5-fcgi
     Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
     FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -host 127.0.0.1:9000 -pass-header Authorization
+  </IfModule>
 </VirtualHost>
