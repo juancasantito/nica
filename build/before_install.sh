@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -ev
 phpenv config-rm xdebug.ini
 # Disable sendmail for local PHP for install.
 echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini

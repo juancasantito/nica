@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -ev
 # Add repo and install apache & fastcgi.
 sudo apt-add-repository multiverse && sudo apt-get update
 sudo apt-get install apache2 libapache2-mod-fastcgi -yq --no-install-suggests --no-install-recommends
@@ -19,5 +20,4 @@ echo "apc.shm_size=256M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php-fp
 # Configure apache virtual hosts
 sudo cp -f build/travis-ci-apache /etc/apache2/sites-available/default
 sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default.conf
-echo "127.0.0.1 travis" | sudo tee -a /etc/hosts
 sudo service apache2 restart

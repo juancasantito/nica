@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -ev
 mysql -e 'create database IF NOT EXISTS travis;' -uroot
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 composer global require drush/drush:dev-master --dev --prefer-dist
