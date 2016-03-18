@@ -40,6 +40,7 @@ class Materials extends CSV {
         $new_line['material'] = $line["Material$i"];
         $new_line['cantidad'] = $line["Cantidad$i"];
         $new_line['valor'] = $line["Valor$i"];
+        $new_line['measurement'] = isset($line["Unidad$i"]) ? $line["Unidad$i"] : '';
         yield $new_line;
       }
     }
