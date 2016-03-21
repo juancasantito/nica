@@ -11,6 +11,7 @@ dependencies:
     - field.field.nica_entity.event_history.field_event_name
     - field.field.nica_entity.event_history.field_images
     - field.field.nica_entity.event_history.field_profile_reference
+    - field.field.nica_entity.event_history.field_result
     - image.style.thumbnail
     - nica_entity.content_type.event_history
   module:
@@ -43,6 +44,13 @@ content:
     settings:
       image_style: thumbnail
       image_link: ''
+    third_party_settings: {  }
+  field_result:
+    type: entity_reference_label
+    weight: 4
+    label: above
+    settings:
+      link: true
     third_party_settings: {  }
   type:
     label: hidden
