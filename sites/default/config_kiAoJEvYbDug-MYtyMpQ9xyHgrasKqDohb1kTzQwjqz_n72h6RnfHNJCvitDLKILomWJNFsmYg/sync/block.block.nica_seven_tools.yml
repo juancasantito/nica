@@ -1,0 +1,24 @@
+uuid: f038579a-28e4-435e-a15e-947b2f48f5c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - nica_seven
+id: nica_seven_tools
+theme: nica_seven
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  id: 'system_menu_block:tools'
+  label: Tools
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }
