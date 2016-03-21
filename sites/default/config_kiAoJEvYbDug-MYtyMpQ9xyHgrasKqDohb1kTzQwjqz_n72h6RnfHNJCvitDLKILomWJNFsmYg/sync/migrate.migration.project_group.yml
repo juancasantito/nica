@@ -14,17 +14,17 @@ source:
   path: 'public://csv/project_materials_list.csv'
   header_row_count: 1
   keys:
-    - group
+    - group_name
   column_names:
     10:
-      group: 'Project Group'
+      group_name: 'Project Group'
 process:
   vid:
     plugin: default_value
     default_value: project_group
   name:
     plugin: skip_on_empty
-    source: group
+    source: group_name
     method: row
 destination:
   plugin: 'entity:taxonomy_term'
