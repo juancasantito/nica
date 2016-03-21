@@ -1,0 +1,27 @@
+uuid: af63801f-8387-4d03-bc00-af52f741e446
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_result
+    - nica_entity.content_type.project_history
+    - taxonomy.vocabulary.performance_result
+id: nica_entity.project_history.field_result
+field_name: field_result
+entity_type: nica_entity
+bundle: project_history
+label: 'Resultado del Proyecto'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      performance_result: performance_result
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

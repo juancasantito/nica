@@ -1,0 +1,11 @@
+uuid: fac72af6-4d35-4a08-8035-534e22994b3f
+langcode: es
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.performance_result
+id: taxonomy_term.performance_result
+target_entity_type_id: taxonomy_term
+target_bundle: performance_result
+default_langcode: site_default
+language_alterable: false
