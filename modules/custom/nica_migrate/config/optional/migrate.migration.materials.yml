@@ -24,19 +24,36 @@ process:
     default_value: materials
   field_material:
     -
-      plugin: migration
-      migration: term_materials
-      no_stub: true
+      plugin: static_map
+      bypass: true
       source: material
+      map:
+        NA: null
     -
       plugin: skip_on_empty
       method: row
-  field_quantity: cantidad
+    -
+      plugin: migration
+      migration: term_materials
+      no_stub: true
+  field_quantity:
+    plugin: number_format
+    source: cantidad
   field_price: valor
+  field_measurement:
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: measurement
+      no_stub: true
+      source: measurement
 destination:
   plugin: 'entity:paragraph'
 template: null
 migration_dependencies:
   optional:
     - term_materials
+    - measurement
 migration_group: null

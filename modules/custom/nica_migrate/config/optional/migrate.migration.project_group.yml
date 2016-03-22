@@ -1,0 +1,32 @@
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - taxonomy
+id: project_group
+migration_tags:
+  - CSV
+label: 'Project Group'
+source:
+  plugin: csv
+  path: 'public://csv/project_materials_list.csv'
+  header_row_count: 1
+  keys:
+    - group_name
+  column_names:
+    10:
+      group_name: 'Project Group'
+process:
+  vid:
+    plugin: default_value
+    default_value: project_group
+  name:
+    plugin: skip_on_empty
+    source: group_name
+    method: row
+destination:
+  plugin: 'entity:taxonomy_term'
+template: null
+migration_dependencies: {  }
+migration_group: null

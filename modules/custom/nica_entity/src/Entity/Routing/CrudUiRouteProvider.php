@@ -59,6 +59,8 @@ class CrudUiRouteProvider extends CreateHtmlRouteProvider implements EntityRoute
   protected function addFormRoute(EntityTypeInterface $entity_type) {
     if ($route = parent::addFormRoute($entity_type)) {
       $route->setOption('_admin_route', TRUE);
+      // See https://github.com/Jaesin/content_entity_base/issues/58.
+      $route->setRequirement('_entity_create_access', $entity_type->id() . ':{type}');
       return $route;
     }
   }
