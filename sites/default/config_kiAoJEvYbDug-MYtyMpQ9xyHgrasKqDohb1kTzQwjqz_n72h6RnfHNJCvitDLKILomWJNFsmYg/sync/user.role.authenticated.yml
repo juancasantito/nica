@@ -40,3 +40,4 @@ permissions:
   45: 'view own unpublished nica_entity'
   46: 'access in-place editing'
   47: 'change own username'
+  52: 'view the administration theme'

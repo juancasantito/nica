@@ -30,7 +30,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *   render_cache            = TRUE,
  *   handlers = {
  *     "storage"      = "\Drupal\content_entity_base\Entity\Storage\ContentEntityBaseStorage",
- *     "access"       = "\Drupal\content_entity_base\Entity\Access\EntityBaseAccessControlHandler",
+ *     "access"       = "\Drupal\nica_entity\Entity\Access\NicaAccessControllerHandler",
  *     "translation"  = "\Drupal\content_translation\ContentTranslationHandler",
  *     "list_builder" = "\Drupal\nica_entity\Entity\Listing\NicaEntityBaseListBuilder",
  *     "view_builder" = "\Drupal\nica_entity\Entity\NicaEntityViewBuilder",
