@@ -20,3 +20,10 @@ migrate_plus.migration_group.*:
     shared_configuration:
       type: ignore
       label: 'Shared migration configuration'
+migrate.migration.*.third_party.migrate_plus:
+  type: mapping
+  label: 'Group'
+  mapping:
+    migration_group:
+      type: string
+      label: 'Group'
