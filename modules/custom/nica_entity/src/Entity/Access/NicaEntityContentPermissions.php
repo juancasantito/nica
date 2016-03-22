@@ -7,13 +7,12 @@
 
 namespace Drupal\nica_entity\Entity\Access;
 
-use Drupal\content_entity_base\Entity\Access\EntityBasePermissions;
 use Drupal\Core\Entity\ContentEntityTypeInterface;
 
 /**
  * Defines a class containing permission callbacks.
  */
-class NicaEntityContentPermissions extends EntityBasePermissions {
+class NicaEntityContentPermissions extends NicaPermissions {
 
   /**
    * {@inheritdoc}
