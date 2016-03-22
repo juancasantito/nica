@@ -28,8 +28,14 @@ class ProjectHistoryEvent implements EventSubscriberInterface {
    *   The prepare-row event.
    */
   public function onPrepareRow(MigratePrepareRowEvent $event) {
-    $row = $event->getRow();
-
-//    $row->setSourceProperty('first_last', $row->getSourceProperty('first_name') . ' ' . $row->getSourceProperty('last_name'));
+    if ($event->getMigration()->id() == 'project_history') {
+      $row = $event->getRow();
+      $expoded = explode('-', $row->getSourceProperty('year_trim'));
+      if (count($expoded) == 2 && is_numeric($expoded[0] && is_numeric($expoded[1]))) {
+        list($year, $trim) = explode('-', $row->getSourceProperty('year_trim'));
+        $row->setSourceProperty('year', $year);
+        $row->setSourceProperty('trim', $trim);
+      }
+    }
   }
 }

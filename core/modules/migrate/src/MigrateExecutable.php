@@ -383,6 +383,7 @@ class MigrateExecutable implements MigrateExecutableInterface {
               $new_value[] = $plugin->transform($scalar_value, $this, $row, $destination);
             }
             catch (MigrateSkipProcessException $e) {
+              $value = NULL;
               $break = TRUE;
             }
           }
@@ -396,6 +397,7 @@ class MigrateExecutable implements MigrateExecutableInterface {
             $value = $plugin->transform($value, $this, $row, $destination);
           }
           catch (MigrateSkipProcessException $e) {
+            $value = NULL;
             break;
           }
           $multiple = $multiple || $plugin->multiple();
