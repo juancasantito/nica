@@ -52,7 +52,11 @@ class MigrationGroupTest extends WebTestBase {
     $migration = entity_create('migration', array(
       'id' => 'specific_migration',
       'load' => [],
-      'migration_group' => $group_id,
+      'third_party_settings' => [
+        'migrate_plus' => [
+          'migration_group' => $group_id,
+        ],
+      ],
       'label' => 'Unaffected by the group',
       'migration_tags' => array('Drupal 7'), // Overrides group.
       'destination' => array(),
@@ -68,7 +72,11 @@ class MigrationGroupTest extends WebTestBase {
     $migration->save();
 
     $expected_config = array(
-      'migration_group' => $group_id,
+      'third_party_settings' => [
+        'migrate_plus' => [
+          'migration_group' => $group_id,
+        ],
+      ],
       'label' => 'Unaffected by the group',
       'migration_tags' => array('Drupal 7'),
       'source' => array(
@@ -101,7 +109,11 @@ class MigrationGroupTest extends WebTestBase {
     /** @var MigrationInterface $migration */
     $migration = entity_create('migration', [
       'id' => 'specific_migration',
-      'migration_group' => 'test_group',
+      'third_party_settings' => [
+        'migrate_plus' => [
+          'migration_group' => 'test_group',
+        ],
+      ],
       'migration_tags' => array(),
       'load' => [],
       'destination' => array(),

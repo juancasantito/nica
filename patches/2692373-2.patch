@@ -1,0 +1,20 @@
+diff --git a/core/modules/migrate/src/MigrateExecutable.php b/core/modules/migrate/src/MigrateExecutable.php
+index a370623..50277b1 100644
+--- a/core/modules/migrate/src/MigrateExecutable.php
++++ b/core/modules/migrate/src/MigrateExecutable.php
+@@ -383,6 +383,7 @@ public function processRow(Row $row, array $process = NULL, $value = NULL) {
+               $new_value[] = $plugin->transform($scalar_value, $this, $row, $destination);
+             }
+             catch (MigrateSkipProcessException $e) {
++              $value = NULL;
+               $break = TRUE;
+             }
+           }
+@@ -396,6 +397,7 @@ public function processRow(Row $row, array $process = NULL, $value = NULL) {
+             $value = $plugin->transform($value, $this, $row, $destination);
+           }
+           catch (MigrateSkipProcessException $e) {
++            $value = NULL;
+             break;
+           }
+           $multiple = $multiple || $plugin->multiple();

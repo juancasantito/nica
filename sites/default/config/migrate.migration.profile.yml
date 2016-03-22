@@ -186,5 +186,3 @@ migration_dependencies:
     - marital_status
     - read_write_math
     - special_skills
-    - project_history
-migration_group: null
