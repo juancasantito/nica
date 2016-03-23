@@ -828,7 +828,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          operator: '<'
           value:
             min: ''
             max: ''
@@ -840,7 +840,7 @@ display:
             operator_id: field_project_date_value_op
             label: 'Fecha del Proyecto'
             description: ''
-            use_operator: false
+            use_operator: true
             operator: field_project_date_value_op
             identifier: field_project_date_value
             required: false
