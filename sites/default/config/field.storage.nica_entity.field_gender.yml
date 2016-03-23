@@ -13,10 +13,10 @@ settings:
   allowed_values:
     -
       value: female
-      label: Mujer
+      label: Femenino
     -
       value: male
-      label: Hombre
+      label: Masculino
   allowed_values_function: ''
 module: options
 locked: false
