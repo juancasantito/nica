@@ -1,0 +1,19 @@
+uuid: 584c0db0-d43c-4530-8302-2dafe2f15df4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_comments
+    - paragraphs.paragraphs_type.materials
+id: paragraph.materials.field_comments
+field_name: field_comments
+entity_type: paragraph
+bundle: materials
+label: Comentarios
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

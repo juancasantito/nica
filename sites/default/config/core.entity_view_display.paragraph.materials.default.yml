@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.materials.field_comments
     - field.field.paragraph.materials.field_material
     - field.field.paragraph.materials.field_measurement
     - field.field.paragraph.materials.field_price
@@ -13,6 +14,12 @@ targetEntityType: paragraph
 bundle: materials
 mode: default
 content:
+  field_comments:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
   field_material:
     weight: 7
     label: inline
