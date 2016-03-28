@@ -59,4 +59,3 @@ migration_dependencies:
   optional:
     - term_materials
     - measurement
-migration_group: null
