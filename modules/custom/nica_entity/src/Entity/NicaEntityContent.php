@@ -41,10 +41,11 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *       "revision" = "\Drupal\nica_entity\Entity\Routing\RevisionHtmlRouteProvider"
  *     },
  *     "form" = {
- *       "add"        = "\Drupal\content_entity_base\Entity\Form\EntityBaseForm",
- *       "edit"       = "\Drupal\content_entity_base\Entity\Form\EntityBaseForm",
- *       "default"    = "\Drupal\content_entity_base\Entity\Form\EntityBaseForm",
- *       "delete"     = "\Drupal\Core\Entity\ContentEntityDeleteForm",
+ *       "add"             = "\Drupal\content_entity_base\Entity\Form\EntityBaseForm",
+ *       "edit"            = "\Drupal\content_entity_base\Entity\Form\EntityBaseForm",
+ *       "default"         = "\Drupal\content_entity_base\Entity\Form\EntityBaseForm",
+ *       "delete"          = "\Drupal\Core\Entity\ContentEntityDeleteForm",
+ *       "delete-multiple" = "\Drupal\entity\Routing\DeleteMultipleRouteProvider",
  *     },
  *   },
  *   entity_keys = {
