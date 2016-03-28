@@ -41,4 +41,3 @@ destination:
   plugin: 'entity:node'
 template: null
 migration_dependencies: {  }
-migration_group: null
