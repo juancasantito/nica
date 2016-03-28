@@ -17,6 +17,8 @@ source:
   header_row_count: 1
   keys:
     - id_profile
+    - year
+    - trim
   column_names:
     0:
       id_profile: 'Profile ID'
@@ -30,6 +32,10 @@ source:
       field_benefit_earned: 'Benefit Earned'
     8:
       comments_on_result: 'Comments on Result'
+    9:
+      year: Year
+    10:
+      trim: Trim
 process:
   type:
     plugin: default_value
