@@ -3,11 +3,11 @@ status: true
 dependencies:
   module:
     - migrate_source_csv
-    - node
+    - nica_entity
 id: employment_history
 migration_tags:
   - CSV
-label: 'Employment History'
+label: 'Migrate Csv Employment History'
 source:
   plugin: csv
   path: 'public://csv/employment_history.csv'
@@ -28,7 +28,7 @@ source:
 process:
   type:
     plugin: default_value
-    default_value: event_history
+    default_value: employment_history
   title: id
   field_profile_reference:
     plugin: migration
@@ -38,6 +38,6 @@ process:
   field_place_of_employment: place_of_employment
   field_description_of_responsabil: description
 destination:
-  plugin: 'entity:node'
+  plugin: 'entity:nica_entity'
 template: null
 migration_dependencies: {  }
