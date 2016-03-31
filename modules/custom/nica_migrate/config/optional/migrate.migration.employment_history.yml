@@ -29,7 +29,6 @@ process:
   type:
     plugin: default_value
     default_value: employment_history
-  title: id
   field_profile_reference:
     plugin: migration
     migration: profile
