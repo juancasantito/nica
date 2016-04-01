@@ -32,6 +32,9 @@
             "recurse": false,
             "replace": false,
             "merge-extra": false
+        },
+        "installer-paths": {
+            "modules/contrib/{$name}": [ "type:drupal-module"]
         }
     },
     "autoload": {
