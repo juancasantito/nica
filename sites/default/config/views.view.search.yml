@@ -371,7 +371,7 @@ display:
           exposed: true
           expose:
             operator_id: type_op
-            label: 'Tipo de Curriculo'
+            label: 'Tipo de Curriculum'
             description: ''
             use_operator: false
             operator: type_op
