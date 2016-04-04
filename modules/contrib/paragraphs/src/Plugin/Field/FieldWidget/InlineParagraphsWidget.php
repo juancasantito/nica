@@ -9,7 +9,6 @@ namespace Drupal\paragraphs\Plugin\Field\FieldWidget;
 
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Component\Utility\Html;
-use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
 use Drupal\Core\Field\FieldFilteredMarkup;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
@@ -266,7 +265,7 @@ class InlineParagraphsWidget extends WidgetBase {
         );
 
         $element['top']['paragraph_type_title']['info'] = array(
-          '#markup' => t('@title type: %type', array('@title' => $this->getSetting('title'), '%type' => $bundle_info['label'])),
+          '#markup' => '<strong>' . $bundle_info['label'] . '</strong>',
         );
 
         $actions = array();
@@ -713,8 +712,7 @@ class InlineParagraphsWidget extends WidgetBase {
 
       // @todo: properize this.
       $add_text = 'No @title_multiple have been added yet. Select a @title type and press the button below to add one.';
-      $element_text = '<label>' . $title . "</label>";
-      $element_text .= '<p><em>' . t($add_text, array('@title_multiple' => $this->getSetting('title_plural'), '@title' => $this->getSetting('title'))) . '</em></p>';
+      $element_text = '<p><em>' . t($add_text, array('@title_multiple' => $this->getSetting('title_plural'), '@title' => $this->getSetting('title'))) . '</em></p>';
       $element_text .= $description ? '<div class="description">' . $description . '</div>' : '';
 
       $elements += array(
@@ -741,8 +739,21 @@ class InlineParagraphsWidget extends WidgetBase {
       );
 
       if (count($access_options)) {
-        if ($this->getSetting('add_mode') == 'button' || ($this->getSetting('add_mode') == 'dropdown' && count($access_options) === 1)) {
-
+        if ($this->getSetting('add_mode') == 'button' || $this->getSetting('add_mode') == 'dropdown') {
+          $drop_button = FALSE;
+          if (count($access_options) > 1 && $this->getSetting('add_mode') == 'dropdown') {
+            $drop_button = TRUE;
+            $elements['add_more']['#theme_wrappers'] = array('dropbutton_wrapper');
+            $elements['add_more']['prefix'] = array(
+              '#markup' => '<ul class="dropbutton">',
+              '#weight' => -999,
+            );
+            $elements['add_more']['suffix'] = array(
+              '#markup' => '</ul>',
+              '#weight' => 999,
+            );
+            $elements['add_more']['#suffix'] = $this->t(' to %type', array('%type' => $title));
+          }
           foreach ($access_options as $machine_name => $label) {
             $elements['add_more']['add_more_button_' . $machine_name] = array(
               '#type' => 'submit',
@@ -758,36 +769,11 @@ class InlineParagraphsWidget extends WidgetBase {
               ),
               '#bundle_machine_name' => $machine_name,
             );
+            if ($drop_button) {
+              $elements['add_more']['add_more_button_' . $machine_name]['#prefix'] = '<li>';
+              $elements['add_more']['add_more_button_' . $machine_name]['#suffix'] = '<li>';
+            }
           }
-        }
-        elseif($this->getSetting('add_mode') == 'dropdown') {
-          foreach ($access_options as $machine_name => $label) {
-            $elements['add_more']['add_more_button_' . $machine_name] = array(
-              '#type' => 'submit',
-              '#name' => strtr($id_prefix, '-', '_') . '_' . $machine_name . '_add_more',
-              '#value' => t('Add @type', array('@type' => $label)),
-              '#attributes' => array('class' => array('field-add-more-submit')),
-              '#limit_validation_errors' => array(array_merge($parents, array($field_name, 'add_more'))),
-              '#submit' => array(array(get_class($this), 'addMoreSubmit')),
-              '#ajax' => array(
-                'callback' => array(get_class($this), 'addMoreAjax'),
-                'wrapper' => $wrapper_id,
-                'effect' => 'fade',
-              ),
-              '#bundle_machine_name' => $machine_name,
-              '#prefix' => '<li>',
-              '#suffix' => '</li>',
-            );
-          }
-          $elements['add_more']['#theme_wrappers'] = array('dropbutton_wrapper', 'paragraphs_dropbutton_wrapper');
-          $elements['add_more']['prefix'] = array(
-            '#markup' => '<ul class="dropbutton">',
-            '#weight' => -999,
-          );
-          $elements['add_more']['suffix'] = array(
-            '#markup' => '</ul>',
-            '#weight' => 999,
-          );
         }
         else {
           $elements['add_more']['add_more_select'] = array(
@@ -816,6 +802,7 @@ class InlineParagraphsWidget extends WidgetBase {
               'effect' => 'fade',
             ),
           );
+          $elements['add_more']['add_more_button']['#suffix'] = $this->t(' to %type', array('%type' => $title));
         }
       }
       else {
