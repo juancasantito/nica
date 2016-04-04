@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains \Drupal\paragraphs\ParagraphsAdministrationTest.
+ * Contains \Drupal\paragraphs\Tests\ParagraphsAdministrationTest.
  */
 
 namespace Drupal\paragraphs\Tests;
@@ -190,7 +190,7 @@ class ParagraphsAdministrationTest extends WebTestBase {
     $this->assertLink('Manage fields');
     $this->assertLink('Manage form display');
     $this->assertLink('Manage display');
-    $this->assertTitle('Edit paragraph type | Drupal');
+    $this->assertTitle('Edit Image only paragraph type | Drupal');
 
     // Create an article with paragraphs field.
     static::fieldUIAddNewField('admin/structure/types/manage/article', 'paragraphs', 'Paragraphs', 'entity_reference_revisions', array(
@@ -260,9 +260,9 @@ class ParagraphsAdministrationTest extends WebTestBase {
 
     // Check the text and image after publish.
     $this->assertText('Test text 1');
-    $this->assertRaw('<img src="' . $img1_url);
+    $this->assertRaw('<img src="' . file_url_transform_relative($img1_url));
     $this->assertText('Test text 2');
-    $this->assertRaw('<img src="' . $img2_url);
+    $this->assertRaw('<img src="' . file_url_transform_relative($img2_url));
 
     // Tests for "Edit mode" settings.
     // Test for closed setting.
@@ -345,6 +345,29 @@ class ParagraphsAdministrationTest extends WebTestBase {
 //    // Make sure two paragraph entities have been deleted.
 //    $current_paragraphs = Paragraph::loadMultiple();
 //    $this->assertTrue(empty($current_paragraphs));
+
+    // Check if the publish/unpublish option works.
+    $this->drupalGet('admin/structure/paragraphs_type/text_image/form-display');
+    $edit = [
+      'fields[status][type]' => 'boolean_checkbox',
+    ];
+
+    $this->drupalPostForm(NULL, $edit, t('Save'));
+    $this->drupalGet('node/add/article');
+    $this->drupalPostForm(NULL, NULL, t('Add Text + Image'));
+    $this->assertRaw('edit-field-paragraphs-0-subform-status-value');
+    $edit = [
+      'title[0][value]' => 'Example publish/unpublish',
+      'field_paragraphs[0][subform][field_text][0][value]' => 'Example published and unpublished',
+    ];
+    $this->drupalPostForm(NULL, $edit, t('Save and publish'));
+    $this->assertText(t('Example published and unpublished'));
+    $this->clickLink(t('Edit'));
+    $edit = [
+      'field_paragraphs[0][subform][status][value]' => FALSE,
+    ];
+    $this->drupalPostForm(NULL, $edit, t('Save and keep published'));
+    $this->assertNoText(t('Example published and unpublished'));
   }
 
   /**
