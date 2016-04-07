@@ -64,11 +64,25 @@ process:
   type:
     plugin: default_value
     default_value: profile
-  title: first_name
   field_first_name: first_name
   field_last_name: last_name
   field_other_event: other_event
   field_birthday: birthday
+  field_images:
+    -
+      plugin: explode
+      source: pictures
+      delimiter: ;
+    -
+      plugin: callback
+      callable: trim
+    -
+      plugin: callback
+      callable: strtoupper
+    -
+      plugin: migration
+      migration: pictures
+      no_stub: true
   field_cedule_number: no_cedula
   field_marital_status:
     -
@@ -186,3 +200,4 @@ migration_dependencies:
     - marital_status
     - read_write_math
     - special_skills
+    - pictures

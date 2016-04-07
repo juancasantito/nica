@@ -10,7 +10,9 @@
     "replace": {
         "drupal/core": "~8.0",
         "drupal/content_entity_base": "8.*",
-        "drupal/csv_serialization": "8.*"
+        "drupal/csv_serialization": "8.*",
+        "drupal/flysystem": "8.*",
+        "drupal/flysystem_dropbox": "8.*"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -27,14 +29,18 @@
             "include": [
                 "core/composer.json",
                 "modules/contrib/content_entity_base/composer.json",
-                "modules/contrib/csv_serialization/composer.json"
+                "modules/contrib/csv_serialization/composer.json",
+                "modules/contrib/flysystem/composer.json",
+                "modules/contrib/flysystem_dropbox/composer.json"
             ],
             "recurse": false,
             "replace": false,
             "merge-extra": false
         },
         "installer-paths": {
-            "modules/contrib/{$name}": [ "type:drupal-module"]
+            "modules/contrib/{$name}": [
+                "type:drupal-module"
+            ]
         }
     },
     "autoload": {
