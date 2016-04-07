@@ -15,7 +15,7 @@ source:
   keys:
     - id_profile
     - year
-    - trim
+    - trim_id
   column_names:
     0:
       id_profile: 'Profile ID'
@@ -33,6 +33,8 @@ source:
       year: Year
     10:
       trim: Trim
+    11:
+      trim_id: 'Trim ID'
 process:
   type:
     plugin: default_value
@@ -55,6 +57,11 @@ process:
       source: project_name
   field_benefit_earned: field_benefit_earned
   field_comments_on_result: comments_on_result
+  field_quarter:
+    -
+      plugin: explode
+      source: trim
+      delimiter: ','
 destination:
   plugin: 'entity:nica_entity'
 template: null
