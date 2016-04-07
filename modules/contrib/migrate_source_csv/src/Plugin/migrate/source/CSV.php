@@ -41,6 +41,13 @@ class CSV extends SourcePluginBase {
   protected $keys = [];
 
   /**
+   * The reader class to read the JSON source file.
+   *
+   * @var string
+   */
+  protected $fileClass = '';
+
+  /**
    * {@inheritdoc}
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration) {
@@ -55,6 +62,8 @@ class CSV extends SourcePluginBase {
     if (empty($this->configuration['keys'])) {
       throw new MigrateException('You must declare "keys" as a unique array of fields in your source settings.');
     }
+
+    $this->fileClass = !isset($configuration['fileClass']) ? '\Drupal\migrate_source_csv\CSVFileObject' : $configuration['fileClass'];
 
   }
 
@@ -73,7 +82,11 @@ class CSV extends SourcePluginBase {
    */
   public function initializeIterator() {
     // File handler using header-rows-respecting extension of SPLFileObject.
-    $file = new CSVFileObject($this->configuration['path']);
+    $file = new $this->fileClass($this->configuration['path']);
+
+    if (!$file instanceof \SplFileObject) {
+      $file = new CSVFileObject($this->configuration['path']);
+    }
 
     // Set basics of CSV behavior based on configuration.
     $delimiter = !empty($this->configuration['delimiter']) ? $this->configuration['delimiter'] : ',';
