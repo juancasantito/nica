@@ -51,4 +51,5 @@ content:
     type: number
 hidden:
   created: true
+  status: true
   uid: true

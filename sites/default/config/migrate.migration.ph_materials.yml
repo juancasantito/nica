@@ -1,71 +1,75 @@
+uuid: 74c840d7-7d1b-4437-ad43-678825f62ac7
 langcode: es
 status: true
 dependencies:
   module:
     - migrate_source_csv
     - nica_entity
-id: ph_group_leader
+id: ph_materials
 migration_tags:
   - CSV
-label: 'Project History Group and Leader'
+label: 'Project History Materials'
 source:
   plugin: csv
-  track_changes: true
   path: 'public://csv/project_materials_list.csv'
   header_row_count: 1
+  fileClass: \Drupal\nica_migrate\Plugin\migrate\NicaFileObject
   keys:
-    - id_profile
+    - material_id
+    - profile
     - year
     - trim
   column_names:
+    0:
+      id: 'Profile ID'
     5:
-      id_profile: 'Id Profile'
+      profile: 'Profile ID'
     3:
       year: Year
     2:
       trim: Trim
-    9:
-      leader: 'Project Leader'
-    10:
-      project_group: 'Project Group'
+    12:
+      material1: Material1
+    16:
+      material2: Material2
+    19:
+      material3: Material3
+    22:
+      material4: Material4
 process:
   type:
     plugin: default_value
     default_value: project_history
-  field_project_group:
+  field_materials:
     -
-      plugin: skip_on_empty
-      source: project_group
-      method: process
+      plugin: ph_materials
+      source:
+        - id
+        - material
+        - profile
+        - year
+        - trim
     -
-      plugin: entity_generate
-  field_project_leader:
+      plugin: migration
+      migration: materials
+      no_stub: true
     -
-      plugin: special_trim
-      source: leader
-    -
-      plugin: skip_on_empty
-      method: process
-    -
-      plugin: static_map
-      baypass: true
-      map:
-        Lider: 'true'
-        Supervisora: 'true'
+      plugin: extract
+      index:
+        - 0
   id:
     -
       plugin: migration
       migration: project_history
       no_stub: true
       source:
-        - id_profile
+        - profile
         - year
         - trim
     -
       plugin: dependant_fields
       field_dependencies:
-        - field_project_group
-        - field_project_leader
+        - field_materials
     -
       plugin: skip_on_empty
       method: row
