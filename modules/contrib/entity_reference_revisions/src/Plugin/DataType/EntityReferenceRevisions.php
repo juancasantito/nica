@@ -114,6 +114,10 @@ class EntityReferenceRevisions extends EntityReference {
     elseif (is_object($value) && $value instanceof EntityInterface) {
       $this->target = $value->getTypedData();
     }
+    elseif (is_scalar($value)) {
+      $this->id = $value;
+      $this->revision_id = $value;
+    }
     elseif (!is_scalar($value['target_id']) || !is_scalar($value['target_revision_id']) || $this->getTargetDefinition()->getEntityTypeId() === NULL) {
       throw new \InvalidArgumentException('Value is not a valid entity.');
     }

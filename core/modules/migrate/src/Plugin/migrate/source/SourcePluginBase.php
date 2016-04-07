@@ -146,10 +146,11 @@ abstract class SourcePluginBase extends PluginBase implements MigrateSourceInter
     $this->migration = $migration;
 
     // Set up some defaults based on the source configuration.
-    $this->cacheCounts = !empty($configuration['cache_counts']);
-    $this->skipCount = !empty($configuration['skip_count']);
-    $this->cacheKey = !empty($configuration['cache_key']) ? !empty($configuration['cache_key']) : NULL;
-    $this->trackChanges = !empty($configuration['track_changes']) ? $configuration['track_changes'] : FALSE;
+    foreach (['cacheCounts' => 'cache_counts', 'skipCount' => 'skip_count', 'cacheKey' => 'cache_key', 'trackChanges' => 'track_changes'] as $property => $config_key) {
+      if (isset($configuration[$config_key])) {
+        $this->$property = (bool) $configuration[$config_key];
+      }
+    }
     $this->idMap = $this->migration->getIdMap();
 
     // Pull out the current highwater mark if we have a highwater property.
@@ -389,7 +390,7 @@ abstract class SourcePluginBase extends PluginBase implements MigrateSourceInter
     // If a refresh is requested, or we're not caching counts, ask the derived
     // class to get the count from the source.
     if ($refresh || !$this->cacheCounts) {
-      $count = $this->getIterator()->count();
+      $count = $this->doCount();
       $this->getCache()->set($this->cacheKey, $count);
     }
     else {
@@ -402,7 +403,7 @@ abstract class SourcePluginBase extends PluginBase implements MigrateSourceInter
       else {
         // No cached count, ask the derived class to count 'em up, and cache
         // the result.
-        $count = $this->getIterator()->count();
+        $count = $this->doCount();
         $this->getCache()->set($this->cacheKey, $count);
       }
     }
@@ -420,6 +421,14 @@ abstract class SourcePluginBase extends PluginBase implements MigrateSourceInter
       $this->cache = \Drupal::cache('migrate');
     }
     return $this->cache;
+  }
+
+  /**
+   * @return int
+   */
+  protected function doCount() {
+    $iterator = $this->getIterator();
+    return $iterator instanceof \Countable ? $iterator->count() : iterator_count($this->initializeIterator());
   }
 
 }

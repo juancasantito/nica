@@ -1,0 +1,15 @@
+diff --git a/src/Plugin/DataType/EntityReferenceRevisions.php b/src/Plugin/DataType/EntityReferenceRevisions.php
+index 2042d31..edbcfea 100644
+--- a/src/Plugin/DataType/EntityReferenceRevisions.php
++++ b/src/Plugin/DataType/EntityReferenceRevisions.php
+@@ -114,6 +114,10 @@ class EntityReferenceRevisions extends EntityReference {
+     elseif (is_object($value) && $value instanceof EntityInterface) {
+       $this->target = $value->getTypedData();
+     }
++    elseif (is_scalar($value)) {
++      $this->id = $value;
++      $this->revision_id = $value;
++    }
+     elseif (!is_scalar($value['target_id']) || !is_scalar($value['target_revision_id']) || $this->getTargetDefinition()->getEntityTypeId() === NULL) {
+       throw new \InvalidArgumentException('Value is not a valid entity.');
+     }
