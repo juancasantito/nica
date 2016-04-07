@@ -62,7 +62,10 @@ process:
         - year
         - trim
     -
-      plugin: reset
+      plugin: dependant_fields
+      field_dependencies:
+        - field_project_group
+        - field_project_leader
     -
       plugin: skip_on_empty
       method: row
