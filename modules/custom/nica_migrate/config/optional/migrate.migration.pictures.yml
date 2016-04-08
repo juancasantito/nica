@@ -17,7 +17,6 @@ process:
   uri: uri
 destination:
   plugin: 'entity:file'
-  source_base_path: 'dropbox_images:/'
 template: null
 migration_dependencies:
   required: {  }

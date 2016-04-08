@@ -727,13 +727,13 @@ include __DIR__ . '/settings.pantheon.php';
  *
 */
 $schemes = [
-	'dropbox_images' => [
-		'driver' => 'dropbox',
-		'config' => [
-			'token' => 'GQvcaiIZ6QAAAAAAAAAACE7LfTsKolxYlGTDC52LYdH-IvRTBvTKTqgCYhjMsZgj',
-			'client_id' => '3g8op0h86pncdu6',
-		],
-	],
+  'dropboximages' => [
+    'driver' => 'dropbox',
+    'config' => [
+      'token' => 'GQvcaiIZ6QAAAAAAAAAACE7LfTsKolxYlGTDC52LYdH-IvRTBvTKTqgCYhjMsZgj',
+      'client_id' => '3g8op0h86pncdu6',
+    ],
+  ],
 ];
 
 $settings['flysystem'] = $schemes;
