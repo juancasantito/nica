@@ -10,6 +10,6 @@ export SIMPLETEST_BASE_URL="http://localhost:8080"
 mkdir -p /tmp/pjsdrivercache/phantomjs
 phantomjs --ssl-protocol=any --ignore-ssl-errors=true ${TRAVIS_BUILD_DIR}/vendor/jcalderonzumba/gastonjs/src/Client/main.js 8510 1024 768 2>&1 > /tmp/gastonjs.log &
 # Install & run Behat tests.
-cd ${TRAVIS_BUILD_DIR}/test
+cd ${TRAVIS_BUILD_DIR}/tests
 ${TRAVIS_BUILD_DIR}/vendor/bin/behat --version
 ${TRAVIS_BUILD_DIR}/vendor/bin/behat
