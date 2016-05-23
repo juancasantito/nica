@@ -1,0 +1,8 @@
+{
+    "name": "drupal/nica_entity",
+    "type": "drupal",
+    "description": "The Nica Entity module",
+    "keywords": ["Drupal"],
+    "minimum-stability": "dev",
+    "require": {}
+}

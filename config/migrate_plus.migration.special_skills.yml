@@ -1,0 +1,35 @@
+uuid: 7fc5aeda-57cc-4c74-8605-05050a254a65
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - taxonomy
+_core:
+  default_config_hash: qbz23b_IViyW1vnWhMyIzgeFA58TS_vjJ6Tk7BleAK4
+id: special_skills
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Special Skills'
+source:
+  plugin: csv
+  path: 'public://csv/profile.csv'
+  header_row_count: 1
+  keys:
+    - name
+  column_names:
+    18:
+      name: 'Special Skills'
+process:
+  name:
+    plugin: skip_on_empty
+    method: row
+    source: name
+  description: name
+  vid:
+    plugin: default_value
+    default_value: special_skills
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {  }

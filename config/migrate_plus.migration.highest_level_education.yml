@@ -1,0 +1,35 @@
+uuid: 01ed8348-186d-4db7-b007-7aad60dae64b
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - taxonomy
+_core:
+  default_config_hash: QQIxUrQH0K0GEh8pQrGB7Csjs6NsXPaS2GahOVBK2y4
+id: highest_level_education
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Highest Level Educatione'
+source:
+  plugin: csv
+  path: 'public://csv/profile.csv'
+  header_row_count: 1
+  keys:
+    - name
+  column_names:
+    16:
+      name: 'Highest Education Completed'
+process:
+  name:
+    plugin: skip_on_empty
+    method: row
+    source: name
+  description: name
+  vid:
+    plugin: default_value
+    default_value: highest_education_completed
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {  }

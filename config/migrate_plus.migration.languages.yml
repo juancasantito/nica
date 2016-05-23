@@ -1,0 +1,31 @@
+uuid: b28ec089-b153-42e9-bb30-48ce8a9c62f4
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - taxonomy
+_core:
+  default_config_hash: '-fTW2Le7BQpmMOMPmflMz0y9R4Yp0lgYmcuiHZKiAKc'
+id: languages
+migration_tags:
+  - CSV
+migration_group: null
+label: Languages
+source:
+  plugin: csv
+  path: 'public://csv/language.csv'
+  keys:
+    - name
+  column_names:
+    -
+      name: Languages
+process:
+  name: name
+  description: name
+  vid:
+    plugin: default_value
+    default_value: languages
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {  }

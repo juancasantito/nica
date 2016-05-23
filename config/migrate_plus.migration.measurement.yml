@@ -1,0 +1,29 @@
+uuid: 28a8a706-bea1-40fc-a702-2f13da2d8f5b
+langcode: es
+status: true
+dependencies:
+  module:
+    - nica_migrate
+    - taxonomy
+id: measurement
+migration_tags:
+  - CSV
+migration_group: null
+label: Measurement
+source:
+  plugin: materials
+  path: 'public://csv/project_materials_list.csv'
+  header_row_count: 1
+  keys:
+    - measurement
+process:
+  vid:
+    plugin: default_value
+    default_value: measurement
+  name:
+    plugin: skip_on_empty
+    source: measurement
+    method: row
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {  }

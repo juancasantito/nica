@@ -1,0 +1,61 @@
+uuid: 15d8c0c6-8c29-4140-9d05-5af5c3401f8f
+langcode: es
+status: true
+dependencies:
+  module:
+    - nica_migrate
+    - paragraphs
+_core:
+  default_config_hash: wJIZ_YMGzfpE7OX5jF66IQXOKY5IQ1Oh2e63o4dCrKU
+id: materials
+migration_tags:
+  - CSV
+migration_group: null
+label: Materials
+source:
+  plugin: materials
+  path: 'public://csv/project_materials_list.csv'
+  header_row_count: 1
+  keys:
+    - id
+    - material
+    - profile
+    - year
+    - trim
+process:
+  type:
+    plugin: default_value
+    default_value: materials
+  field_material:
+    -
+      plugin: static_map
+      bypass: true
+      source: material
+      map:
+        NA: null
+    -
+      plugin: skip_on_empty
+      method: row
+    -
+      plugin: migration
+      migration: term_materials
+      no_stub: true
+  field_quantity:
+    plugin: number_format
+    source: cantidad
+  field_price: valor
+  field_measurement:
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: measurement
+      no_stub: true
+      source: measurement
+destination:
+  plugin: 'entity:paragraph'
+migration_dependencies:
+  optional:
+    - term_materials
+    - measurement

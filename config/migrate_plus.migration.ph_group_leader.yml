@@ -1,0 +1,78 @@
+uuid: 781312b5-0998-42a0-bb00-b2cd666dd1d2
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - nica_entity
+id: ph_group_leader
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Project History Group and Leader'
+source:
+  plugin: csv
+  track_changes: true
+  path: 'public://csv/project_materials_list.csv'
+  header_row_count: 1
+  keys:
+    - id_profile
+    - year
+    - trim
+  column_names:
+    5:
+      id_profile: 'Id Profile'
+    3:
+      year: Year
+    2:
+      trim: Trim
+    9:
+      leader: 'Project Leader'
+    10:
+      project_group: 'Project Group'
+process:
+  type:
+    plugin: default_value
+    default_value: project_history
+  field_project_group:
+    -
+      plugin: skip_on_empty
+      source: project_group
+      method: process
+    -
+      plugin: entity_generate
+  field_project_leader:
+    -
+      plugin: special_trim
+      source: leader
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: static_map
+      baypass: true
+      map:
+        Lider: 'true'
+        Supervisora: 'true'
+  id:
+    -
+      plugin: migration
+      migration: project_history
+      no_stub: true
+      source:
+        - id_profile
+        - year
+        - trim
+    -
+      plugin: dependant_fields
+      field_dependencies:
+        - field_project_group
+        - field_project_leader
+    -
+      plugin: skip_on_empty
+      method: row
+destination:
+  plugin: 'entity:nica_entity'
+migration_dependencies:
+  optional:
+    - project_history
