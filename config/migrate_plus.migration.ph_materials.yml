@@ -1,0 +1,81 @@
+uuid: 74c840d7-7d1b-4437-ad43-678825f62ac7
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - nica_entity
+id: ph_materials
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Project History Materials'
+source:
+  plugin: csv
+  path: 'public://csv/project_materials_list.csv'
+  header_row_count: 1
+  fileClass: \Drupal\nica_migrate\Plugin\migrate\NicaFileObject
+  keys:
+    - material_id
+    - profile
+    - year
+    - trim
+  column_names:
+    0:
+      id: 'Profile ID'
+    5:
+      profile: 'Profile ID'
+    3:
+      year: Year
+    2:
+      trim: Trim
+    12:
+      material1: Material1
+    16:
+      material2: Material2
+    19:
+      material3: Material3
+    22:
+      material4: Material4
+process:
+  type:
+    plugin: default_value
+    default_value: project_history
+  field_materials:
+    -
+      plugin: ph_materials
+      source:
+        - id
+        - material
+        - profile
+        - year
+        - trim
+    -
+      plugin: migration
+      migration: materials
+      no_stub: true
+    -
+      plugin: extract
+      index:
+        - 0
+  id:
+    -
+      plugin: migration
+      migration: project_history
+      no_stub: true
+      source:
+        - profile
+        - year
+        - trim
+    -
+      plugin: dependant_fields
+      field_dependencies:
+        - field_materials
+    -
+      plugin: skip_on_empty
+      method: row
+destination:
+  plugin: 'entity:nica_entity'
+migration_dependencies:
+  optional:
+    - project_history

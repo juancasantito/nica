@@ -1,0 +1,75 @@
+uuid: 4e235c2a-df1d-4875-8204-043829a80c85
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - nica_entity
+_core:
+  default_config_hash: OeJqSeQGLgZati3qvb2VRJoZWoHefQEoGlN1yWvAfsY
+id: project_history
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Project History'
+source:
+  plugin: csv
+  path: 'public://csv/project_history.csv'
+  header_row_count: 1
+  keys:
+    - id_profile
+    - year
+    - trim_id
+  column_names:
+    0:
+      id_profile: 'Profile ID'
+    1:
+      project_date: 'Project Date'
+    2:
+      year_trim: 'Year - Trim'
+    5:
+      project_name: 'Project Name'
+    6:
+      field_benefit_earned: 'Benefit Earned'
+    8:
+      comments_on_result: 'Comments on Result'
+    9:
+      year: Year
+    10:
+      trim: Trim
+    11:
+      trim_id: 'Trim ID'
+process:
+  type:
+    plugin: default_value
+    default_value: project_history
+  field_profile_reference:
+    -
+      plugin: migration
+      migration: profile
+      no_stub: true
+      source: id_profile
+  field_project_name:
+    -
+      plugin: callback
+      source: project_name
+      callable: trim
+    -
+      plugin: migration
+      migration: project_name
+      no_stub: true
+      source: project_name
+  field_benefit_earned: field_benefit_earned
+  field_comments_on_result: comments_on_result
+  field_quarter:
+    -
+      plugin: explode
+      source: trim
+      delimiter: ','
+destination:
+  plugin: 'entity:nica_entity'
+migration_dependencies:
+  optional:
+    - materials
+    - project_name
+    - profile

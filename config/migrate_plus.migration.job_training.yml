@@ -1,0 +1,35 @@
+uuid: 3c5562c4-3394-4e61-9142-6637388bf53b
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - taxonomy
+_core:
+  default_config_hash: LyC3mr0ttONU_kGiGqnbV02yj-NQnQStTwnl37bGrI4
+id: job_training
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Job Training'
+source:
+  plugin: csv
+  path: 'public://csv/profile.csv'
+  header_row_count: 1
+  keys:
+    - name
+  column_names:
+    19:
+      name: 'Job Training'
+process:
+  name:
+    plugin: skip_on_empty
+    method: row
+    source: name
+  description: name
+  vid:
+    plugin: default_value
+    default_value: job_training
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {  }

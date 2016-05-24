@@ -1,0 +1,37 @@
+uuid: bf87d5fb-9325-4727-8300-cb19b9ef7855
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - taxonomy
+id: project_name
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Project Name'
+source:
+  plugin: csv
+  path: 'public://csv/project_history.csv'
+  header_row_count: 1
+  keys:
+    - name
+  column_names:
+    5:
+      name: 'Project Name'
+process:
+  vid:
+    plugin: default_value
+    default_value: project_name
+  name:
+    -
+      plugin: callback
+      source: name
+      callable: trim
+    -
+      plugin: skip_on_empty
+      source: name
+      method: row
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {  }

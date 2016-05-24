@@ -1,0 +1,37 @@
+uuid: 339b806c-cddb-40cb-aa14-20628c7d1318
+langcode: es
+status: true
+dependencies:
+  module:
+    - nica_migrate
+    - taxonomy
+_core:
+  default_config_hash: B0IG2BOvZOEimgzC8rzj27cvjEPMKQaLy28yFgmPS64
+id: term_materials
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Term Materials'
+source:
+  plugin: materials
+  path: 'public://csv/project_materials_list.csv'
+  header_row_count: 1
+  keys:
+    - material
+process:
+  vid:
+    plugin: default_value
+    default_value: material
+  name:
+    -
+      plugin: static_map
+      source: material
+      bypass: true
+      map:
+        NA: null
+    -
+      plugin: skip_on_empty
+      method: row
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {  }

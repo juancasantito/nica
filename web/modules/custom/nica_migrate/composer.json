@@ -1,0 +1,8 @@
+{
+    "name": "drupal/nica_migrate",
+    "type": "drupal",
+    "description": "The Nica Migrate module",
+    "keywords": ["Drupal"],
+    "minimum-stability": "dev",
+    "require": {}
+}

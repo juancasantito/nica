@@ -1,0 +1,25 @@
+uuid: 9f195640-98cf-4c16-b346-70c20c528e6a
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - nica_migrate
+id: pictures
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Pictures Nica'
+source:
+  plugin: pictures
+  path: /databasephotos
+process:
+  filename: filename
+  filepath: filepath
+  uri: uri
+destination:
+  plugin: 'entity:file'
+  preserve_files: true
+migration_dependencies:
+  required: {  }
+  optional: {  }

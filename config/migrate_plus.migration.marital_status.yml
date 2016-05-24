@@ -1,0 +1,35 @@
+uuid: 5595ac0f-4fe0-4b6a-863f-637edd13832b
+langcode: es
+status: true
+dependencies:
+  module:
+    - migrate_source_csv
+    - taxonomy
+_core:
+  default_config_hash: 6BlCVqA8d9-UnaqGuap-ycupYuVlaD7AY9QWQfVnIec
+id: marital_status
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Marital Status'
+source:
+  plugin: csv
+  path: 'public://csv/profile.csv'
+  header_row_count: 1
+  keys:
+    - name
+  column_names:
+    8:
+      name: 'Marital Status'
+process:
+  name:
+    plugin: skip_on_empty
+    method: row
+    source: name
+  description: name
+  vid:
+    plugin: default_value
+    default_value: marital_status
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {  }

@@ -1,0 +1,12 @@
+uuid: c165c466-5225-41af-8100-c58180014be5
+name: 'NICA Portal'
+mail: luke@nicafund.org
+slogan: 'Somos El Cambio'
+page:
+  403: ''
+  404: ''
+  front: /search
+admin_compact_mode: false
+weight_select_max: 100
+langcode: es
+default_langcode: en

@@ -11,17 +11,17 @@ default:
   extensions:
     Behat\MinkExtension:
       goutte: ~
-      base_url: http://localhost
-      selenium2: ~
+      base_url: http://localhost:8080
+      phantomjs:
+          phantom_server: "http://localhost:8510/api"
+          template_cache: "/tmp/pjsdrivercache/phantomjs"
+    Zumba\PhantomJSExtension:
     Drupal\DrupalExtension:
       blackbox: ~
       text:
-        log_out: "Cerrar sesión"
-        log_in: "Iniciar sesión"
-        password_field: "Contraseña"
-        username_field: "Nombre de usuario"
-      selectors:
-        logged_in_selector: "body.user-logged-in"
-        login_form_selector: "form#edit-name"
+        log_out: "Log out"
+        log_in: "Log in"
+        password_field: "Password"
+        username_field: "Username"
   formatters:
     pretty: true
