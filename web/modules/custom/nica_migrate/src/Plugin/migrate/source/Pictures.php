@@ -40,8 +40,8 @@ class Pictures extends SourcePluginBase {
     if (isset($directory['contents'])) {
       foreach ($directory['contents'] as $key => $info) {
         $file_name = explode('/', $directory['contents'][$key]['path']);
-        $file_name =  strtoupper($file_name[count($file_name) - 1]);
-        $file_name_original = $file_name;
+        $file_name_original = $file_name[count($file_name) - 1];
+        $file_name =  strtoupper($file_name_original);
         preg_match('/-(.*)(.JPG|.GIF|.PNG)/', $file_name, $name_tmp);
         isset($name_tmp[1]) ? $file_name = trim($name_tmp[1]) : $file_name;
         $directory['contents'][$key]['filename'] = $file_name;
