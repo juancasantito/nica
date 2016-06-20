@@ -102,7 +102,6 @@
       "drupal/core": {
         "Requiring a migration w/ a source plugin using a generator fatals": "https://www.drupal.org/files/issues/2684567_14.patch",
         "Resurrect the 'preserve_files' configuration option in file migration": "https://www.drupal.org/files/issues/file_migrations_preserve_files-2706405-2.patch",
-        "Value should be null when is produced skip process": "https://www.drupal.org/files/issues/2692373-16.patch",
         "label visibility for exposed numeric and date filter when using single and multi value filter": "https://www.drupal.org/files/issues/drupal-label_visibility_for-2625136-38.patch"
       },
       "drupal/migrate_plus": {
