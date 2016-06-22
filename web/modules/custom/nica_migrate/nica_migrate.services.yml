@@ -7,3 +7,7 @@ services:
     class: Drupal\nica_migrate\EventSubscriber\ProjectHistoryEvent
     tags:
       - { name: event_subscriber }
+  nica_migrate.profile:
+      class: Drupal\nica_migrate\EventSubscriber\ValidateDateEvent
+      tags:
+        - { name: event_subscriber }
