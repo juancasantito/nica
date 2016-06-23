@@ -11,7 +11,7 @@ use Drupal\migrate_plus\Event\MigrateEvents;
 use Drupal\migrate_plus\Event\MigratePrepareRowEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class ValidateDateEvent implements EventSubscriberInterface {
+class ProfileDateEvent implements EventSubscriberInterface {
 
     /**
      * @return array The event names to listen to
@@ -28,9 +28,9 @@ class ValidateDateEvent implements EventSubscriberInterface {
         if ($event->getMigration()->id() == 'profile') {
 
             $row = $event->getRow();
-            $date_csv = $row->getSourceProperty('birthday');
-            $date_edit = ValidateDate::positionChangeDate($date_csv);
-            $row->setSourceProperty('birthday', $date_edit);
+            $date_nica = $row->getSourceProperty('birthday');
+            $profile_date = ValidateDate::validate($date_nica);
+            $row->setSourceProperty('birthday', $profile_date);
         }
     }
 }
