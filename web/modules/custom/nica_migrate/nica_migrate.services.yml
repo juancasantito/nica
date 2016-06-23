@@ -8,6 +8,14 @@ services:
     tags:
       - { name: event_subscriber }
   nica_migrate.profile:
-      class: Drupal\nica_migrate\EventSubscriber\ValidateDateEvent
+      class: Drupal\nica_migrate\EventSubscriber\ProfileDateEvent
       tags:
         - { name: event_subscriber }
+  nica_migrate.employment_history:
+        class: Drupal\nica_migrate\EventSubscriber\EmploymentDateEvent
+        tags:
+          - { name: event_subscriber }
+  nica_migrate.event_history:
+        class: Drupal\nica_migrate\EventSubscriber\EventHistoryDateEvent
+        tags:
+          - { name: event_subscriber }
