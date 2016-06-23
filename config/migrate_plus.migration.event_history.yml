@@ -20,17 +20,15 @@ source:
     - id
   column_names:
     -
-      id: Id
+      id: 'ID'
     -
       id_profile: 'Profile ID'
     -
-      event_date_start: 'Event Date Start'
+      event_date: 'Event Date'
     -
-      event_date_end: 'Event Date End'
+      description: 'Description'
     -
-      description: Description
-    -
-      result: Result
+      result: 'Result'
 process:
   type:
     plugin: default_value
@@ -40,10 +38,16 @@ process:
     plugin: migration
     migration: profile
     source: id_profile
-  field_event_date_start: event_date_start
-  field_event_date_end: event_date_end
+  field_event_date: event_date
   field_description: description
-  field_result: result
+  field_result:
+    -
+      plugin: skip_on_empty
+      source: result
+      method: process
+    -
+      plugin: entity_generate
+      source: result
 destination:
-  plugin: 'entity:node'
+  plugin: 'entity:nica_entity'
 migration_dependencies: {  }

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains \Drupal\nica_migrate\EventSubscriber\EmploymentDateEvent.
+ * Contains \Drupal\nica_migrate\EventSubscriber\EventHistoryDateEvent.
  */
 
 namespace Drupal\nica_migrate\EventSubscriber;
@@ -11,7 +11,7 @@ use Drupal\migrate_plus\Event\MigrateEvents;
 use Drupal\migrate_plus\Event\MigratePrepareRowEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class EmploymentDateEvent implements EventSubscriberInterface {
+class EventHistoryDateEvent implements EventSubscriberInterface {
 
     /**
      * @return array The event names to listen to
@@ -25,15 +25,11 @@ class EmploymentDateEvent implements EventSubscriberInterface {
 
     public function onPrepareRow(MigratePrepareRowEvent $event) {
 
-        if ($event->getMigration()->id() == 'employment_history') {
-
+        if ($event->getMigration()->id() == 'event_history') {
             $row = $event->getRow();
-            $date_empl = $row->getSourceProperty('employment_date');
-
-            //$date_nica = explode("-", $date_empl);
-            $employment_date = ValidateDate::validate($date_empl);
-
-            $row->setSourceProperty('employment_date', $employment_date); 
+            $date_hist = $row->getSourceProperty('event_date');
+            $history_date = ValidateDate::validate($date_hist);
+            $row->setSourceProperty('event_date', $history_date);
         }
     }
 }
