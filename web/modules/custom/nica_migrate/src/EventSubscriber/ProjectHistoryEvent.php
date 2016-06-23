@@ -9,6 +9,7 @@ namespace Drupal\nica_migrate\EventSubscriber;
 
 use Drupal\migrate_plus\Event\MigrateEvents;
 use Drupal\migrate_plus\Event\MigratePrepareRowEvent;
+use Drupal\nica_migrate\ValidateDate;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ProjectHistoryEvent implements EventSubscriberInterface {
@@ -36,6 +37,10 @@ class ProjectHistoryEvent implements EventSubscriberInterface {
         $row->setSourceProperty('year', $year);
         $row->setSourceProperty('trim', $trim);
       }
+
+     $date_project = $row->getSourceProperty('project_date');
+      $project_history_date = ValidateDate::validate($date_project);
+      $row->setSourceProperty('project_date', $project_history_date);
     }
   }
 }

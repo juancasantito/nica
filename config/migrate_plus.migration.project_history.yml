@@ -24,7 +24,7 @@ source:
     0:
       id_profile: 'Profile ID'
     1:
-      project_date: 'Project Date'
+      project_date: 'Project Dates'
     2:
       year_trim: 'Year - Trim'
     5:
@@ -61,6 +61,7 @@ process:
       source: project_name
   field_benefit_earned: field_benefit_earned
   field_comments_on_result: comments_on_result
+  field_project_date: project_date
   field_quarter:
     -
       plugin: explode
