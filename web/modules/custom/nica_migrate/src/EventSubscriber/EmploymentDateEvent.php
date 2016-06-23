@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains \Drupal\nica_migrate\EventSubscriber\ProjectHistoryDateEvent.
+ * Contains \Drupal\nica_migrate\EventSubscriber\EmploymentDateEvent.
  */
 
 namespace Drupal\nica_migrate\EventSubscriber;
@@ -11,7 +11,7 @@ use Drupal\migrate_plus\Event\MigrateEvents;
 use Drupal\migrate_plus\Event\MigratePrepareRowEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class EmploymentHistoryDateEvent implements EventSubscriberInterface {
+class EmploymentDateEvent implements EventSubscriberInterface {
 
     /**
      * @return array The event names to listen to
