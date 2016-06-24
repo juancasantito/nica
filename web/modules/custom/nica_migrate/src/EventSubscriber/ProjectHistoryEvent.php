@@ -37,10 +37,6 @@ class ProjectHistoryEvent implements EventSubscriberInterface {
         $row->setSourceProperty('year', $year);
         $row->setSourceProperty('trim', $trim);
       }
-
-     $date_project = $row->getSourceProperty('project_date');
-      $project_history_date = ValidateDate::validate($date_project);
-      $row->setSourceProperty('project_date', $project_history_date);
     }
   }
 }
