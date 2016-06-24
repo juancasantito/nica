@@ -20,7 +20,7 @@ source:
     - id
   column_names:
     -
-      id: 'ID'
+      id: ID
     -
       id_profile: 'Profile ID'
     -

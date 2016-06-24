@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.nica_entity.event_history.field_city
     - field.field.nica_entity.event_history.field_description
-    - field.field.nica_entity.event_history.field_event_comments
+    - field.field.nica_entity.event_history.field_event_comments_result
     - field.field.nica_entity.event_history.field_event_date
     - field.field.nica_entity.event_history.field_event_name
     - field.field.nica_entity.event_history.field_images
@@ -34,8 +34,8 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-  field_event_comments:
-    weight: 6
+  field_event_comments_result:
+    weight: 8
     label: above
     settings: {  }
     third_party_settings: {  }

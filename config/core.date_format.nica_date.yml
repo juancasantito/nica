@@ -1,0 +1,8 @@
+uuid: 7488b29f-a9e8-4566-998c-1662d88a25a9
+langcode: en
+status: true
+dependencies: {  }
+id: nica_date
+label: 'Nica Date'
+locked: false
+pattern: d-m-Y

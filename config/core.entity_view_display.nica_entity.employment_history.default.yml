@@ -27,7 +27,7 @@ content:
     label: above
     settings:
       timezone_override: ''
-      format_type: html_date
+      format_type: nica_date
     third_party_settings: {  }
     type: datetime_default
   field_place_of_employment:

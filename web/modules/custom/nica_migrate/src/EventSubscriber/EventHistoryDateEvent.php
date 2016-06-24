@@ -30,6 +30,25 @@ class EventHistoryDateEvent implements EventSubscriberInterface {
             $date_hist = $row->getSourceProperty('event_date');
             $history_date = ValidateDate::validate($date_hist);
             $row->setSourceProperty('event_date', $history_date);
+
+            $result = $row->getSourceProperty('result');
+            $result_data = $this->searchTaxonomy($result);
+            $row->setSourceProperty('result', $result_data);
+            $row->setSourceProperty('comments', $result);
         }
+    }
+
+    protected function searchTaxonomy($data_search) {
+        $found = '';
+        $comp = ['Bueno', 'Malo', 'Excelente'];
+        if (!empty($data_search)) {
+            foreach ($comp as $c) {
+                if (preg_match("/" . $c . "/i", $data_search, $found)) {
+                    $found = ucwords(reset($found));
+                    break;
+                }
+            }
+        }
+        return $found;
     }
 }

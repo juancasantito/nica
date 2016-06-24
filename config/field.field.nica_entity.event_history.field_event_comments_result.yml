@@ -1,15 +1,15 @@
-uuid: 3b1b3bc4-526a-4cd9-a000-ee952f48ace9
+uuid: 452ec476-a629-4de5-9aef-46fb66a8ca4b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.nica_entity.field_event_comments
+    - field.storage.nica_entity.field_event_comments_result
     - nica_entity.content_type.event_history
-id: nica_entity.event_history.field_event_comments
-field_name: field_event_comments
+id: nica_entity.event_history.field_event_comments_result
+field_name: field_event_comments_result
 entity_type: nica_entity
 bundle: event_history
-label: 'Comentarios del Resultado del Evento'
+label: 'Event comments result'
 description: ''
 required: false
 translatable: false
