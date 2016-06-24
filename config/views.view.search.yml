@@ -14,7 +14,6 @@ dependencies:
     - field.storage.nica_entity.field_description
     - field.storage.nica_entity.field_description_of_responsabil
     - field.storage.nica_entity.field_employment_date
-    - field.storage.nica_entity.field_event_comments
     - field.storage.nica_entity.field_event_date
     - field.storage.nica_entity.field_event_name
     - field.storage.nica_entity.field_first_name
@@ -913,7 +912,6 @@ display:
         - 'config:field.storage.nica_entity.field_description'
         - 'config:field.storage.nica_entity.field_description_of_responsabil'
         - 'config:field.storage.nica_entity.field_employment_date'
-        - 'config:field.storage.nica_entity.field_event_comments'
         - 'config:field.storage.nica_entity.field_event_date'
         - 'config:field.storage.nica_entity.field_event_name'
         - 'config:field.storage.nica_entity.field_first_name'
@@ -1302,7 +1300,6 @@ display:
         - 'config:field.storage.nica_entity.field_description'
         - 'config:field.storage.nica_entity.field_description_of_responsabil'
         - 'config:field.storage.nica_entity.field_employment_date'
-        - 'config:field.storage.nica_entity.field_event_comments'
         - 'config:field.storage.nica_entity.field_event_date'
         - 'config:field.storage.nica_entity.field_event_name'
         - 'config:field.storage.nica_entity.field_first_name'
