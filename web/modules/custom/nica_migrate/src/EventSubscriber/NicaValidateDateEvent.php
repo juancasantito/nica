@@ -19,7 +19,6 @@ class NicaValidateDateEvent implements EventSubscriberInterface {
   public static function getSubscribedEvents() {
     $events[MigrateEvents::PREPARE_ROW][] = ['onPrepareRow', 0];
     return $events;
-
   }
 
   public function onPrepareRow(MigratePrepareRowEvent $event) {
@@ -37,6 +36,7 @@ class NicaValidateDateEvent implements EventSubscriberInterface {
         $value = $row->getSourceProperty($source_field);
         $date = ValidateDate::validate($value);
         $row->setSourceProperty($source_field, $date);
+        break;
       }
     }
   }

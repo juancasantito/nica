@@ -19,7 +19,6 @@ class EventHistoryDateEvent implements EventSubscriberInterface {
     public static function getSubscribedEvents() {
         $events[MigrateEvents::PREPARE_ROW][] = ['onPrepareRow', 0];
         return $events;
-
     }
 
     public function onPrepareRow(MigratePrepareRowEvent $event) {
