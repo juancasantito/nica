@@ -30,15 +30,16 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *   render_cache            = TRUE,
  *   handlers = {
  *     "storage"      = "\Drupal\content_entity_base\Entity\Storage\ContentEntityBaseStorage",
- *     "access"       = "\Drupal\nica_entity\Entity\Access\NicaAccessControllerHandler",
+ *     "access"       = "\Drupal\content_entity_base\Entity\Access\EntityBaseAccessControlHandler",
  *     "translation"  = "\Drupal\content_translation\ContentTranslationHandler",
  *     "list_builder" = "\Drupal\nica_entity\Entity\Listing\NicaEntityBaseListBuilder",
- *     "view_builder" = "\Drupal\nica_entity\Entity\NicaEntityViewBuilder",
+ *     "view_builder" = "\Drupal\Core\Entity\EntityViewBuilder",
  *     "views_data"   = "\Drupal\content_entity_base\Entity\Views\EntityBaseViewsData",
+ *     "permission_provider" = "\Drupal\content_entity_base\Entity\Access\EntityPermissionProvider",
  *     "route_provider" = {
  *       "html" = "\Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
- *       "crud" = "\Drupal\nica_entity\Entity\Routing\CrudUiRouteProvider",
- *       "revision" = "\Drupal\nica_entity\Entity\Routing\RevisionHtmlRouteProvider"
+ *       "crud" = "\Drupal\content_entity_base\Entity\Routing\CrudUiRouteProvider",
+ *       "revision" = "\Drupal\content_entity_base\Entity\Routing\RevisionHtmlRouteProvider"
  *     },
  *     "form" = {
  *       "add"             = "\Drupal\content_entity_base\Entity\Form\EntityBaseForm",
@@ -59,7 +60,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *     "collection"   = "/admin/content/nica",
  *     "canonical"    = "/nica/{nica_entity}",
  *     "add-page"    = "/nica/add",
- *     "add-form"    = "/nica/add/{type}",
+ *     "add-form"    = "/nica/add/{nica_entity_type}",
  *     "delete-form"  = "/nica/{nica_entity}/delete",
  *     "edit-form"    = "/nica/{nica_entity}/edit",
  *     "version-history" = "/nica/{nica_entity}/revisions",
