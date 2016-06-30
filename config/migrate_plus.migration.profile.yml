@@ -103,6 +103,7 @@ process:
     -
       plugin: callback
       callable: strtoupper
+      source: children
     -
       plugin: static_map
       bypass: true
