@@ -42,4 +42,6 @@ process:
   field_description_of_responsabil: description
 destination:
   plugin: 'entity:nica_entity'
-migration_dependencies: {  }
+migration_dependencies:
+  optional:
+    - profile

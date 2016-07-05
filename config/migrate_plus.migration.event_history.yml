@@ -51,4 +51,6 @@ process:
   field_event_comments_result: comments
 destination:
   plugin: 'entity:nica_entity'
-migration_dependencies: {  }
+migration_dependencies:
+  optional:
+    - profile
