@@ -32,7 +32,7 @@ class ProjectHistoryEvent implements EventSubscriberInterface {
     if ($event->getMigration()->id() == 'project_history') {
       $row = $event->getRow();
       $expoded = explode('-', $row->getSourceProperty('year_trim'));
-      if (count($expoded) == 2 && intval($expoded[0] && intval($expoded[1]))) {
+      if (count($expoded) == 2 && intval($expoded[0]) && intval($expoded[1])) {
         list($year, $trim) = explode('-', $row->getSourceProperty('year_trim'));
         $row->setSourceProperty('year', $year);
         $row->setSourceProperty('trim', $trim);
