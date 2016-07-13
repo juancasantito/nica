@@ -1027,6 +1027,8 @@ display:
         type: normal
         title: 'Nica Content'
         menu_name: admin
+        enabled: true
+        expanded: false
     cache_metadata:
       max-age: 0
       contexts:

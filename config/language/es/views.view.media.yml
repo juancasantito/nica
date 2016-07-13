@@ -29,7 +29,6 @@ display:
           perm: 'view media'
       cache:
         type: tag
-        options: {  }
       query:
         type: views_query
         options:
@@ -37,7 +36,6 @@ display:
           distinct: false
           replica: false
           query_comment: ''
-          query_tags: {  }
       exposed_form:
         type: basic
         options:
@@ -54,7 +52,6 @@ display:
           items_per_page: 50
           offset: 0
           id: 0
-          total_pages: null
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -72,7 +69,6 @@ display:
       style:
         type: table
         options:
-          grouping: {  }
           row_class: ''
           default_row_class: true
           override: true
@@ -189,7 +185,6 @@ display:
             image_style: thumbnail
             image_link: ''
           group_column: ''
-          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -239,7 +234,6 @@ display:
           click_sort_column: value
           type: string
           group_column: value
-          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -301,7 +295,6 @@ display:
           settings:
             link: true
           group_column: target_id
-          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -366,7 +359,6 @@ display:
           settings:
             link: true
           group_column: target_id
-          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -433,7 +425,6 @@ display:
             format_custom_true: Published
             format_custom_false: Unpublished
           group_column: value
-          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -500,7 +491,6 @@ display:
             custom_date_format: ''
             timezone: ''
           group_column: value
-          group_columns: {  }
           group_rows: true
           delta_limit: 0
           delta_offset: 0
@@ -578,7 +568,6 @@ display:
           expose:
             operator_id: ''
             label: 'True'
-            description: null
             use_operator: false
             operator: status_op
             identifier: status
@@ -597,7 +586,6 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
             group_items:
               1:
                 title: Published
@@ -618,7 +606,6 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
           group: 1
           exposed: true
           expose:
@@ -646,8 +633,6 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
@@ -686,8 +671,6 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
           entity_type: media
           entity_field: name
           plugin_id: string
@@ -699,7 +682,6 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
           group: 1
           exposed: true
           expose:
@@ -727,8 +709,6 @@ display:
             multiple: false
             remember: false
             default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
           entity_type: media
           entity_field: langcode
           plugin_id: language
@@ -749,8 +729,6 @@ display:
             label: ''
           granularity: second
       title: Media
-      header: {  }
-      footer: {  }
       empty:
         area_text_custom:
           id: area_text_custom
@@ -763,9 +741,6 @@ display:
           tokenize: false
           content: 'No content available.'
           plugin_id: text_custom
-      relationships: {  }
-      arguments: {  }
-      display_extenders: {  }
     cache_metadata:
       max-age: 0
       contexts:
@@ -774,14 +749,12 @@ display:
         - url
         - url.query_args
         - user.permissions
-      tags: {  }
   media_page_list:
     display_plugin: page
     id: media_page_list
     display_title: Media
     position: 1
     display_options:
-      display_extenders: {  }
       path: admin/content/media
       menu:
         type: tab
@@ -801,4 +774,3 @@ display:
         - url
         - url.query_args
         - user.permissions
-      tags: {  }
