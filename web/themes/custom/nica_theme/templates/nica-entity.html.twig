@@ -56,11 +56,7 @@ view_mode ? 'nica--view-mode-' ~ view_mode|clean_class,
 ]
 %}
 <article{{ attributes.addClass(classes) }}>
-  <header>
-    {{ title_prefix }}
-    {{ title_suffix }}
-  </header>
   <div{{ content_attributes.addClass('nica__content', 'clearfix') }}>
-    {{ content }}
+    {{ elements }}
   </div>
 </article>
