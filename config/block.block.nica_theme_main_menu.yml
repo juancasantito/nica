@@ -1,4 +1,4 @@
-uuid: c945a004-381a-489c-9500-eda13802151b
+uuid: cc8d90ad-4580-4c72-b1a7-2ff4f1edb165
 langcode: en
 status: true
 dependencies:
@@ -8,10 +8,12 @@ dependencies:
     - system
   theme:
     - nica_theme
+_core:
+  default_config_hash: GT_zYl7I9VAILH8OxMRe-VDvFadCDHxRcnmBc5xEmf0
 id: nica_theme_main_menu
 theme: nica_theme
-region: primary_menu
-weight: 0
+region: navigation_collapsible
+weight: 10
 provider: null
 plugin: 'system_menu_block:main'
 settings:
@@ -20,5 +22,5 @@ settings:
   provider: system
   label_display: '0'
   level: 1
-  depth: 1
+  depth: 2
 visibility: {  }

@@ -1,13 +1,15 @@
-uuid: 23f58384-1dee-4c4c-a705-5be18f53cff2
+uuid: f17e799e-1b87-46c0-a043-970930752e6c
 langcode: en
 status: true
 dependencies:
   theme:
     - nica_theme
+_core:
+  default_config_hash: 1TQP4b3ZnlzvIH9bj6cpCz_SyUHdJjLQkZnHpikjjhw
 id: nica_theme_page_title
 theme: nica_theme
-region: content
-weight: -50
+region: header
+weight: 0
 provider: null
 plugin: page_title_block
 settings:

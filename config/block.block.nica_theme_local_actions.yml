@@ -1,13 +1,15 @@
-uuid: e4e9e892-7b51-4ddd-9800-e5f5afd57921
+uuid: ec8df112-dddd-406e-96d0-e3bec3d8a113
 langcode: en
 status: true
 dependencies:
   theme:
     - nica_theme
+_core:
+  default_config_hash: ffxthelqQF8xcr4GTG4HlaNNsluiHftN0pujmQpW0bQ
 id: nica_theme_local_actions
 theme: nica_theme
-region: content
-weight: -20
+region: header
+weight: 20
 provider: null
 plugin: local_actions_block
 settings:

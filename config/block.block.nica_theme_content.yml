@@ -1,4 +1,4 @@
-uuid: b513940a-b416-4e3a-8222-34e749c02982
+uuid: ff758ad9-7038-4b89-b189-565117ceec61
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,8 @@ dependencies:
     - system
   theme:
     - nica_theme
+_core:
+  default_config_hash: fNNLN48MSGSLiqwIFywCuxH2Dk_IxDbaP0kYhg_IPrg
 id: nica_theme_content
 theme: nica_theme
 region: content

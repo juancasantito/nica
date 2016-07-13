@@ -1,0 +1,22 @@
+uuid: d01b600c-f07f-4599-864a-89956c219820
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - nica_admin
+_core:
+  default_config_hash: IOrvIGXFvOpjNVvtVKp0-IWaxLr9xuXU_WV8Uf1mU1A
+id: nica_admin_help
+theme: nica_admin
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

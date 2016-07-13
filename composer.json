@@ -25,6 +25,7 @@
     "drupal/migrate_tools": "~2",
     "drupal/config_installer": "~8",
     "drupal/bootstrap": "~3",
+    "drupal/adminimal_theme": "~1",
     "drupal/pathauto": "~1",
     "drupal/inline_entity_form": "~1",
     "drupal/content_entity_base": "1.x-dev",
@@ -109,6 +110,9 @@
       },
       "drupal/entity_reference_revisions": {
         "Allow single scalar value in EntityReferenceRevisions data type plugin": "https://www.drupal.org/files/issues/allow_single_scalar-2667748-2.patch"
+      },
+      "drupal/adminimal_theme": {
+        "Fix styling so that admin_toolbar can be used": "https://www.drupal.org/files/issues/adminimal_theme-fix-styles-for-admin-toolbar-2680689-7.patch"
       }
     }
   }

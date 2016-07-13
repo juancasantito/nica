@@ -1,0 +1,20 @@
+uuid: 6ca7ac7d-4803-423d-95cc-7bc981a03ef5
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nica_admin
+_core:
+  default_config_hash: mNpVdIlQLbRBkM0PNtpgAbQPQu0nfIbXR20NuLJxcnQ
+id: nica_admin_page_title
+theme: nica_admin
+region: header
+weight: -30
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

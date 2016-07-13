@@ -1,4 +1,4 @@
-uuid: a9a180e5-fdfa-476b-b700-aadb83003f41
+uuid: e66046a4-e851-4770-a24d-9f91a7c115c6
 langcode: en
 status: true
 dependencies:
@@ -6,10 +6,12 @@ dependencies:
     - system
   theme:
     - nica_theme
+_core:
+  default_config_hash: 9RnnTUBcn0WRWXfrGOnId2H0Q31uQUeu_F5TnDxl2yg
 id: nica_theme_messages
 theme: nica_theme
-region: highlighted
-weight: 0
+region: header
+weight: -50
 provider: null
 plugin: system_messages_block
 settings:

@@ -1,13 +1,15 @@
-uuid: 1d97ebd8-1b5d-42fa-b004-4aec52cb7502
+uuid: 21c5da80-684d-4407-9806-267677f9b053
 langcode: en
 status: true
 dependencies:
   theme:
     - nica_theme
+_core:
+  default_config_hash: qHdtze2DZ2mFfaJadxjZz6epm92_SN9SAFY4yJGl8Fo
 id: nica_theme_local_tasks
 theme: nica_theme
-region: content
-weight: -40
+region: header
+weight: 10
 provider: null
 plugin: local_tasks_block
 settings:

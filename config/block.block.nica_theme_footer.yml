@@ -1,4 +1,4 @@
-uuid: d3af7272-5a82-43dd-9c00-e488a7846667
+uuid: 575d7e0c-01e6-4cb9-bf31-a07cbd0d6417
 langcode: en
 status: true
 dependencies:
@@ -8,9 +8,11 @@ dependencies:
     - system
   theme:
     - nica_theme
+_core:
+  default_config_hash: h06zhb3xV9_2_3Zy9NsyylL7YBaEDlMwMEqNwAn8kMo
 id: nica_theme_footer
 theme: nica_theme
-region: sidebar_first
+region: footer
 weight: 0
 provider: null
 plugin: 'system_menu_block:footer'
