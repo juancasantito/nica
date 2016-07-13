@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the nica_admin theme.
+ */
+
+/**
+ * Implements hook_theme_suggestions_datetime_wrapper_alter().
+ */
+function nica_admin_theme_suggestions_datetime_wrapper_alter(array &$suggestions, array $variables) {
+  $element = $variables['element'];
+  list($field_name, $delta) = $element['#parents'];
+  $suggestions[] = 'datetime_wrapper__' . 'delta_' . $delta;
+  $suggestions[] = 'datetime_wrapper__' . $field_name . '_' . $delta;
+}

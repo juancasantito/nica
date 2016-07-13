@@ -1,4 +1,4 @@
-uuid: 236d5909-80c4-4f2a-8c3c-6015793e2896
+uuid: c26b04ef-2968-4447-8710-ab42dab022a6
 langcode: en
 status: true
 dependencies:
@@ -6,10 +6,12 @@ dependencies:
     - system
   theme:
     - nica_theme
+_core:
+  default_config_hash: wDR9JKEATSWldBjw8du8s3G2zjEYeQf88nlld11hMLo
 id: nica_theme_breadcrumbs
 theme: nica_theme
-region: breadcrumb
-weight: 0
+region: header
+weight: -100
 provider: null
 plugin: system_breadcrumb_block
 settings:

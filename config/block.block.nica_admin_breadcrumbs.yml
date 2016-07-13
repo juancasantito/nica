@@ -1,0 +1,22 @@
+uuid: 87db20e4-df75-406c-8b26-d06f85442ba3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nica_admin
+_core:
+  default_config_hash: cjmIpRUJj6d7QMYhofBhVSLHkwjKJwi6iRU-3uT5liA
+id: nica_admin_breadcrumbs
+theme: nica_admin
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

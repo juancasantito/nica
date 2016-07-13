@@ -1,0 +1,22 @@
+uuid: 98a0d120-dcdf-4b50-86f1-bc62c59f6579
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nica_admin
+_core:
+  default_config_hash: 5TM1RfZ8qvae9XVKKZgLqH4Ml3zDfUiNQNDv8Kr2AJM
+id: nica_admin_primary_local_tasks
+theme: nica_admin
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: false
+visibility: {  }

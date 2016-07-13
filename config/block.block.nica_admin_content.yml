@@ -1,0 +1,22 @@
+uuid: bec6cc0e-b32d-4126-aa9a-68dcab73c3ad
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nica_admin
+_core:
+  default_config_hash: 9FiI7u4suEq2t6qVSRuLeHHTtMjO2tbFpCT0czPy6hA
+id: nica_admin_content
+theme: nica_admin
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

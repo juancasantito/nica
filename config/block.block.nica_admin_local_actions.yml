@@ -1,0 +1,20 @@
+uuid: 25dc9d3b-b059-48cb-a299-a1c179864ad0
+langcode: en
+status: true
+dependencies:
+  theme:
+    - nica_admin
+_core:
+  default_config_hash: ObTEQEskixIjLRMKKLGcubDBhtqCKomTxxpaZS9kzaM
+id: nica_admin_local_actions
+theme: nica_admin
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

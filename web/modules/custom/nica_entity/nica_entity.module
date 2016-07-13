@@ -28,6 +28,34 @@ function nica_entity_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
+ * Implements hook_theme().
+ */
+function nica_entity_theme() {
+  return [
+    'nica_entity' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function nica_entity_theme_suggestions_nica_entity(array $variables) {
+  $suggestions = array();
+  $nica_entiy = $variables['elements']['#nica_entity'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'nica_entity__' . $sanitized_view_mode;
+  $suggestions[] = 'nica_entity__' . $nica_entiy->bundle();
+  $suggestions[] = 'nica_entity__' . $nica_entiy->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'nica_entity__' . $nica_entiy->id();
+  $suggestions[] = 'nica_entity__' . $nica_entiy->id() . '__' . $sanitized_view_mode;
+
+  return $suggestions;
+}
+
+/**
  * Implements hook_entity_extra_field_info().
  */
 function nica_entity_entity_extra_field_info() {

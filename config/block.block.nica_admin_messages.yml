@@ -1,0 +1,22 @@
+uuid: 57d26fdf-6334-4018-b8cb-fb414f1823a2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nica_admin
+_core:
+  default_config_hash: w4g5rtjK9lmss0bF1HvGiIN1pyRrva8AEDQEFrJ9Th0
+id: nica_admin_messages
+theme: nica_admin
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

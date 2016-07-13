@@ -1,4 +1,4 @@
-uuid: af0471c9-13a7-4285-8a00-d8076e24beb6
+uuid: 8f96b3f2-a44a-4118-8889-f282a94608bc
 langcode: en
 status: true
 dependencies:
@@ -6,10 +6,12 @@ dependencies:
     - system
   theme:
     - nica_theme
+_core:
+  default_config_hash: iggZSiUKz4mYP1YPJ8SsUfFu79HIgOTt6IDy3Up59aM
 id: nica_theme_powered
 theme: nica_theme
-region: sidebar_first
-weight: 10
+region: footer
+weight: -10
 provider: null
 plugin: system_powered_by_block
 settings:

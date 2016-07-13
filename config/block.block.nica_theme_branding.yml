@@ -1,4 +1,4 @@
-uuid: 7ef4190f-cef1-452d-b007-7c2250b38b24
+uuid: 81150a06-211c-4cb3-98ed-ccda33bb5d5d
 langcode: en
 status: true
 dependencies:
@@ -6,9 +6,11 @@ dependencies:
     - system
   theme:
     - nica_theme
+_core:
+  default_config_hash: Cy3vkpYrD1O5JG-BeEnokF0bByHYDEa8CBfWivB4_SQ
 id: nica_theme_branding
 theme: nica_theme
-region: header
+region: navigation
 weight: 0
 provider: null
 plugin: system_branding_block
@@ -19,5 +21,5 @@ settings:
   label_display: '0'
   use_site_logo: true
   use_site_name: true
-  use_site_slogan: true
+  use_site_slogan: false
 visibility: {  }
