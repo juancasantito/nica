@@ -1,0 +1,6 @@
+# nica_custom content entity tasks links.
+entity.nica_entity.cv:
+  route_name: nica_custom.curriculumvitae
+  base_route: entity.nica_entity.canonical
+  title: 'Curriculum Vitae'
+  weight: 11

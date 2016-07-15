@@ -43,7 +43,8 @@
     "drupal/token": "~1",
     "drupal/views_rest_feed": "~1",
     "drupal/nica_entity": "*",
-    "drupal/nica_migrate": "*"
+    "drupal/nica_migrate": "*",
+    "drupal/twig_tweak": "~1"
   },
   "require-dev": {
     "behat/behat": "~3.0",

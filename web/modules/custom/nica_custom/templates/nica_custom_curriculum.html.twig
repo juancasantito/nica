@@ -1,0 +1,29 @@
+{# nica_custom/templates/nica_custom_resume.html.twig #}
+
+<div class="container">
+    <div class="row">
+        <br>
+        <p class="center-block">To whom it may be concerned,</p>
+        <p class="center-block">
+            <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong>
+
+             did a great job on her volunteer projects, which included:</p>
+        <div class="col-md-12">
+            <div class="center-block">
+                {{ drupal_view('profiles_views', 'block_2') }}
+            </div>
+
+        </div>
+
+    <br/>
+    <br/>
+
+    We'd fully recommend <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong> for this position.
+    <br/>
+    <br/>
+
+    Sincerely,
+    <br/>
+
+    </div>
+</div>
