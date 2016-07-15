@@ -1,0 +1,20 @@
+assets:
+  - nica.sql.gz
+  - files.tar.gz
+steps:
+  - name: Composer install
+    command: 'cd /src; composer self-update; composer install --prefer-dist'
+  - name: Drupal Setup
+    plugin: Drupal
+    database: nica.sql.gz
+    databaseGzipped: true
+    subDirectory: web
+    drupalVersion: 8
+    settingsAppend: "$config_directories = array(CONFIG_SYNC_DIRECTORY => '../config');"
+  - name: Set Files
+    command: "cd /assets; tar xvfz /assets/files.tar.gz;
+    rm -fd -R var/www/html/sites/default/files/;
+    mv /assets/files /var/www/html/sites/default;
+    chown www-data:www-data -R /var/www/html/sites/default/files;"
+  - name: Configuration Import
+    command: 'drush cim -y; drush cr;'
