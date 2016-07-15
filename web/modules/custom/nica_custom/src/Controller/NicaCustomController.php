@@ -14,7 +14,7 @@ class NicaCustomController extends ControllerBase {
 
   public function curriculumvitae(ContentEntityInterface $nica_entity) {
     return [
-      '#theme' => 'nica_custom',
+      '#theme' => 'nica_custom_cv',
       '#nica_entity' => $nica_entity,
     ];
   }

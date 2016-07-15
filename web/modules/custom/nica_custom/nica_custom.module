@@ -14,11 +14,10 @@ use Drupal\Core\Routing\RouteMatchInterface;
 
 function nica_custom_theme() {
   return [
-    'nica_custom' => [
+    'nica_custom_cv' => [
       'variables' => [
         'nica_entity' => NULL,
       ],
-      'template' => 'nica_custom_curriculum'
     ],
   ];
 

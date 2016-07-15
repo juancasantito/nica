@@ -1,4 +1,4 @@
-nica_custom.curriculumvitae:
+nica_custom.cv:
   path: '/nica/{nica_entity}/cv'
   defaults:
     _controller: '\Drupal\nica_custom\Controller\NicaCustomController::curriculumvitae'
