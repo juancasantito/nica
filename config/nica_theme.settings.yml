@@ -4,8 +4,9 @@ _core:
 favicon:
   mimetype: image/vnd.microsoft.icon
   path: ''
-  url: 'http://nica/themes/contrib/bootstrap/favicon.ico'
+  url: 'http://nica.drupal2:2301/themes/custom/nica_theme/favicon.ico'
   use_default: true
+schema: '8000'
 features:
   comment_user_picture: true
   comment_user_verification: true
@@ -15,4 +16,6 @@ logo:
   path: ''
   url: ''
   use_default: true
-schema: 8000
+navbar_inverse: 1
+navbar_position: fixed-top
+cdn_provider_import_data: ''
