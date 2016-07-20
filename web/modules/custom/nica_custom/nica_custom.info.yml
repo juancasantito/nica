@@ -1,0 +1,5 @@
+name: Nica Custom CV
+type: module
+description: Modulo Nica Custom
+core: 8.x
+package: Custom

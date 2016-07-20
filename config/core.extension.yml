@@ -34,6 +34,7 @@ module:
   migrate_plus: 0
   migrate_source_csv: 0
   migrate_tools: 0
+  nica_custom: 0
   nica_entity: 0
   nica_migrate: 0
   node: 0
@@ -47,6 +48,7 @@ module:
   taxonomy: 0
   text: 0
   toolbar: 0
+  twig_tweak: 0
   update: 0
   user: 0
   views_rest_feed: 0
