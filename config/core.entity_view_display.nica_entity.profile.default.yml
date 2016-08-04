@@ -94,7 +94,7 @@ content:
       height: 300px
       width: 100%
       info_text: ''
-      info_auto_display: '1'
+      info_auto_display: 1
       title: ''
     third_party_settings: {  }
     type: geolocation_map

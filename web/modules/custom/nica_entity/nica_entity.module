@@ -56,6 +56,19 @@ function nica_entity_theme_suggestions_nica_entity(array $variables) {
 }
 
 /**
+ * Adds a f
+ * @param $variables
+ */
+function template_preprocess_nica_entity(&$variables) {
+  $variables['nica_entity'] = $variables['elements']['#nica_entity'];
+  // Helpful $content variable for templates.
+  $variables += array('content' => array());
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
  * Implements hook_entity_extra_field_info().
  */
 function nica_entity_entity_extra_field_info() {
