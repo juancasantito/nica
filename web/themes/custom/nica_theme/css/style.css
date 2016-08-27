@@ -7318,3 +7318,12 @@ p:last-child,
 .control-group .help-inline:first-child {
   margin-top: 0;
 }
+.views-rest-feed {
+  display: inline;
+}
+.json-feed .feed-icon,
+.xml-feed .feed-icon,
+.csv-feed .feed-icon {
+  background-image: none;
+  width: 36px;
+}
