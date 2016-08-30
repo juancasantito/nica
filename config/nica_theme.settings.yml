@@ -4,9 +4,12 @@ _core:
 favicon:
   mimetype: image/vnd.microsoft.icon
   path: ''
-  url: 'http://nica/themes/custom/nica_theme/favicon.ico'
+  url: 'http://nica.dev/themes/custom/nica_theme/favicon.ico'
   use_default: true
 schema: '8000'
+navbar_inverse: 1
+navbar_position: fixed-top
+cdn_provider_import_data: ''
 features:
   comment_user_picture: true
   comment_user_verification: true
@@ -16,6 +19,6 @@ logo:
   path: ''
   url: ''
   use_default: true
-navbar_inverse: 1
-navbar_position: fixed-top
-cdn_provider_import_data: ''
+schemas:
+  bootstrap: 8000
+  nica_theme: 8000
