@@ -10,22 +10,7 @@ namespace Drupal\nica_custom\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-
 class NicaCustomForm extends ConfigFormBase{
-
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public static function create(ContainerInterface $container) {
-		return new static(
-			$container->get('config.factory'),
-			$container->get('path.alias_manager'),
-			$container->get('path.validator'),
-			$container->get('router.request_context')
-		);
-	}
 
 	public function getFormId() {
 		return 'nica_custom_settings';
