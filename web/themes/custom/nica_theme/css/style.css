@@ -7327,3 +7327,29 @@ p:last-child,
   background-image: none;
   width: 36px;
 }
+.photo_1 {
+  width: 70%;
+  height: 100px;
+  float: left;
+  display: block;
+}
+.photo_2 {
+  width: 50%;
+  height: 100px;
+  float: right;
+  display: block;
+}
+hr.linear {
+  display: block;
+  border-style: solid;
+  border: 2px solid black;
+}
+.constancy {
+  text-align: center;
+  line-height: 4em;
+  text-decoration: underline;
+}
+p.text-cv {
+  text-align: justify;
+  text-justify: auto;
+}
