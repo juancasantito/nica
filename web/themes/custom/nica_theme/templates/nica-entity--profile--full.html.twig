@@ -59,4 +59,7 @@ view_mode ? 'nica--view-mode-' ~ view_mode|clean_class,
   <div{{ content_attributes.addClass('nica__content', 'clearfix') }}>
     {{ content }}
   </div>
+  <div>
+    {{ drupal_view('profile_contextual', 'block_1', nica_entity.id()) }}
+  </div>
 </article>
