@@ -1,0 +1,10 @@
+nica_custom.admin_config:
+  title: 'Nica Configuration'
+  route_name: nica_custom.admin_config
+  parent: system.admin_config
+  description: 'Configure Nica Website.'
+nica_custom.settings:
+  title: 'Nica Settings'
+  parent: nica_custom.admin_config
+  description: 'Configure settings for the Nica website.'
+  route_name: nica_custom.settings
