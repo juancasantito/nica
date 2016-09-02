@@ -1,0 +1,8 @@
+uuid: 1e5f89de-787b-403c-817a-606215fc49fd
+langcode: en
+status: true
+dependencies: {  }
+id: nica_cv
+label: 'Nica CV'
+locked: false
+pattern: 'F j Y'

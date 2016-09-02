@@ -5,3 +5,19 @@ nica_custom.cv:
     _title: 'Curriculum Vitae'
   requirements:
     _permission: 'access content'
+
+nica_custom.admin_config:
+  path: '/admin/config/nica'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Nica Configuration'
+  requirements:
+    _permission: 'administer site configuration'
+
+nica_custom.settings:
+  path: '/admin/config/nica/settings'
+  defaults:
+    _form: '\Drupal\nica_custom\Form\NicaCustomForm'
+    _title: 'Nica Custom Settings'
+  requirements:
+    _permission: 'administer site configuration'

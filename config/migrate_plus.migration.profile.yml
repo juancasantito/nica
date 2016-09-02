@@ -34,7 +34,7 @@ source:
     -
       age: Age
     -
-      no_cedula: 'No. de Cedula'
+      no_cedula: 'No de Cedula'
     -
       marital_status: 'Marital status'
     -
@@ -84,7 +84,21 @@ process:
       plugin: migration
       migration: pictures
       no_stub: true
-  field_cedule_number: no_cedula
+  field_national_id:
+    -
+      plugin: static_map
+      bypass: true
+      map:
+        '': null
+        'NO TIENE': null
+        'EN TRAMITE': null
+      source: no_cedula
+    -
+      plugin: skip_on_empty
+      method: process
+    -
+      plugin: migration
+      migration: no_cedula
   field_marital_status:
     -
       plugin: static_map
