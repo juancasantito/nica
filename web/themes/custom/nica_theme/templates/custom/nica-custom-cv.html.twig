@@ -1,28 +1,52 @@
 {# nica_custom/templates/nica_custom_cv.html.twig #}
 <div class="container">
     <div class="row">
-        <br>
-        <p class="center-block">To whom it may be concerned,</p>
-        <p class="center-block">
-            <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong>
-
-            did a great job on her volunteer projects, which included:</p>
-        <div class="col-md-12">
-            <div class="center-block">
-                {{ drupal_view('profiles_views', 'block_1') }}
+        <div class="col-md-9">
+            <div class="col-md-6">
+                <img src="/sites/default/files/nica-custom/nica-cv/nica.jpg" class="photo_1"/>
             </div>
-
+            <div class="col-md-6">
+                <img src="/sites/default/files/nica-custom/nica-cv/cambio.png" class="photo_2"/>
+            </div>
+            <hr class="linear">
         </div>
+        <br>
+        <div class="col-md-9">
+            <p class="col-md-offset-7">{{ city }}, Nagarote {{ date }}</p>
+            <h4 class="constancy"><strong>CONSTANCIA DE PARTICIPACI&Oacute;N</strong></h4>
 
-        <br/>
-        <br/>
-
-        We'd fully recommend <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong> for this position.
-        <br/>
-        <br/>
-
-        Sincerely,
-        <br/>
-
+            <div class="col-md-8 col-md-offset-2">
+                <p class="text-cv">
+                    El motivo de la presente constancia es para manifestar que la Sr.(a)
+                    <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong>
+                    con cedula de identidad numero <strong>{{ nica_entity.field_national_id.value }}</strong>, ha participado en el programa social
+                    “Somos El Cambio” que se desarrolla en la comunidad de <strong>{{ city }}</strong>, comarca del municipio
+                    de Nagarote.
+                    <br><br>
+                    <strong>El programa “Somos El Cambio”</strong>, es un programa de servicio comunitario que
+                    les otorga a los participantes la oportunidad de realizar una labor comunitaria y que puedan
+                    recibir un beneficio en especies, para satisfacer sus necesidades básicas. El programa se
+                    ejecuta por medio de convenios de participación trimestrales. Los proyectos giran en función
+                    de las necesidades de la comunidad. El programa promueve el cuido del medio ambiente, la
+                    participación comunitaria, el liderazgo, el empoderamiento y el aumento de la dignidad
+                    individual y familiar.
+                    <br>
+                    <strong>Registro de participación de la (el) participante:</strong>
+                    <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong>
+                    <br>
+                    <div class="center-block">
+                        {{ drupal_view('profiles_views', 'block_1') }}
+                    </div>
+                    <br>
+                    Sin mas a que hacer referencia.
+                    <br>
+                    Atentamente,
+                    <br><br>
+                    <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong>
+                    <br>
+                    <strong>{{ organization }}</strong>
+                </p>
+            </div>
+        </div>
     </div>
 </div>
