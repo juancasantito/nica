@@ -40,6 +40,12 @@ class NicaCustomForm extends ConfigFormBase{
 			'#placeholder' => $this->t('City Project'),
 			'#default_value' => $nica_config->get('nica_city_project'),
 		);
+		$form['nica_cv']['departament_project']  = array(
+			'#type' => 'textfield',
+			'#title' => $this->t('Departament Project'),
+			'#placeholder' => $this->t('Departament Project'),
+			'#default_value' => $nica_config->get('nica_departament_project'),
+		);
 		$form['nica_cv']['name_execute'] = array(
 			'#type' => 'textfield',
 			'#title' => $this->t('Name Organization Excecutor'),
@@ -52,6 +58,7 @@ class NicaCustomForm extends ConfigFormBase{
 	public function submitForm(array &$form, FormStateInterface $form_state) {
 		$this->config('nica_custom.settings')
 			->set('nica_city_project', $form_state->getValue('city_project'))
+			->set('nica_departament_project', $form_state->getValue('departament_project'))
 			->set('nica_name_executor', $form_state->getValue('name_execute'))
 			->save();
 		parent::submitForm($form, $form_state);

@@ -5,10 +5,12 @@ namespace Drupal\nica_theme\Plugin\Preprocess;
 use Drupal\bootstrap\Plugin\Preprocess\PreprocessBase;
 use Drupal\bootstrap\Plugin\Preprocess\PreprocessInterface;
 use Drupal\bootstrap\Utility\Variables;
+use Drupal\Component\Datetime\DateTimePlus;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\datetime\Plugin\views\filter\Date;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Datetime\DateFormatterInterface;
 
 /**
  * Pre-processes variables for the "nica_custom_cv" theme hook.
@@ -23,20 +25,29 @@ class NicaCustomCV extends PreprocessBase implements PreprocessInterface, Contai
 	/** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory*/
 	protected $configFactory;
 
+	/** @var \Drupal\Core\Datetime\DateFormatterInterface  */
+	protected $dateFormatter;
+
 	/**
 	 * {@inheritdoc}
 	 */
-	public function __construct(array $configuration, $pluginId, $pluginDefinition, ConfigFactoryInterface $configFactory) {
+	public function __construct(array $configuration, $pluginId, $pluginDefinition, ConfigFactoryInterface $configFactory, DateFormatterInterface $dateFormatter) {
 		parent::__construct($configuration, $pluginId, $pluginDefinition);
 
 		$this->configFactory = $configFactory;
+		$this->dateFormatter = $dateFormatter;
 	}
 
 	/**
 	 * {@inheritdoc}
 	 */
 	public static function create(ContainerInterface $container, array $configuration, $pluginId, $pluginDefinition) {
-		return new static($configuration, $pluginId, $pluginDefinition,$container->get('config.factory'));
+		return new static(
+			$configuration,
+			$pluginId,
+			$pluginDefinition,
+			$container->get('config.factory'),
+			$container->get('date.formatter'));
 	}
 
 	/**
@@ -45,7 +56,8 @@ class NicaCustomCV extends PreprocessBase implements PreprocessInterface, Contai
 	public function preprocessVariables(Variables $variables) {
 		$nicaConfig = $this->configFactory->get('nica_custom.settings');
 		$variables->city = $nicaConfig->get('nica_city_project');
+		$variables->departament = $nicaConfig->get('nica_departament_project');
 		$variables->organization = $nicaConfig->get('nica_name_executor');
-		$variables->date = '2 de septiembre 2016';
+		$variables->date =  $this->dateFormatter->format(REQUEST_TIME, 'nica_cv');
 	}
 }

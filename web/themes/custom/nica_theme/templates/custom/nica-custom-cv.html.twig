@@ -12,12 +12,17 @@
         </div>
         <br>
         <div class="col-md-9">
-            <p class="col-md-offset-7">{{ city }}, Nagarote {{ date }}</p>
+            <p class="col-md-offset-7">{{ city }}, {{ departament }} {{ date }}</p>
             <h4 class="constancy"><strong>CONSTANCIA DE PARTICIPACI&Oacute;N</strong></h4>
 
             <div class="col-md-8 col-md-offset-2">
                 <p class="text-cv">
-                    El motivo de la presente constancia es para manifestar que la Sr.(a)
+                    El motivo de la presente constancia es para manifestar que la
+                    {% if nica_entity.field_gender.value == 'Masculino' %}
+                    Sr.
+                    {% else %}
+                    Sra.
+                    {% endif %}
                     <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong>
                     con cedula de identidad numero <strong>{{ nica_entity.field_national_id.value }}</strong>, ha participado en el programa social
                     “Somos El Cambio” que se desarrolla en la comunidad de <strong>{{ city }}</strong>, comarca del municipio
@@ -42,7 +47,7 @@
                     <br>
                     Atentamente,
                     <br><br>
-                    <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong>
+                    <strong>{{ drupal_field('field_first_name', 'user', user.id()) }} {{  drupal_field('field_last_name', 'user', user.id()) }}</strong>
                     <br>
                     <strong>{{ organization }}</strong>
                 </p>
