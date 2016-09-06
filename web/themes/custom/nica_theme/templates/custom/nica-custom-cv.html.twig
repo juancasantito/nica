@@ -1,27 +1,30 @@
 {# nica_custom/templates/nica_custom_cv.html.twig #}
-<div class="container">
+<div class="container" id="container-print">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-9" >
             <div class="col-md-6">
                 <img src="/sites/default/files/nica-custom/nica-cv/nica.jpg" class="photo_1"/>
             </div>
             <div class="col-md-6">
                 <img src="/sites/default/files/nica-custom/nica-cv/cambio.png" class="photo_2"/>
             </div>
-            <hr class="linear">
         </div>
-        <br>
+    </div>
+    <hr class="linear">
+    <br>
+    <div class="row">
         <div class="col-md-9">
-            <p class="col-md-offset-7">{{ city }}, {{ departament }} {{ date }}</p>
+            <p class="city-cv">{{ city }}, {{ departament }} {{ date }}</p>
+            <br>
             <h4 class="constancy"><strong>CONSTANCIA DE PARTICIPACI&Oacute;N</strong></h4>
 
             <div class="col-md-8 col-md-offset-2">
                 <p class="text-cv">
                     El motivo de la presente constancia es para manifestar que la
                     {% if nica_entity.field_gender.value == 'Masculino' %}
-                    Sr.
+                        Sr.
                     {% else %}
-                    Sra.
+                        Sra.
                     {% endif %}
                     <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong>
                     con cedula de identidad numero <strong>{{ nica_entity.field_national_id.value }}</strong>, ha participado en el programa social
@@ -39,17 +42,21 @@
                     <strong>Registro de participación de la (el) participante:</strong>
                     <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong>
                     <br>
-                    <div class="center-block">
-                        {{ drupal_view('profiles_views', 'block_1') }}
-                    </div>
-                    <br>
-                    Sin mas a que hacer referencia.
-                    <br>
-                    Atentamente,
-                    <br><br>
-                    <strong>{{ drupal_field('field_first_name', 'user', user.id()) }} {{  drupal_field('field_last_name', 'user', user.id()) }}</strong>
-                    <br>
-                    <strong>{{ organization }}</strong>
+                <div class="center-block">
+                    {{ drupal_view('profiles_views', 'block_1') }}
+                </div>
+                <br>
+                Sin mas a que hacer referencia.
+                <br>
+                Atentamente,
+                <br><br>
+                <strong>{{ drupal_field('field_first_name', 'user', user.id()) }} {{  drupal_field('field_last_name', 'user', user.id()) }}</strong>
+                <br>
+                <strong>{{ organization }}</strong>
+
+                <button id="nicaprint" type="button" class="btn btn-primary btn-circle btn-lg">
+                    <i class="glyphicon glyphicon-print"></i>
+                </button>
                 </p>
             </div>
         </div>

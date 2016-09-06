@@ -17,3 +17,5 @@ bootstrap-scripts:
     bootstrap/js/scrollspy.js: {}
     bootstrap/js/tab.js: {}
     bootstrap/js/transition.js: {}
+    js/printThis.js: {}
+    js/nica_custom_print.js: {}
