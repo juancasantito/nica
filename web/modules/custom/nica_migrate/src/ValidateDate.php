@@ -10,7 +10,7 @@ namespace Drupal\nica_migrate;
 class ValidateDate {
 
   public static function validate($date_nica) {
-    $return = '';
+    $return = [];
     if (!empty($date_nica)) {
       $date_exploded = explode("-", $date_nica);
       foreach ($date_exploded as $date) {
