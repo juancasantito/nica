@@ -1,8 +1,8 @@
 nica_custom.cv:
-  path: '/nica/{nica_entity}/cv'
+  path: '/nica/{nica_entity}/cp'
   defaults:
     _controller: '\Drupal\nica_custom\Controller\NicaCustomController::curriculumvitae'
-    _title: 'Curriculum Vitae'
+    _title: 'Carta de Participación'
   requirements:
     _permission: 'access content'
 
