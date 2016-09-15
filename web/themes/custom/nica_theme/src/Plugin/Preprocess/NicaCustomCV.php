@@ -56,6 +56,7 @@ class NicaCustomCV extends PreprocessBase implements PreprocessInterface, Contai
 	public function preprocessVariables(Variables $variables) {
 		$nicaConfig = $this->configFactory->get('nica_custom.settings');
 		$variables->city = $nicaConfig->get('nica_city_project');
+    $variables->municipality = $nicaConfig->get('nica_municipality_project');
 		$variables->departament = $nicaConfig->get('nica_departament_project');
 		$variables->organization = $nicaConfig->get('nica_name_executor');
 		$variables->date =  $this->dateFormatter->format(REQUEST_TIME, 'nica_cv');
