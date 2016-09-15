@@ -14,7 +14,7 @@
     <br>
     <div class="row">
         <div class="col-md-9">
-            <p class="city-cv">{{ city }}, {{ departament }} {{ date }}</p>
+            <p class="city-cv">{{ municipality }}, {{ departament }} {{ date }}</p>
             <br>
             <h4 class="constancy"><strong>CONSTANCIA DE PARTICIPACI&Oacute;N</strong></h4>
 
@@ -28,7 +28,7 @@
                     {% endif %}
                     <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong>
                     con cedula de identidad numero <strong>{{ nica_entity.field_national_id.value }}</strong>, ha participado en el programa social
-                    “Somos El Cambio” que se desarrolla en la comunidad de <strong>{{ city }}</strong>, comarca del municipio
+                    “Somos El Cambio” que se desarrolla en la comunidad de <strong>{{ community }}</strong>, comarca del municipio
                     de {{ municipality }}.
                     <br><br>
                     <strong>El programa “Somos El Cambio”</strong>, es un programa de servicio comunitario que
