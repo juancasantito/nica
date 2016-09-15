@@ -19,11 +19,11 @@ class NicaCustomForm extends ConfigFormBase{
 	public function buildForm(array $form, FormStateInterface $form_state) {
 		$nica_config = $this->config('nica_custom.settings');
 
-		$form['nica_cv']['city_project']  = array(
+		$form['nica_cv']['community_project']  = array(
 			'#type' => 'textfield',
-			'#title' => $this->t('City Project'),
-			'#placeholder' => $this->t('City Project'),
-			'#default_value' => $nica_config->get('nica_city_project'),
+			'#title' => $this->t('Community Project'),
+			'#placeholder' => $this->t('Community Project'),
+			'#default_value' => $nica_config->get('nica_community_project'),
 		);
     $form['nica_cv']['municipality_project']  = array(
       '#type' => 'textfield',
@@ -48,7 +48,8 @@ class NicaCustomForm extends ConfigFormBase{
 
 	public function submitForm(array &$form, FormStateInterface $form_state) {
 		$this->config('nica_custom.settings')
-			->set('nica_city_project', $form_state->getValue('city_project'))
+			->set('nica_community_project', $form_state->getValue('community_project'))
+      ->set('nica_municipality_project', $form_state->getValue('municipality_project'))
 			->set('nica_departament_project', $form_state->getValue('departament_project'))
 			->set('nica_name_executor', $form_state->getValue('name_execute'))
 			->save();
