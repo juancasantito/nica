@@ -25,6 +25,12 @@ class NicaCustomForm extends ConfigFormBase{
 			'#placeholder' => $this->t('City Project'),
 			'#default_value' => $nica_config->get('nica_city_project'),
 		);
+    $form['nica_cv']['municipality_project']  = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Municipality Project'),
+      '#placeholder' => $this->t('Municipality Project'),
+      '#default_value' => $nica_config->get('nica_municipality_project'),
+    );
 		$form['nica_cv']['departament_project']  = array(
 			'#type' => 'textfield',
 			'#title' => $this->t('Departament Project'),

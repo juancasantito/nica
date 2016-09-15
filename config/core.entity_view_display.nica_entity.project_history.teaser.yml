@@ -24,8 +24,15 @@ targetEntityType: nica_entity
 bundle: project_history
 mode: teaser
 content:
+  field_profile_reference:
+    type: entity_reference_label
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   field_project_date:
-    weight: 3
+    weight: 4
     label: above
     settings:
       timezone_override: ''
@@ -34,13 +41,13 @@ content:
     type: datetime_default
   field_project_group:
     type: entity_reference_label
-    weight: 2
+    weight: 3
     label: above
     settings:
       link: false
     third_party_settings: {  }
   field_project_name:
-    weight: 1
+    weight: 2
     label: above
     settings:
       link: false
@@ -48,13 +55,13 @@ content:
     type: entity_reference_label
   field_quarter:
     type: list_default
-    weight: 4
+    weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
   field_result:
     type: entity_reference_label
-    weight: 5
+    weight: 6
     label: above
     settings:
       link: true
@@ -71,7 +78,6 @@ hidden:
   field_city: true
   field_comments_on_result: true
   field_materials: true
-  field_profile_reference: true
   field_project_leader: true
   langcode: true
   links: true
