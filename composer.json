@@ -21,11 +21,12 @@
     "drupal/console": "~1",
     "drupal/admin_toolbar": "~1",
     "drupal/config_readonly": "~1",
-    "drupal/migrate_plus": "2.x-dev",
-    "drupal/migrate_tools": "~2",
+    "drupal/migrate_plus": "~3",
+    "drupal/migrate_tools": "~3",
     "drupal/config_installer": "~8",
     "drupal/bootstrap": "~3",
     "drupal/adminimal_theme": "~1",
+    "drupal/adminimal_admin_toolbar": "~1",
     "drupal/pathauto": "~1",
     "drupal/inline_entity_form": "~1",
     "drupal/content_entity_base": "1.x-dev",
@@ -35,7 +36,7 @@
     "drupal/flysystem": "~1",
     "drupal/flysystem_dropbox": "~1",
     "drupal/geolocation": "~1",
-    "drupal/entity": "1.x-dev",
+    "drupal/entity": "~1",
     "drupal/media_entity": "~1",
     "drupal/media_entity_image": "~1",
     "drupal/migrate_source_csv": "~2",
@@ -44,7 +45,8 @@
     "drupal/views_rest_feed": "~1",
     "drupal/nica_entity": "*",
     "drupal/nica_migrate": "*",
-    "drupal/twig_tweak": "1.x-dev"
+    "drupal/twig_tweak": "~1",
+    "geerlingguy/drupal-vm": "dev-master"
   },
   "require-dev": {
     "behat/behat": "~3.0",
@@ -99,21 +101,8 @@
       ]
     },
     "patches": {
-      "drupal/core": {
-        "Requiring a migration w/ a source plugin using a generator fatals": "https://www.drupal.org/files/issues/requiring_a_migration-2684567-34.patch",
-        "Resurrect the 'preserve_files' configuration option in file migration": "https://www.drupal.org/files/issues/file_migrations_preserve_files-2706405-2.patch"
-      },
-      "drupal/migrate_tools": {
-        "Allow running migrations filtered by a specific tag": "https://www.drupal.org/files/issues/drush_option_tag-2711133-3-for_8.2.x.patch"
-      },
-      "drupal/migrate_source_csv": {
-        "Dynamic File Class": "patches/migrate_source_csv__dynamic-file-class.patch"
-      },
       "drupal/entity_reference_revisions": {
         "Allow single scalar value in EntityReferenceRevisions data type plugin": "https://www.drupal.org/files/issues/allow_single_scalar-2667748-2.patch"
-      },
-      "drupal/adminimal_theme": {
-        "Fix styling so that admin_toolbar can be used": "https://www.drupal.org/files/issues/adminimal_theme-fix-styles-for-admin-toolbar-2680689-7.patch"
       }
     }
   }

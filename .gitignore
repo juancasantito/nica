@@ -37,3 +37,6 @@ tests/bin
 
 # Ignore PhpStorm files
 .idea
+
+.vagrant/
+.DS_Store
