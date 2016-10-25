@@ -2,6 +2,8 @@ uuid: be915dfc-4d0f-4ddc-8e5e-94ea955da4e6
 langcode: es
 status: true
 dependencies:
+  config:
+    - image.style.thumbnail
   module:
     - image
     - media_entity
@@ -572,7 +574,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: true
+          value: '1'
           group: 1
           exposed: true
           expose:

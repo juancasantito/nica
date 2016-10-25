@@ -47,6 +47,7 @@ dependencies:
     - taxonomy.vocabulary.project_name
     - user.role.authenticated
   module:
+    - csv_serialization
     - datetime
     - entity_reference_revisions
     - geolocation
@@ -54,6 +55,7 @@ dependencies:
     - nica_entity
     - options
     - rest
+    - serialization
     - taxonomy
     - user
     - views_rest_feed
