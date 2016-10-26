@@ -9,7 +9,7 @@ _core:
 id: nica_theme_local_tasks
 theme: nica_theme
 region: header
-weight: 10
+weight: -6
 provider: null
 plugin: local_tasks_block
 settings:
