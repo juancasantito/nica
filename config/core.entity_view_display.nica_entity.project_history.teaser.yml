@@ -18,12 +18,21 @@ dependencies:
     - nica_entity.content_type.project_history
   module:
     - datetime
+    - entity_reference_revisions
     - options
 id: nica_entity.project_history.teaser
 targetEntityType: nica_entity
 bundle: project_history
 mode: teaser
 content:
+  field_materials:
+    type: entity_reference_revisions_entity_view
+    weight: 6
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
   field_profile_reference:
     type: entity_reference_label
     weight: 1
@@ -61,7 +70,7 @@ content:
     third_party_settings: {  }
   field_result:
     type: entity_reference_label
-    weight: 6
+    weight: 7
     label: above
     settings:
       link: true
@@ -77,7 +86,6 @@ hidden:
   field_benefit_earned: true
   field_city: true
   field_comments_on_result: true
-  field_materials: true
   field_project_leader: true
   langcode: true
   links: true
