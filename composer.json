@@ -33,6 +33,7 @@
     "drupal/csv_serialization": "~1",
     "drupal/ctools": "~3",
     "drupal/entity_reference_revisions": "~1",
+    "drupal/facets": "~1",
     "drupal/flysystem": "~1",
     "drupal/flysystem_dropbox": "~1",
     "drupal/geolocation": "~1",
@@ -41,6 +42,8 @@
     "drupal/media_entity_image": "~1",
     "drupal/migrate_source_csv": "~2",
     "drupal/paragraphs": "~1",
+    "drupal/search_api": "~1",
+    "drupal/search_api_solr": "1.x-dev",
     "drupal/token": "~1",
     "drupal/views_rest_feed": "~1",
     "drupal/nica_entity": "*",
@@ -103,6 +106,9 @@
     "patches": {
       "drupal/entity_reference_revisions": {
         "Allow single scalar value in EntityReferenceRevisions data type plugin": "https://www.drupal.org/files/issues/allow_single_scalar-2667748-2.patch"
+      },
+      "drupal/facets": {
+        "Create a date query type" : "https://www.drupal.org/files/issues/create_a_date_query_type-2611812-27.patch"
       }
     }
   }

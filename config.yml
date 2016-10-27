@@ -184,7 +184,7 @@ installed_extras:
   # - redis
   # - ruby
   # - selenium
-  # - solr
+  - solr
   - varnish
   - xdebug
   # - xhprof
@@ -245,7 +245,7 @@ composer_global_packages:
 pre_provision_scripts: []
 post_provision_scripts:
   - "{{ config_dir }}/scripts/drupalvm/configure-solr.sh"
-  #- "{{ config_dir }}/scripts/drupalvm/post-provision.sh"
+  # - "{{ config_dir }}/scripts/drupalvm/post-provision.sh"
   # - "../examples/scripts/configure-solr.sh"
 
 # MySQL Configuration.

@@ -1,0 +1,1196 @@
+diff --git a/src/Plugin/facets/facet_source/SearchApiBaseFacetSource.php b/src/Plugin/facets/facet_source/SearchApiBaseFacetSource.php
+index fcff0d0..183b9bb 100644
+--- a/src/Plugin/facets/facet_source/SearchApiBaseFacetSource.php
++++ b/src/Plugin/facets/facet_source/SearchApiBaseFacetSource.php
+@@ -136,13 +136,14 @@ abstract class SearchApiBaseFacetSource extends FacetSourcePluginBase {
+     $query_types = [];
+     // @todo Make this flexible for each data type in Search API.
+     switch ($data_type_plugin_id) {
+-      case 'boolean':
+       case 'date':
++        $query_types['date'] = 'search_api_date';
++      case 'boolean':
+       case 'decimal':
+       case 'integer':
++        $query_types['numeric'] = 'search_api_granular';
+       case 'string':
+         $query_types['string'] = 'search_api_string';
+-        break;
+     }
+ 
+     // Find out if the backend implemented the Interface to retrieve specific
+diff --git a/src/Plugin/facets/query_type/SearchApiDate.php b/src/Plugin/facets/query_type/SearchApiDate.php
+new file mode 100644
+index 0000000..ff03f37
+--- /dev/null
++++ b/src/Plugin/facets/query_type/SearchApiDate.php
+@@ -0,0 +1,419 @@
++<?php
++
++namespace Drupal\facets\Plugin\facets\query_type;
++
++use Drupal\Core\Datetime\DrupalDateTime;
++use Drupal\facets\QueryType\QueryTypeRangeBase;
++
++/**
++ * Support for date facets within the Search API scope.
++ *
++ * This query type supports dates for all possible backends. This specific
++ * implementation of the query type supports a generic solution of adding facets
++ * for dates.
++ *
++ * If you want to have a specific solution for your backend / module to
++ * implement dates, you can alter the ::getQueryTypesForDataType method on the
++ * backendPlugin to return a different class.
++ *
++ * @FacetsQueryType(
++ *   id = "search_api_date",
++ *   label = @Translation("Date"),
++ * )
++ */
++class SearchApiDate extends QueryTypeRangeBase {
++
++  /**
++   * Constant for grouping on year.
++   */
++  const FACETAPI_DATE_YEAR = 6;
++
++  /**
++   * Constant for grouping on month.
++   */
++  const FACETAPI_DATE_MONTH = 5;
++
++  /**
++   * Constant for grouping on day.
++   */
++  const FACETAPI_DATE_DAY = 4;
++
++  /**
++   * Constant for grouping on hour.
++   */
++  const FACETAPI_DATE_HOUR = 3;
++
++  /**
++   * Constant for grouping on minute.
++   */
++  const FACETAPI_DATE_MINUTE = 2;
++
++  /**
++   * Constant for grouping on second.
++   */
++  const FACETAPI_DATE_SECOND = 1;
++
++  /**
++   * {@inheritdoc}
++   */
++  public function calculateRange($value) {
++    if ($this->getDisplayRelative()) {
++      return $this->calculateRangeRelative($value);
++    }
++    else {
++      return $this->calculateRangeAbsolute($value);
++    }
++  }
++
++  /**
++   * Returns a start and end date based on a unix timestamp.
++   *
++   * This method returns a start and end date with an absolute interval, based
++   * on the granularity set in the widget.
++   *
++   * @param int $value
++   *   Unix timestamp.
++   *
++   * @return array
++   *   An array with a start and end date as unix timestamps.
++   *
++   * @throws \Exception
++   *   Thrown when creating a date fails.
++   */
++  protected function calculateRangeAbsolute($value) {
++    $dateTime = new DrupalDateTime();
++
++    switch ($this->getGranularity()) {
++      case static::FACETAPI_DATE_YEAR:
++        $startDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . '-01-01T00:00:00');
++        $stopDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . '-12-31T23:59:59');
++        break;
++
++      case static::FACETAPI_DATE_MONTH:
++        $startDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . '-01T00:00:00');
++        $stopDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . '-' . $startDate->format('t') .'T23:59:59');
++        break;
++
++      case static::FACETAPI_DATE_DAY:
++        $startDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . 'T00:00:00');
++        $stopDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . 'T23:59:59');
++        break;
++
++      case static::FACETAPI_DATE_HOUR:
++        $startDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . '00:00');
++        $stopDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . '59:59');
++        break;
++
++      case static::FACETAPI_DATE_MINUTE:
++        $startDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . ':00');
++        $stopDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . ':59');
++        break;
++
++      case static::FACETAPI_DATE_SECOND:
++        $startDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value);
++        $stopDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value);
++        break;
++
++    }
++
++    return [
++      'start' => $startDate->format('U'),
++      'stop' => $stopDate->format('U'),
++    ];
++  }
++
++  /**
++   * Returns a start and end date based on a unix timestamp.
++   *
++   * This method returns a start and end date with an relative interval, based
++   * on the granularity set in the widget.
++   *
++   * @param int $value
++   *   Unix timestamp.
++   *
++   * @return array
++   *   An array with a start and end date as unix timestamps.
++   *
++   * @throws \Exception
++   *   Thrown when creating a date fails.
++   */
++  protected function calculateRangeRelative($value) {
++    $dateTime = new DrupalDateTime();
++
++    switch ($this->getGranularity()) {
++      case static::FACETAPI_DATE_YEAR:
++        $startDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . '-1T00:00:00');
++        $stopDate = clone $startDate;
++        $stopDate->add(new \DateInterval('P1Y'));
++        $stopDate->sub(new \DateInterval('PT1S'));
++        break;
++
++      case static::FACETAPI_DATE_MONTH:
++        $startDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . 'T00:00:00');
++        $stopDate = clone $startDate;
++        $stopDate->add(new \DateInterval('P1M'));
++        $stopDate->sub(new \DateInterval('PT1S'));
++        break;
++
++      case static::FACETAPI_DATE_DAY:
++        $startDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . ':00:00');
++        $stopDate = clone $startDate;
++        $stopDate->add(new \DateInterval('P1D'));
++        $stopDate->sub(new \DateInterval('PT1S'));
++        break;
++
++      case static::FACETAPI_DATE_HOUR:
++        $startDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value . ':00');
++        $stopDate = clone $startDate;
++        $stopDate->add(new \DateInterval('PT1H'));
++        $stopDate->sub(new \DateInterval('PT1S'));
++        break;
++
++      case static::FACETAPI_DATE_MINUTE:
++        $startDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value);
++        $stopDate = clone $startDate;
++        $stopDate->add(new \DateInterval('PT1M'));
++        $stopDate->sub(new \DateInterval('PT1S'));
++        break;
++
++      case static::FACETAPI_DATE_SECOND:
++        $startDate = $dateTime::createFromFormat('Y-m-d\TH:i:s', $value);
++        $stopDate = clone $startDate;
++        break;
++
++    }
++
++    return [
++      'start' => $startDate->format('U'),
++      'stop' => $stopDate->format('U'),
++    ];
++  }
++
++  /**
++   * Calculates the result of the filter.
++   *
++   * @param int $value
++   *   A unix timestamp.
++   *
++   * @return array
++   *   An array with a start and end date as unix timestamps.
++   */
++  public function calculateResultFilter($value) {
++    if ($this->getDisplayRelative()) {
++      return $this->calculateResultFilterRelative($value);
++    }
++    else {
++      return $this->calculateResultFilterAbsolute($value);
++    }
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function calculateResultFilterAbsolute($value) {
++    $date = new DrupalDateTime();
++    $date->setTimestamp($value);
++    $date_display = $this->getDateFormat();
++
++    switch ($this->getGranularity()) {
++      case static::FACETAPI_DATE_YEAR:
++        $format = 'Y';
++        $raw = $date->format('Y');
++        break;
++
++      case static::FACETAPI_DATE_MONTH:
++        $format = 'F Y';
++        $raw = $date->format('Y-m');
++        break;
++
++      case static::FACETAPI_DATE_DAY:
++        $format = 'd F Y';
++        $raw = $date->format('Y-m-d');
++        break;
++
++      case static::FACETAPI_DATE_HOUR:
++        $format = 'd/m/Y H\h';
++        $raw = $date->format('Y-m-d\TH');
++        break;
++
++      case static::FACETAPI_DATE_MINUTE:
++        $format = 'd/m/Y H:i';
++        $raw = $date->format('Y-m-d\TH:i');
++        break;
++
++      case static::FACETAPI_DATE_SECOND:
++        $format = 'd/m/Y H:i:s';
++        $raw = $date->format('Y-m-d\TH:i:s');
++        break;
++
++    }
++    $format = $date_display ? $date_display : $format;
++    return [
++      'display' => $date->format($format),
++      'raw' => $raw,
++    ];
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function calculateResultFilterRelative($value) {
++    $date = new DrupalDateTime();
++    $date->setTimestamp($value);
++    $now = new DrupalDateTime();
++    $now->setTimestamp(REQUEST_TIME);
++    $interval = $date->diff($now);
++    $future = $date > $now;
++
++    switch ($this->getGranularity()) {
++      case static::FACETAPI_DATE_YEAR:
++        $rounded = new \DateInterval('P' . $interval->y . 'Y');
++        if ($future) {
++          $display = $interval->y ? $this->formatPlural($interval->y, '1 year hence', '@count years hence') : $this->t('In the next year');
++          $now->add($rounded);
++        }
++        else {
++          $display = $interval->y ? $this->formatPlural($interval->y, '1 year ago', '@count years ago') : $this->t('In the last year');
++          $now->sub($rounded);
++          $now->sub(new \DateInterval('P1Y'));
++        }
++        $raw = $now->format('Y-m');
++        break;
++
++      case static::FACETAPI_DATE_MONTH:
++        $rounded = new \DateInterval('P' . $interval->y . 'Y' . $interval->m . 'M');
++        $display = $interval->y ? $this->formatPlural($interval->y, '1 year', '@count years') . ' ' : '';
++        if ($future) {
++          $display .= $interval->m ?
++            $this->formatPlural($interval->m, '1 month hence', '@count months hence') :
++            (empty($display) ? $this->t('In the next month') : $this->t('0 months hence'));
++          $now->add($rounded);
++        }
++        else {
++          $display .= $interval->m ?
++            $this->formatPlural($interval->m, '1 month ago', '@count months ago') :
++            (empty($display) ? $this->t('In the last month') : $this->t('0 months ago'));
++          $now->sub($rounded);
++          $now->sub(new \DateInterval('P1M'));
++        }
++        $raw = $now->format('Y-m-d');
++        break;
++
++      case static::FACETAPI_DATE_DAY:
++        $rounded = new \DateInterval('P' . $interval->y . 'Y' . $interval->m . 'M' . $interval->d . 'D');
++        $display = $interval->y ? $this->formatPlural($interval->y, '1 year', '@count years') . ' ' : '';
++        $display .= $interval->m ? $this->formatPlural($interval->m, '1 month', '@count months') . ' ' : '';
++        if ($future) {
++          $display .= $interval->d ?
++            $this->formatPlural($interval->d, '1 day hence', '@count days hence') :
++            (empty($display) ? $this->t('In the next day') : $this->t('0 days hence'));
++          $now->add($rounded);
++        }
++        else {
++          $display .= $interval->d ?
++            $this->formatPlural($interval->d, '1 day ago', '@count days ago') :
++            (empty($display) ? $this->t('In the last day') : $this->t('0 days ago'));
++          $now->sub($rounded);
++          $now->sub(new \DateInterval('P1D'));
++        }
++        $raw = $now->format('Y-m-d\TH');
++        break;
++
++      case static::FACETAPI_DATE_HOUR:
++        $rounded = new \DateInterval('P' . $interval->y . 'Y' . $interval->m . 'M' . $interval->d . 'DT' . $interval->h . 'H');
++        $display = $interval->y ? $this->formatPlural($interval->y, '1 year', '@count years') . ' ' : '';
++        $display .= $interval->m ? $this->formatPlural($interval->m, '1 month', '@count months') . ' ' : '';
++        $display .= $interval->d ? $this->formatPlural($interval->d, '1 day', '@count days') . ' ' : '';
++        if ($future) {
++          $display .= $interval->h ?
++            $this->formatPlural($interval->h, '1 hour hence', '@count hours hence') :
++            (empty($display) ? $this->t('In the next hour') : $this->t('0 hours hence'));
++          $now->add($rounded);
++        }
++        else {
++          $display .= $interval->h ?
++            $this->formatPlural($interval->h, '1 hour ago', '@count hours ago') :
++            (empty($display) ? $this->t('In the last hour') : $this->t('0 hours ago'));
++          $now->sub($rounded);
++          $now->sub(new \DateInterval('PT1H'));
++        }
++        $raw = $now->format('Y-m-d\TH:i');
++        break;
++
++      case static::FACETAPI_DATE_MINUTE:
++        $rounded = new \DateInterval('P' . $interval->y . 'Y' . $interval->m . 'M' . $interval->d . 'DT' . $interval->h . 'H' . $interval->i);
++        $display = $interval->y ? $this->formatPlural($interval->y, '1 year', '@count years') . ' ' : '';
++        $display .= $interval->m ? $this->formatPlural($interval->m, '1 month', '@count months') . ' ' : '';
++        $display .= $interval->d ? $this->formatPlural($interval->d, '1 day', '@count days') . ' ' : '';
++        $display .= $interval->h ? $this->formatPlural($interval->h, '1 hour', '@count hours') . ' ' : '';
++        if ($future) {
++          $display .= $interval->i ?
++            $this->formatPlural($interval->i, '1 minute hence', '@count minutes hence') :
++            (empty($display) ? $this->t('In the next minute') : $this->t('0 minutes hence'));
++          $now->add($rounded);
++        }
++        else {
++          $display .= $interval->i ?
++            $this->formatPlural($interval->i, '1 minute ago', '@count minutes ago') :
++            (empty($display) ? $this->t('In the last minute') : $this->t('0 minutes ago'));
++          $now->sub($rounded);
++          $now->sub(new \DateInterval('PT1M'));
++        }
++        $raw = $date->format('Y-m-d\TH:i:s');
++        break;
++
++      case static::FACETAPI_DATE_SECOND:
++        $rounded = new \DateInterval('P' . $interval->y . 'Y' . $interval->m . 'M' . $interval->d . 'DT' . $interval->h . 'H' . $interval->i . $interval->s . 'S');
++        $display = $interval->y ? $this->formatPlural($interval->y, '1 year', '@count years') . ' ' : '';
++        $display .= $interval->m ? $this->formatPlural($interval->m, '1 month', '@count months') . ' ' : '';
++        $display .= $interval->d ? $this->formatPlural($interval->d, '1 day', '@count days') . ' ' : '';
++        $display .= $interval->h ? $this->formatPlural($interval->h, '1 hour', '@count hours') . ' ' : '';
++        $display .= $interval->i ? $this->formatPlural($interval->i, '1 minute', '@count minutes') . ' ' : '';
++        if ($future) {
++          $display .= $interval->s ?
++            $this->formatPlural($interval->s, '1 second hence', '@count seconds hence') :
++            (empty($display) ? $this->t('In the next second') : $this->t('0 secondss hence'));
++          $now->add($rounded);
++        }
++        else {
++          $display .= $interval->s ?
++            $this->formatPlural($interval->s, '1 second ago', '@count seconds ago') :
++            (empty($display) ? $this->t('In the last second') : $this->t('0 seconds ago'));
++          $now->sub($rounded);
++          $now->sub(new \DateInterval('PT1S'));
++        }
++        $raw = $date->format('Y-m-d\TH:i:s');
++        break;
++
++    }
++
++    return [
++      'display' => $display,
++      'raw' => $raw,
++    ];
++  }
++
++  /**
++   * Retrieve configuration: Granularity to use.
++   *
++   * Default behaviour an integer for the steps that the facet works in.
++   */
++  protected function getGranularity() {
++    return $this->facet->getWidgetInstance()->getConfiguration()['granularity'];
++  }
++
++  /**
++   * Retrieve configuration: If the date should be displayed relatively.
++   */
++  protected function getDisplayRelative() {
++    return $this->facet->getWidgetInstance()->getConfiguration()['display_relative'];
++  }
++
++  /**
++   * Retrieve configuration: Date display format.
++   */
++  protected function getDateFormat() {
++    return $this->facet->getWidgetInstance()->getConfiguration()['date_display'];
++  }
++
++}
+diff --git a/src/Plugin/facets/query_type/SearchApiGranular.php b/src/Plugin/facets/query_type/SearchApiGranular.php
+new file mode 100644
+index 0000000..41d8772
+--- /dev/null
++++ b/src/Plugin/facets/query_type/SearchApiGranular.php
+@@ -0,0 +1,52 @@
++<?php
++
++namespace Drupal\facets\Plugin\facets\query_type;
++
++use Drupal\facets\QueryType\QueryTypeRangeBase;
++
++/**
++ * Basic support for numeric facets grouping by a granularity value.
++ *
++ * Requires the facet widget to set configuration value keyed with
++ * granularity.
++ *
++ * @FacetsQueryType(
++ *   id = "search_api_granular",
++ *   label = @Translation("Numeric query with set granularity"),
++ * )
++ */
++class SearchApiGranular extends QueryTypeRangeBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function calculateRange($value) {
++    return [
++      'start' => $value,
++      'stop' => $value + $this->getGranularity(),
++    ];
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function calculateResultFilter($value) {
++    return [
++      'display' => $value - $value % $this->getGranularity(),
++      'raw' => $value - $value % $this->getGranularity(),
++    ];
++  }
++
++  /**
++   * Looks at the configuration for this facet to determine the granularity.
++   *
++   * Default behaviour an integer for the steps that the facet works in.
++   *
++   * @return mixed
++   *   If not an integer the inheriting class needs to deal with calculations.
++   */
++  protected function getGranularity() {
++    return $this->facet->getWidgetInstance()->getConfiguration()['granularity'];
++  }
++
++}
+diff --git a/src/Plugin/facets/widget/DateBasicWidget.php b/src/Plugin/facets/widget/DateBasicWidget.php
+new file mode 100644
+index 0000000..773f01e
+--- /dev/null
++++ b/src/Plugin/facets/widget/DateBasicWidget.php
+@@ -0,0 +1,124 @@
++<?php
++
++namespace Drupal\facets\Plugin\facets\widget;
++
++use Drupal\Core\Form\FormStateInterface;
++use Drupal\facets\FacetInterface;
++use Drupal\facets\Result\Result;
++use Drupal\facets\Widget\WidgetPluginBase;
++use Drupal\facets\Plugin\facets\query_type\SearchApiDate;
++
++/**
++ * Basic date widget.
++ *
++ * @FacetsWidget(
++ *   id = "datebasic",
++ *   label = @Translation("Date list"),
++ *   description = @Translation("A simple list of dates"),
++ * )
++ */
++class DateBasicWidget extends WidgetPluginBase {
++
++  /**
++   * Human readable array of granularity options.
++   *
++   * @return array
++   *   An array of granularity options.
++   */
++  private function granularityOptions() {
++    return array(
++      SearchApiDate::FACETAPI_DATE_YEAR => $this->t('Year'),
++      SearchApiDate::FACETAPI_DATE_MONTH => $this->t('Month'),
++      SearchApiDate::FACETAPI_DATE_DAY => $this->t('Day'),
++      SearchApiDate::FACETAPI_DATE_HOUR => $this->t('Hour'),
++      SearchApiDate::FACETAPI_DATE_MINUTE => $this->t('Minute'),
++      SearchApiDate::FACETAPI_DATE_SECOND => $this->t('Second'),
++    );
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function defaultConfiguration() {
++    return [
++      'display_relative' =>  FALSE,
++      'granularity' => SearchApiDate::FACETAPI_DATE_MONTH,
++      'date_display' => '',
++      'relative_granularity' => 1,
++      'relative_text' => TRUE,
++    ] + parent::defaultConfiguration();
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function buildConfigurationForm(array $form, FormStateInterface $form_state, FacetInterface $facet) {
++    $configuration = $this->getConfiguration();
++
++    $form += parent::buildConfigurationForm($form, $form_state, $facet);
++
++    $form['display_relative'] = [
++      '#type' => 'radios',
++      '#title' => $this->t('Date display'),
++      '#default_value' => $configuration['display_relative'],
++      '#options' => [
++        FALSE => $this->t('Actual date with granularity'),
++        TRUE => $this->t('Relative date'),
++      ],
++    ];
++
++    $form['granularity'] = [
++      '#type' => 'radios',
++      '#title' => $this->t('Granularity'),
++      '#default_value' => $configuration['granularity'],
++      '#options' => $this->granularityOptions(),
++    ];
++    $form['date_display'] = [
++      '#type' => 'textfield',
++      '#title' => $this->t('Date format'),
++      '#default_value' => $configuration['date_display'],
++      '#description' => $this->t('Override default date format used for the displayed filter format. See the <a href="http://php.net/manual/function.date.php">PHP manual</a> for available options.'),
++      '#states' => [
++        'visible' => [':input[name="widget_config[display_relative]"]' => ['value' => 0]],
++      ],
++    ];
++
++    return $form;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getQueryType($query_types) {
++    return $query_types['date'];
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function build(FacetInterface $facet) {
++    $this->facet = $facet;
++
++    $items = array_map(function (Result $result) {
++      if (empty($result->getUrl())) {
++        return ['#markup' => $this->extractText($result)];
++      }
++      else {
++        return $this->buildListItems($result);
++      }
++    }, $facet->getResults());
++
++    return [
++      '#theme' => 'item_list',
++      '#items' => $items,
++      '#attributes' => ['data-drupal-facet-id' => $facet->id()],
++      '#cache' => [
++        'contexts' => [
++          'url.path',
++          'url.query_args',
++        ],
++      ],
++    ];
++  }
++
++}
+diff --git a/src/Plugin/facets/widget/NumericGranularWidget.php b/src/Plugin/facets/widget/NumericGranularWidget.php
+new file mode 100644
+index 0000000..054cd50
+--- /dev/null
++++ b/src/Plugin/facets/widget/NumericGranularWidget.php
+@@ -0,0 +1,53 @@
++<?php
++
++namespace Drupal\facets\Plugin\facets\widget;
++
++use Drupal\Core\Form\FormStateInterface;
++use Drupal\facets\FacetInterface;
++
++/**
++ * Basic granular widget.
++ *
++ * @FacetsWidget(
++ *   id = "numericgranular",
++ *   label = @Translation("Granular numeric list"),
++ *   description = @Translation("List of numbers grouped in steps."),
++ * )
++ */
++class NumericGranularWidget extends LinksWidget {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function defaultConfiguration() {
++    return [
++      'granularity' =>  0,
++    ] + parent::defaultConfiguration();
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function buildConfigurationForm(array $form, FormStateInterface $form_state, FacetInterface $facet) {
++    $configuration = $this->getConfiguration();
++
++    $form += parent::buildConfigurationForm($form, $form_state, $facet);
++
++    $form['granularity'] = [
++      '#type' => 'number',
++      '#title' => $this->t('Granularity'),
++      '#default_value' => $configuration['granularity'],
++      '#description' => $this->t('The numeric size of the steps to group the result facets in.'),
++    ];
++
++    return $form;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getQueryType($query_types) {
++    return $query_types['numeric'];
++  }
++
++}
+diff --git a/src/QueryType/QueryTypeRangeBase.php b/src/QueryType/QueryTypeRangeBase.php
+new file mode 100644
+index 0000000..0ae7a8d
+--- /dev/null
++++ b/src/QueryType/QueryTypeRangeBase.php
+@@ -0,0 +1,107 @@
++<?php
++
++namespace Drupal\facets\QueryType;
++
++use Drupal\facets\Result\Result;
++
++/**
++ * A base class for query type plugins adding range.
++ */
++abstract class QueryTypeRangeBase extends QueryTypePluginBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function execute() {
++    $query = $this->query;
++
++    // Alter the query here.
++    if (!empty($query)) {
++      $options = &$query->getOptions();
++
++      $operator = $this->facet->getQueryOperator();
++      $field_identifier = $this->facet->getFieldIdentifier();
++      $exclude = $this->facet->getExclude();
++      $options['search_api_facets'][$field_identifier] = [
++        'field' => $field_identifier,
++        'limit' => 50,
++        'operator' => 'and',
++        'min_count' => 0,
++        'missing' => FALSE,
++      ];
++
++      // Add the filter to the query if there are active values.
++      $active_items = $this->facet->getActiveItems();
++      $filter = $query->createConditionGroup($operator, ['facet:' . $field_identifier]);
++      if (count($active_items)) {
++        foreach ($active_items as $value) {
++          $range = $this->calculateRange($value);
++
++          $item_filter = $query->createConditionGroup('AND', ['facet:' . $field_identifier]);
++          $item_filter->addCondition($this->facet->getFieldIdentifier(), $range['start'], $exclude ? '<' : '>=');
++          $item_filter->addCondition($this->facet->getFieldIdentifier(), $range['stop'], $exclude ? '>' : '<=');
++
++          $filter->addConditionGroup($item_filter);
++        }
++        $query->addConditionGroup($filter);
++      }
++    }
++  }
++
++  /**
++   * Calculate the range for a given facet filter value.
++   *
++   * Used when adding active items in self::execute() to $this->query to include
++   * the range conditions for the value.
++   *
++   * @param string $value
++   *   The raw value for the facet filter.
++   *
++   * @return array
++   *   Keyed with 'start' and 'stop' values.
++   */
++  abstract public function calculateRange($value);
++
++  /**
++   * {@inheritdoc}
++   */
++  public function build() {
++    $query_operator = $this->facet->getQueryOperator();
++
++    // Go through the results and add facet results grouped by filters
++    // defined by self::calculateResultFilter().
++    if (!empty($this->results)) {
++      $facet_results = [];
++      foreach ($this->results as $key => $result) {
++        if ($result['count'] || $query_operator == 'OR') {
++          $count = $result['count'];
++          $result_filter = $this->calculateResultFilter(trim($result['filter'], '"'));
++          if (isset($facet_results[$result_filter['raw']])) {
++            $facet_results[$result_filter['raw']]->setCount(
++              $facet_results[$result_filter['raw']]->getCount() + $count
++            );
++          }
++          else {
++            $facet_results[$result_filter['raw']] = new Result($result_filter['raw'], $result_filter['display'], $count);
++          }
++        }
++      }
++
++      $this->facet->setResults($facet_results);
++    }
++    return $this->facet;
++  }
++
++  /**
++   * Calculate the grouped facet filter for a given value.
++   *
++   * @param string $value
++   *   The raw value for the facet before grouping.
++   *
++   * @return array
++   *   Keyed by 'display' value to be shown to the user, and 'raw' to be used
++   *   for the url.
++   */
++  abstract public function calculateResultFilter($value);
++
++}
+diff --git a/tests/src/Unit/Plugin/query_type/SearchApiDateTest.php b/tests/src/Unit/Plugin/query_type/SearchApiDateTest.php
+new file mode 100644
+index 0000000..bf79636
+--- /dev/null
++++ b/tests/src/Unit/Plugin/query_type/SearchApiDateTest.php
+@@ -0,0 +1,282 @@
++<?php
++
++namespace Drupal\Tests\facets\Unit\Plugin\query_type;
++
++use Drupal\KernelTests\KernelTestBase;
++use Drupal\facets\Entity\Facet;
++use Drupal\facets\Plugin\facets\query_type\SearchApiDate;
++use Drupal\search_api\Plugin\views\query\SearchApiQuery;
++
++/**
++ * Unit test for date query type.
++ *
++ * @group facets
++ */
++class SearchApiDateTest extends KernelTestBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function setUp() {
++    parent::setUp();
++
++    // This is the default set by Drupal as well, but to be explicit
++    // The raw value is the UTC, the displayed value is calculated
++    // by the PHP timezone - presently.
++    date_default_timezone_set('Australia/Sydney');
++  }
++
++  /**
++   * Tests string query type without executing the query with an "AND" operator.
++   *
++   * @dataProvider resultsProvider
++   */
++  public function testQueryTypeAnd($granularity, $original_results, $grouped_results) {
++    $query = new SearchApiQuery([], 'search_api_query', []);
++    $facetReflection = new \ReflectionClass('Drupal\facets\Entity\Facet');
++    $facet = new Facet(
++      ['query_operator' => 'AND'],
++      'facets_facet'
++    );
++    $widget = $this->getMockBuilder('Drupal\facets\Widget\WidgetPluginInterface')
++      ->disableOriginalConstructor()
++      ->getMock();
++    $widget->method('getConfiguration')->will($this->returnValue(
++      [
++        'granularity' => $granularity,
++        'date_display' => '',
++        'display_relative' => FALSE,
++      ]
++    ));
++    $widget_instance = $facetReflection->getProperty('widgetInstance');
++    $widget_instance->setAccessible(TRUE);
++    $widget_instance->setValue($facet, $widget);
++
++    $query_type = new SearchApiDate(
++      [
++        'facet' => $facet,
++        'query' => $query,
++        'results' => $original_results,
++      ],
++      'search_api_string',
++      []
++    );
++
++    $built_facet = $query_type->build();
++    $this->assertInstanceOf('\Drupal\facets\FacetInterface', $built_facet);
++
++    $results = $built_facet->getResults();
++    $this->assertInternalType('array', $results);
++
++    foreach ($grouped_results as $k => $result) {
++      $this->assertInstanceOf('\Drupal\facets\Result\ResultInterface', $results[$k]);
++      $this->assertEquals($result['count'], $results[$k]->getCount());
++      $this->assertEquals($result['filter'], $results[$k]->getDisplayValue());
++    }
++  }
++
++  /**
++   * Data provider for date results and different groupings.
++   */
++  public function resultsProvider() {
++    return [
++      'Year' => [
++        SearchApiDate::FACETAPI_DATE_YEAR,
++        [
++          ['count' => 1, 'filter' => '984711763'],
++          ['count' => 1, 'filter' => '1268900542'],
++          ['count' => 1, 'filter' => '1269963121'],
++          ['count' => 1, 'filter' => '1306314733'],
++          ['count' => 1, 'filter' => '1464167533'],
++          ['count' => 2, 'filter' => '1464167534'],
++          ['count' => 1, 'filter' => '1464172214'],
++          ['count' => 1, 'filter' => '1464174734'],
++          ['count' => 1, 'filter' => '1464202800'],
++          ['count' => 1, 'filter' => '1464250210'],
++          ['count' => 1, 'filter' => '1464250230'],
++          ['count' => 1, 'filter' => '1464926723'],
++          ['count' => 1, 'filter' => '1465930475'],
++        ],
++        [
++          '2001' => ['count' => 1, 'filter' => 2001],
++          '2010' => ['count' => 2, 'filter' => 2010],
++          '2011' => ['count' => 1, 'filter' => 2011],
++          '2016' => ['count' => 10, 'filter' => 2016],
++        ],
++      ],
++      'Month' => [
++        SearchApiDate::FACETAPI_DATE_MONTH,
++        [
++          ['count' => 1, 'filter' => '984711763'],
++          ['count' => 1, 'filter' => '1268900542'],
++          ['count' => 1, 'filter' => '1269963121'],
++          ['count' => 1, 'filter' => '1306314733'],
++          ['count' => 1, 'filter' => '1464167533'],
++          ['count' => 2, 'filter' => '1464167534'],
++          ['count' => 1, 'filter' => '1464172214'],
++          ['count' => 1, 'filter' => '1464174734'],
++          ['count' => 1, 'filter' => '1464202800'],
++          ['count' => 1, 'filter' => '1464250210'],
++          ['count' => 1, 'filter' => '1464250230'],
++          ['count' => 1, 'filter' => '1464926723'],
++          ['count' => 1, 'filter' => '1465930475'],
++        ],
++        [
++          '2001-03' => ['count' => 1, 'filter' => 'March 2001'],
++          '2010-03' => ['count' => 2, 'filter' => 'March 2010'],
++          '2011-05' => ['count' => 1, 'filter' => 'May 2011'],
++          '2016-05' => ['count' => 8, 'filter' => 'May 2016'],
++          '2016-06' => ['count' => 2, 'filter' => 'June 2016'],
++        ],
++      ],
++      'Day' => [
++        SearchApiDate::FACETAPI_DATE_DAY,
++        [
++          ['count' => 1, 'filter' => '984711763'],
++          ['count' => 1, 'filter' => '1268900542'],
++          ['count' => 1, 'filter' => '1269963121'],
++          ['count' => 1, 'filter' => '1306314733'],
++          ['count' => 1, 'filter' => '1464167533'],
++          ['count' => 2, 'filter' => '1464167534'],
++          ['count' => 1, 'filter' => '1464172214'],
++          ['count' => 1, 'filter' => '1464174734'],
++          ['count' => 1, 'filter' => '1464202800'],
++          ['count' => 1, 'filter' => '1464250210'],
++          ['count' => 1, 'filter' => '1464250230'],
++          ['count' => 1, 'filter' => '1464926723'],
++          ['count' => 1, 'filter' => '1465930475'],
++        ],
++        [
++          '2001-03-16' => ['count' => 1, 'filter' => '16 March 2001'],
++          '2010-03-18' => ['count' => 1, 'filter' => '18 March 2010'],
++          '2010-03-31' => ['count' => 1, 'filter' => '31 March 2010'],
++          '2011-05-25' => ['count' => 1, 'filter' => '25 May 2011'],
++          '2016-05-25' => ['count' => 5, 'filter' => '25 May 2016'],
++          '2016-05-26' => ['count' => 3, 'filter' => '26 May 2016'],
++          '2016-06-03' => ['count' => 1, 'filter' => '03 June 2016'],
++          '2016-06-15' => ['count' => 1, 'filter' => '15 June 2016'],
++        ],
++      ],
++      'Hour' => [
++        SearchApiDate::FACETAPI_DATE_HOUR,
++        [
++          ['count' => 1, 'filter' => '984711763'],
++          ['count' => 1, 'filter' => '1268900542'],
++          ['count' => 1, 'filter' => '1269963121'],
++          ['count' => 1, 'filter' => '1306314733'],
++          ['count' => 1, 'filter' => '1464167533'],
++          ['count' => 2, 'filter' => '1464167534'],
++          ['count' => 1, 'filter' => '1464172214'],
++          ['count' => 1, 'filter' => '1464174734'],
++          ['count' => 1, 'filter' => '1464202800'],
++          ['count' => 1, 'filter' => '1464250210'],
++          ['count' => 1, 'filter' => '1464250230'],
++          ['count' => 1, 'filter' => '1464926723'],
++          ['count' => 1, 'filter' => '1465930475'],
++        ],
++        [
++          '2001-03-16T14' => ['count' => 1, 'filter' => '16/03/2001 14h'],
++          '2010-03-18T19' => ['count' => 1, 'filter' => '18/03/2010 19h'],
++          '2010-03-31T02' => ['count' => 1, 'filter' => '31/03/2010 02h'],
++          '2011-05-25T19' => ['count' => 1, 'filter' => '25/05/2011 19h'],
++          '2016-05-25T19' => ['count' => 3, 'filter' => '25/05/2016 19h'],
++          '2016-05-25T20' => ['count' => 1, 'filter' => '25/05/2016 20h'],
++          '2016-05-25T21' => ['count' => 1, 'filter' => '25/05/2016 21h'],
++          '2016-05-26T05' => ['count' => 1, 'filter' => '26/05/2016 05h'],
++          '2016-05-26T18' => ['count' => 2, 'filter' => '26/05/2016 18h'],
++          '2016-06-03T14' => ['count' => 1, 'filter' => '03/06/2016 14h'],
++          '2016-06-15T04' => ['count' => 1, 'filter' => '15/06/2016 04h'],
++        ],
++      ],
++      'Minute' => [
++        SearchApiDate::FACETAPI_DATE_MINUTE,
++        [
++          ['count' => 1, 'filter' => '984711763'],
++          ['count' => 1, 'filter' => '1268900542'],
++          ['count' => 1, 'filter' => '1269963121'],
++          ['count' => 1, 'filter' => '1306314733'],
++          ['count' => 1, 'filter' => '1464167533'],
++          ['count' => 2, 'filter' => '1464167534'],
++          ['count' => 1, 'filter' => '1464172214'],
++          ['count' => 1, 'filter' => '1464174734'],
++          ['count' => 1, 'filter' => '1464202800'],
++          ['count' => 1, 'filter' => '1464250210'],
++          ['count' => 1, 'filter' => '1464250230'],
++          ['count' => 1, 'filter' => '1464926723'],
++          ['count' => 1, 'filter' => '1465930475'],
++        ],
++        [
++          '2001-03-16T14:02' => ['count' => 1, 'filter' => '16/03/2001 14:02'],
++          '2010-03-18T19:22' => ['count' => 1, 'filter' => '18/03/2010 19:22'],
++          '2010-03-31T02:32' => ['count' => 1, 'filter' => '31/03/2010 02:32'],
++          '2011-05-25T19:12' => ['count' => 1, 'filter' => '25/05/2011 19:12'],
++          '2016-05-25T19:12' => ['count' => 3, 'filter' => '25/05/2016 19:12'],
++          '2016-05-25T20:30' => ['count' => 1, 'filter' => '25/05/2016 20:30'],
++          '2016-05-25T21:12' => ['count' => 1, 'filter' => '25/05/2016 21:12'],
++          '2016-05-26T05:00' => ['count' => 1, 'filter' => '26/05/2016 05:00'],
++          '2016-05-26T18:10' => ['count' => 2, 'filter' => '26/05/2016 18:10'],
++          '2016-06-03T14:05' => ['count' => 1, 'filter' => '03/06/2016 14:05'],
++          '2016-06-15T04:54' => ['count' => 1, 'filter' => '15/06/2016 04:54'],
++        ],
++      ],
++      'Second' => [
++        SearchApiDate::FACETAPI_DATE_SECOND,
++        [
++          ['count' => 1, 'filter' => '984711763'],
++          ['count' => 1, 'filter' => '1268900542'],
++          ['count' => 1, 'filter' => '1269963121'],
++          ['count' => 1, 'filter' => '1306314733'],
++          ['count' => 1, 'filter' => '1464167533'],
++          ['count' => 2, 'filter' => '1464167534'],
++          ['count' => 1, 'filter' => '1464172214'],
++          ['count' => 1, 'filter' => '1464174734'],
++          ['count' => 1, 'filter' => '1464202800'],
++          ['count' => 1, 'filter' => '1464250210'],
++          ['count' => 1, 'filter' => '1464250230'],
++          ['count' => 1, 'filter' => '1464926723'],
++          ['count' => 1, 'filter' => '1465930475'],
++        ],
++        [
++          '2001-03-16T14:02:43' => ['count' => 1, 'filter' => '16/03/2001 14:02:43'],
++          '2010-03-18T19:22:22' => ['count' => 1, 'filter' => '18/03/2010 19:22:22'],
++          '2010-03-31T02:32:01' => ['count' => 1, 'filter' => '31/03/2010 02:32:01'],
++          '2011-05-25T19:12:13' => ['count' => 1, 'filter' => '25/05/2011 19:12:13'],
++          '2016-05-25T19:12:13' => ['count' => 1, 'filter' => '25/05/2016 19:12:13'],
++          '2016-05-25T19:12:14' => ['count' => 2, 'filter' => '25/05/2016 19:12:14'],
++          '2016-05-25T20:30:14' => ['count' => 1, 'filter' => '25/05/2016 20:30:14'],
++          '2016-05-25T21:12:14' => ['count' => 1, 'filter' => '25/05/2016 21:12:14'],
++          '2016-05-26T05:00:00' => ['count' => 1, 'filter' => '26/05/2016 05:00:00'],
++          '2016-05-26T18:10:10' => ['count' => 1, 'filter' => '26/05/2016 18:10:10'],
++          '2016-05-26T18:10:30' => ['count' => 1, 'filter' => '26/05/2016 18:10:30'],
++          '2016-06-03T14:05:23' => ['count' => 1, 'filter' => '03/06/2016 14:05:23'],
++          '2016-06-15T04:54:35' => ['count' => 1, 'filter' => '15/06/2016 04:54:35'],
++        ],
++      ],
++    ];
++  }
++
++  /**
++   * Tests string query type without results.
++   */
++  public function testEmptyResults() {
++    $query = new SearchApiQuery([], 'search_api_query', []);
++    $facet = new Facet([], 'facets_facet');
++
++    $query_type = new SearchApiDate(
++      [
++        'facet' => $facet,
++        'query' => $query,
++      ],
++      'search_api_string',
++      []
++    );
++
++    $built_facet = $query_type->build();
++    $this->assertInstanceOf('\Drupal\facets\FacetInterface', $built_facet);
++
++    $results = $built_facet->getResults();
++    $this->assertInternalType('array', $results);
++    $this->assertEmpty($results);
++  }
++
++}
+diff --git a/tests/src/Unit/Plugin/query_type/SearchApiGranularTest.php b/tests/src/Unit/Plugin/query_type/SearchApiGranularTest.php
+new file mode 100644
+index 0000000..7a5f916
+--- /dev/null
++++ b/tests/src/Unit/Plugin/query_type/SearchApiGranularTest.php
+@@ -0,0 +1,96 @@
++<?php
++
++namespace Drupal\Tests\facets\Unit\Plugin\query_type;
++
++use Drupal\facets\Entity\Facet;
++use Drupal\facets\Plugin\facets\query_type\SearchApiGranular;
++use Drupal\search_api\Plugin\views\query\SearchApiQuery;
++use Drupal\Tests\UnitTestCase;
++
++/**
++ * Unit test for granular query type.
++ *
++ * @group facets
++ */
++class SearchApiGranularTest extends UnitTestCase {
++
++  /**
++   * Tests string query type without executing the query with an "AND" operator.
++   */
++  public function testQueryTypeAnd() {
++    $query = new SearchApiQuery([], 'search_api_query', []);
++    $facetReflection = new \ReflectionClass('Drupal\facets\Entity\Facet');
++    $facet = new Facet(
++      ['query_operator' => 'AND'],
++      'facets_facet'
++    );
++    $widget = $this->getMockBuilder('Drupal\facets\Widget\WidgetPluginInterface')
++      ->disableOriginalConstructor()
++      ->getMock();
++    $widget->method('getConfiguration')->will($this->returnValue(['granularity' => 10]));
++    $widget_instance = $facetReflection->getProperty('widgetInstance');
++    $widget_instance->setAccessible(TRUE);
++    $widget_instance->setValue($facet, $widget);
++
++    // Results for the widget.
++    $original_results = [
++      ['count' => 3, 'filter' => '2'],
++      ['count' => 5, 'filter' => '4'],
++      ['count' => 7, 'filter' => '9'],
++      ['count' => 9, 'filter' => '11'],
++    ];
++
++    // Facets the widget should produce.
++    $grouped_results = [
++      0 => ['count' => 15, 'filter' => '0'],
++      10 => ['count' => 9, 'filter' => 10],
++    ];
++
++    $query_type = new SearchApiGranular(
++      [
++        'facet' => $facet,
++        'query' => $query,
++        'results' => $original_results,
++      ],
++      'search_api_string',
++      []
++    );
++
++    $built_facet = $query_type->build();
++    $this->assertInstanceOf('\Drupal\facets\FacetInterface', $built_facet);
++
++    $results = $built_facet->getResults();
++    $this->assertInternalType('array', $results);
++
++    foreach ($grouped_results as $k => $result) {
++      $this->assertInstanceOf('\Drupal\facets\Result\ResultInterface', $results[$k]);
++      $this->assertEquals($result['count'], $results[$k]->getCount());
++      $this->assertEquals($result['filter'], $results[$k]->getDisplayValue());
++    }
++  }
++
++  /**
++   * Tests string query type without results.
++   */
++  public function testEmptyResults() {
++    $query = new SearchApiQuery([], 'search_api_query', []);
++    $facet = new Facet([], 'facets_facet');
++
++    $query_type = new SearchApiGranular(
++      [
++        'facet' => $facet,
++        'query' => $query,
++      ],
++      'search_api_string',
++      []
++    );
++
++    $built_facet = $query_type->build();
++    $this->assertInstanceOf('\Drupal\facets\FacetInterface', $built_facet);
++
++    $results = $built_facet->getResults();
++    $this->assertInternalType('array', $results);
++    $this->assertEmpty($results);
++  }
++
++}
