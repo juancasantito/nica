@@ -1,19 +1,28 @@
-uuid: e984ffa7-bd8f-4e37-9800-ba71dab2e3d2
+uuid: 7d00e4be-ff66-4e35-88c6-7a649e061d51
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_last_name
     - nica_entity.content_type.profile
+    - taxonomy.vocabulary.last_name
 id: nica_entity.profile.field_last_name
 field_name: field_last_name
 entity_type: nica_entity
 bundle: profile
 label: Apellidos
 description: 'Apellidos completos'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      last_name: last_name
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
