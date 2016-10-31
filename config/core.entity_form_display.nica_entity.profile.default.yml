@@ -71,10 +71,11 @@ content:
   field_first_name:
     weight: 0
     settings:
+      match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: entity_reference_autocomplete
   field_gender:
     weight: 2
     settings: {  }
@@ -110,13 +111,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
-  field_last_name:
-    weight: 1
+  field_languages:
+    type: entity_reference_autocomplete
+    weight: 21
     settings:
+      match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+  field_last_name:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
   field_marital_status:
     weight: 10
     settings: {  }
@@ -168,6 +178,5 @@ content:
     third_party_settings: {  }
     type: string_textfield
 hidden:
-  field_languages: true
   langcode: true
   uid: true

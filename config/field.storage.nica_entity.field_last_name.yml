@@ -1,17 +1,16 @@
-uuid: 3b67fa33-bf33-4162-b109-9ed20d6404e4
+uuid: f23071e6-5e9b-42b2-a93e-7dd162e0ff87
 langcode: en
 status: true
 dependencies:
   module:
     - nica_entity
+    - taxonomy
 id: nica_entity.field_last_name
 field_name: field_last_name
 entity_type: nica_entity
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1
