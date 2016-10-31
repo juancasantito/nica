@@ -65,8 +65,12 @@ process:
   type:
     plugin: default_value
     default_value: profile
-  field_first_name: first_name
-  field_last_name: last_name
+  field_first_name:
+    plugin: entity_generate
+    source: first_name
+  field_last_name:
+    plugin: entity_generate
+    source: last_name
   field_other_event: other_event
   field_birthday: birthday
   field_images:
