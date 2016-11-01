@@ -1,0 +1,28 @@
+uuid: dad040d9-e87c-4f9c-a142-ee9f7e1593dc
+langcode: es
+status: true
+dependencies:
+  config:
+    - facets.facet.fecha_de_contratacion
+  module:
+    - facets
+  theme:
+    - nica_theme
+id: fechadecontratacion
+theme: nica_theme
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facet_block:fecha_de_contratacion'
+settings:
+  id: 'facet_block:fecha_de_contratacion'
+  label: 'Fecha de Contratación'
+  provider: facets
+  label_display: visible
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

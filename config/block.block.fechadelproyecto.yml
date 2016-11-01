@@ -1,0 +1,28 @@
+uuid: cd41b4b9-d774-4969-a9e5-56953bf53feb
+langcode: es
+status: true
+dependencies:
+  config:
+    - facets.facet.fecha_del_proyecto
+  module:
+    - facets
+  theme:
+    - nica_theme
+id: fechadelproyecto
+theme: nica_theme
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facet_block:fecha_del_proyecto'
+settings:
+  id: 'facet_block:fecha_del_proyecto'
+  label: 'Fecha del Proyecto'
+  provider: facets
+  label_display: visible
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
