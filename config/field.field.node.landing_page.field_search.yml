@@ -1,0 +1,23 @@
+uuid: daa7e9fa-f922-462a-93d6-ecd41bf430f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_search
+    - node.type.landing_page
+  module:
+    - link
+id: node.landing_page.field_search
+field_name: field_search
+entity_type: node
+bundle: landing_page
+label: Search
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 1
+  title: 1
+field_type: link
