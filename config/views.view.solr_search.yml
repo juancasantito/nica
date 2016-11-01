@@ -1,0 +1,724 @@
+uuid: 0ed75f07-7e0a-4ed2-8a18-91dbbcec992b
+langcode: es
+status: true
+dependencies:
+  config:
+    - search_api.index.nica_search
+    - taxonomy.vocabulary.city
+    - taxonomy.vocabulary.event_name
+    - taxonomy.vocabulary.last_name
+    - taxonomy.vocabulary.marital_status
+    - taxonomy.vocabulary.name
+    - taxonomy.vocabulary.project_group
+    - taxonomy.vocabulary.project_name
+  module:
+    - search
+    - search_api
+    - search_api_views_taxonomy
+id: solr_search
+label: 'Solr Search'
+module: views
+description: ''
+tag: ''
+base_table: search_api_index_nica_search
+base_field: search_api_id
+core: 8.x
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: none
+        options: {  }
+      cache:
+        type: tag
+        options: {  }
+      query:
+        type: views_query
+        options:
+          bypass_access: false
+          skip_access: false
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        type: full
+        options:
+          items_per_page: 10
+          offset: 5
+          id: 0
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '— Todo(s) —'
+            offset: false
+            offset_label: Desplazamiento
+          quantity: 9
+      style:
+        type: default
+      row:
+        type: search_view
+        options:
+          score: true
+      fields:
+        type:
+          table: search_api_index_nica_search
+          field: type
+          id: type
+          entity_type: null
+          entity_field: null
+          plugin_id: search_api_field
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings: {  }
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api_entity
+          fallback_options:
+            link_to_item: false
+            multi_separator: ', '
+            display_methods: {  }
+      filters: {  }
+      sorts: {  }
+      title: 'Solr Search'
+      header: {  }
+      footer: {  }
+      empty: {  }
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+      tags: {  }
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: 'Profiles Search Page'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: solr-search/profiles
+      display_description: ''
+      title: 'Profiles Solr Search'
+      defaults:
+        title: false
+        style: false
+        row: false
+        filters: false
+        filter_groups: false
+      style:
+        type: default
+        options: {  }
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:nica_entity':
+              employment_history: teaser
+              event_history: teaser
+              profile: teaser
+              project_history: teaser
+      filters:
+        field_first_name:
+          id: field_first_name
+          table: search_api_index_nica_search
+          field: field_first_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_first_name_op
+            label: Nombres
+            description: ''
+            use_operator: false
+            operator: field_first_name_op
+            identifier: field_first_name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: name
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        field_last_name:
+          id: field_last_name
+          table: search_api_index_nica_search
+          field: field_last_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_last_name_op
+            label: Apellidos
+            description: ''
+            use_operator: false
+            operator: field_last_name_op
+            identifier: field_last_name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: last_name
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        field_marital_status:
+          id: field_marital_status
+          table: search_api_index_nica_search
+          field: field_marital_status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_marital_status_op
+            label: 'Estado Civil'
+            description: ''
+            use_operator: false
+            operator: field_marital_status_op
+            identifier: field_marital_status
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: marital_status
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        field_gender:
+          id: field_gender
+          table: search_api_index_nica_search
+          field: field_gender
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_gender_op
+            label: Género
+            description: ''
+            use_operator: false
+            operator: field_gender_op
+            identifier: field_gender
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_text
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+      tags: {  }
+  page_2:
+    display_plugin: page
+    id: page_2
+    display_title: 'Project History Search Page'
+    position: 2
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: 'Project History Solr Search'
+      defaults:
+        title: false
+        style: false
+        row: false
+        filters: false
+        filter_groups: false
+      style:
+        type: default
+        options: {  }
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:nica_entity':
+              employment_history: teaser
+              event_history: teaser
+              profile: teaser
+              project_history: teaser
+      path: search-solr/projects
+      filters:
+        field_project_name:
+          id: field_project_name
+          table: search_api_index_nica_search
+          field: field_project_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_project_name_op
+            label: 'Nombre del Proyecto'
+            description: ''
+            use_operator: false
+            operator: field_project_name_op
+            identifier: field_project_name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: project_name
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        field_project_group:
+          id: field_project_group
+          table: search_api_index_nica_search
+          field: field_project_group
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_project_group_op
+            label: 'Grupo del Proyecto'
+            description: ''
+            use_operator: false
+            operator: field_project_group_op
+            identifier: field_project_group
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: project_group
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+      tags: {  }
+  page_3:
+    display_plugin: page
+    id: page_3
+    display_title: 'Employment History Search Page'
+    position: 3
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: 'Employment History Solr Search'
+      defaults:
+        title: false
+        style: false
+        row: false
+        filters: false
+        filter_groups: false
+      style:
+        type: default
+        options: {  }
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:nica_entity':
+              employment_history: teaser
+              event_history: teaser
+              profile: teaser
+              project_history: teaser
+      path: solr-search/employment
+      filters:
+        field_place_of_employment:
+          id: field_place_of_employment
+          table: search_api_index_nica_search
+          field: field_place_of_employment
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_place_of_employment_op
+            label: 'Lugar de Contratación'
+            description: ''
+            use_operator: false
+            operator: field_place_of_employment_op
+            identifier: field_place_of_employment
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_text
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+      tags: {  }
+  page_4:
+    display_plugin: page
+    id: page_4
+    display_title: 'Events History Search Page'
+    position: 4
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      title: 'Events History Solr Search'
+      defaults:
+        title: false
+        style: false
+        row: false
+        filters: false
+        filter_groups: false
+      path: solr-search/events
+      style:
+        type: default
+        options: {  }
+      row:
+        type: search_api
+        options:
+          view_modes:
+            'entity:nica_entity':
+              employment_history: teaser
+              event_history: teaser
+              profile: teaser
+              project_history: teaser
+      filters:
+        field_event_name:
+          id: field_event_name
+          table: search_api_index_nica_search
+          field: field_event_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_event_name_op
+            label: 'Nombre del Evento '
+            description: ''
+            use_operator: false
+            operator: field_event_name_op
+            identifier: field_event_name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: event_name
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        field_city:
+          id: field_city
+          table: search_api_index_nica_search
+          field: field_city
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_city_op
+            label: 'Ciudad del Evento'
+            description: ''
+            use_operator: false
+            operator: field_city_op
+            identifier: field_city
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: city
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: 0
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+      tags: {  }
