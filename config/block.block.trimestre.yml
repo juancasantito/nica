@@ -1,0 +1,28 @@
+uuid: ed73494d-cd06-4937-bfed-d4e0124667bf
+langcode: es
+status: true
+dependencies:
+  config:
+    - facets.facet.trimestre
+  module:
+    - facets
+  theme:
+    - nica_theme
+id: trimestre
+theme: nica_theme
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facet_block:trimestre'
+settings:
+  id: 'facet_block:trimestre'
+  label: Trimestre
+  provider: facets
+  label_display: visible
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }

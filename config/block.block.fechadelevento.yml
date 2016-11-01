@@ -1,0 +1,28 @@
+uuid: 6f6953cd-096d-42ca-9791-707b36695abc
+langcode: es
+status: true
+dependencies:
+  config:
+    - facets.facet.fecha_del_evento
+  module:
+    - facets
+  theme:
+    - nica_theme
+id: fechadelevento
+theme: nica_theme
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facet_block:fecha_del_evento'
+settings:
+  id: 'facet_block:fecha_del_evento'
+  label: 'Fecha del Evento'
+  provider: facets
+  label_display: visible
+visibility:
+  other_facet:
+    id: other_facet
+    facets: ''
+    facet_value: ''
+    negate: false
+    context_mapping: {  }
