@@ -1,0 +1,30 @@
+uuid: c17a0a92-14a6-445f-bbff-74f1ba175328
+langcode: es
+status: true
+dependencies:
+  module:
+    - search_api_solr
+id: nica_solr_server
+name: 'Nica Solr Server'
+description: 'Connection to Solr Server'
+backend: search_api_solr
+backend_config:
+  connector: standard
+  connector_config:
+    scheme: http
+    host: nica.dev
+    port: '8983'
+    path: /solr
+    core: collection1
+    timeout: 5
+    index_timeout: 5
+    optimize_timeout: 10
+    solr_version: ''
+    http_method: AUTO
+  retrieve_data: true
+  highlight_data: true
+  excerpt: true
+  skip_schema_check: true
+  site_hash: true
+  autocorrect_spell: true
+  autocorrect_suggest_words: true
