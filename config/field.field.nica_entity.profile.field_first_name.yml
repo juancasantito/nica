@@ -1,19 +1,28 @@
-uuid: 80d9c2b1-d673-4fa7-bb00-ec24f5a32f88
+uuid: 401d7de0-0192-4061-9188-9516d59a3828
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_first_name
     - nica_entity.content_type.profile
+    - taxonomy.vocabulary.name
 id: nica_entity.profile.field_first_name
 field_name: field_first_name
 entity_type: nica_entity
 bundle: profile
 label: Nombres
 description: 'Nombres completos'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      name: name
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
