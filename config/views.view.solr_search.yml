@@ -329,6 +329,47 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
+        field_gender:
+          id: field_gender
+          table: search_api_index_nica_search
+          field: field_gender
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_gender_op
+            label: Género
+            description: ''
+            use_operator: false
+            operator: field_gender_op
+            identifier: field_gender
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_text
       filter_groups:
         operator: AND
         groups:
