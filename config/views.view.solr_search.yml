@@ -410,6 +410,92 @@ display:
               project_history: teaser
       path: search-solr/projects
       filters:
+        field_first_name:
+          id: field_first_name
+          table: search_api_index_nica_search
+          field: field_first_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_first_name_op
+            label: Nombre
+            description: ''
+            use_operator: false
+            operator: field_first_name_op
+            identifier: field_first_name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: name
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
+        field_gender:
+          id: field_gender
+          table: search_api_index_nica_search
+          field: field_gender
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_gender_op
+            label: Género
+            description: ''
+            use_operator: false
+            operator: field_gender_op
+            identifier: field_gender
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_text
         field_project_name:
           id: field_project_name
           table: search_api_index_nica_search
@@ -500,6 +586,47 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
+        field_materials:
+          id: field_materials
+          table: search_api_index_nica_search
+          field: field_materials
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_materials_op
+            label: Material
+            description: ''
+            use_operator: false
+            operator: field_materials_op
+            identifier: field_materials
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_text
       filter_groups:
         operator: AND
         groups:
@@ -540,6 +667,51 @@ display:
               project_history: teaser
       path: solr-search/employment
       filters:
+        field_first_name:
+          id: field_first_name
+          table: search_api_index_nica_search
+          field: field_first_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_first_name_op
+            label: Nombres
+            description: ''
+            use_operator: false
+            operator: field_first_name_op
+            identifier: field_first_name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: name
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
         field_place_of_employment:
           id: field_place_of_employment
           table: search_api_index_nica_search
@@ -621,6 +793,51 @@ display:
               profile: teaser
               project_history: teaser
       filters:
+        field_first_name:
+          id: field_first_name
+          table: search_api_index_nica_search
+          field: field_first_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_first_name_op
+            label: Nombres
+            description: ''
+            use_operator: false
+            operator: field_first_name_op
+            identifier: field_first_name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: name
+          hierarchy: false
+          error_message: true
+          plugin_id: search_api_term
         field_event_name:
           id: field_event_name
           table: search_api_index_nica_search
@@ -711,6 +928,88 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
+        field_materials:
+          id: field_materials
+          table: search_api_index_nica_search
+          field: field_materials
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_materials_op
+            label: Materiales
+            description: ''
+            use_operator: false
+            operator: field_materials_op
+            identifier: field_materials
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_text
+        field_benefit_earned:
+          id: field_benefit_earned
+          table: search_api_index_nica_search
+          field: field_benefit_earned
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_benefit_earned_op
+            label: 'Beneficios Obtenidos'
+            description: ''
+            use_operator: false
+            operator: field_benefit_earned_op
+            identifier: field_benefit_earned
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_api_text
       filter_groups:
         operator: AND
         groups:
