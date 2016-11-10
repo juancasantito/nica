@@ -16,6 +16,8 @@ dependencies:
     - field.storage.nica_entity.field_place_of_employment
     - field.storage.nica_entity.field_employment_date
     - field.storage.nica_entity.field_city
+    - field.storage.nica_entity.field_materials
+    - field.storage.nica_entity.field_benefit_earned
     - search_api.server.nica_solr_server
   module:
     - search_api
@@ -134,6 +136,22 @@ field_settings:
     dependencies:
       config:
         - field.storage.nica_entity.field_city
+  field_materials:
+    label: Materiales
+    datasource_id: 'entity:nica_entity'
+    property_path: field_materials
+    type: text
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_materials
+  field_benefit_earned:
+    label: 'Beneficios Obtenidos'
+    datasource_id: 'entity:nica_entity'
+    property_path: field_benefit_earned
+    type: text
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_benefit_earned
 processor_settings:
   rendered_item:
     plugin_id: rendered_item
