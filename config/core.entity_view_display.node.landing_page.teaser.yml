@@ -5,8 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.landing_page.body
+    - field.field.node.landing_page.field_search
     - node.type.landing_page
   module:
+    - link
     - text
     - user
 id: node.landing_page.teaser
@@ -16,13 +18,22 @@ mode: teaser
 content:
   body:
     label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
+    type: text_trimmed
+    weight: 1
     settings:
       trim_length: 600
     third_party_settings: {  }
-  links:
-    weight: 100
+  field_search:
+    type: link
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      rel: ''
+      target: ''
+      url_only: false
+      url_plain: false
+    third_party_settings: {  }
 hidden:
-  field_search: true
   langcode: true
+  links: true
