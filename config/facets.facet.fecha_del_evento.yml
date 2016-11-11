@@ -18,7 +18,7 @@ widget:
   type: datebasic
   config:
     show_numbers: true
-    display_relative: '1'
+    display_relative: false
     granularity: '6'
     date_display: ''
 query_operator: or
@@ -31,18 +31,12 @@ processor_configs:
       sort: -10
     settings:
       sort: DESC
-  count_widget_order:
-    processor_id: count_widget_order
-    weights:
-      sort: -10
-    settings:
-      sort: DESC
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
       sort: -10
     settings:
-      sort: ASC
+      sort: DESC
   url_processor_handler:
     processor_id: url_processor_handler
     weights:
