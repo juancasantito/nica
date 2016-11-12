@@ -16,14 +16,15 @@ bundle: landing_page
 mode: default
 content:
   body:
+    type: text_trimmed
+    weight: 1
     label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
+    settings:
+      trim_length: 600
     third_party_settings: {  }
   field_search:
-    weight: 102
-    label: above
+    weight: 2
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -32,7 +33,6 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
-  links:
-    weight: 100
 hidden:
   langcode: true
+  links: true
