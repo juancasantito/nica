@@ -12,6 +12,10 @@
  * @ingroup themeable
  */
 #}
+
+{% set urls = url|split('?') %}
+{% if urls[0] == 'http://nica.dev/solr-search/result.csv' %}
 <a href="{{ url }}"{{ attributes.addClass('feed-icon') }}>
   {{ 'Download @title'|t({'@title': title}) }}
 </a>
+{% endif %}
