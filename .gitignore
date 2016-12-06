@@ -40,3 +40,4 @@ tests/bin
 
 .vagrant/
 .DS_Store
+local.config.yml

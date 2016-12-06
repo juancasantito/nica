@@ -33,7 +33,7 @@
     "drupal/csv_serialization": "~1",
     "drupal/ctools": "~3",
     "drupal/entity_reference_revisions": "~1",
-    "drupal/facets": "~1",
+    "drupal/facets": "1.x-dev",
     "drupal/flysystem": "~1",
     "drupal/flysystem_dropbox": "~1",
     "drupal/geolocation": "~1",
@@ -106,9 +106,6 @@
     "patches": {
       "drupal/entity_reference_revisions": {
         "Allow single scalar value in EntityReferenceRevisions data type plugin": "https://www.drupal.org/files/issues/allow_single_scalar-2667748-2.patch"
-      },
-      "drupal/facets": {
-        "Create a date query type" : "https://www.drupal.org/files/issues/create_a_date_query_type-2611812-45.patch"
       }
     }
   }
