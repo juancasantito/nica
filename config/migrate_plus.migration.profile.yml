@@ -26,6 +26,8 @@ source:
     -
       last_name: 'Last Names'
     -
+      gender: Gender
+    -
       other_event: 'Other event'
     -
       pictures: Pictures
@@ -71,6 +73,16 @@ process:
   field_last_name:
     plugin: entity_generate
     source: last_name
+  field_gender:
+    -
+      plugin: static_map
+      bypass: true
+      map:
+        f: Female
+        m: Male
+      source: gender
+    -
+      plugin: entity_generate
   field_other_event: other_event
   field_birthday: birthday
   field_images:
