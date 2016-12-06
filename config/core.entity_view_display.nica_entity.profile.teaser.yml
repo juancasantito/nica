@@ -51,6 +51,13 @@ content:
     settings:
       link: false
     third_party_settings: {  }
+  field_gender:
+    type: entity_reference_label
+    weight: 5
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
   field_images:
     type: image
     weight: 1
@@ -68,7 +75,7 @@ content:
     third_party_settings: {  }
   field_marital_status:
     type: entity_reference_label
-    weight: 5
+    weight: 6
     label: above
     settings:
       link: false
@@ -85,7 +92,6 @@ hidden:
   field_children: true
   field_city: true
   field_current_employment: true
-  field_gender: true
   field_gps_coordinates: true
   field_highest_education_complete: true
   field_household_income: true

@@ -1,24 +1,17 @@
-uuid: 8d0d5587-66ba-4746-b600-a075804503eb
+uuid: a4b01311-3d89-4a99-a921-9e00763ef73e
 langcode: es
 status: true
 dependencies:
   module:
     - nica_entity
-    - options
+    - taxonomy
 id: nica_entity.field_gender
 field_name: field_gender
 entity_type: nica_entity
-type: list_string
+type: entity_reference
 settings:
-  allowed_values:
-    -
-      value: female
-      label: Femenino
-    -
-      value: male
-      label: Masculino
-  allowed_values_function: ''
-module: options
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: 1
 translatable: true
