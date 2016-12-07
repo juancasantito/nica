@@ -19,7 +19,7 @@ source:
   keys:
     - name
   column_names:
-    19:
+    20:
       name: 'Job Training'
 process:
   name:

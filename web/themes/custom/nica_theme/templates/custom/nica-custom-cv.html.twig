@@ -21,13 +21,20 @@
             <div class="col-md-8 col-md-offset-2">
                 <p class="text-cv">
                     El motivo de la presente constancia es para manifestar que la
-                    {% if nica_entity.field_gender.value == 'Masculino' %}
+                    {% if nica_entity.field_gender.entity.label == 'Male' %}
                         Sr.
                     {% else %}
                         Sra.
                     {% endif %}
-                    <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong>
-                    con cedula de identidad numero <strong>{{ nica_entity.field_national_id.value }}</strong>, ha participado en el programa social
+                    <strong>
+                      {{ nica_entity.field_first_name.entity.label }}
+                      {{  nica_entity.field_last_name.entity.label }}
+                    </strong>
+                    {% set national_id = nica_entity.field_national_id.value %}
+                    {% if national_id %}
+                      con cedula de identidad numero <strong>{{ national_id }}</strong>,
+                    {% endif %}
+                    ha participado en el programa social
                     “Somos El Cambio” que se desarrolla en la comunidad de <strong>{{ community }}</strong>, comarca del municipio
                     de {{ municipality }}.
                     <br><br>
@@ -40,7 +47,10 @@
                     individual y familiar.
                     <br>
                     <strong>Registro de participación de la (el) participante:</strong>
-                    <strong>{{ nica_entity.field_first_name.value }} {{  nica_entity.field_last_name.value }}</strong>
+                    <strong>
+                      {{ nica_entity.field_first_name.entity.label }}
+                      {{  nica_entity.field_last_name.entity.label }}
+                    </strong>
                     <br>
                 <div class="center-block">
                     {{ drupal_view('profiles_views', 'block_1') }}

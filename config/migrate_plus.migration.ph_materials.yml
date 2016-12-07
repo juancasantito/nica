@@ -8,13 +8,13 @@ dependencies:
 id: ph_materials
 migration_tags:
   - CSV
-migration_group: null
+migration_group: default
 label: 'Project History Materials'
 source:
   plugin: csv
   path: 'public://csv/project_materials_list.csv'
   header_row_count: 1
-  fileClass: \Drupal\nica_migrate\Plugin\migrate\NicaFileObject
+  file_class: \Drupal\nica_migrate\Plugin\migrate\NicaFileObject
   keys:
     - material_id
     - profile
@@ -41,23 +41,76 @@ process:
   type:
     plugin: default_value
     default_value: project_history
+  material_1:
+    plugin: extract
+    source: material
+    index:
+      - '0'
+  materials_1:
+    plugin: get
+    source:
+      - id
+      - '@material_1'
+      - profile
+      - year
+      - trim
+  material_2:
+    plugin: extract
+    source: material
+    index:
+      - 1
+  materials_2:
+    plugin: get
+    source:
+      - id
+      - '@material_2'
+      - profile
+      - year
+      - trim
+  material_3:
+    plugin: extract
+    source: material
+    index:
+      - 2
+  materials_3:
+    plugin: get
+    source:
+      - id
+      - '@material_3'
+      - profile
+      - year
+      - trim
+  material_4:
+    plugin: extract
+    source: material
+    index:
+      - 3
+  materials_4:
+    plugin: get
+    source:
+      - id
+      - '@material_4'
+      - profile
+      - year
+      - trim
+  materials:
+    plugin: get
+    source:
+      - '@materials_1'
+      - '@materials_2'
+      - '@materials_3'
+      - '@materials_4'
   field_materials:
-    -
-      plugin: ph_materials
-      source:
-        - id
-        - material
-        - profile
-        - year
-        - trim
     -
       plugin: migration
       migration: materials
       no_stub: true
+      source: '@materials'
     -
-      plugin: extract
-      index:
-        - 0
+      plugin: iterator
+      process:
+        target_id: '0'
+        target_revision_id: '1'
   id:
     -
       plugin: migration

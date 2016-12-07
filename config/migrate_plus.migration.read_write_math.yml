@@ -19,7 +19,7 @@ source:
   keys:
     - name
   column_names:
-    17:
+    18:
       name: 'Read Write Math'
 process:
   name:

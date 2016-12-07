@@ -14,7 +14,7 @@
   ],
   "require": {
     "composer/installers": "~1",
-    "drupal-composer/drupal-scaffold": "~1",
+    "drupal-composer/drupal-scaffold": "~2",
     "cweagans/composer-patches": "~1.0",
     "drupal/core": "~8",
     "drush/drush": "~8",
@@ -87,25 +87,18 @@
   },
   "extra": {
     "installer-paths": {
-      "web/core": [
-        "type:drupal-core"
-      ],
-      "web/modules/contrib/{$name}": [
-        "type:drupal-module"
-      ],
-      "web/profiles/contrib/{$name}": [
-        "type:drupal-profile"
-      ],
-      "web/themes/contrib/{$name}": [
-        "type:drupal-theme"
-      ],
-      "web/libraries/{$name}": [
-        "type:drupal-library"
-      ]
+      "web/core": ["type:drupal-core"],
+      "web/modules/contrib/{$name}": ["type:drupal-module"],
+      "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+      "web/themes/contrib/{$name}": ["type:drupal-theme"],
+      "web/libraries/{$name}": ["type:drupal-library"]
     },
     "patches": {
+      "drupal/core": {
+        "Scalar to array migration returns NULL": "https://www.drupal.org/files/issues/2767643-22.patch"
+      },
       "drupal/entity_reference_revisions": {
-        "Allow single scalar value in EntityReferenceRevisions data type plugin": "https://www.drupal.org/files/issues/allow_single_scalar-2667748-2.patch"
+        "EntityReference migrate destination": "https://www.drupal.org/files/issues/entityreference_migrate-2809793-46.patch"
       }
     }
   }

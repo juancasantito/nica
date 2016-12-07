@@ -54,7 +54,7 @@ process:
       no_stub: true
       source: measurement
 destination:
-  plugin: 'entity:paragraph'
+  plugin: 'entity_reference_revisions:paragraph'
 migration_dependencies:
   optional:
     - term_materials

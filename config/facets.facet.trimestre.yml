@@ -10,9 +10,9 @@ id: trimestre
 name: Trimestre
 url_alias: trimestre
 weight: 0
+min_count: 1
 show_only_one_result: false
 field_identifier: field_quarter
-query_type_name: null
 facet_source_id: 'views_page:solr_search__page_2'
 widget:
   type: checkbox
@@ -20,6 +20,10 @@ widget:
     show_numbers: false
     soft_limit: 0
 query_operator: or
+use_hierarchy: false
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
+hard_limit: null
 exclude: false
 only_visible_when_facet_source_is_visible: true
 processor_configs:
@@ -43,4 +47,3 @@ processor_configs:
     settings: {  }
 empty_behavior:
   behavior: none
-facet_configs: {  }
