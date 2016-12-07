@@ -19,7 +19,7 @@ source:
   keys:
     - name
   column_names:
-    18:
+    19:
       name: 'Special Skills'
 process:
   name:

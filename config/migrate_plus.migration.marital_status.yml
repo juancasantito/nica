@@ -19,7 +19,7 @@ source:
   keys:
     - name
   column_names:
-    8:
+    9:
       name: 'Marital Status'
 process:
   name:
