@@ -49,7 +49,8 @@
     "drupal/nica_entity": "*",
     "drupal/nica_migrate": "*",
     "drupal/twig_tweak": "~1",
-    "geerlingguy/drupal-vm": "dev-master"
+    "geerlingguy/drupal-vm": "dev-master",
+    "drupal/devel": "1.x-dev"
   },
   "require-dev": {
     "behat/behat": "~3.0",
@@ -94,11 +95,8 @@
       "web/libraries/{$name}": ["type:drupal-library"]
     },
     "patches": {
-      "drupal/core": {
-        "Scalar to array migration returns NULL": "https://www.drupal.org/files/issues/2767643-22.patch"
-      },
       "drupal/entity_reference_revisions": {
-        "EntityReference migrate destination": "https://www.drupal.org/files/issues/entityreference_migrate-2809793-46.patch"
+        "EntityReference migrate destination": "https://www.drupal.org/files/issues/entityreference_migrate-2809793-56.patch"
       }
     }
   }
