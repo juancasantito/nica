@@ -21,6 +21,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
   field_material:
     weight: 0
     settings:
@@ -29,6 +30,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_measurement:
     weight: 2
     settings:
@@ -37,18 +39,21 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_price:
     weight: 3
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
   field_quantity:
     weight: 1
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
 hidden:
   created: true
   status: true

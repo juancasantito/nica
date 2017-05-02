@@ -26,8 +26,6 @@ backend_config:
   excerpt: true
   skip_schema_check: true
   site_hash: true
-  autocorrect_spell: true
-  autocorrect_suggest_words: true
   suggest_suffix: true
   suggest_corrections: true
   suggest_words: false

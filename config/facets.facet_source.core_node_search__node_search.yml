@@ -1,0 +1,8 @@
+uuid: null
+langcode: en
+status: true
+dependencies: {  }
+id: core_node_search__node_search
+name: 'core_node_search:node_search'
+filter_key: null
+url_processor: query_string

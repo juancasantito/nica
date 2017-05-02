@@ -9,7 +9,6 @@ dependencies:
   - migrate_source_csv
   - migrate_tools
   - nica_entity
-  - nica_migrate
   - node
   - paragraphs
   - taxonomy

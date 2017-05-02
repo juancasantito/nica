@@ -22,3 +22,4 @@ logo:
 schemas:
   bootstrap: 8000
   nica_theme: 8000
+langcode: es
