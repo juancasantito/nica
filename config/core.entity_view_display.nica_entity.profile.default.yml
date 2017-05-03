@@ -1,0 +1,246 @@
+uuid: f52c384b-0edc-4522-b000-e13c1a7df9a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.nica_entity.profile.field_address
+    - field.field.nica_entity.profile.field_birthday
+    - field.field.nica_entity.profile.field_children
+    - field.field.nica_entity.profile.field_city
+    - field.field.nica_entity.profile.field_current_employment
+    - field.field.nica_entity.profile.field_first_name
+    - field.field.nica_entity.profile.field_gender
+    - field.field.nica_entity.profile.field_gps_coordinates
+    - field.field.nica_entity.profile.field_highest_education_complete
+    - field.field.nica_entity.profile.field_household_income
+    - field.field.nica_entity.profile.field_images
+    - field.field.nica_entity.profile.field_job_training
+    - field.field.nica_entity.profile.field_languages
+    - field.field.nica_entity.profile.field_last_name
+    - field.field.nica_entity.profile.field_marital_status
+    - field.field.nica_entity.profile.field_national_id
+    - field.field.nica_entity.profile.field_number_of_people_in_home
+    - field.field.nica_entity.profile.field_other_event
+    - field.field.nica_entity.profile.field_read_write_math
+    - field.field.nica_entity.profile.field_salary
+    - field.field.nica_entity.profile.field_special_skills
+    - field.field.nica_entity.profile.field_telephone
+    - image.style.large
+    - nica_entity.nica_entity_type.profile
+  module:
+    - datetime
+    - geolocation
+    - image
+    - options
+    - user
+id: nica_entity.profile.default
+targetEntityType: nica_entity
+bundle: profile
+mode: default
+content:
+  field_address:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_birthday:
+    type: datetime_default
+    weight: 5
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: nica_date
+    third_party_settings: {  }
+    region: content
+  field_children:
+    type: list_default
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_city:
+    weight: 8
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_current_employment:
+    type: string
+    weight: 17
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_first_name:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_gender:
+    weight: 10
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_gps_coordinates:
+    weight: 9
+    label: above
+    settings:
+      info_text: ''
+      title: ''
+      google_map_settings:
+        type: ROADMAP
+        zoom: '10'
+        mapTypeControl: 1
+        streetViewControl: 1
+        zoomControl: 1
+        scrollwheel: 1
+        disableDoubleClickZoom: 0
+        draggable: 1
+        height: 400px
+        width: 100%
+        info_auto_display: 1
+        style: ''
+      set_marker: '1'
+      common_map: ''
+      use_overridden_map_settings: 0
+    third_party_settings: {  }
+    type: geolocation_map
+    region: content
+  field_highest_education_complete:
+    type: entity_reference_label
+    weight: 16
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_household_income:
+    type: list_default
+    weight: 14
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_images:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: large
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_job_training:
+    type: entity_reference_label
+    weight: 21
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_languages:
+    type: entity_reference_label
+    weight: 18
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_last_name:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_marital_status:
+    type: entity_reference_label
+    weight: 11
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_national_id:
+    type: string
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_number_of_people_in_home:
+    type: list_key
+    weight: 13
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_other_event:
+    type: string
+    weight: 19
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_read_write_math:
+    type: entity_reference_label
+    weight: 22
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_salary:
+    type: number_integer
+    weight: 15
+    label: above
+    settings:
+      thousand_separator: ','
+      prefix_suffix: true
+    third_party_settings: {  }
+    region: content
+  field_special_skills:
+    type: entity_reference_label
+    weight: 20
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_telephone:
+    type: string
+    weight: 6
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  links: true
+  name: true
+  type: true
+  uid: true

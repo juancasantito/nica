@@ -58,7 +58,7 @@ view_mode ? 'nica--view-mode-' ~ view_mode|clean_class,
 <article{{ attributes.addClass(classes) }}>
   <div{{ content_attributes.addClass('nica__content', 'clearfix', 'panel', 'panel-default') }}>
     <div class="panel-heading">
-      <h3 class="panel-title"><a href="{{ path('entity.nica_entity.canonical', {'nica_entity': nica_entity.id()}) }}">{{ content.type }}</a></h3>
+      <h3 class="panel-title"><a href="{{ path('entity.nica_entity.canonical', {'nica_entity': nica_entity.id()}) }}">{{ nica_entity.bundle()|replace({'_':' '})|title }}</a></h3>
     </div>
     <div class="panel-body">
       {{ content|without('type') }}

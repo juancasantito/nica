@@ -46,7 +46,7 @@ use Drupal\user\UserInterface;
  *     "id" = "id",
  *     "revision" = "vid",
  *     "bundle" = "type",
- *     "label" = "name",
+ *     "label" = "label",
  *     "uuid" = "uuid",
  *     "uid" = "user_id",
  *     "langcode" = "langcode",
@@ -211,27 +211,6 @@ class NicaEntity extends RevisionableContentEntityBase implements NicaEntityInte
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['name'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Name'))
-      ->setDescription(t('The name of the Nica entity entity.'))
-      ->setRevisionable(TRUE)
-      ->setSettings([
-        'max_length' => 50,
-        'text_processing' => 0,
-      ])
-      ->setDefaultValue('')
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -4,
-      ])
-      ->setDisplayOptions('form', [
-        'type' => 'string_textfield',
-        'weight' => -4,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayConfigurable('view', TRUE);
-
     $fields['status'] = BaseFieldDefinition::create('boolean')
       ->setLabel(t('Publishing status'))
       ->setDescription(t('A boolean indicating whether the Nica entity is published.'))
@@ -256,4 +235,25 @@ class NicaEntity extends RevisionableContentEntityBase implements NicaEntityInte
     return $fields;
   }
 
+  /**
+   * {@inheritdoc}
+   *
+   * Insert a dynamic label fabricated from bundle and ID.
+   */
+  public function label() {
+    $label = '';
+    $class = $this->entityTypeManager()->getDefinition($this->getEntityType()->getBundleEntityType())->getClass();
+    if (is_callable([$class, 'load'])) {
+      $entity_type = $class::load($this->bundle());
+      if ($entity_type) {
+        if ($entity_type->id() == 'profile') {
+          $label = $this->get('field_first_name')->entity->label() . ' ' . $this->get('field_last_name')->entity->label();
+        }
+        else {
+          $label = $entity_type->label() . ' ' . $this->id();
+        }
+      }
+    }
+    return $label;
+  }
 }

@@ -1,0 +1,1296 @@
+uuid: 5c386e62-a58e-4a80-9507-7dc6cef3cf2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.nica_entity.teaser
+    - field.storage.nica_entity.field_address
+    - field.storage.nica_entity.field_benefit_earned
+    - field.storage.nica_entity.field_birthday
+    - field.storage.nica_entity.field_children
+    - field.storage.nica_entity.field_city
+    - field.storage.nica_entity.field_comments_on_result
+    - field.storage.nica_entity.field_current_employment
+    - field.storage.nica_entity.field_description
+    - field.storage.nica_entity.field_description_of_responsabil
+    - field.storage.nica_entity.field_employment_date
+    - field.storage.nica_entity.field_event_date
+    - field.storage.nica_entity.field_event_name
+    - field.storage.nica_entity.field_first_name
+    - field.storage.nica_entity.field_gender
+    - field.storage.nica_entity.field_gps_coordinates
+    - field.storage.nica_entity.field_highest_education_complete
+    - field.storage.nica_entity.field_household_income
+    - field.storage.nica_entity.field_images
+    - field.storage.nica_entity.field_job_training
+    - field.storage.nica_entity.field_languages
+    - field.storage.nica_entity.field_last_name
+    - field.storage.nica_entity.field_marital_status
+    - field.storage.nica_entity.field_materials
+    - field.storage.nica_entity.field_national_id
+    - field.storage.nica_entity.field_number_of_people_in_home
+    - field.storage.nica_entity.field_other_event
+    - field.storage.nica_entity.field_place_of_employment
+    - field.storage.nica_entity.field_profile_reference
+    - field.storage.nica_entity.field_project_date
+    - field.storage.nica_entity.field_project_group
+    - field.storage.nica_entity.field_project_leader
+    - field.storage.nica_entity.field_project_name
+    - field.storage.nica_entity.field_quarter
+    - field.storage.nica_entity.field_result
+    - field.storage.nica_entity.field_salary
+    - field.storage.nica_entity.field_telephone
+    - taxonomy.vocabulary.city
+    - taxonomy.vocabulary.event_name
+    - taxonomy.vocabulary.last_name
+    - taxonomy.vocabulary.marital_status
+    - taxonomy.vocabulary.name
+    - taxonomy.vocabulary.project_group
+    - taxonomy.vocabulary.project_name
+    - user.role.authenticated
+  module:
+    - csv_serialization
+    - datetime
+    - entity_reference_revisions
+    - geolocation
+    - image
+    - nica_entity
+    - options
+    - rest
+    - serialization
+    - taxonomy
+    - user
+    - views_rest_feed
+id: search
+label: Search
+module: views
+description: ''
+tag: ''
+base_table: nica_entity_field_data
+base_field: id
+core: 8.x
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: role
+        options:
+          role:
+            authenticated: authenticated
+      cache:
+        type: tag
+        options: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: {  }
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        type: full
+        options:
+          items_per_page: 20
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:nica_entity'
+        options:
+          relationship: none
+          view_mode: teaser
+      fields:
+        field_last_name:
+          id: field_last_name
+          table: nica_entity__field_last_name
+          field: field_last_name
+          plugin_id: field
+        uid:
+          id: uid
+          table: nica_entity_field_data
+          field: uid
+          entity_type: nica_entity
+          entity_field: uid
+          plugin_id: field
+        field_benefit_earned:
+          id: field_benefit_earned
+          table: nica_entity__field_benefit_earned
+          field: field_benefit_earned
+          plugin_id: field
+        changed:
+          id: changed
+          table: nica_entity_field_data
+          field: changed
+          entity_type: nica_entity
+          entity_field: changed
+          plugin_id: field
+        field_city:
+          id: field_city
+          table: nica_entity__field_city
+          field: field_city
+          plugin_id: field
+        field_comments_on_result:
+          id: field_comments_on_result
+          table: nica_entity__field_comments_on_result
+          field: field_comments_on_result
+          plugin_id: field
+        field_event_comments:
+          id: field_event_comments
+          table: nica_entity__field_event_comments
+          field: field_event_comments
+          plugin_id: field
+        field_gps_coordinates:
+          id: field_gps_coordinates
+          table: nica_entity__field_gps_coordinates
+          field: field_gps_coordinates
+          plugin_id: geolocation_field
+        created:
+          id: created
+          table: nica_entity_field_data
+          field: created
+          entity_type: nica_entity
+          entity_field: created
+          plugin_id: field
+        id:
+          id: id
+          table: nica_entity_field_data
+          field: id
+          entity_type: nica_entity
+          entity_field: id
+          plugin_id: field
+        field_description:
+          id: field_description
+          table: nica_entity__field_description
+          field: field_description
+          plugin_id: field
+        field_description_of_responsabil:
+          id: field_description_of_responsabil
+          table: nica_entity__field_description_of_responsabil
+          field: field_description_of_responsabil
+          plugin_id: field
+        field_address:
+          id: field_address
+          table: nica_entity__field_address
+          field: field_address
+          plugin_id: field
+        type:
+          id: type
+          table: nica_entity_field_data
+          field: type
+          entity_type: nica_entity
+          entity_field: type
+          plugin_id: field
+        field_job_training:
+          id: field_job_training
+          table: nica_entity__field_job_training
+          field: field_job_training
+          plugin_id: field
+        field_marital_status:
+          id: field_marital_status
+          table: nica_entity__field_marital_status
+          field: field_marital_status
+          plugin_id: field
+        field_employment_date:
+          id: field_employment_date
+          table: nica_entity__field_employment_date
+          field: field_employment_date
+          plugin_id: field
+        field_birthday:
+          id: field_birthday
+          table: nica_entity__field_birthday
+          field: field_birthday
+          plugin_id: field
+        field_event_date:
+          id: field_event_date
+          table: nica_entity__field_event_date
+          field: field_event_date
+          plugin_id: field
+        field_project_date:
+          id: field_project_date
+          table: nica_entity__field_project_date
+          field: field_project_date
+          plugin_id: field
+        field_images:
+          id: field_images
+          table: nica_entity__field_images
+          field: field_images
+          plugin_id: field
+        field_project_group:
+          id: field_project_group
+          table: nica_entity__field_project_group
+          field: field_project_group
+          plugin_id: field
+        field_gender:
+          id: field_gender
+          table: nica_entity__field_gender
+          field: field_gender
+          plugin_id: field
+        field_languages:
+          id: field_languages
+          table: nica_entity__field_languages
+          field: field_languages
+          plugin_id: field
+        field_household_income:
+          id: field_household_income
+          table: nica_entity__field_household_income
+          field: field_household_income
+          plugin_id: field
+        view_nica_entity:
+          id: view_nica_entity
+          table: nica_entity
+          field: view_nica_entity
+          entity_type: nica_entity
+          plugin_id: entity_link
+        field_place_of_employment:
+          id: field_place_of_employment
+          table: nica_entity__field_place_of_employment
+          field: field_place_of_employment
+          plugin_id: field
+        field_project_leader:
+          id: field_project_leader
+          table: nica_entity__field_project_leader
+          field: field_project_leader
+          plugin_id: field
+        field_materials:
+          id: field_materials
+          table: nica_entity__field_materials
+          field: field_materials
+          plugin_id: field
+        field_current_employment:
+          id: field_current_employment
+          table: nica_entity__field_current_employment
+          field: field_current_employment
+          plugin_id: field
+        field_event_name:
+          id: field_event_name
+          table: nica_entity__field_event_name
+          field: field_event_name
+          plugin_id: field
+        field_project_name:
+          id: field_project_name
+          table: nica_entity__field_project_name
+          field: field_project_name
+          plugin_id: field
+        field_first_name:
+          id: field_first_name
+          table: nica_entity__field_first_name
+          field: field_first_name
+          plugin_id: field
+        field_national_id:
+          id: field_national_id
+          table: nica_entity__field_national_id
+          field: field_national_id
+          plugin_id: field
+        field_children:
+          id: field_children
+          table: nica_entity__field_children
+          field: field_children
+          plugin_id: field
+        field_number_of_people_in_home:
+          id: field_number_of_people_in_home
+          table: nica_entity__field_number_of_people_in_home
+          field: field_number_of_people_in_home
+          plugin_id: field
+        field_other_event:
+          id: field_other_event
+          table: nica_entity__field_other_event
+          field: field_other_event
+          plugin_id: field
+        field_profile_reference:
+          id: field_profile_reference
+          table: nica_entity__field_profile_reference
+          field: field_profile_reference
+          plugin_id: field
+        field_result:
+          id: field_result
+          table: nica_entity__field_result
+          field: field_result
+          plugin_id: field
+        field_salary:
+          id: field_salary
+          table: nica_entity__field_salary
+          field: field_salary
+          plugin_id: field
+        field_telephone:
+          id: field_telephone
+          table: nica_entity__field_telephone
+          field: field_telephone
+          plugin_id: field
+        field_quarter:
+          id: field_quarter
+          table: nica_entity__field_quarter
+          field: field_quarter
+          plugin_id: field
+        field_highest_education_complete:
+          id: field_highest_education_complete
+          table: nica_entity__field_highest_education_complete
+          field: field_highest_education_complete
+          plugin_id: field
+      filters:
+        type:
+          id: type
+          table: nica_entity_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: 'Tipo de Búsqueda'
+            description: ''
+            use_operator: false
+            operator: type_op
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: nica_entity
+          entity_field: type
+          plugin_id: bundle
+        field_first_name_target_id:
+          id: field_first_name_target_id
+          table: nica_entity__field_first_name
+          field: field_first_name_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_first_name_target_id_op
+            label: Nombres
+            description: ''
+            use_operator: false
+            operator: field_first_name_target_id_op
+            identifier: field_first_name_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: name
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_last_name_target_id:
+          id: field_last_name_target_id
+          table: nica_entity__field_last_name
+          field: field_last_name_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_last_name_target_id_op
+            label: Apellidos
+            description: ''
+            use_operator: false
+            operator: field_last_name_target_id_op
+            identifier: field_last_name_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: last_name
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_gender_value:
+          id: field_gender_value
+          table: nica_entity__field_gender
+          field: field_gender_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_gender_value_op
+            label: Género
+            description: ''
+            use_operator: false
+            operator: field_gender_value_op
+            identifier: field_gender_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
+        field_marital_status_target_id:
+          id: field_marital_status_target_id
+          table: nica_entity__field_marital_status
+          field: field_marital_status_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_marital_status_target_id_op
+            label: 'Estado Civil'
+            description: ''
+            use_operator: false
+            operator: field_marital_status_target_id_op
+            identifier: field_marital_status_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: marital_status
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_quarter_value:
+          id: field_quarter_value
+          table: nica_entity__field_quarter
+          field: field_quarter_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_quarter_value_op
+            label: 'Trimestre del Proyecto'
+            description: ''
+            use_operator: false
+            operator: field_quarter_value_op
+            identifier: field_quarter_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
+        field_project_name_target_id_1:
+          id: field_project_name_target_id_1
+          table: nica_entity__field_project_name
+          field: field_project_name_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_project_name_target_id_1_op
+            label: 'Nombre del Proyecto'
+            description: ''
+            use_operator: false
+            operator: field_project_name_target_id_1_op
+            identifier: field_project_name_target_id_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: project_name
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_project_group_target_id:
+          id: field_project_group_target_id
+          table: nica_entity__field_project_group
+          field: field_project_group_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_project_group_target_id_op
+            label: 'Grupo del Proyecto'
+            description: ''
+            use_operator: false
+            operator: field_project_group_target_id_op
+            identifier: field_project_group_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: project_group
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_city_target_id:
+          id: field_city_target_id
+          table: nica_entity__field_city
+          field: field_city_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_city_target_id_op
+            label: Ciudad
+            description: ''
+            use_operator: false
+            operator: field_city_target_id_op
+            identifier: field_city_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: city
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_event_name_target_id:
+          id: field_event_name_target_id
+          table: nica_entity__field_event_name
+          field: field_event_name_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_event_name_target_id_op
+            label: 'Nombre del Evento'
+            description: ''
+            use_operator: false
+            operator: field_event_name_target_id_op
+            identifier: field_event_name_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: event_name
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      sorts:
+        created:
+          id: created
+          table: nica_entity_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: nica_entity
+          entity_field: created
+          plugin_id: date
+      title: 'Perfiles e Historias'
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Total: @total'
+          plugin_id: result
+      footer: {  }
+      empty: {  }
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      use_more: false
+      use_more_always: true
+      use_more_text: more
+      css_class: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.nica_entity.field_address'
+        - 'config:field.storage.nica_entity.field_benefit_earned'
+        - 'config:field.storage.nica_entity.field_birthday'
+        - 'config:field.storage.nica_entity.field_children'
+        - 'config:field.storage.nica_entity.field_city'
+        - 'config:field.storage.nica_entity.field_comments_on_result'
+        - 'config:field.storage.nica_entity.field_current_employment'
+        - 'config:field.storage.nica_entity.field_description'
+        - 'config:field.storage.nica_entity.field_description_of_responsabil'
+        - 'config:field.storage.nica_entity.field_employment_date'
+        - 'config:field.storage.nica_entity.field_event_date'
+        - 'config:field.storage.nica_entity.field_event_name'
+        - 'config:field.storage.nica_entity.field_first_name'
+        - 'config:field.storage.nica_entity.field_gender'
+        - 'config:field.storage.nica_entity.field_gps_coordinates'
+        - 'config:field.storage.nica_entity.field_highest_education_complete'
+        - 'config:field.storage.nica_entity.field_household_income'
+        - 'config:field.storage.nica_entity.field_images'
+        - 'config:field.storage.nica_entity.field_job_training'
+        - 'config:field.storage.nica_entity.field_languages'
+        - 'config:field.storage.nica_entity.field_last_name'
+        - 'config:field.storage.nica_entity.field_marital_status'
+        - 'config:field.storage.nica_entity.field_materials'
+        - 'config:field.storage.nica_entity.field_national_id'
+        - 'config:field.storage.nica_entity.field_number_of_people_in_home'
+        - 'config:field.storage.nica_entity.field_other_event'
+        - 'config:field.storage.nica_entity.field_place_of_employment'
+        - 'config:field.storage.nica_entity.field_profile_reference'
+        - 'config:field.storage.nica_entity.field_project_date'
+        - 'config:field.storage.nica_entity.field_project_group'
+        - 'config:field.storage.nica_entity.field_project_leader'
+        - 'config:field.storage.nica_entity.field_project_name'
+        - 'config:field.storage.nica_entity.field_quarter'
+        - 'config:field.storage.nica_entity.field_result'
+        - 'config:field.storage.nica_entity.field_salary'
+        - 'config:field.storage.nica_entity.field_telephone'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: search
+      menu:
+        type: none
+        title: Search
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: main
+        enabled: true
+      defaults:
+        sorts: true
+        filters: true
+        filter_groups: true
+        fields: false
+        pager: true
+        style: true
+        row: true
+      fields: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - user.roles
+      tags: {  }
+  rest_export_attachment_1:
+    display_plugin: rest_export_attachment
+    id: rest_export_attachment_1
+    display_title: 'REST export feed'
+    position: 2
+    display_options:
+      display_extenders: {  }
+      path: search/result.csv
+      displays:
+        page_1: page_1
+        default: 0
+      style:
+        type: serializer
+        options:
+          uses_fields: 0
+          formats:
+            csv: csv
+      row:
+        type: data_field
+        options:
+          field_options:
+            field_last_name:
+              alias: ''
+              raw_output: 0
+            uid:
+              alias: ''
+              raw_output: 0
+            field_benefit_earned:
+              alias: ''
+              raw_output: 0
+            changed:
+              alias: ''
+              raw_output: 0
+            field_city:
+              alias: ''
+              raw_output: 0
+            field_comments_on_result:
+              alias: ''
+              raw_output: 0
+            field_event_comments:
+              alias: ''
+              raw_output: 0
+            field_gps_coordinates:
+              alias: ''
+              raw_output: 0
+            created:
+              alias: ''
+              raw_output: 0
+            id:
+              alias: ''
+              raw_output: 0
+            field_description:
+              alias: ''
+              raw_output: 0
+            field_description_of_responsabil:
+              alias: ''
+              raw_output: 0
+            field_address:
+              alias: ''
+              raw_output: 0
+            type:
+              alias: ''
+              raw_output: 0
+            field_job_training:
+              alias: ''
+              raw_output: 0
+            field_marital_status:
+              alias: ''
+              raw_output: 0
+            field_employment_date:
+              alias: ''
+              raw_output: 0
+            field_birthday:
+              alias: ''
+              raw_output: 0
+            field_event_date:
+              alias: ''
+              raw_output: 0
+            field_project_date:
+              alias: ''
+              raw_output: 0
+            field_images:
+              alias: ''
+              raw_output: 0
+            field_project_group:
+              alias: ''
+              raw_output: 0
+            field_gender:
+              alias: ''
+              raw_output: 0
+            field_languages:
+              alias: ''
+              raw_output: 0
+            field_household_income:
+              alias: ''
+              raw_output: 0
+            view_nica_entity:
+              alias: ''
+              raw_output: 0
+            field_place_of_employment:
+              alias: ''
+              raw_output: 0
+            field_project_leader:
+              alias: ''
+              raw_output: 0
+            field_materials:
+              alias: ''
+              raw_output: 0
+            field_current_employment:
+              alias: ''
+              raw_output: 0
+            field_event_name:
+              alias: ''
+              raw_output: 0
+            field_project_name:
+              alias: ''
+              raw_output: 0
+            field_first_name:
+              alias: ''
+              raw_output: 0
+            field_national_id:
+              alias: ''
+              raw_output: 0
+            field_children:
+              alias: ''
+              raw_output: 0
+            field_number_of_people_in_home:
+              alias: ''
+              raw_output: 0
+            field_other_event:
+              alias: ''
+              raw_output: 0
+            field_profile_reference:
+              alias: ''
+              raw_output: 0
+            field_result:
+              alias: ''
+              raw_output: 0
+            field_salary:
+              alias: ''
+              raw_output: 0
+            field_telephone:
+              alias: ''
+              raw_output: 0
+            field_quarter:
+              alias: ''
+              raw_output: 0
+            field_highest_education_complete:
+              alias: ''
+              raw_output: 0
+      fields:
+        field_first_name:
+          id: field_first_name
+          table: nica_entity__field_first_name
+          field: field_first_name
+          plugin_id: field
+        field_last_name:
+          id: field_last_name
+          table: nica_entity__field_last_name
+          field: field_last_name
+          plugin_id: field
+        field_gender:
+          id: field_gender
+          table: nica_entity__field_gender
+          field: field_gender
+          plugin_id: field
+        field_national_id:
+          id: field_national_id
+          table: nica_entity__field_national_id
+          field: field_national_id
+          plugin_id: field
+        field_birthday:
+          id: field_birthday
+          table: nica_entity__field_birthday
+          field: field_birthday
+          plugin_id: field
+        field_images:
+          id: field_images
+          table: nica_entity__field_images
+          field: field_images
+          plugin_id: field
+        field_telephone:
+          id: field_telephone
+          table: nica_entity__field_telephone
+          field: field_telephone
+          plugin_id: field
+        field_address:
+          id: field_address
+          table: nica_entity__field_address
+          field: field_address
+          plugin_id: field
+        field_city:
+          id: field_city
+          table: nica_entity__field_city
+          field: field_city
+          plugin_id: field
+        field_gps_coordinates:
+          id: field_gps_coordinates
+          table: nica_entity__field_gps_coordinates
+          field: field_gps_coordinates
+          plugin_id: geolocation_field
+        field_marital_status:
+          id: field_marital_status
+          table: nica_entity__field_marital_status
+          field: field_marital_status
+          plugin_id: field
+        field_children:
+          id: field_children
+          table: nica_entity__field_children
+          field: field_children
+          plugin_id: field
+        field_number_of_people_in_home:
+          id: field_number_of_people_in_home
+          table: nica_entity__field_number_of_people_in_home
+          field: field_number_of_people_in_home
+          plugin_id: field
+        field_household_income:
+          id: field_household_income
+          table: nica_entity__field_household_income
+          field: field_household_income
+          plugin_id: field
+        field_salary:
+          id: field_salary
+          table: nica_entity__field_salary
+          field: field_salary
+          plugin_id: field
+        field_highest_education_complete:
+          id: field_highest_education_complete
+          table: nica_entity__field_highest_education_complete
+          field: field_highest_education_complete
+          plugin_id: field
+        field_current_employment:
+          id: field_current_employment
+          table: nica_entity__field_current_employment
+          field: field_current_employment
+          plugin_id: field
+        field_languages:
+          id: field_languages
+          table: nica_entity__field_languages
+          field: field_languages
+          plugin_id: field
+        field_other_event:
+          id: field_other_event
+          table: nica_entity__field_other_event
+          field: field_other_event
+          plugin_id: field
+        field_job_training:
+          id: field_job_training
+          table: nica_entity__field_job_training
+          field: field_job_training
+          plugin_id: field
+        field_project_name:
+          id: field_project_name
+          table: nica_entity__field_project_name
+          field: field_project_name
+          plugin_id: field
+        field_project_group:
+          id: field_project_group
+          table: nica_entity__field_project_group
+          field: field_project_group
+          plugin_id: field
+        field_project_date:
+          id: field_project_date
+          table: nica_entity__field_project_date
+          field: field_project_date
+          plugin_id: field
+        field_quarter:
+          id: field_quarter
+          table: nica_entity__field_quarter
+          field: field_quarter
+          plugin_id: field
+        field_benefit_earned:
+          id: field_benefit_earned
+          table: nica_entity__field_benefit_earned
+          field: field_benefit_earned
+          plugin_id: field
+        field_comments_on_result:
+          id: field_comments_on_result
+          table: nica_entity__field_comments_on_result
+          field: field_comments_on_result
+          plugin_id: field
+        field_materials:
+          id: field_materials
+          table: nica_entity__field_materials
+          field: field_materials
+          plugin_id: field
+        field_project_leader:
+          id: field_project_leader
+          table: nica_entity__field_project_leader
+          field: field_project_leader
+          plugin_id: field
+        field_event_name:
+          id: field_event_name
+          table: nica_entity__field_event_name
+          field: field_event_name
+          plugin_id: field
+        field_event_date:
+          id: field_event_date
+          table: nica_entity__field_event_date
+          field: field_event_date
+          plugin_id: field
+        field_description:
+          id: field_description
+          table: nica_entity__field_description
+          field: field_description
+          plugin_id: field
+        field_result:
+          id: field_result
+          table: nica_entity__field_result
+          field: field_result
+          plugin_id: field
+        field_place_of_employment:
+          id: field_place_of_employment
+          table: nica_entity__field_place_of_employment
+          field: field_place_of_employment
+          plugin_id: field
+        field_employment_date:
+          id: field_employment_date
+          table: nica_entity__field_employment_date
+          field: field_employment_date
+          plugin_id: field
+        field_description_of_responsabil:
+          id: field_description_of_responsabil
+          table: nica_entity__field_description_of_responsabil
+          field: field_description_of_responsabil
+          plugin_id: field
+      defaults:
+        fields: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - url
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.nica_entity.field_address'
+        - 'config:field.storage.nica_entity.field_benefit_earned'
+        - 'config:field.storage.nica_entity.field_birthday'
+        - 'config:field.storage.nica_entity.field_children'
+        - 'config:field.storage.nica_entity.field_city'
+        - 'config:field.storage.nica_entity.field_comments_on_result'
+        - 'config:field.storage.nica_entity.field_current_employment'
+        - 'config:field.storage.nica_entity.field_description'
+        - 'config:field.storage.nica_entity.field_description_of_responsabil'
+        - 'config:field.storage.nica_entity.field_employment_date'
+        - 'config:field.storage.nica_entity.field_event_date'
+        - 'config:field.storage.nica_entity.field_event_name'
+        - 'config:field.storage.nica_entity.field_first_name'
+        - 'config:field.storage.nica_entity.field_gender'
+        - 'config:field.storage.nica_entity.field_gps_coordinates'
+        - 'config:field.storage.nica_entity.field_highest_education_complete'
+        - 'config:field.storage.nica_entity.field_household_income'
+        - 'config:field.storage.nica_entity.field_images'
+        - 'config:field.storage.nica_entity.field_job_training'
+        - 'config:field.storage.nica_entity.field_languages'
+        - 'config:field.storage.nica_entity.field_last_name'
+        - 'config:field.storage.nica_entity.field_marital_status'
+        - 'config:field.storage.nica_entity.field_materials'
+        - 'config:field.storage.nica_entity.field_national_id'
+        - 'config:field.storage.nica_entity.field_number_of_people_in_home'
+        - 'config:field.storage.nica_entity.field_other_event'
+        - 'config:field.storage.nica_entity.field_place_of_employment'
+        - 'config:field.storage.nica_entity.field_project_date'
+        - 'config:field.storage.nica_entity.field_project_group'
+        - 'config:field.storage.nica_entity.field_project_leader'
+        - 'config:field.storage.nica_entity.field_project_name'
+        - 'config:field.storage.nica_entity.field_quarter'
+        - 'config:field.storage.nica_entity.field_result'
+        - 'config:field.storage.nica_entity.field_salary'
+        - 'config:field.storage.nica_entity.field_telephone'

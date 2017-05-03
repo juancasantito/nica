@@ -1,0 +1,20 @@
+uuid: 33a7e671-99ef-4e31-af00-fb446f4c349f
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+id: nica_entity.field_salary
+field_name: field_salary
+entity_type: nica_entity
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

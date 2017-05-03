@@ -22,6 +22,7 @@ use Drupal\Core\Render\Element;
 function template_preprocess_nica_entity(array &$variables) {
   // Fetch NicaEntity Entity Object.
   $nica_entity = $variables['elements']['#nica_entity'];
+  $variables['nica_entity'] = $variables['elements']['#nica_entity'];
 
   // Helpful $content variable for templates.
   foreach (Element::children($variables['elements']) as $key) {

@@ -1,0 +1,20 @@
+uuid: dd8c62fa-5271-4a49-9700-b01a5be91e4a
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - nica_entity
+id: nica_entity.field_project_date
+field_name: field_project_date
+entity_type: nica_entity
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 2
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

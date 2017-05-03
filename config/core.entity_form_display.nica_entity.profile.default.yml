@@ -1,0 +1,214 @@
+uuid: dee9efba-13d5-4198-9a00-a89e0010f0a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.nica_entity.profile.field_address
+    - field.field.nica_entity.profile.field_birthday
+    - field.field.nica_entity.profile.field_children
+    - field.field.nica_entity.profile.field_city
+    - field.field.nica_entity.profile.field_current_employment
+    - field.field.nica_entity.profile.field_first_name
+    - field.field.nica_entity.profile.field_gender
+    - field.field.nica_entity.profile.field_gps_coordinates
+    - field.field.nica_entity.profile.field_highest_education_complete
+    - field.field.nica_entity.profile.field_household_income
+    - field.field.nica_entity.profile.field_images
+    - field.field.nica_entity.profile.field_job_training
+    - field.field.nica_entity.profile.field_languages
+    - field.field.nica_entity.profile.field_last_name
+    - field.field.nica_entity.profile.field_marital_status
+    - field.field.nica_entity.profile.field_national_id
+    - field.field.nica_entity.profile.field_number_of_people_in_home
+    - field.field.nica_entity.profile.field_other_event
+    - field.field.nica_entity.profile.field_read_write_math
+    - field.field.nica_entity.profile.field_salary
+    - field.field.nica_entity.profile.field_special_skills
+    - field.field.nica_entity.profile.field_telephone
+    - image.style.thumbnail
+    - nica_entity.nica_entity_type.profile
+  module:
+    - datetime
+    - geolocation
+    - image
+id: nica_entity.profile.default
+targetEntityType: nica_entity
+bundle: profile
+mode: default
+content:
+  field_address:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_birthday:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_children:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_city:
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
+  field_current_employment:
+    weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_first_name:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_gender:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_gps_coordinates:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: geolocation_latlng
+    region: content
+  field_highest_education_complete:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_household_income:
+    weight: 14
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_images:
+    weight: 4
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_job_training:
+    weight: 20
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_languages:
+    type: entity_reference_autocomplete
+    weight: 22
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_last_name:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_marital_status:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_national_id:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_number_of_people_in_home:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_other_event:
+    weight: 18
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_read_write_math:
+    type: options_select
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_salary:
+    weight: 15
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_special_skills:
+    weight: 19
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_telephone:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  name: true
+  uid: true

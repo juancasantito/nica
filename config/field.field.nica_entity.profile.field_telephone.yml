@@ -1,0 +1,19 @@
+uuid: 6471afe9-b0be-4cd8-8c56-863ac0c46f57
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_telephone
+    - nica_entity.nica_entity_type.profile
+id: nica_entity.profile.field_telephone
+field_name: field_telephone
+entity_type: nica_entity
+bundle: profile
+label: Teléfono
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

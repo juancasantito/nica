@@ -1,0 +1,19 @@
+uuid: 15ea407b-9660-40f6-8200-c8b8693f2f4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_comments_on_result
+    - nica_entity.nica_entity_type.project_history
+id: nica_entity.project_history.field_comments_on_result
+field_name: field_comments_on_result
+entity_type: nica_entity
+bundle: project_history
+label: 'Comentarios del Resultado'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

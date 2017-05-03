@@ -27,6 +27,7 @@ module:
   help: 0
   image: 0
   inline_form_errors: 0
+  kint: 0
   language: 0
   link: 0
   locale: 0
@@ -39,6 +40,7 @@ module:
   migrate_tools: 0
   nica_custom: 0
   nica_entity: 0
+  nica_migrate: 0
   node: 0
   options: 0
   page_cache: 0

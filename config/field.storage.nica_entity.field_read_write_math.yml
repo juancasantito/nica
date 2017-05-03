@@ -1,0 +1,20 @@
+uuid: 17585851-5964-4050-b800-cee84aba0058
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+    - taxonomy
+id: nica_entity.field_read_write_math
+field_name: field_read_write_math
+entity_type: nica_entity
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

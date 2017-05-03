@@ -1,0 +1,19 @@
+uuid: 0ef07d18-a5a6-4b04-b256-86e6a4f00772
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+id: nica_entity.field_profile_reference
+field_name: field_profile_reference
+entity_type: nica_entity
+type: entity_reference
+settings:
+  target_type: nica_entity
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

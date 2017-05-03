@@ -1,0 +1,19 @@
+uuid: 28dc8703-ef4c-4545-9700-ad91e0a4bf32
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+id: nica_entity.field_comments_on_result
+field_name: field_comments_on_result
+entity_type: nica_entity
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

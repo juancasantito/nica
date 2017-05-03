@@ -1,0 +1,20 @@
+uuid: bb4075b3-6ab9-4543-8e00-aed44f3b1ed8
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+    - taxonomy
+id: nica_entity.field_event_name
+field_name: field_event_name
+entity_type: nica_entity
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

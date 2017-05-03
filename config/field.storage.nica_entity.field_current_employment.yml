@@ -1,0 +1,21 @@
+uuid: c55d26c7-d8dc-4b9a-9261-977d25c37bb4
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+id: nica_entity.field_current_employment
+field_name: field_current_employment
+entity_type: nica_entity
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

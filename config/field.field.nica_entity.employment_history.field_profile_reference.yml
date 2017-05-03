@@ -1,0 +1,27 @@
+uuid: 57bad1d6-377b-4ad2-b700-cc46c4976570
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_profile_reference
+    - nica_entity.nica_entity_type.employment_history
+    - nica_entity.nica_entity_type.profile
+id: nica_entity.employment_history.field_profile_reference
+field_name: field_profile_reference
+entity_type: nica_entity
+bundle: employment_history
+label: Perfil
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:nica_entity'
+  handler_settings:
+    target_bundles:
+      profile: profile
+    sort:
+      field: field_first_name
+      direction: ASC
+field_type: entity_reference

@@ -1,0 +1,19 @@
+uuid: d15ffe6c-41a4-4b42-8200-d3eedd1f47ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+id: nica_entity.field_benefit_earned
+field_name: field_benefit_earned
+entity_type: nica_entity
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

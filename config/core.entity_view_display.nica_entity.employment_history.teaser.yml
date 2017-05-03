@@ -1,0 +1,71 @@
+uuid: 8fa52b7f-54b8-45a7-9f00-c5b337cbcdbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.nica_entity.teaser
+    - field.field.nica_entity.employment_history.field_description_of_responsabil
+    - field.field.nica_entity.employment_history.field_employment_date
+    - field.field.nica_entity.employment_history.field_place_of_employment
+    - field.field.nica_entity.employment_history.field_profile_reference
+    - nica_entity.nica_entity_type.employment_history
+  module:
+    - datetime
+id: nica_entity.employment_history.teaser
+targetEntityType: nica_entity
+bundle: employment_history
+mode: teaser
+content:
+  field_employment_date:
+    weight: 3
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: html_date
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_place_of_employment:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_profile_reference:
+    type: entity_reference_label
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  type:
+    label: hidden
+    type: entity_reference_label
+    weight: 0
+    settings:
+      link: false
+    third_party_settings: {  }
+    region: content
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_description_of_responsabil: true
+  langcode: true
+  links: true
+  uid: true

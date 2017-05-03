@@ -1,0 +1,24 @@
+uuid: 5eebb4ba-20e9-4dcc-a303-3bad62400fe8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_project_date
+    - nica_entity.nica_entity_type.project_history
+  module:
+    - datetime
+id: nica_entity.project_history.field_project_date
+field_name: field_project_date
+entity_type: nica_entity
+bundle: project_history
+label: 'Fecha del Proyecto'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

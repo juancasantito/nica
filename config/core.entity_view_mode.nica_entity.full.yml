@@ -1,0 +1,12 @@
+uuid: 71f7bf3d-8911-4ec5-8500-d3c825501ec1
+langcode: en
+status: false
+dependencies:
+  module:
+    - nica_entity
+_core:
+  default_config_hash: 4LruKO_5jTMUj7DfvY0bJh4HfRx9IuGx65h3ujc7A0w
+id: nica_entity.full
+label: Full
+targetEntityType: nica_entity
+cache: true

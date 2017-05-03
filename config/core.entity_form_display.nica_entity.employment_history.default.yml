@@ -1,0 +1,68 @@
+uuid: 6642cbdd-c3a2-45b9-a205-5f4822ab5454
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.nica_entity.employment_history.field_description_of_responsabil
+    - field.field.nica_entity.employment_history.field_employment_date
+    - field.field.nica_entity.employment_history.field_place_of_employment
+    - field.field.nica_entity.employment_history.field_profile_reference
+    - nica_entity.nica_entity_type.employment_history
+  module:
+    - datetime
+id: nica_entity.employment_history.default
+targetEntityType: nica_entity
+bundle: employment_history
+mode: default
+content:
+  field_description_of_responsabil:
+    type: string_textfield
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_employment_date:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_place_of_employment:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_profile_reference:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  uid: true

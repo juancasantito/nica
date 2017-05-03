@@ -1,0 +1,20 @@
+uuid: 0d2b9e94-bfc7-41a2-9d00-eba11961688e
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - nica_entity
+id: nica_entity.field_event_date
+field_name: field_event_date
+entity_type: nica_entity
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 2
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

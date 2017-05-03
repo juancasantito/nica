@@ -1,0 +1,19 @@
+uuid: 969c3ec7-75e3-4009-ac05-0580db2cb213
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_description_of_responsabil
+    - nica_entity.nica_entity_type.employment_history
+id: nica_entity.employment_history.field_description_of_responsabil
+field_name: field_description_of_responsabil
+entity_type: nica_entity
+bundle: employment_history
+label: 'Descripción de Responsabilidades'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

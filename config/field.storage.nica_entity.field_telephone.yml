@@ -1,0 +1,21 @@
+uuid: 658cd867-24b3-43e2-9f00-b12b423aa12d
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+id: nica_entity.field_telephone
+field_name: field_telephone
+entity_type: nica_entity
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

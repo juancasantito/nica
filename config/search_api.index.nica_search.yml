@@ -1,0 +1,186 @@
+uuid: 7628a37c-e2c5-4fe6-9737-8746b1b67132
+langcode: es
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_first_name
+    - field.storage.nica_entity.field_last_name
+    - field.storage.nica_entity.field_marital_status
+    - field.storage.nica_entity.field_quarter
+    - field.storage.nica_entity.field_project_name
+    - field.storage.nica_entity.field_project_group
+    - field.storage.nica_entity.field_event_name
+    - field.storage.nica_entity.field_project_date
+    - field.storage.nica_entity.field_event_date
+    - field.storage.nica_entity.field_place_of_employment
+    - field.storage.nica_entity.field_employment_date
+    - field.storage.nica_entity.field_city
+    - field.storage.nica_entity.field_materials
+    - field.storage.nica_entity.field_benefit_earned
+    - field.storage.nica_entity.field_gender
+    - search_api.server.nica_solr_server
+  module:
+    - search_api
+    - nica_entity
+id: nica_search
+name: 'Nica Search'
+description: ''
+read_only: false
+field_settings:
+  type:
+    label: 'Entity type (Bundle)'
+    datasource_id: 'entity:nica_entity'
+    property_path: type
+    type: text
+  field_first_name:
+    label: Nombres
+    datasource_id: 'entity:nica_entity'
+    property_path: field_first_name
+    type: text
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_first_name
+  field_last_name:
+    label: Apellidos
+    datasource_id: 'entity:nica_entity'
+    property_path: field_last_name
+    type: text
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_last_name
+  field_marital_status:
+    label: 'Estado Civil'
+    datasource_id: 'entity:nica_entity'
+    property_path: field_marital_status
+    type: text
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_marital_status
+  field_quarter:
+    label: Trimestre
+    datasource_id: 'entity:nica_entity'
+    property_path: field_quarter
+    type: integer
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_quarter
+  field_project_name:
+    label: 'Nombre del Proyecto'
+    datasource_id: 'entity:nica_entity'
+    property_path: field_project_name
+    type: text
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_project_name
+  field_project_group:
+    label: 'Grupo del Proyecto'
+    datasource_id: 'entity:nica_entity'
+    property_path: field_project_group
+    type: text
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_project_group
+  field_event_name:
+    label: 'Nombre del Evento '
+    datasource_id: 'entity:nica_entity'
+    property_path: field_event_name
+    type: text
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_event_name
+  field_project_date:
+    label: 'Fecha del Proyecto'
+    datasource_id: 'entity:nica_entity'
+    property_path: field_project_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_project_date
+  field_event_date:
+    label: 'Fecha del Evento'
+    datasource_id: 'entity:nica_entity'
+    property_path: field_event_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_event_date
+  field_place_of_employment:
+    label: 'Lugar de Contratación'
+    datasource_id: 'entity:nica_entity'
+    property_path: field_place_of_employment
+    type: text
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_place_of_employment
+  field_employment_date:
+    label: 'Fecha de Contratación'
+    datasource_id: 'entity:nica_entity'
+    property_path: field_employment_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_employment_date
+  field_city:
+    label: 'Ciudad del Evento'
+    datasource_id: 'entity:nica_entity'
+    property_path: field_city
+    type: text
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_city
+  field_materials:
+    label: Materiales
+    datasource_id: 'entity:nica_entity'
+    property_path: field_materials
+    type: text
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_materials
+  field_benefit_earned:
+    label: 'Beneficios Obtenidos'
+    datasource_id: 'entity:nica_entity'
+    property_path: field_benefit_earned
+    type: text
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_benefit_earned
+  field_gender:
+    label: Género
+    datasource_id: 'entity:nica_entity'
+    property_path: field_gender
+    type: text
+    dependencies:
+      config:
+        - field.storage.nica_entity.field_gender
+datasource_settings:
+  'entity:nica_entity':
+    plugin_id: 'entity:nica_entity'
+    settings:
+      bundles:
+        default: false
+        selected:
+          - employment_history
+          - event_history
+          - profile
+          - project_history
+      languages:
+        default: true
+        selected: {  }
+processor_settings:
+  aggregated_field:
+    plugin_id: aggregated_field
+    settings: {  }
+  rendered_item:
+    plugin_id: rendered_item
+    settings: {  }
+  add_url:
+    plugin_id: add_url
+    settings: {  }
+tracker_settings:
+  default:
+    plugin_id: default
+    settings: {  }
+options:
+  index_directly: true
+  cron_limit: 50
+server: nica_solr_server

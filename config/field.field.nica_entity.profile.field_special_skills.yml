@@ -1,0 +1,27 @@
+uuid: 1ea490c9-d9ed-4301-a442-662f062ccd4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.nica_entity.field_special_skills
+    - nica_entity.nica_entity_type.profile
+    - taxonomy.vocabulary.special_skills
+id: nica_entity.profile.field_special_skills
+field_name: field_special_skills
+entity_type: nica_entity
+bundle: profile
+label: 'Habilidades Especiales'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      special_skills: special_skills
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

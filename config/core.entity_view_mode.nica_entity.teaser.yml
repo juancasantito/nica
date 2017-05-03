@@ -1,0 +1,10 @@
+uuid: 11db7add-71a5-4064-b600-cab9677d207b
+langcode: en
+status: true
+dependencies:
+  module:
+    - nica_entity
+id: nica_entity.teaser
+label: Teaser
+targetEntityType: nica_entity
+cache: true

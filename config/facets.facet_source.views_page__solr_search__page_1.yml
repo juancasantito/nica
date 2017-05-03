@@ -1,8 +1,0 @@
-uuid: 7a82bda0-ce60-47b7-bef8-4f97ceb16973
-langcode: en
-status: true
-dependencies: {  }
-id: views_page__solr_search__page_1
-name: 'views_page:solr_search__page_1'
-filter_key: null
-url_processor: query_string
