@@ -19,25 +19,6 @@ interface NicaEntityInterface extends RevisionableInterface, RevisionLogInterfac
   // Add get/set methods for your configuration properties here.
 
   /**
-   * Gets the Nica entity name.
-   *
-   * @return string
-   *   Name of the Nica entity.
-   */
-  public function getName();
-
-  /**
-   * Sets the Nica entity name.
-   *
-   * @param string $name
-   *   The Nica entity name.
-   *
-   * @return \Drupal\nica_entity\Entity\NicaEntityInterface
-   *   The called Nica entity entity.
-   */
-  public function setName($name);
-
-  /**
    * Gets the Nica entity creation timestamp.
    *
    * @return int
@@ -55,27 +36,6 @@ interface NicaEntityInterface extends RevisionableInterface, RevisionLogInterfac
    *   The called Nica entity entity.
    */
   public function setCreatedTime($timestamp);
-
-  /**
-   * Returns the Nica entity published status indicator.
-   *
-   * Unpublished Nica entity are only visible to restricted users.
-   *
-   * @return bool
-   *   TRUE if the Nica entity is published.
-   */
-  public function isPublished();
-
-  /**
-   * Sets the published status of a Nica entity.
-   *
-   * @param bool $published
-   *   TRUE to set this Nica entity to published, FALSE to set it to unpublished.
-   *
-   * @return \Drupal\nica_entity\Entity\NicaEntityInterface
-   *   The called Nica entity entity.
-   */
-  public function setPublished($published);
 
   /**
    * Gets the Nica entity revision creation timestamp.

@@ -2,6 +2,8 @@
 
 namespace Drupal\nica_entity\Entity;
 
+use Drupal\Core\Entity\EntityPublishedInterface;
+use Drupal\Core\Entity\EntityPublishedTrait;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Entity\RevisionableContentEntityBase;
@@ -51,6 +53,7 @@ use Drupal\user\UserInterface;
  *     "uid" = "user_id",
  *     "langcode" = "langcode",
  *     "status" = "status",
+ *     "published" = "status",
  *   },
  *   links = {
  *     "canonical" = "/admin/structure/nica_entity/{nica_entity}",
@@ -69,9 +72,10 @@ use Drupal\user\UserInterface;
  *   field_ui_base_route = "entity.nica_entity_type.edit_form"
  * )
  */
-class NicaEntity extends RevisionableContentEntityBase implements NicaEntityInterface {
+class NicaEntity extends RevisionableContentEntityBase implements NicaEntityInterface, EntityPublishedInterface {
 
   use EntityChangedTrait;
+  use EntityPublishedTrait;
 
   /**
    * {@inheritdoc}
@@ -103,21 +107,6 @@ class NicaEntity extends RevisionableContentEntityBase implements NicaEntityInte
     if (!$this->getRevisionUser()) {
       $this->setRevisionUserId($this->getOwnerId());
     }
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getName() {
-    return $this->get('name')->value;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setName($name) {
-    $this->set('name', $name);
-    return $this;
   }
 
   /**
@@ -168,23 +157,9 @@ class NicaEntity extends RevisionableContentEntityBase implements NicaEntityInte
   /**
    * {@inheritdoc}
    */
-  public function isPublished() {
-    return (bool) $this->getEntityKey('status');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function setPublished($published) {
-    $this->set('status', $published ? TRUE : FALSE);
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
+    $fields += static::publishedBaseFieldDefinitions($entity_type);
 
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Authored by'))
@@ -210,12 +185,6 @@ class NicaEntity extends RevisionableContentEntityBase implements NicaEntityInte
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
-
-    $fields['status'] = BaseFieldDefinition::create('boolean')
-      ->setLabel(t('Publishing status'))
-      ->setDescription(t('A boolean indicating whether the Nica entity is published.'))
-      ->setRevisionable(TRUE)
-      ->setDefaultValue(TRUE);
 
     $fields['created'] = BaseFieldDefinition::create('created')
       ->setLabel(t('Created'))
