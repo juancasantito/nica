@@ -13,7 +13,7 @@ dependencies:
     - field.field.nica_entity.event_history.field_profile_reference
     - field.field.nica_entity.event_history.field_result
     - image.style.thumbnail
-    - nica_entity.content_type.event_history
+    - nica_entity.nica_entity_type.event_history
   module:
     - datetime
     - image
@@ -30,6 +30,7 @@ content:
       format_type: html_date
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_event_name:
     weight: 2
     label: above
@@ -37,6 +38,7 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_images:
     type: image
     weight: 4
@@ -45,6 +47,7 @@ content:
       image_style: thumbnail
       image_link: ''
     third_party_settings: {  }
+    region: content
   field_profile_reference:
     type: entity_reference_label
     weight: 1
@@ -52,6 +55,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+    region: content
   field_result:
     type: entity_reference_label
     weight: 5
@@ -59,12 +63,29 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   type:
     label: hidden
     type: entity_reference_label
     weight: 0
     settings:
       link: false
+    third_party_settings: {  }
+    region: content
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   field_city: true

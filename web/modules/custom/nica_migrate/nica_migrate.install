@@ -4,13 +4,3 @@
  * @file
  * Contains code for nica_migrate.install.
  */
-
-/**
- * Implements hook_uninstall().
- */
-function nica_migrate_uninstall() {
-  foreach(\Drupal\migrate\Entity\Migration::loadMultiple() as $migration) {
-    $migration->getIdMap()->destroy();
-    $migration->delete();
-  }
-}

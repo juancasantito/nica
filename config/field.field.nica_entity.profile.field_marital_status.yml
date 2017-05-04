@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_marital_status
-    - nica_entity.content_type.profile
+    - nica_entity.nica_entity_type.profile
     - taxonomy.vocabulary.marital_status
 id: nica_entity.profile.field_marital_status
 field_name: field_marital_status

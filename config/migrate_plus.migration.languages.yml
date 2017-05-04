@@ -14,7 +14,7 @@ migration_group: null
 label: Languages
 source:
   plugin: csv
-  path: 'public://csv/language.csv'
+  path: modules/custom/nica_migrate/csv-files/language.csv
   keys:
     - name
   column_names:

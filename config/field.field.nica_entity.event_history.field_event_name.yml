@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_event_name
-    - nica_entity.content_type.event_history
+    - nica_entity.nica_entity_type.event_history
     - taxonomy.vocabulary.event_name
 id: nica_entity.event_history.field_event_name
 field_name: field_event_name

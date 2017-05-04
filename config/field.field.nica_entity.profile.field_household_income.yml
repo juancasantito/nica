@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_household_income
-    - nica_entity.content_type.profile
+    - nica_entity.nica_entity_type.profile
   module:
     - options
 id: nica_entity.profile.field_household_income

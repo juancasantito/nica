@@ -13,7 +13,7 @@ label: 'Project History Group and Leader'
 source:
   plugin: csv
   track_changes: true
-  path: 'public://csv/project_materials_list.csv'
+  path: modules/custom/nica_migrate/csv-files/project_materials_list.csv
   header_row_count: 1
   keys:
     - id_profile

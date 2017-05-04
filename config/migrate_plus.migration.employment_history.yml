@@ -14,7 +14,7 @@ migration_group: null
 label: 'Migrate Csv Employment History'
 source:
   plugin: csv
-  path: 'public://csv/employment_history.csv'
+  path: modules/custom/nica_migrate/csv-files/employment_history.csv
   header_row_count: 1
   keys:
     - id

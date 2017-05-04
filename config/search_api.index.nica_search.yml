@@ -152,19 +152,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.nica_entity.field_gender
-processor_settings:
-  aggregated_field:
-    plugin_id: aggregated_field
-    settings: {  }
-  rendered_item:
-    plugin_id: rendered_item
-    settings: {  }
-  add_url:
-    plugin_id: add_url
-    settings: {  }
-options:
-  index_directly: true
-  cron_limit: 50
 datasource_settings:
   'entity:nica_entity':
     plugin_id: 'entity:nica_entity'
@@ -179,8 +166,21 @@ datasource_settings:
       languages:
         default: true
         selected: {  }
+processor_settings:
+  aggregated_field:
+    plugin_id: aggregated_field
+    settings: {  }
+  rendered_item:
+    plugin_id: rendered_item
+    settings: {  }
+  add_url:
+    plugin_id: add_url
+    settings: {  }
 tracker_settings:
   default:
     plugin_id: default
     settings: {  }
+options:
+  index_directly: true
+  cron_limit: 50
 server: nica_solr_server

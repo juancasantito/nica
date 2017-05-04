@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_project_date
-    - nica_entity.content_type.project_history
+    - nica_entity.nica_entity_type.project_history
   module:
     - datetime
 id: nica_entity.project_history.field_project_date

@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_profile_reference
-    - nica_entity.content_type.event_history
-    - nica_entity.content_type.profile
+    - nica_entity.nica_entity_type.event_history
+    - nica_entity.nica_entity_type.profile
 id: nica_entity.event_history.field_profile_reference
 field_name: field_profile_reference
 entity_type: nica_entity

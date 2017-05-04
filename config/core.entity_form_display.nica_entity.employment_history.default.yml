@@ -7,7 +7,7 @@ dependencies:
     - field.field.nica_entity.employment_history.field_employment_date
     - field.field.nica_entity.employment_history.field_place_of_employment
     - field.field.nica_entity.employment_history.field_profile_reference
-    - nica_entity.content_type.employment_history
+    - nica_entity.nica_entity_type.employment_history
   module:
     - datetime
 id: nica_entity.employment_history.default
@@ -22,11 +22,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   field_employment_date:
     weight: 3
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_place_of_employment:
     weight: 1
     settings:
@@ -34,6 +36,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_profile_reference:
     weight: 0
     settings:
@@ -42,6 +45,24 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
 hidden:
   langcode: true
   uid: true

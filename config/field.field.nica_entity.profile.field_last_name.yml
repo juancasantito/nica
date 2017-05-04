@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_last_name
-    - nica_entity.content_type.profile
+    - nica_entity.nica_entity_type.profile
     - taxonomy.vocabulary.last_name
 id: nica_entity.profile.field_last_name
 field_name: field_last_name

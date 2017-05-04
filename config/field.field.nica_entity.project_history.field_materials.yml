@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_materials
-    - nica_entity.content_type.project_history
+    - nica_entity.nica_entity_type.project_history
   module:
     - entity_reference_revisions
 id: nica_entity.project_history.field_materials

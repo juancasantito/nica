@@ -12,7 +12,7 @@ migration_group: default
 label: 'Project History Materials'
 source:
   plugin: csv
-  path: 'public://csv/project_materials_list.csv'
+  path: modules/custom/nica_migrate/csv-files/project_materials_list.csv
   header_row_count: 1
   file_class: \Drupal\nica_migrate\Plugin\migrate\NicaFileObject
   keys:

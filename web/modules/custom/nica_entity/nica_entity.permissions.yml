@@ -1,0 +1,33 @@
+add nica entity entities:
+  title: 'Create new Nica entity entities'
+
+administer nica entity entities:
+  title: 'Administer Nica entity entities'
+  description: 'Allow to access the administration form to configure Nica entity entities.'
+  restrict access: true
+
+delete nica entity entities:
+  title: 'Delete Nica entity entities'
+
+edit nica entity entities:
+  title: 'Edit Nica entity entities'
+
+access nica entity overview:
+  title: 'Access the Nica entity overview page'
+
+view published nica entity entities:
+  title: 'View published Nica entity entities'
+
+view unpublished nica entity entities:
+  title: 'View unpublished Nica entity entities'
+
+view all nica entity revisions:
+  title: 'View all Nica entity revisions'
+
+revert all nica entity revisions:
+  title: 'Revert all Nica entity revisions'
+  description: 'Role requires permission <em>view Nica entity revisions</em> and <em>edit rights</em> for nica entity entities in question or <em>administer nica entity entities</em>.'
+
+delete all nica entity revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Nica entity revisions</em> and <em>delete rights</em> for nica entity entities in question or <em>administer nica entity entities</em>.'

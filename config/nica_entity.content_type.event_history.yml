@@ -1,8 +1,0 @@
-uuid: fb7d2c3a-41f7-4a33-ba07-7e6d5ca2263c
-langcode: en
-status: true
-dependencies: {  }
-id: event_history
-label: 'Historia de Evento'
-revision: 0
-description: ''

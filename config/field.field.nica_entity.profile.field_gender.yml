@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_gender
-    - nica_entity.content_type.profile
+    - nica_entity.nica_entity_type.profile
     - taxonomy.vocabulary.gender
 id: nica_entity.profile.field_gender
 field_name: field_gender

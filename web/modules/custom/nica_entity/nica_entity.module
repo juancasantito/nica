@@ -2,14 +2,10 @@
 
 /**
  * @file
- *   Contains the nica_entity.module file for the Nica Entity module.
+ * Contains nica_entity.module.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\Core\Url;
-use Drupal\nica_entity\Entity\NicaEntityContentType;
-use Drupal\Core\Render\Element;
-use Drupal\Core\Template\Attribute;
 
 /**
  * Implements hook_help().
@@ -20,7 +16,7 @@ function nica_entity_help($route_name, RouteMatchInterface $route_match) {
     case 'help.page.nica_entity':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Provides a bundle-able Nica entity used to store Nica content.') . '</p>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
       return $output;
 
     default:
@@ -31,57 +27,32 @@ function nica_entity_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_theme().
  */
 function nica_entity_theme() {
-  return [
-    'nica_entity' => [
-      'render element' => 'elements',
-    ],
+  $theme = [];
+  $theme['nica_entity'] = [
+    'render element' => 'elements',
+    'file' => 'nica_entity.page.inc',
+    'template' => 'nica_entity',
   ];
+  $theme['nica_entity_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'nica_entity.page.inc',
+  ];
+  return $theme;
 }
 
 /**
- * Implements hook_theme_suggestions_HOOK().
- */
+* Implements hook_theme_suggestions_HOOK().
+*/
 function nica_entity_theme_suggestions_nica_entity(array $variables) {
-  $suggestions = array();
-  $nica_entiy = $variables['elements']['#nica_entity'];
+  $suggestions = [];
+  $entity = $variables['elements']['#nica_entity'];
   $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
 
   $suggestions[] = 'nica_entity__' . $sanitized_view_mode;
-  $suggestions[] = 'nica_entity__' . $nica_entiy->bundle();
-  $suggestions[] = 'nica_entity__' . $nica_entiy->bundle() . '__' . $sanitized_view_mode;
-  $suggestions[] = 'nica_entity__' . $nica_entiy->id();
-  $suggestions[] = 'nica_entity__' . $nica_entiy->id() . '__' . $sanitized_view_mode;
-
+  $suggestions[] = 'nica_entity__' . $entity->bundle();
+  $suggestions[] = 'nica_entity__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'nica_entity__' . $entity->id();
+  $suggestions[] = 'nica_entity__' . $entity->id() . '__' . $sanitized_view_mode;
   return $suggestions;
-}
-
-/**
- * Adds a f
- * @param $variables
- */
-function template_preprocess_nica_entity(&$variables) {
-  $variables['nica_entity'] = $variables['elements']['#nica_entity'];
-  // Helpful $content variable for templates.
-  $variables += array('content' => array());
-  foreach (Element::children($variables['elements']) as $key) {
-    $variables['content'][$key] = $variables['elements'][$key];
-  }
-}
-
-/**
- * Implements hook_entity_extra_field_info().
- */
-function nica_entity_entity_extra_field_info() {
-  $extra = array();
-  $description = t('Nica entity module element');
-  foreach (NicaEntityContentType::loadMultiple() as $bundle) {
-    $extra['nica_entity'][$bundle->id()]['display']['links'] = array(
-      'label' => t('Links'),
-      'description' => $description,
-      'weight' => 100,
-      'visible' => TRUE,
-    );
-  }
-
-  return $extra;
 }

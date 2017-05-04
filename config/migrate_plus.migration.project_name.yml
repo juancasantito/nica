@@ -12,7 +12,7 @@ migration_group: null
 label: 'Project Name'
 source:
   plugin: csv
-  path: 'public://csv/project_history.csv'
+  path: modules/custom/nica_migrate/csv-files/project_history.csv
   header_row_count: 1
   keys:
     - name

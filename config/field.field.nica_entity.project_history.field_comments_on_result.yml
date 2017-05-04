@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_comments_on_result
-    - nica_entity.content_type.project_history
+    - nica_entity.nica_entity_type.project_history
 id: nica_entity.project_history.field_comments_on_result
 field_name: field_comments_on_result
 entity_type: nica_entity

@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_employment_date
-    - nica_entity.content_type.employment_history
+    - nica_entity.nica_entity_type.employment_history
   module:
     - datetime
 id: nica_entity.employment_history.field_employment_date

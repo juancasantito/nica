@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_description_of_responsabil
-    - nica_entity.content_type.employment_history
+    - nica_entity.nica_entity_type.employment_history
 id: nica_entity.employment_history.field_description_of_responsabil
 field_name: field_description_of_responsabil
 entity_type: nica_entity

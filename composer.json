@@ -4,10 +4,6 @@
   "type": "project",
   "repositories": [
     {
-      "type": "path",
-      "url": "web/modules/custom/*"
-    },
-    {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
     }
@@ -23,17 +19,16 @@
     "drupal/config_readonly": "~1",
     "drupal/migrate_plus": "~3",
     "drupal/migrate_tools": "~3",
-    "drupal/config_installer": "~8",
+    "drupal/config_installer": "~1",
     "drupal/bootstrap": "~3",
     "drupal/adminimal_theme": "~1",
     "drupal/adminimal_admin_toolbar": "~1",
     "drupal/pathauto": "~1",
     "drupal/inline_entity_form": "~1",
-    "drupal/content_entity_base": "1.x-dev",
     "drupal/csv_serialization": "~1",
     "drupal/ctools": "~3",
     "drupal/entity_reference_revisions": "~1",
-    "drupal/facets": "1.x-dev",
+    "drupal/facets": "~1",
     "drupal/flysystem": "~1",
     "drupal/flysystem_dropbox": "~1",
     "drupal/geolocation": "~1",
@@ -43,14 +38,12 @@
     "drupal/migrate_source_csv": "~2",
     "drupal/paragraphs": "~1",
     "drupal/search_api": "~1",
-    "drupal/search_api_solr": "1.x-dev",
+    "drupal/search_api_solr": "~1",
     "drupal/token": "~1",
     "drupal/views_rest_feed": "~1",
-    "drupal/nica_entity": "*",
-    "drupal/nica_migrate": "*",
     "drupal/twig_tweak": "~1",
     "geerlingguy/drupal-vm": "dev-master",
-    "drupal/devel": "1.x-dev"
+    "drupal/devel": "~1"
   },
   "require-dev": {
     "behat/behat": "~3.0",

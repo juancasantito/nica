@@ -1,7 +1,5 @@
 name: Nica Entity
 type: module
-description: Provides a bundle-able Nica entity used to store Nica content.
+description: My Awesome Module
 core: 8.x
-package: Entities
-dependencies:
-  - content_entity_base
+package: Custom

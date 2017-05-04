@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_highest_education_complete
-    - nica_entity.content_type.profile
+    - nica_entity.nica_entity_type.profile
     - taxonomy.vocabulary.highest_education_completed
 id: nica_entity.profile.field_highest_education_complete
 field_name: field_highest_education_complete

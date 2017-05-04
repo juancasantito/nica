@@ -14,7 +14,7 @@ migration_group: null
 label: Materials
 source:
   plugin: materials
-  path: 'public://csv/project_materials_list.csv'
+  path: modules/custom/nica_migrate/csv-files/project_materials_list.csv
   header_row_count: 1
   keys:
     - id

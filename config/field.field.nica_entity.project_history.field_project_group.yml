@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_project_group
-    - nica_entity.content_type.project_history
+    - nica_entity.nica_entity_type.project_history
     - taxonomy.vocabulary.project_group
 id: nica_entity.project_history.field_project_group
 field_name: field_project_group

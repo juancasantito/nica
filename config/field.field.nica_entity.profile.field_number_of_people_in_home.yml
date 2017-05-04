@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_number_of_people_in_home
-    - nica_entity.content_type.profile
+    - nica_entity.nica_entity_type.profile
   module:
     - options
 id: nica_entity.profile.field_number_of_people_in_home

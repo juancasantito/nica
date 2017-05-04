@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_job_training
-    - nica_entity.content_type.profile
+    - nica_entity.nica_entity_type.profile
     - taxonomy.vocabulary.job_training
 id: nica_entity.profile.field_job_training
 field_name: field_job_training

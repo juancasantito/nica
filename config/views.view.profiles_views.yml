@@ -6,7 +6,7 @@ dependencies:
     - core.entity_view_mode.nica_entity.teaser
     - field.storage.nica_entity.field_project_date
     - field.storage.nica_entity.field_project_name
-    - nica_entity.content_type.profile
+    - nica_entity.nica_entity_type.profile
     - taxonomy.vocabulary.project_name
   module:
     - datetime

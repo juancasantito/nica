@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_place_of_employment
-    - nica_entity.content_type.employment_history
+    - nica_entity.nica_entity_type.employment_history
 id: nica_entity.employment_history.field_place_of_employment
 field_name: field_place_of_employment
 entity_type: nica_entity

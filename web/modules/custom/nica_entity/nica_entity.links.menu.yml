@@ -1,15 +1,18 @@
+
+# Nica entity menu items definition
 entity.nica_entity.collection:
-  title: 'Nica Content'
+  title: 'Nica entity list'
   route_name: entity.nica_entity.collection
-  description: 'List Nica content'
-  parent: system.admin_content
-
-entity.nica_entity_type.collection:
-  title: 'Nica content types'
-  route_name: entity.nica_entity_type.collection
-  description: 'Manage Nica content types.'
+  description: 'List Nica entity entities'
   parent: system.admin_structure
+  weight: 100
 
-nica_entity.add_page:
-  title: 'Add Nica content'
-  route_name: entity.nica_entity.add_page
+
+# Nica entity type menu items definition
+entity.nica_entity_type.collection:
+  title: 'Nica entity type'
+  route_name: entity.nica_entity_type.collection
+  description: 'List Nica entity type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+

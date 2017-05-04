@@ -14,7 +14,7 @@ dependencies:
     - field.field.nica_entity.project_history.field_project_name
     - field.field.nica_entity.project_history.field_quarter
     - field.field.nica_entity.project_history.field_result
-    - nica_entity.content_type.project_history
+    - nica_entity.nica_entity_type.project_history
   module:
     - datetime
     - entity_reference_revisions
@@ -30,6 +30,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
   field_city:
     weight: 3
     label: above
@@ -37,12 +38,14 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_comments_on_result:
     weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+    region: content
   field_materials:
     type: entity_reference_revisions_entity_view
     weight: 8
@@ -51,6 +54,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
   field_profile_reference:
     type: entity_reference_label
     weight: 0
@@ -58,6 +62,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+    region: content
   field_project_date:
     weight: 4
     label: above
@@ -66,6 +71,7 @@ content:
       format_type: nica_date
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_project_group:
     type: entity_reference_label
     weight: 2
@@ -73,12 +79,14 @@ content:
     settings:
       link: false
     third_party_settings: {  }
+    region: content
   field_project_leader:
     weight: 9
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
   field_project_name:
     weight: 1
     label: above
@@ -86,18 +94,36 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_quarter:
     weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
   field_result:
     type: entity_reference_label
     weight: 10
     label: above
     settings:
       link: true
+    third_party_settings: {  }
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   langcode: true

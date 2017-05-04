@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_address
-    - nica_entity.content_type.profile
+    - nica_entity.nica_entity_type.profile
 id: nica_entity.profile.field_address
 field_name: field_address
 entity_type: nica_entity

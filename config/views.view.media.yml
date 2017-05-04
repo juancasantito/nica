@@ -432,8 +432,8 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_true: Published
-            format_custom_false: Unpublished
+            format_custom_true: Publicado
+            format_custom_false: 'No publicado'
           group_column: value
           group_columns: {  }
           group_rows: true

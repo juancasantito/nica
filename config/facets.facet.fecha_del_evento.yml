@@ -13,7 +13,7 @@ weight: 0
 min_count: 1
 show_only_one_result: false
 field_identifier: field_event_date
-facet_source_id: 'views_page:solr_search__page_4'
+facet_source_id: 'search_api:views_page__solr_search__page_4'
 widget:
   type: datebasic
   config:

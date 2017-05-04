@@ -14,7 +14,7 @@ dependencies:
     - field.field.nica_entity.project_history.field_project_name
     - field.field.nica_entity.project_history.field_quarter
     - field.field.nica_entity.project_history.field_result
-    - nica_entity.content_type.project_history
+    - nica_entity.nica_entity_type.project_history
   module:
     - datetime
     - paragraphs
@@ -30,6 +30,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
   field_city:
     weight: 4
     settings:
@@ -38,6 +39,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete_tags
+    region: content
   field_comments_on_result:
     weight: 9
     settings:
@@ -45,6 +47,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
   field_materials:
     type: entity_reference_paragraphs
     weight: 10
@@ -55,6 +58,7 @@ content:
       add_mode: dropdown
       form_display_mode: default
     third_party_settings: {  }
+    region: content
   field_profile_reference:
     weight: 0
     settings:
@@ -63,11 +67,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_project_date:
     weight: 5
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_project_group:
     type: entity_reference_autocomplete
     weight: 2
@@ -76,11 +82,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   field_project_leader:
     weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
   field_project_name:
     weight: 1
     settings:
@@ -89,15 +97,35 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_quarter:
     weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
   field_result:
     type: options_select
     weight: 8
     settings: {  }
+    third_party_settings: {  }
+    region: content
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
     third_party_settings: {  }
 hidden:
   langcode: true

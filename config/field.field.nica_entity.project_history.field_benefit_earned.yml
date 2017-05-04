@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_benefit_earned
-    - nica_entity.content_type.project_history
+    - nica_entity.nica_entity_type.project_history
 id: nica_entity.project_history.field_benefit_earned
 field_name: field_benefit_earned
 entity_type: nica_entity

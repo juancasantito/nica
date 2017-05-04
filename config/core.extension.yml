@@ -8,7 +8,6 @@ module:
   config: 0
   config_readonly: 0
   config_translation: 0
-  content_entity_base: 0
   contextual: 0
   core_search_facets: 0
   csv_serialization: 0
@@ -28,6 +27,7 @@ module:
   help: 0
   image: 0
   inline_form_errors: 0
+  kint: 0
   language: 0
   link: 0
   locale: 0
@@ -76,3 +76,4 @@ theme:
   adminimal_theme: 0
   nica_admin: 0
 langcode: es
+profile: config_installer

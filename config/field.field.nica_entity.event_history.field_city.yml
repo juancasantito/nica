@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.nica_entity.field_city
-    - nica_entity.content_type.event_history
+    - nica_entity.nica_entity_type.event_history
     - taxonomy.vocabulary.city
 id: nica_entity.event_history.field_city
 field_name: field_city

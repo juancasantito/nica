@@ -14,7 +14,7 @@ migration_group: null
 label: 'Migrate Csv Profile'
 source:
   plugin: csv
-  path: 'public://csv/profile.csv'
+  path: modules/custom/nica_migrate/csv-files/profile.csv
   header_row_count: 1
   keys:
     - id

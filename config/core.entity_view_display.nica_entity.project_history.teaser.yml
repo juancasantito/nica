@@ -15,7 +15,7 @@ dependencies:
     - field.field.nica_entity.project_history.field_project_name
     - field.field.nica_entity.project_history.field_quarter
     - field.field.nica_entity.project_history.field_result
-    - nica_entity.content_type.project_history
+    - nica_entity.nica_entity_type.project_history
   module:
     - datetime
     - entity_reference_revisions
@@ -33,6 +33,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
   field_profile_reference:
     type: entity_reference_label
     weight: 1
@@ -40,6 +41,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+    region: content
   field_project_date:
     weight: 4
     label: above
@@ -48,6 +50,7 @@ content:
       format_type: html_date
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_project_group:
     type: entity_reference_label
     weight: 3
@@ -55,6 +58,7 @@ content:
     settings:
       link: false
     third_party_settings: {  }
+    region: content
   field_project_name:
     weight: 2
     label: above
@@ -62,12 +66,14 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_quarter:
     type: list_default
     weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_result:
     type: entity_reference_label
     weight: 7
@@ -75,12 +81,29 @@ content:
     settings:
       link: true
     third_party_settings: {  }
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   type:
     label: hidden
     type: entity_reference_label
     weight: 0
     settings:
       link: false
+    third_party_settings: {  }
+    region: content
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   field_benefit_earned: true
