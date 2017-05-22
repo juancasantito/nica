@@ -17,7 +17,6 @@ dependencies:
     - field.storage.nica_entity.field_city
     - field.storage.nica_entity.field_materials
     - field.storage.nica_entity.field_benefit_earned
-    - field.storage.nica_entity.field_gender
     - search_api.server.nica_solr_server
   module:
     - search_api
@@ -144,14 +143,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.nica_entity.field_benefit_earned
-  field_gender:
-    label: Género
-    datasource_id: 'entity:nica_entity'
-    property_path: field_gender
-    type: text
-    dependencies:
-      config:
-        - field.storage.nica_entity.field_gender
 datasource_settings:
   'entity:nica_entity':
     plugin_id: 'entity:nica_entity'
@@ -166,15 +157,21 @@ datasource_settings:
       languages:
         default: true
         selected: {  }
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
 processor_settings:
   aggregated_field:
     plugin_id: aggregated_field
     settings: {  }
-  rendered_item:
-    plugin_id: rendered_item
-    settings: {  }
   add_url:
     plugin_id: add_url
+    settings: {  }
+  rendered_item:
+    plugin_id: rendered_item
     settings: {  }
 tracker_settings:
   default:
