@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - search_api.index.nica_search
+    - system.menu.main
     - taxonomy.vocabulary.city
     - taxonomy.vocabulary.event_name
     - taxonomy.vocabulary.last_name
@@ -159,7 +160,7 @@ display:
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -374,12 +375,23 @@ display:
         operator: AND
         groups:
           1: AND
+      menu:
+        type: normal
+        title: Profiles
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: main
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
       tags: {  }
   page_2:
     display_plugin: page
@@ -631,12 +643,23 @@ display:
         operator: AND
         groups:
           1: AND
+      menu:
+        type: normal
+        title: 'Project History'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 1
+        context: '0'
+        menu_name: main
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
       tags: {  }
   page_3:
     display_plugin: page
@@ -757,12 +780,23 @@ display:
         operator: AND
         groups:
           1: AND
+      menu:
+        type: normal
+        title: 'Employment History'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 2
+        context: '0'
+        menu_name: main
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
       tags: {  }
   page_4:
     display_plugin: page
@@ -1014,10 +1048,21 @@ display:
         operator: AND
         groups:
           1: AND
+      menu:
+        type: normal
+        title: 'Events History'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 3
+        context: '0'
+        menu_name: main
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
       tags: {  }
