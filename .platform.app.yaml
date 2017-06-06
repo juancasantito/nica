@@ -53,4 +53,3 @@ web:
             scripts: false
             allow: true
             passthru: '/app.php'
-            
