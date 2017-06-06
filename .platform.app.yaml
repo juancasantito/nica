@@ -17,6 +17,8 @@ build:
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
     database: 'mysqldb:mysql'
+        solr: "mysearch:solr"
+
 
 # The hooks that will be triggered when the package is deployed.
 hooks:
@@ -53,6 +55,3 @@ web:
             scripts: false
             allow: true
             passthru: '/app.php'
-
-relationships:
-    solr: "mysearch:solr"
