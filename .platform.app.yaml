@@ -17,7 +17,6 @@ build:
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
     database: 'mysqldb:mysql'
-        solr: "mysearch:solr"
 
 
 # The hooks that will be triggered when the package is deployed.
@@ -28,7 +27,6 @@ hooks:
     # Deploy hooks can access services but the file system is now read-only.
     deploy: |
       app/console --env=prod cache:clear
-
 
 # The size of the persistent disk of the application (in MB).
 disk: 2048
