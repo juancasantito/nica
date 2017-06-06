@@ -7,20 +7,8 @@ https://{default}/:
         cookies: ["*"]
         default_ttl: 60
 
-https://{default}/:
-  type: upstream
-  upstream: app:http
-  cache:
-    enabled: true
-
 https://{default}/foo/:
   type: upstream
   upstream: app:http
   cache:
     enabled: false
-
-https://{default}/foo/bar/:
-  type: upstream
-  upstream: app:http
-  cache:
-    enabled: true
