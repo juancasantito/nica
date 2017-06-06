@@ -5,7 +5,3 @@ nica:
 SSH tunnel opened on port 30000 to relationship: redis
 SSH tunnel opened on port 30001 to relationship: database
 Logs are written to: /home/myuser/.platformsh/tunnels.log
-
-List tunnels with: platform tunnels
-View tunnel details with: platform tunnel:info
-Close tunnels with: platform tunnel:close
