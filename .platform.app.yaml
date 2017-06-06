@@ -53,3 +53,6 @@ web:
             scripts: false
             allow: true
             passthru: '/app.php'
+
+relationships:
+    solr: "mysearch:solr"
