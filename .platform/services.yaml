@@ -2,10 +2,6 @@ nica:
   type: mysql
   disk: 2048
 
-SSH tunnel opened on port 30000 to relationship: redis
-SSH tunnel opened on port 30001 to relationship: database
-Logs are written to: /home/myuser/.platformsh/tunnels.log
-
 solrsearch:
     type: solr:6.3
     disk: 1024
