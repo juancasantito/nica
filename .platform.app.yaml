@@ -16,9 +16,7 @@ build:
 # to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
-    database:
-      type: mysql
-      disk: 2048
+    database: 'mysqldb:mysql'
 
 
 # The hooks that will be triggered when the package is deployed.
