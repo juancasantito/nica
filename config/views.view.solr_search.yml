@@ -7,6 +7,7 @@ dependencies:
     - system.menu.main
     - taxonomy.vocabulary.city
     - taxonomy.vocabulary.event_name
+    - taxonomy.vocabulary.gender
     - taxonomy.vocabulary.last_name
     - taxonomy.vocabulary.marital_status
     - taxonomy.vocabulary.name
@@ -182,6 +183,7 @@ display:
         row: false
         filters: false
         filter_groups: false
+        cache: false
       style:
         type: default
         options: {  }
@@ -330,47 +332,6 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
-        field_gender:
-          id: field_gender
-          table: search_api_index_nica_search
-          field: field_gender
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_gender_op
-            label: Género
-            description: ''
-            use_operator: false
-            operator: field_gender_op
-            identifier: field_gender
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: search_api_text
       filter_groups:
         operator: AND
         groups:
@@ -384,6 +345,8 @@ display:
         weight: 0
         context: '0'
         menu_name: main
+      cache:
+        type: none
     cache_metadata:
       max-age: -1
       contexts:
@@ -598,47 +561,6 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: search_api_term
-        field_materials:
-          id: field_materials
-          table: search_api_index_nica_search
-          field: field_materials
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_materials_op
-            label: Material
-            description: ''
-            use_operator: false
-            operator: field_materials_op
-            identifier: field_materials
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: search_api_text
       filter_groups:
         operator: AND
         groups:
