@@ -1,0 +1,14 @@
+https://{default}/:
+    type: upstream
+    upstream: app:http
+    cache:
+        enabled: true
+        headers: [ "Accept", "Accept-Language", "X-Language-Locale" ]
+        cookies: ["*"]
+        default_ttl: 60
+
+https://{default}/foo/:
+  type: upstream
+  upstream: app:http
+  cache:
+    enabled: false

@@ -1,0 +1,7 @@
+nica:
+    type: mysql:10.0
+    disk: 1024
+
+solrsearch:
+    type: solr:6.3
+    disk: 1024
