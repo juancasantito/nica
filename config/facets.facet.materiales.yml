@@ -1,0 +1,40 @@
+uuid: 17e9e946-ca99-464c-b189-50a9b4d2c7b0
+langcode: es
+status: true
+dependencies:
+  config:
+    - search_api.index.nica_search
+    - views.view.solr_search
+  module:
+    - search_api
+id: materiales
+name: Materiales
+url_alias: materiales
+weight: 0
+min_count: 1
+show_only_one_result: false
+field_identifier: field_materials
+facet_source_id: 'search_api:views_page__solr_search__page_2'
+widget:
+  type: checkbox
+  config:
+    show_numbers: false
+    soft_limit: 0
+query_operator: and
+use_hierarchy: false
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
+hard_limit: 0
+exclude: false
+only_visible_when_facet_source_is_visible: true
+processor_configs:
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: -10
+      build: -10
+    settings: {  }
+empty_behavior:
+  behavior: text
+  text_format: plain_text
+  text: Materiales

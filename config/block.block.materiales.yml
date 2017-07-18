@@ -1,0 +1,22 @@
+uuid: 62f6fd3c-40e9-4aa8-99de-a8750ec8490e
+langcode: es
+status: true
+dependencies:
+  config:
+    - facets.facet.materiales
+  module:
+    - facets
+  theme:
+    - nica_theme
+id: materiales
+theme: nica_theme
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'facet_block:materiales'
+settings:
+  id: 'facet_block:materiales'
+  label: Materiales
+  provider: facets
+  label_display: visible
+visibility: {  }
