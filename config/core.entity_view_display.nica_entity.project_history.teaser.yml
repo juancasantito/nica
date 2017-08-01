@@ -27,7 +27,7 @@ mode: teaser
 content:
   field_materials:
     type: entity_reference_revisions_entity_view
-    weight: 6
+    weight: 5
     label: above
     settings:
       view_mode: default
@@ -36,14 +36,14 @@ content:
     region: content
   field_profile_reference:
     type: entity_reference_label
-    weight: 1
+    weight: 0
     label: above
     settings:
       link: true
     third_party_settings: {  }
     region: content
   field_project_date:
-    weight: 4
+    weight: 3
     label: above
     settings:
       timezone_override: ''
@@ -53,14 +53,14 @@ content:
     region: content
   field_project_group:
     type: entity_reference_label
-    weight: 3
+    weight: 2
     label: above
     settings:
       link: false
     third_party_settings: {  }
     region: content
   field_project_name:
-    weight: 2
+    weight: 1
     label: above
     settings:
       link: false
@@ -69,14 +69,14 @@ content:
     region: content
   field_quarter:
     type: list_default
-    weight: 5
+    weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }
     region: content
   field_result:
     type: entity_reference_label
-    weight: 7
+    weight: 6
     label: above
     settings:
       link: true
@@ -98,13 +98,6 @@ content:
       link: false
     third_party_settings: {  }
     region: content
-  user_id:
-    label: hidden
-    type: author
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_benefit_earned: true
   field_city: true
@@ -113,3 +106,4 @@ hidden:
   langcode: true
   links: true
   uid: true
+  user_id: true
