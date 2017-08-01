@@ -8,6 +8,9 @@ dependencies:
 _core:
   default_config_hash: 6BlCVqA8d9-UnaqGuap-ycupYuVlaD7AY9QWQfVnIec
 id: marital_status
+class: null
+field_plugin_method: null
+cck_plugin_method: null
 migration_tags:
   - CSV
 migration_group: null

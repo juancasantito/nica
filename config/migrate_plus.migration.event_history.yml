@@ -8,6 +8,9 @@ dependencies:
 _core:
   default_config_hash: j4Z4xQrrpCirw2Imr4-lY-aQoNd1OqEYMYmR5yb_vQg
 id: event_history
+class: null
+field_plugin_method: null
+cck_plugin_method: null
 migration_tags:
   - CSV
 migration_group: null
