@@ -8,6 +8,9 @@ dependencies:
 _core:
   default_config_hash: OeJqSeQGLgZati3qvb2VRJoZWoHefQEoGlN1yWvAfsY
 id: project_history
+class: null
+field_plugin_method: null
+cck_plugin_method: null
 migration_tags:
   - CSV
 migration_group: null
