@@ -38,7 +38,7 @@ mode: teaser
 content:
   field_birthday:
     type: datetime_default
-    weight: 4
+    weight: 3
     label: above
     settings:
       format_type: medium
@@ -47,7 +47,7 @@ content:
     region: content
   field_first_name:
     type: entity_reference_label
-    weight: 2
+    weight: 1
     label: hidden
     settings:
       link: false
@@ -55,7 +55,7 @@ content:
     region: content
   field_gender:
     type: entity_reference_label
-    weight: 5
+    weight: 4
     label: above
     settings:
       link: false
@@ -63,7 +63,7 @@ content:
     region: content
   field_images:
     type: image
-    weight: 1
+    weight: 0
     label: hidden
     settings:
       image_style: thumbnail
@@ -72,7 +72,7 @@ content:
     region: content
   field_last_name:
     type: entity_reference_label
-    weight: 3
+    weight: 2
     label: hidden
     settings:
       link: false
@@ -80,7 +80,7 @@ content:
     region: content
   field_marital_status:
     type: entity_reference_label
-    weight: 6
+    weight: 5
     label: above
     settings:
       link: false
@@ -102,13 +102,6 @@ content:
       link: false
     third_party_settings: {  }
     region: content
-  user_id:
-    label: hidden
-    type: author
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_address: true
   field_children: true
@@ -129,3 +122,4 @@ hidden:
   langcode: true
   links: true
   uid: true
+  user_id: true
